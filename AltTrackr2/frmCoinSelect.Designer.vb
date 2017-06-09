@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
-Partial Class Form1
+Partial Class frmCoinSelect
     Inherits MaterialSkin.Controls.MaterialForm
 
     'Form overrides dispose to clean up the component list.
@@ -22,7 +22,7 @@ Partial Class Form1
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form1))
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmCoinSelect))
         Me.LinkLabel1 = New System.Windows.Forms.LinkLabel()
         Me.btnNext = New System.Windows.Forms.PictureBox()
         Me.btnBack = New System.Windows.Forms.PictureBox()
@@ -49,8 +49,7 @@ Partial Class Form1
         '
         'btnNext
         '
-        Me.btnNext.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnNext.Anchor = System.Windows.Forms.AnchorStyles.Right
         Me.btnNext.BackColor = System.Drawing.Color.Transparent
         Me.btnNext.Image = Global.AltTrackr2.My.Resources.Resources.arrowRight
         Me.btnNext.Location = New System.Drawing.Point(807, 223)
@@ -62,8 +61,7 @@ Partial Class Form1
         '
         'btnBack
         '
-        Me.btnBack.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.btnBack.Anchor = System.Windows.Forms.AnchorStyles.Left
         Me.btnBack.BackColor = System.Drawing.Color.Transparent
         Me.btnBack.Image = Global.AltTrackr2.My.Resources.Resources.arrowLeft
         Me.btnBack.Location = New System.Drawing.Point(52, 223)
@@ -85,7 +83,7 @@ Partial Class Form1
         Me.picLogo.TabIndex = 0
         Me.picLogo.TabStop = False
         '
-        'Form1
+        'frmCoinSelect
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
@@ -95,7 +93,7 @@ Partial Class Form1
         Me.Controls.Add(Me.LinkLabel1)
         Me.Controls.Add(Me.btnNext)
         Me.Controls.Add(Me.btnBack)
-        Me.Name = "Form1"
+        Me.Name = "frmCoinSelect"
         Me.Text = "Select Your Coin"
         CType(Me.btnNext, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.btnBack, System.ComponentModel.ISupportInitialize).EndInit()

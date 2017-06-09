@@ -1,6 +1,6 @@
 ﻿Imports MaterialSkin
 
-Public Class Form1
+Public Class frmCoinSelect
     Dim animationSpeed As Integer = 8
     Dim coinArray() As String = {"xmr,logoXMR", "btc,logoBTC"}
     Dim coinArrayPosition As Integer = 0
@@ -17,7 +17,6 @@ Public Class Form1
             pause(1)
         Loop
         teleportLeft(control)
-        'MsgBox("Complete!")
     End Sub
 
     Public Sub rightLeaveForm(control As Control)
@@ -26,7 +25,6 @@ Public Class Form1
             pause(1)
         Loop
         teleportRight(control)
-        'MsgBox("Complete!")
     End Sub
 
     Public Sub locationOriginal(control As Control)
