@@ -75,11 +75,18 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="cTiming.vb" />
     <Compile Include="frmCoinSelect.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmCoinSelect.Designer.vb">
       <DependentUpon>frmCoinSelect.vb</DependentUpon>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmThemeSelect.Designer.vb">
+      <DependentUpon>frmThemeSelect.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmThemeSelect.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
@@ -101,6 +108,9 @@
   <ItemGroup>
     <EmbeddedResource Include="frmCoinSelect.resx">
       <DependentUpon>frmCoinSelect.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmThemeSelect.resx">
+      <DependentUpon>frmThemeSelect.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
