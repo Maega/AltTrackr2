@@ -1,3 +1,79 @@
-﻿Public Class Form1
+﻿Imports MaterialSkin
 
+Public Class Form1
+    Dim animationSpeed As Integer = 8
+    Dim coinArray() As String = {"xmr,logoXMR", "btc,logoBTC"}
+    Dim coinArrayPosition As Integer = 0
+    Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Dim SkinManager As MaterialSkinManager = MaterialSkinManager.Instance
+        SkinManager.AddFormToManage(Me)
+        SkinManager.Theme = MaterialSkinManager.Themes.DARK
+        picLogo.Image = My.Resources.ResourceManager.GetObject(coinArray(coinArrayPosition).Split(",")(1))
+    End Sub
+
+    Public Sub leftLeaveForm(control As Control)
+        Do Until control.Left <= 0 - control.Width
+            control.Left -= animationSpeed
+            pause(1)
+        Loop
+        teleportLeft(control)
+        'MsgBox("Complete!")
+    End Sub
+
+    Public Sub rightLeaveForm(control As Control)
+        Do Until control.Left >= Me.Width
+            control.Left += animationSpeed
+            pause(1)
+        Loop
+        teleportRight(control)
+        'MsgBox("Complete!")
+    End Sub
+
+    Public Sub locationOriginal(control As Control)
+        Dim centerPosition As Integer = (Me.Width / 2) - (control.Width / 2)
+        Do Until control.Left >= centerPosition - animationSpeed And control.Left <= centerPosition + animationSpeed
+            If control.Left > centerPosition Then
+                control.Left -= animationSpeed
+            ElseIf control.Left < centerPosition Then
+                control.Left += animationSpeed
+            Else
+                Exit Do
+            End If
+            pause(1)
+        Loop
+        control.Left = centerPosition
+    End Sub
+
+    Public Sub teleportLeft(control As Control)
+        control.Left = 0 - control.Width
+    End Sub
+
+    Public Sub teleportRight(control As Control)
+        control.Left = Me.Width
+    End Sub
+
+    Declare Function GetTickCount Lib "kernel32" Alias "GetTickCount" () As Long
+
+    Private Sub pause(milliseconds As Long)
+        Dim i As Long
+        i = GetTickCount + milliseconds
+        Do While GetTickCount < i
+            Application.DoEvents()
+        Loop
+    End Sub
+
+    Private Sub btnBack_Click(sender As Object, e As EventArgs) Handles btnBack.Click
+        leftLeaveForm(picLogo)
+    End Sub
+
+    Private Sub btnNext_Click(sender As Object, e As EventArgs) Handles btnNext.Click
+        rightLeaveForm(picLogo)
+
+        coinArrayPosition += 1
+        If coinArrayPosition >= coinArray.Length Then coinArrayPosition = 0
+        picLogo.Image = My.Resources.ResourceManager.GetObject(coinArray(coinArrayPosition).Split(",")(1))
+
+        teleportLeft(picLogo)
+        locationOriginal(picLogo)
+    End Sub
 End Class
