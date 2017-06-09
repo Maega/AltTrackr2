@@ -24,5 +24,6 @@ Public Class frmThemeSelect
         Else
             My.Computer.Registry.SetValue(My.Settings.RegLocation, "Theme", "DARK")
         End If
+        cTiming.transitionForms(Me, frmHome)
     End Sub
 End Class
