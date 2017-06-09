@@ -2,13 +2,18 @@
 
 Public Class frmCoinSelect
     Dim animationSpeed As Integer = 8
-    Dim coinArray() As String = {"xmr,logoXMR", "btc,logoBTC"}
+    Dim coinArray() As String = {"xmr,Monero,logoXMR", "btc,Bitcoin,logoBTC", "eth,Ethereum,logoETH", "doge,Dogecoin,logoDOGE", "ltc,Litecoin,logoLTC"}
     Dim coinArrayPosition As Integer = 0
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Dim SkinManager As MaterialSkinManager = MaterialSkinManager.Instance
         SkinManager.AddFormToManage(Me)
         SkinManager.Theme = MaterialSkinManager.Themes.DARK
-        picLogo.Image = My.Resources.ResourceManager.GetObject(coinArray(coinArrayPosition).Split(",")(1))
+        updateSelection()
+    End Sub
+
+    Private Sub updateSelection()
+        lblCoinName.Text = coinArray(coinArrayPosition).Split(",")(1) & " (" & coinArray(coinArrayPosition).Split(",")(0).ToUpper & ")"
+        picLogo.Image = My.Resources.ResourceManager.GetObject(coinArray(coinArrayPosition).Split(",")(2))
     End Sub
 
     Public Sub leftLeaveForm(control As Control)
@@ -62,6 +67,13 @@ Public Class frmCoinSelect
 
     Private Sub btnBack_Click(sender As Object, e As EventArgs) Handles btnBack.Click
         leftLeaveForm(picLogo)
+
+        coinArrayPosition -= 1
+        If coinArrayPosition < 0 Then coinArrayPosition = coinArray.Length - 1
+        picLogo.Image = My.Resources.ResourceManager.GetObject(coinArray(coinArrayPosition).Split(",")(2))
+
+        teleportRight(picLogo)
+        locationOriginal(picLogo)
     End Sub
 
     Private Sub btnNext_Click(sender As Object, e As EventArgs) Handles btnNext.Click
@@ -69,7 +81,7 @@ Public Class frmCoinSelect
 
         coinArrayPosition += 1
         If coinArrayPosition >= coinArray.Length Then coinArrayPosition = 0
-        picLogo.Image = My.Resources.ResourceManager.GetObject(coinArray(coinArrayPosition).Split(",")(1))
+        updateSelection()
 
         teleportLeft(picLogo)
         locationOriginal(picLogo)

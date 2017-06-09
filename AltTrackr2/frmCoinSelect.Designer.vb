@@ -24,12 +24,13 @@ Partial Class frmCoinSelect
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmCoinSelect))
         Me.LinkLabel1 = New System.Windows.Forms.LinkLabel()
+        Me.picLogo = New System.Windows.Forms.PictureBox()
         Me.btnNext = New System.Windows.Forms.PictureBox()
         Me.btnBack = New System.Windows.Forms.PictureBox()
-        Me.picLogo = New System.Windows.Forms.PictureBox()
+        Me.lblCoinName = New MaterialSkin.Controls.MaterialLabel()
+        CType(Me.picLogo, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.btnNext, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.btnBack, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.picLogo, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'LinkLabel1
@@ -46,6 +47,18 @@ Partial Class frmCoinSelect
         Me.LinkLabel1.Text = "Other Coin..."
         Me.LinkLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         Me.LinkLabel1.VisitedLinkColor = System.Drawing.Color.White
+        '
+        'picLogo
+        '
+        Me.picLogo.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom), System.Windows.Forms.AnchorStyles)
+        Me.picLogo.BackColor = System.Drawing.Color.Transparent
+        Me.picLogo.Image = CType(resources.GetObject("picLogo.Image"), System.Drawing.Image)
+        Me.picLogo.Location = New System.Drawing.Point(328, 132)
+        Me.picLogo.Name = "picLogo"
+        Me.picLogo.Size = New System.Drawing.Size(245, 239)
+        Me.picLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.picLogo.TabIndex = 0
+        Me.picLogo.TabStop = False
         '
         'btnNext
         '
@@ -71,17 +84,19 @@ Partial Class frmCoinSelect
         Me.btnBack.TabIndex = 1
         Me.btnBack.TabStop = False
         '
-        'picLogo
+        'lblCoinName
         '
-        Me.picLogo.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom), System.Windows.Forms.AnchorStyles)
-        Me.picLogo.BackColor = System.Drawing.Color.Transparent
-        Me.picLogo.Image = CType(resources.GetObject("picLogo.Image"), System.Drawing.Image)
-        Me.picLogo.Location = New System.Drawing.Point(328, 132)
-        Me.picLogo.Name = "picLogo"
-        Me.picLogo.Size = New System.Drawing.Size(245, 239)
-        Me.picLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.picLogo.TabIndex = 0
-        Me.picLogo.TabStop = False
+        Me.lblCoinName.Anchor = System.Windows.Forms.AnchorStyles.Top
+        Me.lblCoinName.Depth = 0
+        Me.lblCoinName.Font = New System.Drawing.Font("Roboto", 11.0!)
+        Me.lblCoinName.ForeColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.lblCoinName.Location = New System.Drawing.Point(328, 77)
+        Me.lblCoinName.MouseState = MaterialSkin.MouseState.HOVER
+        Me.lblCoinName.Name = "lblCoinName"
+        Me.lblCoinName.Size = New System.Drawing.Size(245, 30)
+        Me.lblCoinName.TabIndex = 4
+        Me.lblCoinName.Text = "Monero"
+        Me.lblCoinName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'frmCoinSelect
         '
@@ -89,15 +104,17 @@ Partial Class frmCoinSelect
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(900, 462)
+        Me.Controls.Add(Me.lblCoinName)
         Me.Controls.Add(Me.picLogo)
         Me.Controls.Add(Me.LinkLabel1)
         Me.Controls.Add(Me.btnNext)
         Me.Controls.Add(Me.btnBack)
         Me.Name = "frmCoinSelect"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Select Your Coin"
+        CType(Me.picLogo, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.btnNext, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.btnBack, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.picLogo, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -106,4 +123,5 @@ Partial Class frmCoinSelect
     Friend WithEvents btnBack As PictureBox
     Friend WithEvents btnNext As PictureBox
     Friend WithEvents LinkLabel1 As LinkLabel
+    Friend WithEvents lblCoinName As MaterialSkin.Controls.MaterialLabel
 End Class

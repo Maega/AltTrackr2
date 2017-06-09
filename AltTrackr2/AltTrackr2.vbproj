@@ -134,5 +134,17 @@
   <ItemGroup>
     <None Include="Resources\logoBTC.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logoDoge.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logoETH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ltc800.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logoLTC.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>
