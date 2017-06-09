@@ -17,4 +17,12 @@ Public Class frmThemeSelect
     Private Sub btnDark_Click(sender As Object, e As EventArgs) Handles btnDark.Click
         SkinManager.Theme = MaterialSkinManager.Themes.DARK
     End Sub
+
+    Private Sub btnNext_Click(sender As Object, e As EventArgs) Handles btnNext.Click
+        If SkinManager.Theme = MaterialSkinManager.Themes.LIGHT Then
+            My.Computer.Registry.SetValue(My.Settings.RegLocation, "Theme", "LIGHT")
+        Else
+            My.Computer.Registry.SetValue(My.Settings.RegLocation, "Theme", "DARK")
+        End If
+    End Sub
 End Class

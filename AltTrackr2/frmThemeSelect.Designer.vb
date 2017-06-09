@@ -53,6 +53,7 @@ Partial Class frmThemeSelect
         '
         'btnNext
         '
+        Me.btnNext.AutoSize = True
         Me.btnNext.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.btnNext.Depth = 0
         Me.btnNext.Location = New System.Drawing.Point(378, 292)
@@ -60,7 +61,7 @@ Partial Class frmThemeSelect
         Me.btnNext.MouseState = MaterialSkin.MouseState.HOVER
         Me.btnNext.Name = "btnNext"
         Me.btnNext.Primary = False
-        Me.btnNext.Size = New System.Drawing.Size(124, 41)
+        Me.btnNext.Size = New System.Drawing.Size(62, 36)
         Me.btnNext.TabIndex = 2
         Me.btnNext.Text = "Like it?"
         Me.btnNext.UseVisualStyleBackColor = True
@@ -78,6 +79,7 @@ Partial Class frmThemeSelect
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Select a Theme"
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
 

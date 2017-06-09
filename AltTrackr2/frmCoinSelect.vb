@@ -4,8 +4,6 @@ Public Class frmCoinSelect
     Dim animationSpeed As Integer = 14
     Dim coinArray() As String = {"xmr,Monero,logoXMR", "btc,Bitcoin,logoBTC", "eth,Ethereum,logoETH", "doge,Dogecoin,logoDOGE", "ltc,Litecoin,logoLTC"}
     Dim coinArrayPosition As Integer = 0
-    Public Const AppID As String = "6"
-    Public Const RegLocation As String = "HKEY_CURRENT_USER\Software\Maega\" + AppID + "\"
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Dim SkinManager As MaterialSkinManager = MaterialSkinManager.Instance
@@ -91,7 +89,7 @@ Public Class frmCoinSelect
     End Sub
 
     Private Sub picLogo_Click(sender As Object, e As EventArgs) Handles picLogo.Click
-        My.Computer.Registry.SetValue(RegLocation, "AppCoins", coinArray(coinArrayPosition).Split(",")(0).ToUpper)
+        My.Computer.Registry.SetValue(My.Settings.RegLocation, "AppCoins", coinArray(coinArrayPosition).Split(",")(0).ToUpper)
         cTiming.transitionForms(Me, frmThemeSelect)
     End Sub
 End Class
