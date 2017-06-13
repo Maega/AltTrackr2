@@ -1,7 +1,7 @@
 ﻿Imports MaterialSkin
 
 Public Class frmCoinSelect
-    Dim animationSpeed As Integer = 14
+    Dim animationSpeed As Integer = 40
     Dim coinArray() As String = {"xmr,Monero,logoXMR", "btc,Bitcoin,logoBTC", "eth,Ethereum,logoETH", "doge,Dogecoin,logoDOGE", "ltc,Litecoin,logoLTC"}
     Dim coinArrayPosition As Integer = 0
 
@@ -91,5 +91,47 @@ Public Class frmCoinSelect
     Private Sub picLogo_Click(sender As Object, e As EventArgs) Handles picLogo.Click
         My.Computer.Registry.SetValue(My.Settings.RegLocation, "AppCoins", coinArray(coinArrayPosition).Split(",")(0).ToUpper)
         cTiming.transitionForms(Me, frmThemeSelect)
+    End Sub
+
+    Dim animbusy As Boolean = False
+
+    Private Sub btnBack_MouseHover(sender As Object, e As EventArgs) Handles btnBack.MouseHover
+        Do Until btnBack.Height = 76
+            btnBack.Height += 1
+            btnBack.Top -= 1
+            btnBack.Left -= 1
+            btnBack.Width += 1
+            pause(50)
+        Loop
+    End Sub
+
+    Private Sub btnBack_MouseLeave(sender As Object, e As EventArgs) Handles btnBack.MouseLeave
+        Do Until btnBack.Height = 73
+            btnBack.Height -= 1
+            btnBack.Top += 1
+            btnBack.Left += 1
+            btnBack.Width -= 1
+            pause(50)
+        Loop
+    End Sub
+
+    Private Sub btnNext_MouseHover(sender As Object, e As EventArgs) Handles btnNext.MouseHover
+        Do Until btnNext.Height = 76
+            btnNext.Height += 1
+            btnNext.Top -= 1
+            btnNext.Left -= 1
+            btnNext.Width += 1
+            pause(50)
+        Loop
+    End Sub
+
+    Private Sub btnNext_MouseLeave(sender As Object, e As EventArgs) Handles btnNext.MouseLeave
+        Do Until btnNext.Height = 73
+            btnNext.Height -= 1
+            btnNext.Top += 1
+            btnNext.Left += 1
+            btnNext.Width -= 1
+            pause(50)
+        Loop
     End Sub
 End Class
