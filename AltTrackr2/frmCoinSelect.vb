@@ -93,8 +93,6 @@ Public Class frmCoinSelect
         cTiming.transitionForms(Me, frmThemeSelect)
     End Sub
 
-    Dim animbusy As Boolean = False
-
     Private Sub btnBack_MouseHover(sender As Object, e As EventArgs) Handles btnBack.MouseHover
         Do Until btnBack.Height = 76
             btnBack.Height += 1
