@@ -9,6 +9,8 @@ Public Class frmHome
     Dim coinCodes As String = My.Computer.Registry.GetValue(My.Settings.RegLocation, "AppCoins", Nothing)
     Dim fiatCodes As String = My.Computer.Registry.GetValue(My.Settings.RegLocation, "AppFiats", Nothing)
     Private Sub frmHome_Load(sender As Object, e As EventArgs) Handles MyBase.Shown
+        Dim SkinManager As MaterialSkinManager = MaterialSkinManager.Instance
+        SkinManager.AddFormToManage(Me)
         lblPrice.Font = New Font("Roboto Light", 25)
         lblHoldingsFiat.Font = New Font("Roboto Light", 25)
         lblHoldingsCoin.Font = New Font("Roboto Light", 30)

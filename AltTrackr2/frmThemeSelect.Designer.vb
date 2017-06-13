@@ -75,7 +75,6 @@ Partial Class frmThemeSelect
         Me.Controls.Add(Me.btnDark)
         Me.Controls.Add(Me.btnLight)
         Me.Name = "frmThemeSelect"
-        Me.Opacity = 0R
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Select a Theme"
         Me.ResumeLayout(False)

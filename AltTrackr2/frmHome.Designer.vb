@@ -62,7 +62,7 @@ Partial Class frmHome
         '
         'MaterialRaisedButton1
         '
-        Me.MaterialRaisedButton1.BackColor = System.Drawing.Color.Transparent
+        Me.MaterialRaisedButton1.BackColor = System.Drawing.SystemColors.Control
         Me.MaterialRaisedButton1.Depth = 0
         Me.MaterialRaisedButton1.Location = New System.Drawing.Point(106, 325)
         Me.MaterialRaisedButton1.MouseState = MaterialSkin.MouseState.HOVER
@@ -144,7 +144,6 @@ Partial Class frmHome
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.BackColor = System.Drawing.SystemColors.Control
         Me.ClientSize = New System.Drawing.Size(900, 462)
         Me.Controls.Add(Me.MaterialRaisedButton3)
         Me.Controls.Add(Me.lblHoldingsCoin)
