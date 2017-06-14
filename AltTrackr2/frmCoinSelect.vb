@@ -132,4 +132,9 @@ Public Class frmCoinSelect
             pause(50)
         Loop
     End Sub
+
+    Private Sub LinkLabel1_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LinkLabel1.LinkClicked
+        Dim frmFeedback As New frmFeedback(Me)
+        frmFeedback.Show()
+    End Sub
 End Class

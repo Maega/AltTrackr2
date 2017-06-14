@@ -5,11 +5,11 @@
         toForm.Opacity = 1
         fromForm.Opacity = 1
         toForm.Show()
+        toForm.Location = fromForm.Location
         fromForm.TopMost = True
-        pause(50)
+        pause(20)
         Do Until fromForm.Opacity <= 0
             fromForm.Opacity -= opacityStepping
-            'toForm.Opacity += opacityStepping
             pause(1)
         Loop
         fromForm.TopMost = False

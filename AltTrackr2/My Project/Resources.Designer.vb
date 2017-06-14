@@ -63,6 +63,16 @@ Namespace My.Resources
         '''<summary>
         '''  Looks up a localized resource of type System.Drawing.Bitmap.
         '''</summary>
+        Friend ReadOnly Property _1392850906_dj_khaled_27() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("1392850906_dj_khaled_27", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Drawing.Bitmap.
+        '''</summary>
         Friend ReadOnly Property arrowLeft() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("arrowLeft", resourceCulture)
@@ -76,6 +86,16 @@ Namespace My.Resources
         Friend ReadOnly Property arrowRight() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("arrowRight", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property DJ_Khaled_Snapchat() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("DJ-Khaled-Snapchat", resourceCulture)
                 Return CType(obj,System.Drawing.Bitmap)
             End Get
         End Property

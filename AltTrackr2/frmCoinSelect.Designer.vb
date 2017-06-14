@@ -24,10 +24,10 @@ Partial Class frmCoinSelect
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmCoinSelect))
         Me.LinkLabel1 = New System.Windows.Forms.LinkLabel()
+        Me.lblCoinName = New MaterialSkin.Controls.MaterialLabel()
         Me.picLogo = New System.Windows.Forms.PictureBox()
         Me.btnNext = New System.Windows.Forms.PictureBox()
         Me.btnBack = New System.Windows.Forms.PictureBox()
-        Me.lblCoinName = New MaterialSkin.Controls.MaterialLabel()
         CType(Me.picLogo, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.btnNext, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.btnBack, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -47,6 +47,20 @@ Partial Class frmCoinSelect
         Me.LinkLabel1.Text = "Other Coin..."
         Me.LinkLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         Me.LinkLabel1.VisitedLinkColor = System.Drawing.Color.White
+        '
+        'lblCoinName
+        '
+        Me.lblCoinName.Anchor = System.Windows.Forms.AnchorStyles.Top
+        Me.lblCoinName.Depth = 0
+        Me.lblCoinName.Font = New System.Drawing.Font("Roboto", 11.0!)
+        Me.lblCoinName.ForeColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.lblCoinName.Location = New System.Drawing.Point(328, 77)
+        Me.lblCoinName.MouseState = MaterialSkin.MouseState.HOVER
+        Me.lblCoinName.Name = "lblCoinName"
+        Me.lblCoinName.Size = New System.Drawing.Size(245, 30)
+        Me.lblCoinName.TabIndex = 4
+        Me.lblCoinName.Text = "Monero"
+        Me.lblCoinName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'picLogo
         '
@@ -83,20 +97,6 @@ Partial Class frmCoinSelect
         Me.btnBack.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.btnBack.TabIndex = 1
         Me.btnBack.TabStop = False
-        '
-        'lblCoinName
-        '
-        Me.lblCoinName.Anchor = System.Windows.Forms.AnchorStyles.Top
-        Me.lblCoinName.Depth = 0
-        Me.lblCoinName.Font = New System.Drawing.Font("Roboto", 11.0!)
-        Me.lblCoinName.ForeColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.lblCoinName.Location = New System.Drawing.Point(328, 77)
-        Me.lblCoinName.MouseState = MaterialSkin.MouseState.HOVER
-        Me.lblCoinName.Name = "lblCoinName"
-        Me.lblCoinName.Size = New System.Drawing.Size(245, 30)
-        Me.lblCoinName.TabIndex = 4
-        Me.lblCoinName.Text = "Monero"
-        Me.lblCoinName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'frmCoinSelect
         '

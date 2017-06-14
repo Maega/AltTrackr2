@@ -24,7 +24,9 @@ Partial Class frmThemeSelect
     Private Sub InitializeComponent()
         Me.btnLight = New MaterialSkin.Controls.MaterialRaisedButton()
         Me.btnDark = New MaterialSkin.Controls.MaterialRaisedButton()
-        Me.btnNext = New MaterialSkin.Controls.MaterialFlatButton()
+        Me.lblThemeChoose = New MaterialSkin.Controls.MaterialLabel()
+        Me.lblLightHead = New MaterialSkin.Controls.MaterialLabel()
+        Me.lblDarkHead = New MaterialSkin.Controls.MaterialLabel()
         Me.SuspendLayout()
         '
         'btnLight
@@ -51,38 +53,68 @@ Partial Class frmThemeSelect
         Me.btnDark.Text = "Dark Mode"
         Me.btnDark.UseVisualStyleBackColor = True
         '
-        'btnNext
+        'lblThemeChoose
         '
-        Me.btnNext.AutoSize = True
-        Me.btnNext.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
-        Me.btnNext.Depth = 0
-        Me.btnNext.Location = New System.Drawing.Point(378, 292)
-        Me.btnNext.Margin = New System.Windows.Forms.Padding(4, 6, 4, 6)
-        Me.btnNext.MouseState = MaterialSkin.MouseState.HOVER
-        Me.btnNext.Name = "btnNext"
-        Me.btnNext.Primary = False
-        Me.btnNext.Size = New System.Drawing.Size(62, 36)
-        Me.btnNext.TabIndex = 2
-        Me.btnNext.Text = "Like it?"
-        Me.btnNext.UseVisualStyleBackColor = True
+        Me.lblThemeChoose.BackColor = System.Drawing.Color.Transparent
+        Me.lblThemeChoose.Depth = 0
+        Me.lblThemeChoose.Font = New System.Drawing.Font("Roboto Light", 30.0!)
+        Me.lblThemeChoose.ForeColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.lblThemeChoose.Location = New System.Drawing.Point(12, 155)
+        Me.lblThemeChoose.MouseState = MaterialSkin.MouseState.HOVER
+        Me.lblThemeChoose.Name = "lblThemeChoose"
+        Me.lblThemeChoose.Size = New System.Drawing.Size(876, 55)
+        Me.lblThemeChoose.TabIndex = 3
+        Me.lblThemeChoose.Text = "Which theme do you prefer?"
+        Me.lblThemeChoose.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'lblLightHead
+        '
+        Me.lblLightHead.BackColor = System.Drawing.Color.Transparent
+        Me.lblLightHead.Depth = 0
+        Me.lblLightHead.Font = New System.Drawing.Font("Roboto Thin", 10.0!)
+        Me.lblLightHead.ForeColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.lblLightHead.Location = New System.Drawing.Point(148, 275)
+        Me.lblLightHead.MouseState = MaterialSkin.MouseState.HOVER
+        Me.lblLightHead.Name = "lblLightHead"
+        Me.lblLightHead.Size = New System.Drawing.Size(200, 17)
+        Me.lblLightHead.TabIndex = 4
+        Me.lblLightHead.Text = "Preview"
+        Me.lblLightHead.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'lblDarkHead
+        '
+        Me.lblDarkHead.BackColor = System.Drawing.Color.Transparent
+        Me.lblDarkHead.Depth = 0
+        Me.lblDarkHead.Font = New System.Drawing.Font("Roboto Thin", 10.0!)
+        Me.lblDarkHead.ForeColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.lblDarkHead.Location = New System.Drawing.Point(533, 275)
+        Me.lblDarkHead.MouseState = MaterialSkin.MouseState.HOVER
+        Me.lblDarkHead.Name = "lblDarkHead"
+        Me.lblDarkHead.Size = New System.Drawing.Size(200, 17)
+        Me.lblDarkHead.TabIndex = 5
+        Me.lblDarkHead.Text = "Preview"
+        Me.lblDarkHead.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'frmThemeSelect
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(900, 462)
-        Me.Controls.Add(Me.btnNext)
-        Me.Controls.Add(Me.btnDark)
+        Me.Controls.Add(Me.lblDarkHead)
         Me.Controls.Add(Me.btnLight)
+        Me.Controls.Add(Me.lblLightHead)
+        Me.Controls.Add(Me.lblThemeChoose)
+        Me.Controls.Add(Me.btnDark)
         Me.Name = "frmThemeSelect"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Select a Theme"
         Me.ResumeLayout(False)
-        Me.PerformLayout()
 
     End Sub
 
     Friend WithEvents btnLight As MaterialSkin.Controls.MaterialRaisedButton
     Friend WithEvents btnDark As MaterialSkin.Controls.MaterialRaisedButton
-    Friend WithEvents btnNext As MaterialSkin.Controls.MaterialFlatButton
+    Friend WithEvents lblThemeChoose As MaterialSkin.Controls.MaterialLabel
+    Friend WithEvents lblLightHead As MaterialSkin.Controls.MaterialLabel
+    Friend WithEvents lblDarkHead As MaterialSkin.Controls.MaterialLabel
 End Class
