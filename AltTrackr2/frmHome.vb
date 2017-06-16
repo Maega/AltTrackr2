@@ -56,17 +56,34 @@ Public Class frmHome
 
     Private Sub bkgGetPrices_RunWorkerCompleted(sender As Object, e As RunWorkerCompletedEventArgs) Handles bkgGetPrices.RunWorkerCompleted
         lblAltPrices.Text = String.Empty
+        lblAltHoldings.Text = String.Empty
         Dim fiatArray() As String = fiatCodes.Split(",")
         For Each fiatCode As String In fiatArray
             lblAltPrices.Text += fiatCode + ": " + CDec(serverResponse.SelectToken(fiatCode)).ToString("n2") + " | "
+            lblAltHoldings.Text += fiatCode + ": " + (totalHoldings * CDec(serverResponse.SelectToken(fiatCode))).ToString("n2") + " | "
         Next
         lblAltPrices.Text = lblAltPrices.Text.TrimEnd(" ")
         lblAltPrices.Text = lblAltPrices.Text.TrimEnd("|")
+        lblAltPrices.Text = coinCodes + " Prices - " + lblAltPrices.Text
+        lblAltHoldings.Text = lblAltHoldings.Text.TrimEnd(" ")
+        lblAltHoldings.Text = lblAltHoldings.Text.TrimEnd("|")
+        lblAltHoldings.Text = coinCodes + " Holdings - " + lblAltHoldings.Text
         lblPrice.Text = fiatMain + ": " + CDec(serverResponse.SelectToken(fiatMain)).ToString("n2")
         lblHoldingsCoin.Text = totalHoldings.ToString + " " + coinCodes
+        tsCoinPrice.Text = coinCodes + " Price: " + fiatMain + " " + CDec(serverResponse.SelectToken(fiatMain)).ToString("n2")
+        tsHoldingsValue.Text = coinCodes + " Holdings Value: " + fiatMain + " " + (totalHoldings * CDec(serverResponse.SelectToken(fiatMain))).ToString("n2")
         prgLoading.Hide()
         lblLoading.Hide()
         pnlContent.Show()
-        'lblHoldingsFiat.Text = "$" + (totalHoldings * CDec(serverResponse.SelectToken("USD"))).ToString("n2") + "/$" + (totalHoldings * CDec(serverResponse.SelectToken("AUD"))).ToString("n2")
+        lblHoldingsFiat.Text = fiatMain + ": " + (totalHoldings * CDec(serverResponse.SelectToken(fiatMain))).ToString("n2")
+    End Sub
+
+    Private Sub MaterialRaisedButton4_Click(sender As Object, e As EventArgs) Handles MaterialRaisedButton4.Click
+        ntfTray.Icon = SystemIcons.Information
+        ntfTray.BalloonTipTitle = "Today's " + coinCodes + " price: " + fiatMain + " " + CDec(serverResponse.SelectToken(fiatMain)).ToString("n2")
+        'ntfTray.BalloonTipText = "Today's " + coinCodes + " price: " + fiatMain + " " + CDec(serverResponse.SelectToken(fiatMain)).ToString("n2")
+        ntfTray.BalloonTipText = vbNewLine + "Your holdings are worth: " + fiatMain + " " + (totalHoldings * CDec(serverResponse.SelectToken(fiatMain))).ToString("n2")
+        ntfTray.BalloonTipIcon = ToolTipIcon.Info
+        ntfTray.ShowBalloonTip(30000)
     End Sub
 End Class

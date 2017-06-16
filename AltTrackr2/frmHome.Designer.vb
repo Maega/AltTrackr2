@@ -22,12 +22,12 @@ Partial Class frmHome
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Me.lblPrice = New MaterialSkin.Controls.MaterialLabel()
         Me.MaterialLabel1 = New MaterialSkin.Controls.MaterialLabel()
         Me.MaterialRaisedButton1 = New MaterialSkin.Controls.MaterialRaisedButton()
         Me.MaterialRaisedButton2 = New MaterialSkin.Controls.MaterialRaisedButton()
         Me.lblHoldingsFiat = New MaterialSkin.Controls.MaterialLabel()
-        Me.lblHoldingsFiatCodes = New MaterialSkin.Controls.MaterialLabel()
         Me.lblHoldingsCoin = New MaterialSkin.Controls.MaterialLabel()
         Me.MaterialRaisedButton3 = New MaterialSkin.Controls.MaterialRaisedButton()
         Me.bkgGetPrices = New System.ComponentModel.BackgroundWorker()
@@ -35,7 +35,17 @@ Partial Class frmHome
         Me.pnlContent = New System.Windows.Forms.Panel()
         Me.prgLoading = New MRG.Controls.UI.LoadingCircle()
         Me.lblLoading = New MaterialSkin.Controls.MaterialLabel()
+        Me.ntfTray = New System.Windows.Forms.NotifyIcon(Me.components)
+        Me.MaterialRaisedButton4 = New MaterialSkin.Controls.MaterialRaisedButton()
+        Me.cxtTray = New MaterialSkin.Controls.MaterialContextMenuStrip()
+        Me.tsCoinPrice = New System.Windows.Forms.ToolStripMenuItem()
+        Me.tsHoldingsValue = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
+        Me.tsExit = New System.Windows.Forms.ToolStripMenuItem()
+        Me.lblAltHoldings = New MaterialSkin.Controls.MaterialLabel()
+        Me.lblFriendlyPrice = New MaterialSkin.Controls.MaterialLabel()
         Me.pnlContent.SuspendLayout()
+        Me.cxtTray.SuspendLayout()
         Me.SuspendLayout()
         '
         'lblPrice
@@ -106,20 +116,6 @@ Partial Class frmHome
         Me.lblHoldingsFiat.Text = "$00.00/$00.00"
         Me.lblHoldingsFiat.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
-        'lblHoldingsFiatCodes
-        '
-        Me.lblHoldingsFiatCodes.AutoSize = True
-        Me.lblHoldingsFiatCodes.BackColor = System.Drawing.Color.Transparent
-        Me.lblHoldingsFiatCodes.Depth = 0
-        Me.lblHoldingsFiatCodes.Font = New System.Drawing.Font("Roboto", 11.0!)
-        Me.lblHoldingsFiatCodes.ForeColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.lblHoldingsFiatCodes.Location = New System.Drawing.Point(191, 224)
-        Me.lblHoldingsFiatCodes.MouseState = MaterialSkin.MouseState.HOVER
-        Me.lblHoldingsFiatCodes.Name = "lblHoldingsFiatCodes"
-        Me.lblHoldingsFiatCodes.Size = New System.Drawing.Size(74, 19)
-        Me.lblHoldingsFiatCodes.TabIndex = 8
-        Me.lblHoldingsFiatCodes.Text = "USD/AUD"
-        '
         'lblHoldingsCoin
         '
         Me.lblHoldingsCoin.BackColor = System.Drawing.Color.Transparent
@@ -157,23 +153,25 @@ Partial Class frmHome
         Me.lblAltPrices.Depth = 0
         Me.lblAltPrices.Font = New System.Drawing.Font("Roboto", 11.0!)
         Me.lblAltPrices.ForeColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.lblAltPrices.Location = New System.Drawing.Point(1, 0)
+        Me.lblAltPrices.Location = New System.Drawing.Point(1, 12)
         Me.lblAltPrices.MouseState = MaterialSkin.MouseState.HOVER
         Me.lblAltPrices.Name = "lblAltPrices"
         Me.lblAltPrices.Size = New System.Drawing.Size(900, 28)
         Me.lblAltPrices.TabIndex = 11
-        Me.lblAltPrices.Text = "Alternative Fiat Prices"
+        Me.lblAltPrices.Text = "XMR Prices - USD: 00.00 | AUD: 00.00 | GBP: 00.00"
         Me.lblAltPrices.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'pnlContent
         '
+        Me.pnlContent.Controls.Add(Me.lblFriendlyPrice)
+        Me.pnlContent.Controls.Add(Me.lblAltHoldings)
+        Me.pnlContent.Controls.Add(Me.MaterialRaisedButton4)
         Me.pnlContent.Controls.Add(Me.MaterialRaisedButton3)
         Me.pnlContent.Controls.Add(Me.lblAltPrices)
         Me.pnlContent.Controls.Add(Me.lblPrice)
         Me.pnlContent.Controls.Add(Me.MaterialLabel1)
         Me.pnlContent.Controls.Add(Me.lblHoldingsCoin)
         Me.pnlContent.Controls.Add(Me.MaterialRaisedButton1)
-        Me.pnlContent.Controls.Add(Me.lblHoldingsFiatCodes)
         Me.pnlContent.Controls.Add(Me.MaterialRaisedButton2)
         Me.pnlContent.Controls.Add(Me.lblHoldingsFiat)
         Me.pnlContent.Location = New System.Drawing.Point(0, 64)
@@ -211,6 +209,87 @@ Partial Class frmHome
         Me.lblLoading.Text = "Fetching Latest Data..."
         Me.lblLoading.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
+        'ntfTray
+        '
+        Me.ntfTray.ContextMenuStrip = Me.cxtTray
+        Me.ntfTray.Text = "Maega AltTrackr"
+        Me.ntfTray.Visible = True
+        '
+        'MaterialRaisedButton4
+        '
+        Me.MaterialRaisedButton4.Depth = 0
+        Me.MaterialRaisedButton4.Location = New System.Drawing.Point(107, 297)
+        Me.MaterialRaisedButton4.MouseState = MaterialSkin.MouseState.HOVER
+        Me.MaterialRaisedButton4.Name = "MaterialRaisedButton4"
+        Me.MaterialRaisedButton4.Primary = True
+        Me.MaterialRaisedButton4.Size = New System.Drawing.Size(259, 23)
+        Me.MaterialRaisedButton4.TabIndex = 12
+        Me.MaterialRaisedButton4.Text = "Send Test Notification"
+        Me.MaterialRaisedButton4.UseVisualStyleBackColor = True
+        '
+        'cxtTray
+        '
+        Me.cxtTray.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.cxtTray.Depth = 0
+        Me.cxtTray.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.tsCoinPrice, Me.tsHoldingsValue, Me.ToolStripSeparator1, Me.tsExit})
+        Me.cxtTray.MouseState = MaterialSkin.MouseState.HOVER
+        Me.cxtTray.Name = "cxtTray"
+        Me.cxtTray.Size = New System.Drawing.Size(151, 76)
+        '
+        'tsCoinPrice
+        '
+        Me.tsCoinPrice.Enabled = False
+        Me.tsCoinPrice.Name = "tsCoinPrice"
+        Me.tsCoinPrice.Size = New System.Drawing.Size(150, 22)
+        Me.tsCoinPrice.Text = "CoinPrice"
+        '
+        'tsHoldingsValue
+        '
+        Me.tsHoldingsValue.Enabled = False
+        Me.tsHoldingsValue.Name = "tsHoldingsValue"
+        Me.tsHoldingsValue.Size = New System.Drawing.Size(150, 22)
+        Me.tsHoldingsValue.Text = "HoldingsValue"
+        '
+        'ToolStripSeparator1
+        '
+        Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
+        Me.ToolStripSeparator1.Size = New System.Drawing.Size(147, 6)
+        '
+        'tsExit
+        '
+        Me.tsExit.Name = "tsExit"
+        Me.tsExit.Size = New System.Drawing.Size(150, 22)
+        Me.tsExit.Text = "Quit AltTrackr"
+        '
+        'lblAltHoldings
+        '
+        Me.lblAltHoldings.BackColor = System.Drawing.Color.Transparent
+        Me.lblAltHoldings.Depth = 0
+        Me.lblAltHoldings.Font = New System.Drawing.Font("Roboto", 11.0!)
+        Me.lblAltHoldings.ForeColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.lblAltHoldings.Location = New System.Drawing.Point(1, 46)
+        Me.lblAltHoldings.MouseState = MaterialSkin.MouseState.HOVER
+        Me.lblAltHoldings.Name = "lblAltHoldings"
+        Me.lblAltHoldings.Size = New System.Drawing.Size(900, 28)
+        Me.lblAltHoldings.TabIndex = 13
+        Me.lblAltHoldings.Text = "XMR Holdings - USD: 00.00 | AUD: 00.00 | GBP: 00.00"
+        Me.lblAltHoldings.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'lblFriendlyPrice
+        '
+        Me.lblFriendlyPrice.Depth = 0
+        Me.lblFriendlyPrice.Font = New System.Drawing.Font("Roboto", 11.0!)
+        Me.lblFriendlyPrice.ForeColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.lblFriendlyPrice.Location = New System.Drawing.Point(12, 340)
+        Me.lblFriendlyPrice.MouseState = MaterialSkin.MouseState.HOVER
+        Me.lblFriendlyPrice.Name = "lblFriendlyPrice"
+        Me.lblFriendlyPrice.Size = New System.Drawing.Size(876, 49)
+        Me.lblFriendlyPrice.TabIndex = 14
+        Me.lblFriendlyPrice.Text = "Today, you hold 00.00 XMR which is valued at 00.00 AUD at a coin price of 00.00 A" &
+    "UD" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Your initial investment was 00.00 AUD and has matured over 0 months, yieldin" &
+    "g profits of 00.00 AUD so far"
+        Me.lblFriendlyPrice.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
         'frmHome
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -223,7 +302,7 @@ Partial Class frmHome
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Maega AltTrackr 2 - Home"
         Me.pnlContent.ResumeLayout(False)
-        Me.pnlContent.PerformLayout()
+        Me.cxtTray.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
@@ -233,7 +312,6 @@ Partial Class frmHome
     Friend WithEvents MaterialRaisedButton1 As MaterialSkin.Controls.MaterialRaisedButton
     Friend WithEvents MaterialRaisedButton2 As MaterialSkin.Controls.MaterialRaisedButton
     Friend WithEvents lblHoldingsFiat As MaterialSkin.Controls.MaterialLabel
-    Friend WithEvents lblHoldingsFiatCodes As MaterialSkin.Controls.MaterialLabel
     Friend WithEvents lblHoldingsCoin As MaterialSkin.Controls.MaterialLabel
     Friend WithEvents MaterialRaisedButton3 As MaterialSkin.Controls.MaterialRaisedButton
     Friend WithEvents bkgGetPrices As System.ComponentModel.BackgroundWorker
@@ -241,4 +319,13 @@ Partial Class frmHome
     Friend WithEvents pnlContent As Panel
     Friend WithEvents prgLoading As MRG.Controls.UI.LoadingCircle
     Friend WithEvents lblLoading As MaterialSkin.Controls.MaterialLabel
+    Friend WithEvents ntfTray As NotifyIcon
+    Friend WithEvents MaterialRaisedButton4 As MaterialSkin.Controls.MaterialRaisedButton
+    Friend WithEvents cxtTray As MaterialSkin.Controls.MaterialContextMenuStrip
+    Friend WithEvents tsCoinPrice As ToolStripMenuItem
+    Friend WithEvents tsHoldingsValue As ToolStripMenuItem
+    Friend WithEvents ToolStripSeparator1 As ToolStripSeparator
+    Friend WithEvents tsExit As ToolStripMenuItem
+    Friend WithEvents lblAltHoldings As MaterialSkin.Controls.MaterialLabel
+    Friend WithEvents lblFriendlyPrice As MaterialSkin.Controls.MaterialLabel
 End Class
