@@ -25,4 +25,10 @@
             Application.DoEvents()
         Loop
     End Sub
+
+    Public Shared Sub WriteDebug(output As String)
+        Console.WriteLine(DateTime.Now.ToString("yy/MM/dd HH:mm:ss") + " - " + output)
+        'DebugLog.rtfAppLog.AppendText(output + vbNewLine)
+        'DebugLog.rtfAppLog.AppendText(DateTime.Now.ToString("yy/MM/dd HH:mm:ss") + " - " + output + vbNewLine) 'If My.Settings.DebugMode Then 
+    End Sub
 End Class

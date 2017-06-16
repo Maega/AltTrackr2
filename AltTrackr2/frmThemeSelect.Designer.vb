@@ -32,7 +32,7 @@ Partial Class frmThemeSelect
         'btnLight
         '
         Me.btnLight.Depth = 0
-        Me.btnLight.Location = New System.Drawing.Point(148, 292)
+        Me.btnLight.Location = New System.Drawing.Point(208, 311)
         Me.btnLight.MouseState = MaterialSkin.MouseState.HOVER
         Me.btnLight.Name = "btnLight"
         Me.btnLight.Primary = True
@@ -44,7 +44,7 @@ Partial Class frmThemeSelect
         'btnDark
         '
         Me.btnDark.Depth = 0
-        Me.btnDark.Location = New System.Drawing.Point(533, 292)
+        Me.btnDark.Location = New System.Drawing.Point(481, 311)
         Me.btnDark.MouseState = MaterialSkin.MouseState.HOVER
         Me.btnDark.Name = "btnDark"
         Me.btnDark.Primary = True
@@ -73,7 +73,7 @@ Partial Class frmThemeSelect
         Me.lblLightHead.Depth = 0
         Me.lblLightHead.Font = New System.Drawing.Font("Roboto Thin", 10.0!)
         Me.lblLightHead.ForeColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.lblLightHead.Location = New System.Drawing.Point(148, 275)
+        Me.lblLightHead.Location = New System.Drawing.Point(208, 294)
         Me.lblLightHead.MouseState = MaterialSkin.MouseState.HOVER
         Me.lblLightHead.Name = "lblLightHead"
         Me.lblLightHead.Size = New System.Drawing.Size(200, 17)
@@ -87,7 +87,7 @@ Partial Class frmThemeSelect
         Me.lblDarkHead.Depth = 0
         Me.lblDarkHead.Font = New System.Drawing.Font("Roboto Thin", 10.0!)
         Me.lblDarkHead.ForeColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.lblDarkHead.Location = New System.Drawing.Point(533, 275)
+        Me.lblDarkHead.Location = New System.Drawing.Point(481, 294)
         Me.lblDarkHead.MouseState = MaterialSkin.MouseState.HOVER
         Me.lblDarkHead.Name = "lblDarkHead"
         Me.lblDarkHead.Size = New System.Drawing.Size(200, 17)
