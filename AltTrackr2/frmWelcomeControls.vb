@@ -36,7 +36,7 @@ Public Class frmWelcomeControls
     Private Sub tmrTransition_Tick(sender As Object, e As EventArgs) Handles tmrTransition.Tick
         Select Case ticks
             Case 0
-                FadeNew("AltTrackr is in Alpha")
+                FadeNew("Remember, AltTrackr is in Alpha")
             Case 1
                 FadeNew("Use Windows Key + B to report bugs", 35)
             Case 2
@@ -52,7 +52,7 @@ Public Class frmWelcomeControls
             Case 7
                 FadeNew("We'll setup the rest from there")
             Case 8
-                FadeNew("Thanks for testing AltTrackr!")
+                FadeNew("Welcome to AltTrackr")
                 tmrTransition.Interval = 2500
             Case 9
                 tmrTransition.Stop()

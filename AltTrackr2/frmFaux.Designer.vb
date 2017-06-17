@@ -30,7 +30,7 @@ Partial Class frmFaux
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(900, 462)
         Me.Name = "frmFaux"
-        Me.Text = "Maeha AltTrackr 2 - Home"
+        Me.Text = "Maega AltTrackr"
         Me.ResumeLayout(False)
 
     End Sub

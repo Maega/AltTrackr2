@@ -31,13 +31,13 @@ Partial Class frmWelcomeControls
         '
         Me.lblWelcome.Depth = 0
         Me.lblWelcome.Font = New System.Drawing.Font("Roboto", 11.0!)
-        Me.lblWelcome.ForeColor = System.Drawing.Color.White
+        Me.lblWelcome.ForeColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
         Me.lblWelcome.Location = New System.Drawing.Point(0, 67)
         Me.lblWelcome.MouseState = MaterialSkin.MouseState.HOVER
         Me.lblWelcome.Name = "lblWelcome"
         Me.lblWelcome.Size = New System.Drawing.Size(900, 354)
         Me.lblWelcome.TabIndex = 0
-        Me.lblWelcome.Text = "Welcome to AltTrackr"
+        Me.lblWelcome.Text = "Hey there, before we begin..."
         Me.lblWelcome.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'tmrTransition

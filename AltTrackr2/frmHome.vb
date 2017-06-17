@@ -19,16 +19,9 @@ Public Class frmHome
         lblHoldingsFiat.Font = New Font("Roboto Light", 25)
         lblHoldingsCoin.Font = New Font("Roboto Light", 30)
         lblLoading.Font = New Font("Roboto Light", 20)
-        'prgLoading.Parent = PictureBox1
-        pnlContent.Hide()
-        prgLoading.NumberSpoke = 120
-        prgLoading.SpokeThickness = 5
-        prgLoading.InnerCircleRadius = 30
-        prgLoading.OuterCircleRadius = 35
-        prgLoading.RotationSpeed = 20
-        prgLoading.Active = True
-        prgLoading.Visible = True
-        lblLoading.Show()
+        lblAltPrices.Font = New Font("Roboto Light", 15)
+        lblAltHoldings.Font = New Font("Roboto Light", 15)
+        lblFriendlyPrice.Font = New Font("Roboto Light", 12)
         GetPrices()
     End Sub
 
@@ -45,11 +38,38 @@ Public Class frmHome
     Private Sub GetPrices()
         If Not bkgGetPrices.IsBusy Then
             cTiming.WriteDebug("Attempting to fetch latest price data...")
+            Select Case GetRandom(0, 4)
+                Case 0
+                    lblLoading.Text = "Chatting with the servers, just a minute..."
+                Case 1
+                    lblLoading.Text = "Calculating how rich you've become..."
+                Case 2
+                    lblLoading.Text = "Loading Tip | Remember, you can report bugs with Win+B"
+                Case 3
+                    lblLoading.Text = "Flying to the moon with " + coinCodes + "..."
+                Case 4
+                    lblLoading.Text = "Checking up on your crypto investment..."
+            End Select
+            tabContent.Hide()
+            tbsContent.Hide()
+            prgLoading.NumberSpoke = 120
+            prgLoading.SpokeThickness = 5
+            prgLoading.InnerCircleRadius = 30
+            prgLoading.OuterCircleRadius = 35
+            prgLoading.RotationSpeed = 20
+            prgLoading.Active = True
+            prgLoading.Visible = True
+            lblLoading.Show()
             bkgGetPrices.RunWorkerAsync()
         Else
             cTiming.WriteDebug("Attempted to fetch prices, but I'm already working on it.")
         End If
     End Sub
+
+    Public Function GetRandom(ByVal Min As Integer, ByVal Max As Integer) As Integer
+        Static Generator As System.Random = New System.Random()
+        Return Generator.Next(Min, Max)
+    End Function
 
     Private Sub bkgGetPrices_DoWork(sender As Object, e As System.ComponentModel.DoWorkEventArgs) Handles bkgGetPrices.DoWork
         serverResponse = ParseJSON("https://min-api.cryptocompare.com/data/price?fsym=" + My.Computer.Registry.GetValue(My.Settings.RegLocation, "AppCoins", Nothing) + "&tsyms=" + My.Computer.Registry.GetValue(My.Settings.RegLocation, "AppAltFiats", Nothing))
@@ -75,7 +95,8 @@ Public Class frmHome
         tsHoldingsValue.Text = coinCodes + " Holdings Value: " + fiatMain + " " + (totalHoldings * CDec(serverResponse.SelectToken(fiatMain))).ToString("n2")
         prgLoading.Hide()
         lblLoading.Hide()
-        pnlContent.Show()
+        tabContent.Show()
+        tbsContent.Show()
         lblHoldingsFiat.Text = fiatMain + ": " + (totalHoldings * CDec(serverResponse.SelectToken(fiatMain))).ToString("n2")
 
         Dim d1 As DateTime = DateTime.Today
