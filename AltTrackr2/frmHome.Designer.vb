@@ -44,6 +44,9 @@ Partial Class frmHome
         Me.tsExit = New System.Windows.Forms.ToolStripMenuItem()
         Me.lblAltHoldings = New MaterialSkin.Controls.MaterialLabel()
         Me.lblFriendlyPrice = New MaterialSkin.Controls.MaterialLabel()
+        Me.MaterialRaisedButton5 = New MaterialSkin.Controls.MaterialRaisedButton()
+        Me.MaterialRaisedButton6 = New MaterialSkin.Controls.MaterialRaisedButton()
+        Me.MaterialRaisedButton7 = New MaterialSkin.Controls.MaterialRaisedButton()
         Me.pnlContent.SuspendLayout()
         Me.cxtTray.SuspendLayout()
         Me.SuspendLayout()
@@ -133,11 +136,11 @@ Partial Class frmHome
         'MaterialRaisedButton3
         '
         Me.MaterialRaisedButton3.Depth = 0
-        Me.MaterialRaisedButton3.Location = New System.Drawing.Point(634, 261)
+        Me.MaterialRaisedButton3.Location = New System.Drawing.Point(550, 258)
         Me.MaterialRaisedButton3.MouseState = MaterialSkin.MouseState.HOVER
         Me.MaterialRaisedButton3.Name = "MaterialRaisedButton3"
         Me.MaterialRaisedButton3.Primary = True
-        Me.MaterialRaisedButton3.Size = New System.Drawing.Size(112, 23)
+        Me.MaterialRaisedButton3.Size = New System.Drawing.Size(132, 23)
         Me.MaterialRaisedButton3.TabIndex = 10
         Me.MaterialRaisedButton3.Text = "Get Prices"
         Me.MaterialRaisedButton3.UseVisualStyleBackColor = True
@@ -163,6 +166,9 @@ Partial Class frmHome
         '
         'pnlContent
         '
+        Me.pnlContent.Controls.Add(Me.MaterialRaisedButton7)
+        Me.pnlContent.Controls.Add(Me.MaterialRaisedButton6)
+        Me.pnlContent.Controls.Add(Me.MaterialRaisedButton5)
         Me.pnlContent.Controls.Add(Me.lblFriendlyPrice)
         Me.pnlContent.Controls.Add(Me.lblAltHoldings)
         Me.pnlContent.Controls.Add(Me.MaterialRaisedButton4)
@@ -290,6 +296,42 @@ Partial Class frmHome
     "g profits of 00.00 AUD so far"
         Me.lblFriendlyPrice.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
+        'MaterialRaisedButton5
+        '
+        Me.MaterialRaisedButton5.Depth = 0
+        Me.MaterialRaisedButton5.Location = New System.Drawing.Point(412, 297)
+        Me.MaterialRaisedButton5.MouseState = MaterialSkin.MouseState.HOVER
+        Me.MaterialRaisedButton5.Name = "MaterialRaisedButton5"
+        Me.MaterialRaisedButton5.Primary = True
+        Me.MaterialRaisedButton5.Size = New System.Drawing.Size(132, 23)
+        Me.MaterialRaisedButton5.TabIndex = 15
+        Me.MaterialRaisedButton5.Text = "Buy XMR"
+        Me.MaterialRaisedButton5.UseVisualStyleBackColor = True
+        '
+        'MaterialRaisedButton6
+        '
+        Me.MaterialRaisedButton6.Depth = 0
+        Me.MaterialRaisedButton6.Location = New System.Drawing.Point(550, 297)
+        Me.MaterialRaisedButton6.MouseState = MaterialSkin.MouseState.HOVER
+        Me.MaterialRaisedButton6.Name = "MaterialRaisedButton6"
+        Me.MaterialRaisedButton6.Primary = True
+        Me.MaterialRaisedButton6.Size = New System.Drawing.Size(132, 23)
+        Me.MaterialRaisedButton6.TabIndex = 16
+        Me.MaterialRaisedButton6.Text = "Sell XMR"
+        Me.MaterialRaisedButton6.UseVisualStyleBackColor = True
+        '
+        'MaterialRaisedButton7
+        '
+        Me.MaterialRaisedButton7.Depth = 0
+        Me.MaterialRaisedButton7.Location = New System.Drawing.Point(688, 297)
+        Me.MaterialRaisedButton7.MouseState = MaterialSkin.MouseState.HOVER
+        Me.MaterialRaisedButton7.Name = "MaterialRaisedButton7"
+        Me.MaterialRaisedButton7.Primary = True
+        Me.MaterialRaisedButton7.Size = New System.Drawing.Size(132, 23)
+        Me.MaterialRaisedButton7.TabIndex = 17
+        Me.MaterialRaisedButton7.Text = "View Charts"
+        Me.MaterialRaisedButton7.UseVisualStyleBackColor = True
+        '
         'frmHome
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -328,4 +370,7 @@ Partial Class frmHome
     Friend WithEvents tsExit As ToolStripMenuItem
     Friend WithEvents lblAltHoldings As MaterialSkin.Controls.MaterialLabel
     Friend WithEvents lblFriendlyPrice As MaterialSkin.Controls.MaterialLabel
+    Friend WithEvents MaterialRaisedButton5 As MaterialSkin.Controls.MaterialRaisedButton
+    Friend WithEvents MaterialRaisedButton7 As MaterialSkin.Controls.MaterialRaisedButton
+    Friend WithEvents MaterialRaisedButton6 As MaterialSkin.Controls.MaterialRaisedButton
 End Class
