@@ -71,7 +71,7 @@ Public Class frmHome
             End If
             bkgGetPrices.RunWorkerAsync()
         Else
-            cTiming.WriteDebug("Attempted to fetch prices, but I'm already working on it.")
+            If Not silent Then cTiming.WriteDebug("Attempted to fetch prices, but I'm already working on it.")
         End If
     End Sub
 
@@ -117,6 +117,8 @@ Public Class frmHome
         lblFriendlyPrice.Text = "Today, you hold " + totalHoldings.ToString + " " + coinCodes + " which is valued at " + (totalHoldings * CDec(serverResponse.SelectToken(fiatMain))).ToString("n2") + " " + fiatMain + " at a coin price of " + CDec(serverResponse.SelectToken(fiatMain)).ToString("n2") + " " + fiatMain + vbNewLine + "Your initial investment was " + initialInvestment + " " + fiatMain + " and has matured over " + months + " months, yielding profits of " + ((totalHoldings * CDec(serverResponse.SelectToken(fiatMain))) - CDec(initialInvestment)).ToString("n2") + " " + fiatMain + " so far"
 
         lblLastPriceUpdate.Text = "Last Updated: " + DateTime.Now
+
+        tmrRefresh.Interval = My.Computer.Registry.GetValue(My.Settings.RegLocation, "RefreshInterval", Nothing)
     End Sub
 
     Private Sub MaterialRaisedButton4_Click(sender As Object, e As EventArgs) Handles MaterialRaisedButton4.Click
@@ -134,6 +136,7 @@ Public Class frmHome
 
     Private Sub btnApplyChanges_Click(sender As Object, e As EventArgs) Handles btnApplyChanges.Click
         My.Computer.Registry.SetValue(My.Settings.RegLocation, "RefreshInterval", CInt((CDec(txtRefreshMins.Text) * 60000)).ToString)
+        tmrRefresh.Interval = txtRefreshMins.Text * 60000
         GetSettings()
         HideChangeAlert()
     End Sub
