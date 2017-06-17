@@ -90,6 +90,12 @@
       <DependentUpon>frmCoinSelect.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="frmFaux.Designer.vb">
+      <DependentUpon>frmFaux.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmFaux.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frmFeedback.Designer.vb">
       <DependentUpon>frmFeedback.vb</DependentUpon>
     </Compile>
@@ -139,6 +145,9 @@
   <ItemGroup>
     <EmbeddedResource Include="frmCoinSelect.resx">
       <DependentUpon>frmCoinSelect.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmFaux.resx">
+      <DependentUpon>frmFaux.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmFeedback.resx">
       <DependentUpon>frmFeedback.vb</DependentUpon>
