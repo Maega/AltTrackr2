@@ -50,11 +50,25 @@ Partial Class frmHome
         Me.tabDailyBrief = New System.Windows.Forms.TabPage()
         Me.tabDetails = New System.Windows.Forms.TabPage()
         Me.tabSettings = New System.Windows.Forms.TabPage()
+        Me.lblLastPriceUpdate = New MaterialSkin.Controls.MaterialLabel()
+        Me.MaterialLabel3 = New MaterialSkin.Controls.MaterialLabel()
+        Me.txtRefreshMins = New MaterialSkin.Controls.MaterialSingleLineTextField()
+        Me.MaterialLabel2 = New MaterialSkin.Controls.MaterialLabel()
         Me.tbsContent = New MaterialSkin.Controls.MaterialTabSelector()
+        Me.tmrRefresh = New System.Windows.Forms.Timer(Me.components)
+        Me.btnApplyChanges = New MaterialSkin.Controls.MaterialRaisedButton()
+        Me.btnBugReport = New MaterialSkin.Controls.MaterialRaisedButton()
+        Me.btnFeedback = New MaterialSkin.Controls.MaterialRaisedButton()
+        Me.pnlApplySettings = New System.Windows.Forms.Panel()
+        Me.lblPipe = New MaterialSkin.Controls.MaterialLabel()
+        Me.lblUnsaved = New MaterialSkin.Controls.MaterialLabel()
+        Me.btnCancelChanges = New MaterialSkin.Controls.MaterialRaisedButton()
         Me.cxtTray.SuspendLayout()
         Me.tabContent.SuspendLayout()
         Me.tabDailyBrief.SuspendLayout()
         Me.tabDetails.SuspendLayout()
+        Me.tabSettings.SuspendLayout()
+        Me.pnlApplySettings.SuspendLayout()
         Me.SuspendLayout()
         '
         'lblPrice
@@ -87,26 +101,28 @@ Partial Class frmHome
         '
         'MaterialRaisedButton1
         '
+        Me.MaterialRaisedButton1.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.MaterialRaisedButton1.BackColor = System.Drawing.SystemColors.Control
         Me.MaterialRaisedButton1.Depth = 0
-        Me.MaterialRaisedButton1.Location = New System.Drawing.Point(111, 44)
+        Me.MaterialRaisedButton1.Location = New System.Drawing.Point(275, 102)
         Me.MaterialRaisedButton1.MouseState = MaterialSkin.MouseState.HOVER
         Me.MaterialRaisedButton1.Name = "MaterialRaisedButton1"
         Me.MaterialRaisedButton1.Primary = True
-        Me.MaterialRaisedButton1.Size = New System.Drawing.Size(120, 23)
+        Me.MaterialRaisedButton1.Size = New System.Drawing.Size(160, 23)
         Me.MaterialRaisedButton1.TabIndex = 5
         Me.MaterialRaisedButton1.Text = "Add Holdings"
         Me.MaterialRaisedButton1.UseVisualStyleBackColor = False
         '
         'MaterialRaisedButton2
         '
+        Me.MaterialRaisedButton2.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.MaterialRaisedButton2.BackColor = System.Drawing.Color.Transparent
         Me.MaterialRaisedButton2.Depth = 0
-        Me.MaterialRaisedButton2.Location = New System.Drawing.Point(250, 44)
+        Me.MaterialRaisedButton2.Location = New System.Drawing.Point(454, 102)
         Me.MaterialRaisedButton2.MouseState = MaterialSkin.MouseState.HOVER
         Me.MaterialRaisedButton2.Name = "MaterialRaisedButton2"
         Me.MaterialRaisedButton2.Primary = True
-        Me.MaterialRaisedButton2.Size = New System.Drawing.Size(120, 23)
+        Me.MaterialRaisedButton2.Size = New System.Drawing.Size(160, 23)
         Me.MaterialRaisedButton2.TabIndex = 6
         Me.MaterialRaisedButton2.Text = "Edit Holdings"
         Me.MaterialRaisedButton2.UseVisualStyleBackColor = False
@@ -141,14 +157,15 @@ Partial Class frmHome
         '
         'MaterialRaisedButton3
         '
+        Me.MaterialRaisedButton3.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.MaterialRaisedButton3.Depth = 0
-        Me.MaterialRaisedButton3.Location = New System.Drawing.Point(554, 41)
+        Me.MaterialRaisedButton3.Location = New System.Drawing.Point(344, 233)
         Me.MaterialRaisedButton3.MouseState = MaterialSkin.MouseState.HOVER
         Me.MaterialRaisedButton3.Name = "MaterialRaisedButton3"
         Me.MaterialRaisedButton3.Primary = True
-        Me.MaterialRaisedButton3.Size = New System.Drawing.Size(132, 23)
+        Me.MaterialRaisedButton3.Size = New System.Drawing.Size(196, 23)
         Me.MaterialRaisedButton3.TabIndex = 10
-        Me.MaterialRaisedButton3.Text = "Get Prices"
+        Me.MaterialRaisedButton3.Text = "Refresh Prices Now"
         Me.MaterialRaisedButton3.UseVisualStyleBackColor = True
         '
         'bkgGetPrices
@@ -322,8 +339,7 @@ Partial Class frmHome
         '
         'tabContent
         '
-        Me.tabContent.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
+        Me.tabContent.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.tabContent.Controls.Add(Me.tabDailyBrief)
         Me.tabContent.Controls.Add(Me.tabDetails)
@@ -356,28 +372,91 @@ Partial Class frmHome
         Me.tabDetails.Controls.Add(Me.lblHoldingsFiat)
         Me.tabDetails.Controls.Add(Me.MaterialRaisedButton4)
         Me.tabDetails.Controls.Add(Me.MaterialRaisedButton6)
-        Me.tabDetails.Controls.Add(Me.MaterialRaisedButton1)
-        Me.tabDetails.Controls.Add(Me.MaterialRaisedButton3)
-        Me.tabDetails.Controls.Add(Me.MaterialRaisedButton2)
         Me.tabDetails.Controls.Add(Me.MaterialRaisedButton5)
         Me.tabDetails.Controls.Add(Me.MaterialLabel1)
         Me.tabDetails.Controls.Add(Me.lblPrice)
         Me.tabDetails.Location = New System.Drawing.Point(4, 22)
         Me.tabDetails.Name = "tabDetails"
         Me.tabDetails.Padding = New System.Windows.Forms.Padding(3)
-        Me.tabDetails.Size = New System.Drawing.Size(893, 348)
+        Me.tabDetails.Size = New System.Drawing.Size(885, 369)
         Me.tabDetails.TabIndex = 1
         Me.tabDetails.Text = "Details"
         Me.tabDetails.UseVisualStyleBackColor = True
         '
         'tabSettings
         '
+        Me.tabSettings.BackColor = System.Drawing.SystemColors.Control
+        Me.tabSettings.Controls.Add(Me.lblLastPriceUpdate)
+        Me.tabSettings.Controls.Add(Me.MaterialLabel3)
+        Me.tabSettings.Controls.Add(Me.txtRefreshMins)
+        Me.tabSettings.Controls.Add(Me.MaterialLabel2)
+        Me.tabSettings.Controls.Add(Me.MaterialRaisedButton1)
+        Me.tabSettings.Controls.Add(Me.MaterialRaisedButton2)
+        Me.tabSettings.Controls.Add(Me.MaterialRaisedButton3)
         Me.tabSettings.Location = New System.Drawing.Point(4, 22)
         Me.tabSettings.Name = "tabSettings"
         Me.tabSettings.Size = New System.Drawing.Size(885, 369)
         Me.tabSettings.TabIndex = 2
         Me.tabSettings.Text = "Settings"
-        Me.tabSettings.UseVisualStyleBackColor = True
+        '
+        'lblLastPriceUpdate
+        '
+        Me.lblLastPriceUpdate.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.lblLastPriceUpdate.Depth = 0
+        Me.lblLastPriceUpdate.Font = New System.Drawing.Font("Roboto", 11.0!)
+        Me.lblLastPriceUpdate.ForeColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.lblLastPriceUpdate.Location = New System.Drawing.Point(271, 197)
+        Me.lblLastPriceUpdate.MouseState = MaterialSkin.MouseState.HOVER
+        Me.lblLastPriceUpdate.Name = "lblLastPriceUpdate"
+        Me.lblLastPriceUpdate.Size = New System.Drawing.Size(343, 25)
+        Me.lblLastPriceUpdate.TabIndex = 14
+        Me.lblLastPriceUpdate.Text = "Last Updated:"
+        Me.lblLastPriceUpdate.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'MaterialLabel3
+        '
+        Me.MaterialLabel3.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.MaterialLabel3.AutoSize = True
+        Me.MaterialLabel3.Depth = 0
+        Me.MaterialLabel3.Font = New System.Drawing.Font("Roboto", 11.0!)
+        Me.MaterialLabel3.ForeColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.MaterialLabel3.Location = New System.Drawing.Point(271, 159)
+        Me.MaterialLabel3.MouseState = MaterialSkin.MouseState.HOVER
+        Me.MaterialLabel3.Name = "MaterialLabel3"
+        Me.MaterialLabel3.Size = New System.Drawing.Size(177, 19)
+        Me.MaterialLabel3.TabIndex = 13
+        Me.MaterialLabel3.Text = "Refresh coin prices every"
+        '
+        'txtRefreshMins
+        '
+        Me.txtRefreshMins.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.txtRefreshMins.Depth = 0
+        Me.txtRefreshMins.Hint = ""
+        Me.txtRefreshMins.Location = New System.Drawing.Point(454, 159)
+        Me.txtRefreshMins.MouseState = MaterialSkin.MouseState.HOVER
+        Me.txtRefreshMins.Name = "txtRefreshMins"
+        Me.txtRefreshMins.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
+        Me.txtRefreshMins.SelectedText = ""
+        Me.txtRefreshMins.SelectionLength = 0
+        Me.txtRefreshMins.SelectionStart = 0
+        Me.txtRefreshMins.Size = New System.Drawing.Size(91, 23)
+        Me.txtRefreshMins.TabIndex = 11
+        Me.txtRefreshMins.Text = "1"
+        Me.txtRefreshMins.UseSystemPasswordChar = False
+        '
+        'MaterialLabel2
+        '
+        Me.MaterialLabel2.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.MaterialLabel2.AutoSize = True
+        Me.MaterialLabel2.Depth = 0
+        Me.MaterialLabel2.Font = New System.Drawing.Font("Roboto", 11.0!)
+        Me.MaterialLabel2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.MaterialLabel2.Location = New System.Drawing.Point(552, 157)
+        Me.MaterialLabel2.MouseState = MaterialSkin.MouseState.HOVER
+        Me.MaterialLabel2.Name = "MaterialLabel2"
+        Me.MaterialLabel2.Size = New System.Drawing.Size(63, 19)
+        Me.MaterialLabel2.TabIndex = 12
+        Me.MaterialLabel2.Text = "minutes"
         '
         'tbsContent
         '
@@ -391,15 +470,121 @@ Partial Class frmHome
         Me.tbsContent.TabIndex = 18
         Me.tbsContent.Text = "MaterialTabSelector1"
         '
+        'tmrRefresh
+        '
+        Me.tmrRefresh.Enabled = True
+        Me.tmrRefresh.Interval = 10000
+        '
+        'btnApplyChanges
+        '
+        Me.btnApplyChanges.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.btnApplyChanges.BackColor = System.Drawing.Color.FromArgb(CType(CType(38, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(56, Byte), Integer))
+        Me.btnApplyChanges.Depth = 0
+        Me.btnApplyChanges.Location = New System.Drawing.Point(340, 61)
+        Me.btnApplyChanges.MouseState = MaterialSkin.MouseState.HOVER
+        Me.btnApplyChanges.Name = "btnApplyChanges"
+        Me.btnApplyChanges.Primary = True
+        Me.btnApplyChanges.Size = New System.Drawing.Size(122, 18)
+        Me.btnApplyChanges.TabIndex = 15
+        Me.btnApplyChanges.Text = "Apply Changes"
+        Me.btnApplyChanges.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.btnApplyChanges.UseVisualStyleBackColor = False
+        '
+        'btnBugReport
+        '
+        Me.btnBugReport.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnBugReport.Depth = 0
+        Me.btnBugReport.Location = New System.Drawing.Point(692, 3)
+        Me.btnBugReport.MouseState = MaterialSkin.MouseState.HOVER
+        Me.btnBugReport.Name = "btnBugReport"
+        Me.btnBugReport.Primary = True
+        Me.btnBugReport.Size = New System.Drawing.Size(123, 18)
+        Me.btnBugReport.TabIndex = 19
+        Me.btnBugReport.Text = "Bug Report"
+        Me.btnBugReport.UseVisualStyleBackColor = True
+        '
+        'btnFeedback
+        '
+        Me.btnFeedback.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnFeedback.Depth = 0
+        Me.btnFeedback.Location = New System.Drawing.Point(566, 3)
+        Me.btnFeedback.MouseState = MaterialSkin.MouseState.HOVER
+        Me.btnFeedback.Name = "btnFeedback"
+        Me.btnFeedback.Primary = True
+        Me.btnFeedback.Size = New System.Drawing.Size(123, 18)
+        Me.btnFeedback.TabIndex = 20
+        Me.btnFeedback.Text = "Feedback"
+        Me.btnFeedback.UseVisualStyleBackColor = True
+        '
+        'pnlApplySettings
+        '
+        Me.pnlApplySettings.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.pnlApplySettings.BackColor = System.Drawing.Color.FromArgb(CType(CType(55, Byte), Integer), CType(CType(71, Byte), Integer), CType(CType(79, Byte), Integer))
+        Me.pnlApplySettings.Controls.Add(Me.lblPipe)
+        Me.pnlApplySettings.Controls.Add(Me.lblUnsaved)
+        Me.pnlApplySettings.Controls.Add(Me.btnCancelChanges)
+        Me.pnlApplySettings.Controls.Add(Me.btnApplyChanges)
+        Me.pnlApplySettings.Location = New System.Drawing.Point(0, 361)
+        Me.pnlApplySettings.Name = "pnlApplySettings"
+        Me.pnlApplySettings.Size = New System.Drawing.Size(900, 100)
+        Me.pnlApplySettings.TabIndex = 21
+        Me.pnlApplySettings.Visible = False
+        '
+        'lblPipe
+        '
+        Me.lblPipe.AutoSize = True
+        Me.lblPipe.Depth = 0
+        Me.lblPipe.Font = New System.Drawing.Font("Roboto", 11.0!)
+        Me.lblPipe.ForeColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.lblPipe.Location = New System.Drawing.Point(467, 60)
+        Me.lblPipe.MouseState = MaterialSkin.MouseState.HOVER
+        Me.lblPipe.Name = "lblPipe"
+        Me.lblPipe.Size = New System.Drawing.Size(13, 19)
+        Me.lblPipe.TabIndex = 18
+        Me.lblPipe.Text = "|"
+        '
+        'lblUnsaved
+        '
+        Me.lblUnsaved.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.lblUnsaved.Depth = 0
+        Me.lblUnsaved.Font = New System.Drawing.Font("Roboto", 11.0!)
+        Me.lblUnsaved.ForeColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.lblUnsaved.Location = New System.Drawing.Point(313, 16)
+        Me.lblUnsaved.MouseState = MaterialSkin.MouseState.HOVER
+        Me.lblUnsaved.Name = "lblUnsaved"
+        Me.lblUnsaved.Size = New System.Drawing.Size(274, 30)
+        Me.lblUnsaved.TabIndex = 17
+        Me.lblUnsaved.Text = "You have unsaved changes"
+        Me.lblUnsaved.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        '
+        'btnCancelChanges
+        '
+        Me.btnCancelChanges.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.btnCancelChanges.BackColor = System.Drawing.Color.FromArgb(CType(CType(38, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(56, Byte), Integer))
+        Me.btnCancelChanges.Depth = 0
+        Me.btnCancelChanges.Location = New System.Drawing.Point(487, 61)
+        Me.btnCancelChanges.MouseState = MaterialSkin.MouseState.HOVER
+        Me.btnCancelChanges.Name = "btnCancelChanges"
+        Me.btnCancelChanges.Primary = True
+        Me.btnCancelChanges.Size = New System.Drawing.Size(64, 18)
+        Me.btnCancelChanges.TabIndex = 16
+        Me.btnCancelChanges.Text = "Cancel"
+        Me.btnCancelChanges.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnCancelChanges.UseVisualStyleBackColor = False
+        '
         'frmHome
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(900, 462)
+        Me.Controls.Add(Me.btnFeedback)
+        Me.Controls.Add(Me.btnBugReport)
         Me.Controls.Add(Me.tbsContent)
         Me.Controls.Add(Me.tabContent)
         Me.Controls.Add(Me.lblLoading)
         Me.Controls.Add(Me.prgLoading)
+        Me.Controls.Add(Me.pnlApplySettings)
         Me.Name = "frmHome"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Maega AltTrackr"
@@ -407,6 +592,10 @@ Partial Class frmHome
         Me.tabContent.ResumeLayout(False)
         Me.tabDailyBrief.ResumeLayout(False)
         Me.tabDetails.ResumeLayout(False)
+        Me.tabSettings.ResumeLayout(False)
+        Me.tabSettings.PerformLayout()
+        Me.pnlApplySettings.ResumeLayout(False)
+        Me.pnlApplySettings.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
@@ -439,4 +628,16 @@ Partial Class frmHome
     Friend WithEvents tabDetails As TabPage
     Friend WithEvents tbsContent As MaterialSkin.Controls.MaterialTabSelector
     Friend WithEvents tabSettings As TabPage
+    Friend WithEvents tmrRefresh As Timer
+    Friend WithEvents lblLastPriceUpdate As MaterialSkin.Controls.MaterialLabel
+    Friend WithEvents MaterialLabel3 As MaterialSkin.Controls.MaterialLabel
+    Friend WithEvents txtRefreshMins As MaterialSkin.Controls.MaterialSingleLineTextField
+    Friend WithEvents MaterialLabel2 As MaterialSkin.Controls.MaterialLabel
+    Friend WithEvents btnApplyChanges As MaterialSkin.Controls.MaterialRaisedButton
+    Friend WithEvents btnBugReport As MaterialSkin.Controls.MaterialRaisedButton
+    Friend WithEvents btnFeedback As MaterialSkin.Controls.MaterialRaisedButton
+    Friend WithEvents pnlApplySettings As Panel
+    Friend WithEvents btnCancelChanges As MaterialSkin.Controls.MaterialRaisedButton
+    Friend WithEvents lblUnsaved As MaterialSkin.Controls.MaterialLabel
+    Friend WithEvents lblPipe As MaterialSkin.Controls.MaterialLabel
 End Class

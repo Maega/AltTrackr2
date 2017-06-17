@@ -7,6 +7,10 @@ Public Class frmWelcomeControls
         Me.Location = frmWelcome.Location
         lblWelcome.Font = New Font("Roboto Light", 40)
         lblWelcome.ForeColor = Color.White
+        If My.Computer.Registry.GetValue(My.Settings.RegLocation, "SkipIntro", Nothing) = "1" Then
+            ticks = 9
+            lblWelcome.Text = "Launching AltTrackr Setup"
+        End If
     End Sub
 
     Declare Function GetTickCount Lib "kernel32" Alias "GetTickCount" () As Long
@@ -32,7 +36,7 @@ Public Class frmWelcomeControls
         Loop
     End Sub
 
-    Dim ticks As Integer = 0
+    Dim ticks As Integer = 0 'Set this to 0 for production to show intro. At value 9 it skips the intro.
     Private Sub tmrTransition_Tick(sender As Object, e As EventArgs) Handles tmrTransition.Tick
         Select Case ticks
             Case 0
@@ -59,6 +63,7 @@ Public Class frmWelcomeControls
                 ticks = 0
                 frmCoinSelect.Opacity = 0
                 frmCoinSelect.Show()
+                frmCoinSelect.Location = Me.Location
                 frmWelcome.Text = String.Empty
                 Do Until Me.Opacity = 0
                     Me.Opacity -= 0.1
