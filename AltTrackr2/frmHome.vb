@@ -174,4 +174,20 @@ Public Class frmHome
     Private Sub txtRefreshMins_TextChanged(sender As Object, e As EventArgs) Handles txtRefreshMins.TextChanged
         If Not txtRefreshMins.Text = (CInt(My.Computer.Registry.GetValue(My.Settings.RegLocation, "RefreshInterval", Nothing)) / 60000).ToString("n2") Then ShowChangeAlert()
     End Sub
+
+    Private Sub txtRefreshMins_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles txtRefreshMins.KeyPress
+
+        '97 - 122 = Ascii codes for simple letters
+        '65 - 90  = Ascii codes for capital letters
+        '48 - 57  = Ascii codes for numbers
+
+        If Asc(e.KeyChar) <> 8 Then
+            If Asc(e.KeyChar) < 48 Or Asc(e.KeyChar) > 57 Then
+                If Not Asc(e.KeyChar) = 46 Then
+                    e.Handled = True
+                End If
+            End If
+        End If
+
+    End Sub
 End Class

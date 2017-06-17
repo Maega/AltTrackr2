@@ -77,7 +77,7 @@ Partial Class frmHome
         Me.lblPrice.Depth = 0
         Me.lblPrice.Font = New System.Drawing.Font("Roboto", 11.0!)
         Me.lblPrice.ForeColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.lblPrice.Location = New System.Drawing.Point(473, 202)
+        Me.lblPrice.Location = New System.Drawing.Point(414, 201)
         Me.lblPrice.MouseState = MaterialSkin.MouseState.HOVER
         Me.lblPrice.Name = "lblPrice"
         Me.lblPrice.Size = New System.Drawing.Size(411, 45)
@@ -91,7 +91,7 @@ Partial Class frmHome
         Me.MaterialLabel1.Depth = 0
         Me.MaterialLabel1.Font = New System.Drawing.Font("Roboto", 11.0!)
         Me.MaterialLabel1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.MaterialLabel1.Location = New System.Drawing.Point(575, 159)
+        Me.MaterialLabel1.Location = New System.Drawing.Point(509, 172)
         Me.MaterialLabel1.MouseState = MaterialSkin.MouseState.HOVER
         Me.MaterialLabel1.Name = "MaterialLabel1"
         Me.MaterialLabel1.Size = New System.Drawing.Size(223, 29)
@@ -133,7 +133,7 @@ Partial Class frmHome
         Me.lblHoldingsFiat.Depth = 0
         Me.lblHoldingsFiat.Font = New System.Drawing.Font("Roboto", 11.0!)
         Me.lblHoldingsFiat.ForeColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.lblHoldingsFiat.Location = New System.Drawing.Point(3, 222)
+        Me.lblHoldingsFiat.Location = New System.Drawing.Point(69, 207)
         Me.lblHoldingsFiat.MouseState = MaterialSkin.MouseState.HOVER
         Me.lblHoldingsFiat.Name = "lblHoldingsFiat"
         Me.lblHoldingsFiat.Size = New System.Drawing.Size(435, 45)
@@ -147,7 +147,7 @@ Partial Class frmHome
         Me.lblHoldingsCoin.Depth = 0
         Me.lblHoldingsCoin.Font = New System.Drawing.Font("Roboto", 11.0!)
         Me.lblHoldingsCoin.ForeColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.lblHoldingsCoin.Location = New System.Drawing.Point(6, 165)
+        Me.lblHoldingsCoin.Location = New System.Drawing.Point(68, 170)
         Me.lblHoldingsCoin.MouseState = MaterialSkin.MouseState.HOVER
         Me.lblHoldingsCoin.Name = "lblHoldingsCoin"
         Me.lblHoldingsCoin.Size = New System.Drawing.Size(435, 45)
@@ -420,7 +420,7 @@ Partial Class frmHome
         Me.MaterialLabel3.Depth = 0
         Me.MaterialLabel3.Font = New System.Drawing.Font("Roboto", 11.0!)
         Me.MaterialLabel3.ForeColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.MaterialLabel3.Location = New System.Drawing.Point(271, 159)
+        Me.MaterialLabel3.Location = New System.Drawing.Point(277, 158)
         Me.MaterialLabel3.MouseState = MaterialSkin.MouseState.HOVER
         Me.MaterialLabel3.Name = "MaterialLabel3"
         Me.MaterialLabel3.Size = New System.Drawing.Size(177, 19)
@@ -432,14 +432,14 @@ Partial Class frmHome
         Me.txtRefreshMins.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.txtRefreshMins.Depth = 0
         Me.txtRefreshMins.Hint = ""
-        Me.txtRefreshMins.Location = New System.Drawing.Point(454, 159)
+        Me.txtRefreshMins.Location = New System.Drawing.Point(460, 158)
         Me.txtRefreshMins.MouseState = MaterialSkin.MouseState.HOVER
         Me.txtRefreshMins.Name = "txtRefreshMins"
         Me.txtRefreshMins.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.txtRefreshMins.SelectedText = ""
         Me.txtRefreshMins.SelectionLength = 0
         Me.txtRefreshMins.SelectionStart = 0
-        Me.txtRefreshMins.Size = New System.Drawing.Size(91, 23)
+        Me.txtRefreshMins.Size = New System.Drawing.Size(82, 23)
         Me.txtRefreshMins.TabIndex = 11
         Me.txtRefreshMins.Text = "1"
         Me.txtRefreshMins.UseSystemPasswordChar = False
@@ -451,7 +451,7 @@ Partial Class frmHome
         Me.MaterialLabel2.Depth = 0
         Me.MaterialLabel2.Font = New System.Drawing.Font("Roboto", 11.0!)
         Me.MaterialLabel2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.MaterialLabel2.Location = New System.Drawing.Point(552, 157)
+        Me.MaterialLabel2.Location = New System.Drawing.Point(548, 158)
         Me.MaterialLabel2.MouseState = MaterialSkin.MouseState.HOVER
         Me.MaterialLabel2.Name = "MaterialLabel2"
         Me.MaterialLabel2.Size = New System.Drawing.Size(63, 19)
