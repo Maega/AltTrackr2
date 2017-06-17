@@ -11,7 +11,7 @@ Public Class frmHome
     Dim fiatMain As String = My.Computer.Registry.GetValue(My.Settings.RegLocation, "AppMainFiat", Nothing)
     Dim fiatCodes As String = My.Computer.Registry.GetValue(My.Settings.RegLocation, "AppAltFiats", Nothing)
 
-    Private Sub frmHome_Load(sender As Object, e As EventArgs) Handles MyBase.Shown
+    Private Sub frmHome_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Dim SkinManager As MaterialSkinManager = MaterialSkinManager.Instance
         SkinManager.AddFormToManage(Me)
         lblPrice.Font = New Font("Roboto Light", 25)
@@ -76,6 +76,7 @@ Public Class frmHome
         lblLoading.Hide()
         pnlContent.Show()
         lblHoldingsFiat.Text = fiatMain + ": " + (totalHoldings * CDec(serverResponse.SelectToken(fiatMain))).ToString("n2")
+        lblFriendlyPrice.Text = "Today, you hold " + totalHoldings.ToString + " " + coinCodes + " which is valued at 00 " + fiatMain + " at a coin price of 00 " + fiatMain + vbNewLine + "Your initial investment was 00 " + fiatMain + " and has matured over 0 months, yielding profits of 00 " + fiatMain + " so far"
     End Sub
 
     Private Sub MaterialRaisedButton4_Click(sender As Object, e As EventArgs) Handles MaterialRaisedButton4.Click
