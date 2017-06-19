@@ -1,4 +1,5 @@
-﻿Imports MaterialSkin
+﻿Imports System.IO
+Imports MaterialSkin
 
 Public Class frmWelcome
 
@@ -8,6 +9,10 @@ Public Class frmWelcome
     End Sub
 
     Private Sub frmWelcome_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        My.Computer.Registry.SetValue(My.Settings.RegLocation, "AppDir", Directory.GetCurrentDirectory)
+        My.Computer.Registry.SetValue(My.Settings.RegLocation, "AppExe", Application.ExecutablePath)
+        My.Computer.Registry.SetValue(My.Settings.RegLocation, "AppVer", cTiming.appVer.ToString)
+
         If My.Computer.Registry.GetValue(My.Settings.RegLocation, "AppConfigured", Nothing) Then
             If My.Computer.Registry.GetValue(My.Settings.RegLocation, "Theme", Nothing) = "LIGHT" Then
                 SkinManager.Theme = MaterialSkinManager.Themes.LIGHT

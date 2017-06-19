@@ -15,9 +15,11 @@ Public Class frmHome
     Private Sub frmHome_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Dim SkinManager As MaterialSkinManager = MaterialSkinManager.Instance
         SkinManager.AddFormToManage(Me)
-        lblPrice.Font = New Font("Roboto Light", 25)
-        lblHoldingsFiat.Font = New Font("Roboto Light", 25)
-        lblHoldingsCoin.Font = New Font("Roboto Light", 30)
+        'Due to the nature of the MaterialSkin library (initialises fonts in the constructor), we have to manually specify custom fonts at runtime
+        'lblPrice.Font = New Font("Roboto Light", 25)
+        'lblHoldingsFiat.Font = New Font("Roboto Light", 25)
+        'lblHoldingsCoin.Font = New Font("Roboto Light", 30)
+        lblComingSoon.Font = New Font("Roboto Light", 15)
         lblLoading.Font = New Font("Roboto Light", 20)
         lblAltPrices.Font = New Font("Roboto Light", 15)
         lblAltHoldings.Font = New Font("Roboto Light", 15)
@@ -98,8 +100,8 @@ Public Class frmHome
         lblAltHoldings.Text = lblAltHoldings.Text.TrimEnd(" ")
         lblAltHoldings.Text = lblAltHoldings.Text.TrimEnd("|")
         lblAltHoldings.Text = coinCodes + " Holdings - " + lblAltHoldings.Text
-        lblPrice.Text = fiatMain + ": " + CDec(serverResponse.SelectToken(fiatMain)).ToString("n2")
-        lblHoldingsCoin.Text = totalHoldings.ToString + " " + coinCodes
+        'lblPrice.Text = fiatMain + ": " + CDec(serverResponse.SelectToken(fiatMain)).ToString("n2")
+        'lblHoldingsCoin.Text = totalHoldings.ToString + " " + coinCodes
         tsCoinPrice.Text = coinCodes + " Price: " + fiatMain + " " + CDec(serverResponse.SelectToken(fiatMain)).ToString("n2")
         tsHoldingsValue.Text = coinCodes + " Holdings Value: " + fiatMain + " " + (totalHoldings * CDec(serverResponse.SelectToken(fiatMain))).ToString("n2")
         prgLoading.Hide()
@@ -108,7 +110,7 @@ Public Class frmHome
         btnFeedback.Show()
         tabContent.Show()
         tbsContent.Show()
-        lblHoldingsFiat.Text = fiatMain + ": " + (totalHoldings * CDec(serverResponse.SelectToken(fiatMain))).ToString("n2")
+        'lblHoldingsFiat.Text = fiatMain + ": " + (totalHoldings * CDec(serverResponse.SelectToken(fiatMain))).ToString("n2")
 
         Dim d1 As DateTime = DateTime.Today
         Dim d2 As DateTime = Convert.ToDateTime(My.Computer.Registry.GetValue(My.Settings.RegLocation, "InvestDate", Nothing))

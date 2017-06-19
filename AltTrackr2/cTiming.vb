@@ -1,5 +1,6 @@
 ﻿Public Class cTiming
 
+    Public Shared appVer As Decimal = 2.0
     Public Shared Sub transitionForms(fromForm As Form, toForm As Form)
         Dim opacityStepping As Double = 0.1
         toForm.Opacity = 1

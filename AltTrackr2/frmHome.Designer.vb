@@ -23,12 +23,8 @@ Partial Class frmHome
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Me.lblPrice = New MaterialSkin.Controls.MaterialLabel()
-        Me.MaterialLabel1 = New MaterialSkin.Controls.MaterialLabel()
         Me.MaterialRaisedButton1 = New MaterialSkin.Controls.MaterialRaisedButton()
         Me.MaterialRaisedButton2 = New MaterialSkin.Controls.MaterialRaisedButton()
-        Me.lblHoldingsFiat = New MaterialSkin.Controls.MaterialLabel()
-        Me.lblHoldingsCoin = New MaterialSkin.Controls.MaterialLabel()
         Me.MaterialRaisedButton3 = New MaterialSkin.Controls.MaterialRaisedButton()
         Me.bkgGetPrices = New System.ComponentModel.BackgroundWorker()
         Me.lblAltPrices = New MaterialSkin.Controls.MaterialLabel()
@@ -49,6 +45,7 @@ Partial Class frmHome
         Me.tabContent = New MaterialSkin.Controls.MaterialTabControl()
         Me.tabDailyBrief = New System.Windows.Forms.TabPage()
         Me.tabDetails = New System.Windows.Forms.TabPage()
+        Me.lblComingSoon = New MaterialSkin.Controls.MaterialLabel()
         Me.tabSettings = New System.Windows.Forms.TabPage()
         Me.lblLastPriceUpdate = New MaterialSkin.Controls.MaterialLabel()
         Me.MaterialLabel3 = New MaterialSkin.Controls.MaterialLabel()
@@ -70,34 +67,6 @@ Partial Class frmHome
         Me.tabSettings.SuspendLayout()
         Me.pnlApplySettings.SuspendLayout()
         Me.SuspendLayout()
-        '
-        'lblPrice
-        '
-        Me.lblPrice.BackColor = System.Drawing.Color.Transparent
-        Me.lblPrice.Depth = 0
-        Me.lblPrice.Font = New System.Drawing.Font("Roboto", 11.0!)
-        Me.lblPrice.ForeColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.lblPrice.Location = New System.Drawing.Point(414, 201)
-        Me.lblPrice.MouseState = MaterialSkin.MouseState.HOVER
-        Me.lblPrice.Name = "lblPrice"
-        Me.lblPrice.Size = New System.Drawing.Size(411, 45)
-        Me.lblPrice.TabIndex = 1
-        Me.lblPrice.Text = "$00.00"
-        Me.lblPrice.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'MaterialLabel1
-        '
-        Me.MaterialLabel1.BackColor = System.Drawing.Color.Transparent
-        Me.MaterialLabel1.Depth = 0
-        Me.MaterialLabel1.Font = New System.Drawing.Font("Roboto", 11.0!)
-        Me.MaterialLabel1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.MaterialLabel1.Location = New System.Drawing.Point(509, 172)
-        Me.MaterialLabel1.MouseState = MaterialSkin.MouseState.HOVER
-        Me.MaterialLabel1.Name = "MaterialLabel1"
-        Me.MaterialLabel1.Size = New System.Drawing.Size(223, 29)
-        Me.MaterialLabel1.TabIndex = 4
-        Me.MaterialLabel1.Text = "Price"
-        Me.MaterialLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'MaterialRaisedButton1
         '
@@ -126,34 +95,6 @@ Partial Class frmHome
         Me.MaterialRaisedButton2.TabIndex = 6
         Me.MaterialRaisedButton2.Text = "Edit Holdings"
         Me.MaterialRaisedButton2.UseVisualStyleBackColor = False
-        '
-        'lblHoldingsFiat
-        '
-        Me.lblHoldingsFiat.BackColor = System.Drawing.Color.Transparent
-        Me.lblHoldingsFiat.Depth = 0
-        Me.lblHoldingsFiat.Font = New System.Drawing.Font("Roboto", 11.0!)
-        Me.lblHoldingsFiat.ForeColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.lblHoldingsFiat.Location = New System.Drawing.Point(69, 207)
-        Me.lblHoldingsFiat.MouseState = MaterialSkin.MouseState.HOVER
-        Me.lblHoldingsFiat.Name = "lblHoldingsFiat"
-        Me.lblHoldingsFiat.Size = New System.Drawing.Size(435, 45)
-        Me.lblHoldingsFiat.TabIndex = 7
-        Me.lblHoldingsFiat.Text = "$00.00/$00.00"
-        Me.lblHoldingsFiat.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'lblHoldingsCoin
-        '
-        Me.lblHoldingsCoin.BackColor = System.Drawing.Color.Transparent
-        Me.lblHoldingsCoin.Depth = 0
-        Me.lblHoldingsCoin.Font = New System.Drawing.Font("Roboto", 11.0!)
-        Me.lblHoldingsCoin.ForeColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.lblHoldingsCoin.Location = New System.Drawing.Point(68, 170)
-        Me.lblHoldingsCoin.MouseState = MaterialSkin.MouseState.HOVER
-        Me.lblHoldingsCoin.Name = "lblHoldingsCoin"
-        Me.lblHoldingsCoin.Size = New System.Drawing.Size(435, 45)
-        Me.lblHoldingsCoin.TabIndex = 9
-        Me.lblHoldingsCoin.Text = "0XMR"
-        Me.lblHoldingsCoin.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'MaterialRaisedButton3
         '
@@ -199,6 +140,7 @@ Partial Class frmHome
         Me.MaterialRaisedButton7.TabIndex = 17
         Me.MaterialRaisedButton7.Text = "View Charts"
         Me.MaterialRaisedButton7.UseVisualStyleBackColor = True
+        Me.MaterialRaisedButton7.Visible = False
         '
         'MaterialRaisedButton6
         '
@@ -211,6 +153,7 @@ Partial Class frmHome
         Me.MaterialRaisedButton6.TabIndex = 16
         Me.MaterialRaisedButton6.Text = "Sell XMR"
         Me.MaterialRaisedButton6.UseVisualStyleBackColor = True
+        Me.MaterialRaisedButton6.Visible = False
         '
         'MaterialRaisedButton5
         '
@@ -223,6 +166,7 @@ Partial Class frmHome
         Me.MaterialRaisedButton5.TabIndex = 15
         Me.MaterialRaisedButton5.Text = "Buy XMR"
         Me.MaterialRaisedButton5.UseVisualStyleBackColor = True
+        Me.MaterialRaisedButton5.Visible = False
         '
         'lblFriendlyPrice
         '
@@ -266,6 +210,7 @@ Partial Class frmHome
         Me.MaterialRaisedButton4.TabIndex = 12
         Me.MaterialRaisedButton4.Text = "Send Test Notification"
         Me.MaterialRaisedButton4.UseVisualStyleBackColor = True
+        Me.MaterialRaisedButton4.Visible = False
         '
         'prgLoading
         '
@@ -367,14 +312,11 @@ Partial Class frmHome
         '
         'tabDetails
         '
+        Me.tabDetails.Controls.Add(Me.lblComingSoon)
         Me.tabDetails.Controls.Add(Me.MaterialRaisedButton7)
-        Me.tabDetails.Controls.Add(Me.lblHoldingsCoin)
-        Me.tabDetails.Controls.Add(Me.lblHoldingsFiat)
         Me.tabDetails.Controls.Add(Me.MaterialRaisedButton4)
         Me.tabDetails.Controls.Add(Me.MaterialRaisedButton6)
         Me.tabDetails.Controls.Add(Me.MaterialRaisedButton5)
-        Me.tabDetails.Controls.Add(Me.MaterialLabel1)
-        Me.tabDetails.Controls.Add(Me.lblPrice)
         Me.tabDetails.Location = New System.Drawing.Point(4, 22)
         Me.tabDetails.Name = "tabDetails"
         Me.tabDetails.Padding = New System.Windows.Forms.Padding(3)
@@ -382,6 +324,21 @@ Partial Class frmHome
         Me.tabDetails.TabIndex = 1
         Me.tabDetails.Text = "Details"
         Me.tabDetails.UseVisualStyleBackColor = True
+        '
+        'lblComingSoon
+        '
+        Me.lblComingSoon.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.lblComingSoon.BackColor = System.Drawing.Color.Transparent
+        Me.lblComingSoon.Depth = 0
+        Me.lblComingSoon.Font = New System.Drawing.Font("Roboto", 11.0!)
+        Me.lblComingSoon.ForeColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.lblComingSoon.Location = New System.Drawing.Point(6, 170)
+        Me.lblComingSoon.MouseState = MaterialSkin.MouseState.HOVER
+        Me.lblComingSoon.Name = "lblComingSoon"
+        Me.lblComingSoon.Size = New System.Drawing.Size(872, 28)
+        Me.lblComingSoon.TabIndex = 18
+        Me.lblComingSoon.Text = "XMR Prices - USD: 00.00 | AUD: 00.00 | GBP: 00.00"
+        Me.lblComingSoon.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'tabSettings
         '
@@ -599,13 +556,8 @@ Partial Class frmHome
         Me.ResumeLayout(False)
 
     End Sub
-
-    Friend WithEvents lblPrice As MaterialSkin.Controls.MaterialLabel
-    Friend WithEvents MaterialLabel1 As MaterialSkin.Controls.MaterialLabel
     Friend WithEvents MaterialRaisedButton1 As MaterialSkin.Controls.MaterialRaisedButton
     Friend WithEvents MaterialRaisedButton2 As MaterialSkin.Controls.MaterialRaisedButton
-    Friend WithEvents lblHoldingsFiat As MaterialSkin.Controls.MaterialLabel
-    Friend WithEvents lblHoldingsCoin As MaterialSkin.Controls.MaterialLabel
     Friend WithEvents MaterialRaisedButton3 As MaterialSkin.Controls.MaterialRaisedButton
     Friend WithEvents bkgGetPrices As System.ComponentModel.BackgroundWorker
     Friend WithEvents lblAltPrices As MaterialSkin.Controls.MaterialLabel
@@ -640,4 +592,5 @@ Partial Class frmHome
     Friend WithEvents btnCancelChanges As MaterialSkin.Controls.MaterialRaisedButton
     Friend WithEvents lblUnsaved As MaterialSkin.Controls.MaterialLabel
     Friend WithEvents lblPipe As MaterialSkin.Controls.MaterialLabel
+    Friend WithEvents lblComingSoon As MaterialSkin.Controls.MaterialLabel
 End Class
