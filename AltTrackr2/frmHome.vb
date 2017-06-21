@@ -24,6 +24,14 @@ Public Class frmHome
         lblAltPrices.Font = New Font("Roboto Light", 15)
         lblAltHoldings.Font = New Font("Roboto Light", 15)
         lblFriendlyPrice.Font = New Font("Roboto Light", 12)
+        tabContent.SelectedTab = tabDetails
+        lblComingSoon.Font = New Font("Roboto Light", 30)
+        tabContent.SelectedTab = tabSettings
+        lblSVersion.Text = "Software Version v" + cTiming.appVer.ToString("n2")
+        lblSYourInvestment.Font = New Font("Roboto Light", 17)
+        lblSUpdates.Font = New Font("Roboto Light", 17)
+        tabContent.SelectedTab = tabDailyBrief
+        Me.Text = Me.Text + " v" + cTiming.appVer.ToString("n2")
         GetSettings()
         GetPrices()
     End Sub
@@ -35,7 +43,18 @@ Public Class frmHome
     End Function
 
     Private Sub GetSettings()
+        totalHoldings = CDec(My.Computer.Registry.GetValue(My.Settings.RegLocation, "TotalHoldings", Nothing))
+        coinCodes = My.Computer.Registry.GetValue(My.Settings.RegLocation, "AppCoins", Nothing)
+        fiatMain = My.Computer.Registry.GetValue(My.Settings.RegLocation, "AppMainFiat", Nothing)
+        fiatCodes = My.Computer.Registry.GetValue(My.Settings.RegLocation, "AppAltFiats", Nothing)
+        initialInvestment = My.Computer.Registry.GetValue(My.Settings.RegLocation, "InitialInvestment", Nothing)
+
         txtRefreshMins.Text = (CInt(My.Computer.Registry.GetValue(My.Settings.RegLocation, "RefreshInterval", Nothing)) / 60000).ToString("n2")
+        txtSHoldings.Text = totalHoldings.ToString
+        txtSInitialInvestment.Text = initialInvestment
+        txtSInvestDate.Text = My.Computer.Registry.GetValue(My.Settings.RegLocation, "InvestDate", Nothing)
+        lblSCoinCode.Text = coinCodes
+        lblSFiatCode.Text = fiatMain
     End Sub
 
     Private Sub MaterialRaisedButton3_Click(sender As Object, e As EventArgs) Handles MaterialRaisedButton3.Click
@@ -137,10 +156,21 @@ Public Class frmHome
     End Sub
 
     Private Sub btnApplyChanges_Click(sender As Object, e As EventArgs) Handles btnApplyChanges.Click
+        Try
+            Dim format() = {"dd/MM/yyyy", "d/M/yyyy", "dd-MM-yyyy"}
+            Dim InvestStrToDate As Date = Date.ParseExact(txtSInvestDate.Text, format, System.Globalization.DateTimeFormatInfo.InvariantInfo, Globalization.DateTimeStyles.None)
+            My.Computer.Registry.SetValue(My.Settings.RegLocation, "InvestDate", InvestStrToDate.ToShortDateString)
+        Catch ex As Exception
+            MsgBox("You entered an invalid date or date format" + vbNewLine + vbNewLine + "Accepted formats are: dd/MM/yyyy, d/M/yyyy, dd-MM-yyyy" + vbNewLine + "(eg: 10/10/2016)" + vbNewLine + vbNewLine + "Please correct your entry to change settings, or cancel your changes.", MsgBoxStyle.Exclamation, "Incorrect Date Format")
+            Exit Sub
+        End Try
         My.Computer.Registry.SetValue(My.Settings.RegLocation, "RefreshInterval", CInt((CDec(txtRefreshMins.Text) * 60000)).ToString)
+        My.Computer.Registry.SetValue(My.Settings.RegLocation, "TotalHoldings", txtSHoldings.Text)
+        My.Computer.Registry.SetValue(My.Settings.RegLocation, "InitialInvestment", txtSInitialInvestment.Text)
         tmrRefresh.Interval = txtRefreshMins.Text * 60000
         GetSettings()
         HideChangeAlert()
+        GetPrices(True)
     End Sub
 
     Private Sub ShowChangeAlert()
@@ -175,6 +205,18 @@ Public Class frmHome
 
     Private Sub txtRefreshMins_TextChanged(sender As Object, e As EventArgs) Handles txtRefreshMins.TextChanged
         If Not txtRefreshMins.Text = (CInt(My.Computer.Registry.GetValue(My.Settings.RegLocation, "RefreshInterval", Nothing)) / 60000).ToString("n2") Then ShowChangeAlert()
+    End Sub
+
+    Private Sub txtHoldingsAddEdit_TextChanged(sender As Object, e As EventArgs) Handles txtSHoldings.TextChanged
+        If Not txtSHoldings.Text = totalHoldings.ToString Then ShowChangeAlert()
+    End Sub
+
+    Private Sub txtSInitialInvestment_TextChanged(sender As Object, e As EventArgs) Handles txtSInitialInvestment.TextChanged
+        If Not txtSInitialInvestment.Text = initialInvestment Then ShowChangeAlert()
+    End Sub
+
+    Private Sub txtSInvestDate_TextChanged(sender As Object, e As EventArgs) Handles txtSInvestDate.TextChanged
+        If Not txtSInvestDate.Text = My.Computer.Registry.GetValue(My.Settings.RegLocation, "InvestDate", Nothing) Then ShowChangeAlert()
     End Sub
 
     Private Sub txtRefreshMins_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles txtRefreshMins.KeyPress

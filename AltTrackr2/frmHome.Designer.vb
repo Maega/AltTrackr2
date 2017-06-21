@@ -23,8 +23,6 @@ Partial Class frmHome
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Me.MaterialRaisedButton1 = New MaterialSkin.Controls.MaterialRaisedButton()
-        Me.MaterialRaisedButton2 = New MaterialSkin.Controls.MaterialRaisedButton()
         Me.MaterialRaisedButton3 = New MaterialSkin.Controls.MaterialRaisedButton()
         Me.bkgGetPrices = New System.ComponentModel.BackgroundWorker()
         Me.lblAltPrices = New MaterialSkin.Controls.MaterialLabel()
@@ -47,6 +45,17 @@ Partial Class frmHome
         Me.tabDetails = New System.Windows.Forms.TabPage()
         Me.lblComingSoon = New MaterialSkin.Controls.MaterialLabel()
         Me.tabSettings = New System.Windows.Forms.TabPage()
+        Me.lblSYourInvestment = New MaterialSkin.Controls.MaterialLabel()
+        Me.lblSUpdates = New MaterialSkin.Controls.MaterialLabel()
+        Me.lblSFiatCode = New MaterialSkin.Controls.MaterialLabel()
+        Me.MaterialLabel5 = New MaterialSkin.Controls.MaterialLabel()
+        Me.txtSInvestDate = New MaterialSkin.Controls.MaterialSingleLineTextField()
+        Me.MaterialLabel4 = New MaterialSkin.Controls.MaterialLabel()
+        Me.txtSInitialInvestment = New MaterialSkin.Controls.MaterialSingleLineTextField()
+        Me.MaterialLabel1 = New MaterialSkin.Controls.MaterialLabel()
+        Me.lblSCoinCode = New MaterialSkin.Controls.MaterialLabel()
+        Me.MaterialDivider1 = New MaterialSkin.Controls.MaterialDivider()
+        Me.txtSHoldings = New MaterialSkin.Controls.MaterialSingleLineTextField()
         Me.lblLastPriceUpdate = New MaterialSkin.Controls.MaterialLabel()
         Me.MaterialLabel3 = New MaterialSkin.Controls.MaterialLabel()
         Me.txtRefreshMins = New MaterialSkin.Controls.MaterialSingleLineTextField()
@@ -60,6 +69,8 @@ Partial Class frmHome
         Me.lblPipe = New MaterialSkin.Controls.MaterialLabel()
         Me.lblUnsaved = New MaterialSkin.Controls.MaterialLabel()
         Me.btnCancelChanges = New MaterialSkin.Controls.MaterialRaisedButton()
+        Me.lblSVersion = New MaterialSkin.Controls.MaterialLabel()
+        Me.btnSCheckForUpdates = New MaterialSkin.Controls.MaterialRaisedButton()
         Me.cxtTray.SuspendLayout()
         Me.tabContent.SuspendLayout()
         Me.tabDailyBrief.SuspendLayout()
@@ -68,43 +79,15 @@ Partial Class frmHome
         Me.pnlApplySettings.SuspendLayout()
         Me.SuspendLayout()
         '
-        'MaterialRaisedButton1
-        '
-        Me.MaterialRaisedButton1.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.MaterialRaisedButton1.BackColor = System.Drawing.SystemColors.Control
-        Me.MaterialRaisedButton1.Depth = 0
-        Me.MaterialRaisedButton1.Location = New System.Drawing.Point(275, 102)
-        Me.MaterialRaisedButton1.MouseState = MaterialSkin.MouseState.HOVER
-        Me.MaterialRaisedButton1.Name = "MaterialRaisedButton1"
-        Me.MaterialRaisedButton1.Primary = True
-        Me.MaterialRaisedButton1.Size = New System.Drawing.Size(160, 23)
-        Me.MaterialRaisedButton1.TabIndex = 5
-        Me.MaterialRaisedButton1.Text = "Add Holdings"
-        Me.MaterialRaisedButton1.UseVisualStyleBackColor = False
-        '
-        'MaterialRaisedButton2
-        '
-        Me.MaterialRaisedButton2.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.MaterialRaisedButton2.BackColor = System.Drawing.Color.Transparent
-        Me.MaterialRaisedButton2.Depth = 0
-        Me.MaterialRaisedButton2.Location = New System.Drawing.Point(454, 102)
-        Me.MaterialRaisedButton2.MouseState = MaterialSkin.MouseState.HOVER
-        Me.MaterialRaisedButton2.Name = "MaterialRaisedButton2"
-        Me.MaterialRaisedButton2.Primary = True
-        Me.MaterialRaisedButton2.Size = New System.Drawing.Size(160, 23)
-        Me.MaterialRaisedButton2.TabIndex = 6
-        Me.MaterialRaisedButton2.Text = "Edit Holdings"
-        Me.MaterialRaisedButton2.UseVisualStyleBackColor = False
-        '
         'MaterialRaisedButton3
         '
         Me.MaterialRaisedButton3.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.MaterialRaisedButton3.Depth = 0
-        Me.MaterialRaisedButton3.Location = New System.Drawing.Point(344, 233)
+        Me.MaterialRaisedButton3.Location = New System.Drawing.Point(48, 219)
         Me.MaterialRaisedButton3.MouseState = MaterialSkin.MouseState.HOVER
         Me.MaterialRaisedButton3.Name = "MaterialRaisedButton3"
         Me.MaterialRaisedButton3.Primary = True
-        Me.MaterialRaisedButton3.Size = New System.Drawing.Size(196, 23)
+        Me.MaterialRaisedButton3.Size = New System.Drawing.Size(161, 23)
         Me.MaterialRaisedButton3.TabIndex = 10
         Me.MaterialRaisedButton3.Text = "Refresh Prices Now"
         Me.MaterialRaisedButton3.UseVisualStyleBackColor = True
@@ -284,8 +267,7 @@ Partial Class frmHome
         '
         'tabContent
         '
-        Me.tabContent.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.tabContent.Anchor = System.Windows.Forms.AnchorStyles.Top
         Me.tabContent.Controls.Add(Me.tabDailyBrief)
         Me.tabContent.Controls.Add(Me.tabDetails)
         Me.tabContent.Controls.Add(Me.tabSettings)
@@ -335,20 +317,31 @@ Partial Class frmHome
         Me.lblComingSoon.Location = New System.Drawing.Point(6, 170)
         Me.lblComingSoon.MouseState = MaterialSkin.MouseState.HOVER
         Me.lblComingSoon.Name = "lblComingSoon"
-        Me.lblComingSoon.Size = New System.Drawing.Size(872, 28)
+        Me.lblComingSoon.Size = New System.Drawing.Size(872, 51)
         Me.lblComingSoon.TabIndex = 18
-        Me.lblComingSoon.Text = "XMR Prices - USD: 00.00 | AUD: 00.00 | GBP: 00.00"
+        Me.lblComingSoon.Text = "Under Active Development" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "The 'Details' tab will be included in an update soon"
         Me.lblComingSoon.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'tabSettings
         '
         Me.tabSettings.BackColor = System.Drawing.SystemColors.Control
+        Me.tabSettings.Controls.Add(Me.btnSCheckForUpdates)
+        Me.tabSettings.Controls.Add(Me.lblSVersion)
+        Me.tabSettings.Controls.Add(Me.lblSYourInvestment)
+        Me.tabSettings.Controls.Add(Me.lblSUpdates)
+        Me.tabSettings.Controls.Add(Me.lblSFiatCode)
+        Me.tabSettings.Controls.Add(Me.MaterialLabel5)
+        Me.tabSettings.Controls.Add(Me.txtSInvestDate)
+        Me.tabSettings.Controls.Add(Me.MaterialLabel4)
+        Me.tabSettings.Controls.Add(Me.txtSInitialInvestment)
+        Me.tabSettings.Controls.Add(Me.MaterialLabel1)
+        Me.tabSettings.Controls.Add(Me.lblSCoinCode)
+        Me.tabSettings.Controls.Add(Me.MaterialDivider1)
+        Me.tabSettings.Controls.Add(Me.txtSHoldings)
         Me.tabSettings.Controls.Add(Me.lblLastPriceUpdate)
         Me.tabSettings.Controls.Add(Me.MaterialLabel3)
         Me.tabSettings.Controls.Add(Me.txtRefreshMins)
         Me.tabSettings.Controls.Add(Me.MaterialLabel2)
-        Me.tabSettings.Controls.Add(Me.MaterialRaisedButton1)
-        Me.tabSettings.Controls.Add(Me.MaterialRaisedButton2)
         Me.tabSettings.Controls.Add(Me.MaterialRaisedButton3)
         Me.tabSettings.Location = New System.Drawing.Point(4, 22)
         Me.tabSettings.Name = "tabSettings"
@@ -356,13 +349,163 @@ Partial Class frmHome
         Me.tabSettings.TabIndex = 2
         Me.tabSettings.Text = "Settings"
         '
+        'lblSYourInvestment
+        '
+        Me.lblSYourInvestment.Depth = 0
+        Me.lblSYourInvestment.Font = New System.Drawing.Font("Roboto Light", 17.0!)
+        Me.lblSYourInvestment.ForeColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.lblSYourInvestment.Location = New System.Drawing.Point(438, 68)
+        Me.lblSYourInvestment.MouseState = MaterialSkin.MouseState.HOVER
+        Me.lblSYourInvestment.Name = "lblSYourInvestment"
+        Me.lblSYourInvestment.Size = New System.Drawing.Size(442, 33)
+        Me.lblSYourInvestment.TabIndex = 26
+        Me.lblSYourInvestment.Text = "Your Investment"
+        Me.lblSYourInvestment.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'lblSUpdates
+        '
+        Me.lblSUpdates.Depth = 0
+        Me.lblSUpdates.Font = New System.Drawing.Font("Roboto Light", 17.0!)
+        Me.lblSUpdates.ForeColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.lblSUpdates.Location = New System.Drawing.Point(4, 68)
+        Me.lblSUpdates.MouseState = MaterialSkin.MouseState.HOVER
+        Me.lblSUpdates.Name = "lblSUpdates"
+        Me.lblSUpdates.Size = New System.Drawing.Size(421, 33)
+        Me.lblSUpdates.TabIndex = 25
+        Me.lblSUpdates.Text = "Updates"
+        Me.lblSUpdates.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'lblSFiatCode
+        '
+        Me.lblSFiatCode.Depth = 0
+        Me.lblSFiatCode.Font = New System.Drawing.Font("Roboto", 11.0!)
+        Me.lblSFiatCode.ForeColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.lblSFiatCode.Location = New System.Drawing.Point(802, 178)
+        Me.lblSFiatCode.MouseState = MaterialSkin.MouseState.HOVER
+        Me.lblSFiatCode.Name = "lblSFiatCode"
+        Me.lblSFiatCode.Size = New System.Drawing.Size(78, 20)
+        Me.lblSFiatCode.TabIndex = 24
+        Me.lblSFiatCode.Text = "CODE"
+        Me.lblSFiatCode.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'MaterialLabel5
+        '
+        Me.MaterialLabel5.Depth = 0
+        Me.MaterialLabel5.Font = New System.Drawing.Font("Roboto", 11.0!)
+        Me.MaterialLabel5.ForeColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.MaterialLabel5.Location = New System.Drawing.Point(471, 219)
+        Me.MaterialLabel5.MouseState = MaterialSkin.MouseState.HOVER
+        Me.MaterialLabel5.Name = "MaterialLabel5"
+        Me.MaterialLabel5.Size = New System.Drawing.Size(117, 23)
+        Me.MaterialLabel5.TabIndex = 23
+        Me.MaterialLabel5.Text = "Invest Date:"
+        Me.MaterialLabel5.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
+        'txtSInvestDate
+        '
+        Me.txtSInvestDate.Depth = 0
+        Me.txtSInvestDate.Hint = ""
+        Me.txtSInvestDate.Location = New System.Drawing.Point(595, 219)
+        Me.txtSInvestDate.MouseState = MaterialSkin.MouseState.HOVER
+        Me.txtSInvestDate.Name = "txtSInvestDate"
+        Me.txtSInvestDate.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
+        Me.txtSInvestDate.SelectedText = ""
+        Me.txtSInvestDate.SelectionLength = 0
+        Me.txtSInvestDate.SelectionStart = 0
+        Me.txtSInvestDate.Size = New System.Drawing.Size(201, 23)
+        Me.txtSInvestDate.TabIndex = 22
+        Me.txtSInvestDate.Text = "00/00/0000"
+        Me.txtSInvestDate.UseSystemPasswordChar = False
+        '
+        'MaterialLabel4
+        '
+        Me.MaterialLabel4.Depth = 0
+        Me.MaterialLabel4.Font = New System.Drawing.Font("Roboto", 11.0!)
+        Me.MaterialLabel4.ForeColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.MaterialLabel4.Location = New System.Drawing.Point(453, 177)
+        Me.MaterialLabel4.MouseState = MaterialSkin.MouseState.HOVER
+        Me.MaterialLabel4.Name = "MaterialLabel4"
+        Me.MaterialLabel4.Size = New System.Drawing.Size(135, 23)
+        Me.MaterialLabel4.TabIndex = 21
+        Me.MaterialLabel4.Text = "Initial Investment:"
+        Me.MaterialLabel4.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
+        'txtSInitialInvestment
+        '
+        Me.txtSInitialInvestment.Depth = 0
+        Me.txtSInitialInvestment.Hint = ""
+        Me.txtSInitialInvestment.Location = New System.Drawing.Point(595, 177)
+        Me.txtSInitialInvestment.MouseState = MaterialSkin.MouseState.HOVER
+        Me.txtSInitialInvestment.Name = "txtSInitialInvestment"
+        Me.txtSInitialInvestment.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
+        Me.txtSInitialInvestment.SelectedText = ""
+        Me.txtSInitialInvestment.SelectionLength = 0
+        Me.txtSInitialInvestment.SelectionStart = 0
+        Me.txtSInitialInvestment.Size = New System.Drawing.Size(201, 23)
+        Me.txtSInitialInvestment.TabIndex = 19
+        Me.txtSInitialInvestment.Text = "00.00"
+        Me.txtSInitialInvestment.UseSystemPasswordChar = False
+        '
+        'MaterialLabel1
+        '
+        Me.MaterialLabel1.Depth = 0
+        Me.MaterialLabel1.Font = New System.Drawing.Font("Roboto", 11.0!)
+        Me.MaterialLabel1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.MaterialLabel1.Location = New System.Drawing.Point(471, 136)
+        Me.MaterialLabel1.MouseState = MaterialSkin.MouseState.HOVER
+        Me.MaterialLabel1.Name = "MaterialLabel1"
+        Me.MaterialLabel1.Size = New System.Drawing.Size(117, 23)
+        Me.MaterialLabel1.TabIndex = 18
+        Me.MaterialLabel1.Text = "Total Holdings:"
+        Me.MaterialLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
+        'lblSCoinCode
+        '
+        Me.lblSCoinCode.Depth = 0
+        Me.lblSCoinCode.Font = New System.Drawing.Font("Roboto", 11.0!)
+        Me.lblSCoinCode.ForeColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.lblSCoinCode.Location = New System.Drawing.Point(802, 137)
+        Me.lblSCoinCode.MouseState = MaterialSkin.MouseState.HOVER
+        Me.lblSCoinCode.Name = "lblSCoinCode"
+        Me.lblSCoinCode.Size = New System.Drawing.Size(78, 20)
+        Me.lblSCoinCode.TabIndex = 17
+        Me.lblSCoinCode.Text = "CODE"
+        Me.lblSCoinCode.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'MaterialDivider1
+        '
+        Me.MaterialDivider1.BackColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.MaterialDivider1.Depth = 0
+        Me.MaterialDivider1.Location = New System.Drawing.Point(431, 103)
+        Me.MaterialDivider1.MouseState = MaterialSkin.MouseState.HOVER
+        Me.MaterialDivider1.Name = "MaterialDivider1"
+        Me.MaterialDivider1.Size = New System.Drawing.Size(1, 179)
+        Me.MaterialDivider1.TabIndex = 16
+        Me.MaterialDivider1.Text = "MaterialDivider1"
+        '
+        'txtSHoldings
+        '
+        Me.txtSHoldings.Depth = 0
+        Me.txtSHoldings.Hint = ""
+        Me.txtSHoldings.Location = New System.Drawing.Point(595, 136)
+        Me.txtSHoldings.MouseState = MaterialSkin.MouseState.HOVER
+        Me.txtSHoldings.Name = "txtSHoldings"
+        Me.txtSHoldings.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
+        Me.txtSHoldings.SelectedText = ""
+        Me.txtSHoldings.SelectionLength = 0
+        Me.txtSHoldings.SelectionStart = 0
+        Me.txtSHoldings.Size = New System.Drawing.Size(201, 23)
+        Me.txtSHoldings.TabIndex = 15
+        Me.txtSHoldings.Text = "00.00"
+        Me.txtSHoldings.UseSystemPasswordChar = False
+        '
         'lblLastPriceUpdate
         '
         Me.lblLastPriceUpdate.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.lblLastPriceUpdate.Depth = 0
         Me.lblLastPriceUpdate.Font = New System.Drawing.Font("Roboto", 11.0!)
         Me.lblLastPriceUpdate.ForeColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.lblLastPriceUpdate.Location = New System.Drawing.Point(271, 197)
+        Me.lblLastPriceUpdate.Location = New System.Drawing.Point(40, 177)
         Me.lblLastPriceUpdate.MouseState = MaterialSkin.MouseState.HOVER
         Me.lblLastPriceUpdate.Name = "lblLastPriceUpdate"
         Me.lblLastPriceUpdate.Size = New System.Drawing.Size(343, 25)
@@ -377,7 +520,7 @@ Partial Class frmHome
         Me.MaterialLabel3.Depth = 0
         Me.MaterialLabel3.Font = New System.Drawing.Font("Roboto", 11.0!)
         Me.MaterialLabel3.ForeColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.MaterialLabel3.Location = New System.Drawing.Point(277, 158)
+        Me.MaterialLabel3.Location = New System.Drawing.Point(44, 138)
         Me.MaterialLabel3.MouseState = MaterialSkin.MouseState.HOVER
         Me.MaterialLabel3.Name = "MaterialLabel3"
         Me.MaterialLabel3.Size = New System.Drawing.Size(177, 19)
@@ -389,7 +532,7 @@ Partial Class frmHome
         Me.txtRefreshMins.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.txtRefreshMins.Depth = 0
         Me.txtRefreshMins.Hint = ""
-        Me.txtRefreshMins.Location = New System.Drawing.Point(460, 158)
+        Me.txtRefreshMins.Location = New System.Drawing.Point(227, 138)
         Me.txtRefreshMins.MouseState = MaterialSkin.MouseState.HOVER
         Me.txtRefreshMins.Name = "txtRefreshMins"
         Me.txtRefreshMins.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
@@ -408,7 +551,7 @@ Partial Class frmHome
         Me.MaterialLabel2.Depth = 0
         Me.MaterialLabel2.Font = New System.Drawing.Font("Roboto", 11.0!)
         Me.MaterialLabel2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.MaterialLabel2.Location = New System.Drawing.Point(548, 158)
+        Me.MaterialLabel2.Location = New System.Drawing.Point(315, 138)
         Me.MaterialLabel2.MouseState = MaterialSkin.MouseState.HOVER
         Me.MaterialLabel2.Name = "MaterialLabel2"
         Me.MaterialLabel2.Size = New System.Drawing.Size(63, 19)
@@ -530,6 +673,32 @@ Partial Class frmHome
         Me.btnCancelChanges.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.btnCancelChanges.UseVisualStyleBackColor = False
         '
+        'lblSVersion
+        '
+        Me.lblSVersion.Depth = 0
+        Me.lblSVersion.Font = New System.Drawing.Font("Roboto", 11.0!)
+        Me.lblSVersion.ForeColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.lblSVersion.Location = New System.Drawing.Point(339, 351)
+        Me.lblSVersion.MouseState = MaterialSkin.MouseState.HOVER
+        Me.lblSVersion.Name = "lblSVersion"
+        Me.lblSVersion.Size = New System.Drawing.Size(195, 18)
+        Me.lblSVersion.TabIndex = 27
+        Me.lblSVersion.Text = "Software Version: 0.00"
+        Me.lblSVersion.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'btnSCheckForUpdates
+        '
+        Me.btnSCheckForUpdates.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.btnSCheckForUpdates.Depth = 0
+        Me.btnSCheckForUpdates.Location = New System.Drawing.Point(215, 219)
+        Me.btnSCheckForUpdates.MouseState = MaterialSkin.MouseState.HOVER
+        Me.btnSCheckForUpdates.Name = "btnSCheckForUpdates"
+        Me.btnSCheckForUpdates.Primary = True
+        Me.btnSCheckForUpdates.Size = New System.Drawing.Size(161, 23)
+        Me.btnSCheckForUpdates.TabIndex = 28
+        Me.btnSCheckForUpdates.Text = "Check For Updates"
+        Me.btnSCheckForUpdates.UseVisualStyleBackColor = True
+        '
         'frmHome
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -556,8 +725,6 @@ Partial Class frmHome
         Me.ResumeLayout(False)
 
     End Sub
-    Friend WithEvents MaterialRaisedButton1 As MaterialSkin.Controls.MaterialRaisedButton
-    Friend WithEvents MaterialRaisedButton2 As MaterialSkin.Controls.MaterialRaisedButton
     Friend WithEvents MaterialRaisedButton3 As MaterialSkin.Controls.MaterialRaisedButton
     Friend WithEvents bkgGetPrices As System.ComponentModel.BackgroundWorker
     Friend WithEvents lblAltPrices As MaterialSkin.Controls.MaterialLabel
@@ -593,4 +760,17 @@ Partial Class frmHome
     Friend WithEvents lblUnsaved As MaterialSkin.Controls.MaterialLabel
     Friend WithEvents lblPipe As MaterialSkin.Controls.MaterialLabel
     Friend WithEvents lblComingSoon As MaterialSkin.Controls.MaterialLabel
+    Friend WithEvents MaterialDivider1 As MaterialSkin.Controls.MaterialDivider
+    Friend WithEvents txtSHoldings As MaterialSkin.Controls.MaterialSingleLineTextField
+    Friend WithEvents lblSCoinCode As MaterialSkin.Controls.MaterialLabel
+    Friend WithEvents lblSFiatCode As MaterialSkin.Controls.MaterialLabel
+    Friend WithEvents MaterialLabel5 As MaterialSkin.Controls.MaterialLabel
+    Friend WithEvents txtSInvestDate As MaterialSkin.Controls.MaterialSingleLineTextField
+    Friend WithEvents MaterialLabel4 As MaterialSkin.Controls.MaterialLabel
+    Friend WithEvents txtSInitialInvestment As MaterialSkin.Controls.MaterialSingleLineTextField
+    Friend WithEvents MaterialLabel1 As MaterialSkin.Controls.MaterialLabel
+    Friend WithEvents lblSYourInvestment As MaterialSkin.Controls.MaterialLabel
+    Friend WithEvents lblSUpdates As MaterialSkin.Controls.MaterialLabel
+    Friend WithEvents lblSVersion As MaterialSkin.Controls.MaterialLabel
+    Friend WithEvents btnSCheckForUpdates As MaterialSkin.Controls.MaterialRaisedButton
 End Class
