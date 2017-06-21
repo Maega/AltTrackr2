@@ -45,6 +45,8 @@ Partial Class frmHome
         Me.tabDetails = New System.Windows.Forms.TabPage()
         Me.lblComingSoon = New MaterialSkin.Controls.MaterialLabel()
         Me.tabSettings = New System.Windows.Forms.TabPage()
+        Me.btnSCheckForUpdates = New MaterialSkin.Controls.MaterialRaisedButton()
+        Me.lblSVersion = New MaterialSkin.Controls.MaterialLabel()
         Me.lblSYourInvestment = New MaterialSkin.Controls.MaterialLabel()
         Me.lblSUpdates = New MaterialSkin.Controls.MaterialLabel()
         Me.lblSFiatCode = New MaterialSkin.Controls.MaterialLabel()
@@ -69,14 +71,16 @@ Partial Class frmHome
         Me.lblPipe = New MaterialSkin.Controls.MaterialLabel()
         Me.lblUnsaved = New MaterialSkin.Controls.MaterialLabel()
         Me.btnCancelChanges = New MaterialSkin.Controls.MaterialRaisedButton()
-        Me.lblSVersion = New MaterialSkin.Controls.MaterialLabel()
-        Me.btnSCheckForUpdates = New MaterialSkin.Controls.MaterialRaisedButton()
+        Me.bkgCheckForUpdates = New System.ComponentModel.BackgroundWorker()
+        Me.cxtBtnCheckForUpdates = New MaterialSkin.Controls.MaterialContextMenuStrip()
+        Me.tsiVersion = New System.Windows.Forms.ToolStripMenuItem()
         Me.cxtTray.SuspendLayout()
         Me.tabContent.SuspendLayout()
         Me.tabDailyBrief.SuspendLayout()
         Me.tabDetails.SuspendLayout()
         Me.tabSettings.SuspendLayout()
         Me.pnlApplySettings.SuspendLayout()
+        Me.cxtBtnCheckForUpdates.SuspendLayout()
         Me.SuspendLayout()
         '
         'MaterialRaisedButton3
@@ -349,10 +353,38 @@ Partial Class frmHome
         Me.tabSettings.TabIndex = 2
         Me.tabSettings.Text = "Settings"
         '
+        'btnSCheckForUpdates
+        '
+        Me.btnSCheckForUpdates.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.btnSCheckForUpdates.ContextMenuStrip = Me.cxtBtnCheckForUpdates
+        Me.btnSCheckForUpdates.Depth = 0
+        Me.btnSCheckForUpdates.Location = New System.Drawing.Point(215, 219)
+        Me.btnSCheckForUpdates.MouseState = MaterialSkin.MouseState.HOVER
+        Me.btnSCheckForUpdates.Name = "btnSCheckForUpdates"
+        Me.btnSCheckForUpdates.Primary = True
+        Me.btnSCheckForUpdates.Size = New System.Drawing.Size(161, 23)
+        Me.btnSCheckForUpdates.TabIndex = 28
+        Me.btnSCheckForUpdates.Text = "Check for Updates"
+        Me.btnSCheckForUpdates.UseVisualStyleBackColor = True
+        '
+        'lblSVersion
+        '
+        Me.lblSVersion.Depth = 0
+        Me.lblSVersion.Font = New System.Drawing.Font("Roboto", 11.0!)
+        Me.lblSVersion.ForeColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.lblSVersion.Location = New System.Drawing.Point(339, 351)
+        Me.lblSVersion.MouseState = MaterialSkin.MouseState.HOVER
+        Me.lblSVersion.Name = "lblSVersion"
+        Me.lblSVersion.Size = New System.Drawing.Size(195, 18)
+        Me.lblSVersion.TabIndex = 27
+        Me.lblSVersion.Text = "Software Version: 0.00"
+        Me.lblSVersion.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.lblSVersion.Visible = False
+        '
         'lblSYourInvestment
         '
         Me.lblSYourInvestment.Depth = 0
-        Me.lblSYourInvestment.Font = New System.Drawing.Font("Roboto Light", 17.0!)
+        Me.lblSYourInvestment.Font = New System.Drawing.Font("Roboto", 11.0!)
         Me.lblSYourInvestment.ForeColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
         Me.lblSYourInvestment.Location = New System.Drawing.Point(438, 68)
         Me.lblSYourInvestment.MouseState = MaterialSkin.MouseState.HOVER
@@ -365,7 +397,7 @@ Partial Class frmHome
         'lblSUpdates
         '
         Me.lblSUpdates.Depth = 0
-        Me.lblSUpdates.Font = New System.Drawing.Font("Roboto Light", 17.0!)
+        Me.lblSUpdates.Font = New System.Drawing.Font("Roboto", 11.0!)
         Me.lblSUpdates.ForeColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
         Me.lblSUpdates.Location = New System.Drawing.Point(4, 68)
         Me.lblSUpdates.MouseState = MaterialSkin.MouseState.HOVER
@@ -673,31 +705,23 @@ Partial Class frmHome
         Me.btnCancelChanges.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.btnCancelChanges.UseVisualStyleBackColor = False
         '
-        'lblSVersion
+        'bkgCheckForUpdates
         '
-        Me.lblSVersion.Depth = 0
-        Me.lblSVersion.Font = New System.Drawing.Font("Roboto", 11.0!)
-        Me.lblSVersion.ForeColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.lblSVersion.Location = New System.Drawing.Point(339, 351)
-        Me.lblSVersion.MouseState = MaterialSkin.MouseState.HOVER
-        Me.lblSVersion.Name = "lblSVersion"
-        Me.lblSVersion.Size = New System.Drawing.Size(195, 18)
-        Me.lblSVersion.TabIndex = 27
-        Me.lblSVersion.Text = "Software Version: 0.00"
-        Me.lblSVersion.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
-        'btnSCheckForUpdates
+        'cxtBtnCheckForUpdates
         '
-        Me.btnSCheckForUpdates.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.btnSCheckForUpdates.Depth = 0
-        Me.btnSCheckForUpdates.Location = New System.Drawing.Point(215, 219)
-        Me.btnSCheckForUpdates.MouseState = MaterialSkin.MouseState.HOVER
-        Me.btnSCheckForUpdates.Name = "btnSCheckForUpdates"
-        Me.btnSCheckForUpdates.Primary = True
-        Me.btnSCheckForUpdates.Size = New System.Drawing.Size(161, 23)
-        Me.btnSCheckForUpdates.TabIndex = 28
-        Me.btnSCheckForUpdates.Text = "Check For Updates"
-        Me.btnSCheckForUpdates.UseVisualStyleBackColor = True
+        Me.cxtBtnCheckForUpdates.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.cxtBtnCheckForUpdates.Depth = 0
+        Me.cxtBtnCheckForUpdates.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.tsiVersion})
+        Me.cxtBtnCheckForUpdates.MouseState = MaterialSkin.MouseState.HOVER
+        Me.cxtBtnCheckForUpdates.Name = "cxtBtnCheckForUpdates"
+        Me.cxtBtnCheckForUpdates.Size = New System.Drawing.Size(167, 48)
+        '
+        'tsiVersion
+        '
+        Me.tsiVersion.Name = "tsiVersion"
+        Me.tsiVersion.Size = New System.Drawing.Size(166, 22)
+        Me.tsiVersion.Text = "Version Unknown"
         '
         'frmHome
         '
@@ -722,6 +746,7 @@ Partial Class frmHome
         Me.tabSettings.PerformLayout()
         Me.pnlApplySettings.ResumeLayout(False)
         Me.pnlApplySettings.PerformLayout()
+        Me.cxtBtnCheckForUpdates.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
@@ -773,4 +798,7 @@ Partial Class frmHome
     Friend WithEvents lblSUpdates As MaterialSkin.Controls.MaterialLabel
     Friend WithEvents lblSVersion As MaterialSkin.Controls.MaterialLabel
     Friend WithEvents btnSCheckForUpdates As MaterialSkin.Controls.MaterialRaisedButton
+    Friend WithEvents bkgCheckForUpdates As System.ComponentModel.BackgroundWorker
+    Friend WithEvents cxtBtnCheckForUpdates As MaterialSkin.Controls.MaterialContextMenuStrip
+    Friend WithEvents tsiVersion As ToolStripMenuItem
 End Class

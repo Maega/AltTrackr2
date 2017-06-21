@@ -27,6 +27,7 @@ Public Class frmHome
         tabContent.SelectedTab = tabDetails
         lblComingSoon.Font = New Font("Roboto Light", 30)
         tabContent.SelectedTab = tabSettings
+        tsiVersion.Text = "Software Version v" + cTiming.appVer.ToString("n2")
         lblSVersion.Text = "Software Version v" + cTiming.appVer.ToString("n2")
         lblSYourInvestment.Font = New Font("Roboto Light", 17)
         lblSUpdates.Font = New Font("Roboto Light", 17)
@@ -34,6 +35,11 @@ Public Class frmHome
         Me.Text = Me.Text + " v" + cTiming.appVer.ToString("n2")
         GetSettings()
         GetPrices()
+    End Sub
+
+    Private Sub frmHome_Shown(sender As Object, e As EventArgs) Handles Me.Shown
+        'Check for updates after form is shown to ensure messageboxes appear topmost
+        bkgCheckForUpdates.RunWorkerAsync()
     End Sub
 
     Private Function ParseJSON(APIURL As String)
@@ -105,6 +111,7 @@ Public Class frmHome
         serverResponse = ParseJSON("https://min-api.cryptocompare.com/data/price?fsym=" + My.Computer.Registry.GetValue(My.Settings.RegLocation, "AppCoins", Nothing) + "&tsyms=" + My.Computer.Registry.GetValue(My.Settings.RegLocation, "AppAltFiats", Nothing))
     End Sub
 
+    Dim justLaunched As Boolean = True
     Private Sub bkgGetPrices_RunWorkerCompleted(sender As Object, e As RunWorkerCompletedEventArgs) Handles bkgGetPrices.RunWorkerCompleted
         lblAltPrices.Text = String.Empty
         lblAltHoldings.Text = String.Empty
@@ -129,17 +136,20 @@ Public Class frmHome
         btnFeedback.Show()
         tabContent.Show()
         tbsContent.Show()
-        'lblHoldingsFiat.Text = fiatMain + ": " + (totalHoldings * CDec(serverResponse.SelectToken(fiatMain))).ToString("n2")
-
         Dim d1 As DateTime = DateTime.Today
         Dim d2 As DateTime = Convert.ToDateTime(My.Computer.Registry.GetValue(My.Settings.RegLocation, "InvestDate", Nothing))
         Dim months As String = CStr(DateDiff(DateInterval.Month, d2, d1))
-
         lblFriendlyPrice.Text = "Today, you hold " + totalHoldings.ToString + " " + coinCodes + " which is valued at " + (totalHoldings * CDec(serverResponse.SelectToken(fiatMain))).ToString("n2") + " " + fiatMain + " at a coin price of " + CDec(serverResponse.SelectToken(fiatMain)).ToString("n2") + " " + fiatMain + vbNewLine + "Your initial investment was " + initialInvestment + " " + fiatMain + " and has matured over " + months + " months, yielding profits of " + ((totalHoldings * CDec(serverResponse.SelectToken(fiatMain))) - CDec(initialInvestment)).ToString("n2") + " " + fiatMain + " so far"
-
         lblLastPriceUpdate.Text = "Last Updated: " + DateTime.Now
-
         tmrRefresh.Interval = My.Computer.Registry.GetValue(My.Settings.RegLocation, "RefreshInterval", Nothing)
+    End Sub
+
+    Private Sub bkgCheckForUpdates_DoWork(sender As Object, e As DoWorkEventArgs) Handles bkgCheckForUpdates.DoWork
+        UpdateAPI.CheckForUpdates()
+    End Sub
+
+    Private Sub bkgCheckForUpdates_RunWorkerCompleted(sender As Object, e As RunWorkerCompletedEventArgs) Handles bkgCheckForUpdates.RunWorkerCompleted
+        btnSCheckForUpdates.Text = "Check for Updates"
     End Sub
 
     Private Sub MaterialRaisedButton4_Click(sender As Object, e As EventArgs) Handles MaterialRaisedButton4.Click
@@ -233,5 +243,17 @@ Public Class frmHome
             End If
         End If
 
+    End Sub
+
+    Private Sub btnFeedback_Click(sender As Object, e As EventArgs) Handles btnFeedback.Click, btnBugReport.Click
+        Dim frmFeedback As New frmFeedback(Me)
+        frmFeedback.Show()
+    End Sub
+
+    Private Sub btnSCheckForUpdates_Click(sender As Object, e As EventArgs) Handles btnSCheckForUpdates.Click
+        If Not bkgCheckForUpdates.IsBusy Then
+            btnSCheckForUpdates.Text = "Checking..."
+            bkgCheckForUpdates.RunWorkerAsync()
+        End If
     End Sub
 End Class
