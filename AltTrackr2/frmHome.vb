@@ -256,4 +256,12 @@ Public Class frmHome
             bkgCheckForUpdates.RunWorkerAsync()
         End If
     End Sub
+
+    Private Sub tsiVersion_Click(sender As Object, e As EventArgs) Handles tsiVersion.Click
+        If lblSVersion.Visible Then
+            lblSVersion.Visible = False
+        Else
+            lblSVersion.Visible = True
+        End If
+    End Sub
 End Class
