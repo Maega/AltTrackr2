@@ -11,10 +11,12 @@ Public Class frmHome
     Dim fiatMain As String = My.Computer.Registry.GetValue(My.Settings.RegLocation, "AppMainFiat", Nothing)
     Dim fiatCodes As String = My.Computer.Registry.GetValue(My.Settings.RegLocation, "AppAltFiats", Nothing)
     Dim initialInvestment As String = My.Computer.Registry.GetValue(My.Settings.RegLocation, "InitialInvestment", Nothing)
+    Dim colourScheme() As String = {"4149685", "3162015", "12962537", "4244735", "16777215"}
 
     Private Sub frmHome_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Dim SkinManager As MaterialSkinManager = MaterialSkinManager.Instance
         SkinManager.AddFormToManage(Me)
+        SkinManager.ColorScheme = New ColorScheme(colourScheme(0), colourScheme(1), colourScheme(2), colourScheme(3), colourScheme(4))
         'Due to the nature of the MaterialSkin library (initialises fonts in the constructor), we have to manually specify custom fonts at runtime
         'lblPrice.Font = New Font("Roboto Light", 25)
         'lblHoldingsFiat.Font = New Font("Roboto Light", 25)

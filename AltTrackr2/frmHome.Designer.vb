@@ -46,6 +46,8 @@ Partial Class frmHome
         Me.lblComingSoon = New MaterialSkin.Controls.MaterialLabel()
         Me.tabSettings = New System.Windows.Forms.TabPage()
         Me.btnSCheckForUpdates = New MaterialSkin.Controls.MaterialRaisedButton()
+        Me.cxtBtnCheckForUpdates = New MaterialSkin.Controls.MaterialContextMenuStrip()
+        Me.tsiVersion = New System.Windows.Forms.ToolStripMenuItem()
         Me.lblSVersion = New MaterialSkin.Controls.MaterialLabel()
         Me.lblSYourInvestment = New MaterialSkin.Controls.MaterialLabel()
         Me.lblSUpdates = New MaterialSkin.Controls.MaterialLabel()
@@ -64,23 +66,21 @@ Partial Class frmHome
         Me.MaterialLabel2 = New MaterialSkin.Controls.MaterialLabel()
         Me.tbsContent = New MaterialSkin.Controls.MaterialTabSelector()
         Me.tmrRefresh = New System.Windows.Forms.Timer(Me.components)
-        Me.btnApplyChanges = New MaterialSkin.Controls.MaterialRaisedButton()
         Me.btnBugReport = New MaterialSkin.Controls.MaterialRaisedButton()
         Me.btnFeedback = New MaterialSkin.Controls.MaterialRaisedButton()
         Me.pnlApplySettings = New System.Windows.Forms.Panel()
+        Me.btnCancelChanges = New MaterialSkin.Controls.MaterialFlatButton()
+        Me.btnApplyChanges = New MaterialSkin.Controls.MaterialFlatButton()
         Me.lblPipe = New MaterialSkin.Controls.MaterialLabel()
         Me.lblUnsaved = New MaterialSkin.Controls.MaterialLabel()
-        Me.btnCancelChanges = New MaterialSkin.Controls.MaterialRaisedButton()
         Me.bkgCheckForUpdates = New System.ComponentModel.BackgroundWorker()
-        Me.cxtBtnCheckForUpdates = New MaterialSkin.Controls.MaterialContextMenuStrip()
-        Me.tsiVersion = New System.Windows.Forms.ToolStripMenuItem()
         Me.cxtTray.SuspendLayout()
         Me.tabContent.SuspendLayout()
         Me.tabDailyBrief.SuspendLayout()
         Me.tabDetails.SuspendLayout()
         Me.tabSettings.SuspendLayout()
-        Me.pnlApplySettings.SuspendLayout()
         Me.cxtBtnCheckForUpdates.SuspendLayout()
+        Me.pnlApplySettings.SuspendLayout()
         Me.SuspendLayout()
         '
         'MaterialRaisedButton3
@@ -367,6 +367,21 @@ Partial Class frmHome
         Me.btnSCheckForUpdates.Text = "Check for Updates"
         Me.btnSCheckForUpdates.UseVisualStyleBackColor = True
         '
+        'cxtBtnCheckForUpdates
+        '
+        Me.cxtBtnCheckForUpdates.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.cxtBtnCheckForUpdates.Depth = 0
+        Me.cxtBtnCheckForUpdates.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.tsiVersion})
+        Me.cxtBtnCheckForUpdates.MouseState = MaterialSkin.MouseState.HOVER
+        Me.cxtBtnCheckForUpdates.Name = "cxtBtnCheckForUpdates"
+        Me.cxtBtnCheckForUpdates.Size = New System.Drawing.Size(167, 26)
+        '
+        'tsiVersion
+        '
+        Me.tsiVersion.Name = "tsiVersion"
+        Me.tsiVersion.Size = New System.Drawing.Size(166, 22)
+        Me.tsiVersion.Text = "Version Unknown"
+        '
         'lblSVersion
         '
         Me.lblSVersion.Depth = 0
@@ -607,21 +622,6 @@ Partial Class frmHome
         Me.tmrRefresh.Enabled = True
         Me.tmrRefresh.Interval = 10000
         '
-        'btnApplyChanges
-        '
-        Me.btnApplyChanges.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.btnApplyChanges.BackColor = System.Drawing.Color.FromArgb(CType(CType(38, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(56, Byte), Integer))
-        Me.btnApplyChanges.Depth = 0
-        Me.btnApplyChanges.Location = New System.Drawing.Point(340, 61)
-        Me.btnApplyChanges.MouseState = MaterialSkin.MouseState.HOVER
-        Me.btnApplyChanges.Name = "btnApplyChanges"
-        Me.btnApplyChanges.Primary = True
-        Me.btnApplyChanges.Size = New System.Drawing.Size(122, 18)
-        Me.btnApplyChanges.TabIndex = 15
-        Me.btnApplyChanges.Text = "Apply Changes"
-        Me.btnApplyChanges.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.btnApplyChanges.UseVisualStyleBackColor = False
-        '
         'btnBugReport
         '
         Me.btnBugReport.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
@@ -653,15 +653,45 @@ Partial Class frmHome
         Me.pnlApplySettings.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.pnlApplySettings.BackColor = System.Drawing.Color.FromArgb(CType(CType(55, Byte), Integer), CType(CType(71, Byte), Integer), CType(CType(79, Byte), Integer))
-        Me.pnlApplySettings.Controls.Add(Me.lblPipe)
-        Me.pnlApplySettings.Controls.Add(Me.lblUnsaved)
         Me.pnlApplySettings.Controls.Add(Me.btnCancelChanges)
         Me.pnlApplySettings.Controls.Add(Me.btnApplyChanges)
+        Me.pnlApplySettings.Controls.Add(Me.lblPipe)
+        Me.pnlApplySettings.Controls.Add(Me.lblUnsaved)
         Me.pnlApplySettings.Location = New System.Drawing.Point(0, 361)
         Me.pnlApplySettings.Name = "pnlApplySettings"
         Me.pnlApplySettings.Size = New System.Drawing.Size(900, 100)
         Me.pnlApplySettings.TabIndex = 21
         Me.pnlApplySettings.Visible = False
+        '
+        'btnCancelChanges
+        '
+        Me.btnCancelChanges.AutoSize = True
+        Me.btnCancelChanges.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.btnCancelChanges.Depth = 0
+        Me.btnCancelChanges.Location = New System.Drawing.Point(487, 52)
+        Me.btnCancelChanges.Margin = New System.Windows.Forms.Padding(4, 6, 4, 6)
+        Me.btnCancelChanges.MouseState = MaterialSkin.MouseState.HOVER
+        Me.btnCancelChanges.Name = "btnCancelChanges"
+        Me.btnCancelChanges.Primary = False
+        Me.btnCancelChanges.Size = New System.Drawing.Size(64, 36)
+        Me.btnCancelChanges.TabIndex = 20
+        Me.btnCancelChanges.Text = "Cancel"
+        Me.btnCancelChanges.UseVisualStyleBackColor = True
+        '
+        'btnApplyChanges
+        '
+        Me.btnApplyChanges.AutoSize = True
+        Me.btnApplyChanges.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.btnApplyChanges.Depth = 0
+        Me.btnApplyChanges.Location = New System.Drawing.Point(341, 52)
+        Me.btnApplyChanges.Margin = New System.Windows.Forms.Padding(4, 6, 4, 6)
+        Me.btnApplyChanges.MouseState = MaterialSkin.MouseState.HOVER
+        Me.btnApplyChanges.Name = "btnApplyChanges"
+        Me.btnApplyChanges.Primary = False
+        Me.btnApplyChanges.Size = New System.Drawing.Size(121, 36)
+        Me.btnApplyChanges.TabIndex = 19
+        Me.btnApplyChanges.Text = "Apply Changes"
+        Me.btnApplyChanges.UseVisualStyleBackColor = True
         '
         'lblPipe
         '
@@ -690,51 +720,21 @@ Partial Class frmHome
         Me.lblUnsaved.Text = "You have unsaved changes"
         Me.lblUnsaved.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         '
-        'btnCancelChanges
-        '
-        Me.btnCancelChanges.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.btnCancelChanges.BackColor = System.Drawing.Color.FromArgb(CType(CType(38, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(56, Byte), Integer))
-        Me.btnCancelChanges.Depth = 0
-        Me.btnCancelChanges.Location = New System.Drawing.Point(487, 61)
-        Me.btnCancelChanges.MouseState = MaterialSkin.MouseState.HOVER
-        Me.btnCancelChanges.Name = "btnCancelChanges"
-        Me.btnCancelChanges.Primary = True
-        Me.btnCancelChanges.Size = New System.Drawing.Size(64, 18)
-        Me.btnCancelChanges.TabIndex = 16
-        Me.btnCancelChanges.Text = "Cancel"
-        Me.btnCancelChanges.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnCancelChanges.UseVisualStyleBackColor = False
-        '
         'bkgCheckForUpdates
         '
-        '
-        'cxtBtnCheckForUpdates
-        '
-        Me.cxtBtnCheckForUpdates.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.cxtBtnCheckForUpdates.Depth = 0
-        Me.cxtBtnCheckForUpdates.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.tsiVersion})
-        Me.cxtBtnCheckForUpdates.MouseState = MaterialSkin.MouseState.HOVER
-        Me.cxtBtnCheckForUpdates.Name = "cxtBtnCheckForUpdates"
-        Me.cxtBtnCheckForUpdates.Size = New System.Drawing.Size(167, 48)
-        '
-        'tsiVersion
-        '
-        Me.tsiVersion.Name = "tsiVersion"
-        Me.tsiVersion.Size = New System.Drawing.Size(166, 22)
-        Me.tsiVersion.Text = "Version Unknown"
         '
         'frmHome
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(900, 462)
+        Me.Controls.Add(Me.pnlApplySettings)
         Me.Controls.Add(Me.btnFeedback)
         Me.Controls.Add(Me.btnBugReport)
         Me.Controls.Add(Me.tbsContent)
         Me.Controls.Add(Me.tabContent)
         Me.Controls.Add(Me.lblLoading)
         Me.Controls.Add(Me.prgLoading)
-        Me.Controls.Add(Me.pnlApplySettings)
         Me.Name = "frmHome"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Maega AltTrackr"
@@ -744,9 +744,9 @@ Partial Class frmHome
         Me.tabDetails.ResumeLayout(False)
         Me.tabSettings.ResumeLayout(False)
         Me.tabSettings.PerformLayout()
+        Me.cxtBtnCheckForUpdates.ResumeLayout(False)
         Me.pnlApplySettings.ResumeLayout(False)
         Me.pnlApplySettings.PerformLayout()
-        Me.cxtBtnCheckForUpdates.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
@@ -777,11 +777,9 @@ Partial Class frmHome
     Friend WithEvents MaterialLabel3 As MaterialSkin.Controls.MaterialLabel
     Friend WithEvents txtRefreshMins As MaterialSkin.Controls.MaterialSingleLineTextField
     Friend WithEvents MaterialLabel2 As MaterialSkin.Controls.MaterialLabel
-    Friend WithEvents btnApplyChanges As MaterialSkin.Controls.MaterialRaisedButton
     Friend WithEvents btnBugReport As MaterialSkin.Controls.MaterialRaisedButton
     Friend WithEvents btnFeedback As MaterialSkin.Controls.MaterialRaisedButton
     Friend WithEvents pnlApplySettings As Panel
-    Friend WithEvents btnCancelChanges As MaterialSkin.Controls.MaterialRaisedButton
     Friend WithEvents lblUnsaved As MaterialSkin.Controls.MaterialLabel
     Friend WithEvents lblPipe As MaterialSkin.Controls.MaterialLabel
     Friend WithEvents lblComingSoon As MaterialSkin.Controls.MaterialLabel
@@ -801,4 +799,6 @@ Partial Class frmHome
     Friend WithEvents bkgCheckForUpdates As System.ComponentModel.BackgroundWorker
     Friend WithEvents cxtBtnCheckForUpdates As MaterialSkin.Controls.MaterialContextMenuStrip
     Friend WithEvents tsiVersion As ToolStripMenuItem
+    Friend WithEvents btnApplyChanges As MaterialSkin.Controls.MaterialFlatButton
+    Friend WithEvents btnCancelChanges As MaterialSkin.Controls.MaterialFlatButton
 End Class
