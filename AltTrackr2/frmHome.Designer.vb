@@ -45,6 +45,10 @@ Partial Class frmHome
         Me.tabDetails = New System.Windows.Forms.TabPage()
         Me.lblComingSoon = New MaterialSkin.Controls.MaterialLabel()
         Me.tabSettings = New System.Windows.Forms.TabPage()
+        Me.radSColourRed = New MaterialSkin.Controls.MaterialRadioButton()
+        Me.radSColourGreen = New MaterialSkin.Controls.MaterialRadioButton()
+        Me.radSColourIndigo = New MaterialSkin.Controls.MaterialRadioButton()
+        Me.radSColourBlueGrey = New MaterialSkin.Controls.MaterialRadioButton()
         Me.btnSCheckForUpdates = New MaterialSkin.Controls.MaterialRaisedButton()
         Me.cxtBtnCheckForUpdates = New MaterialSkin.Controls.MaterialContextMenuStrip()
         Me.tsiVersion = New System.Windows.Forms.ToolStripMenuItem()
@@ -74,6 +78,7 @@ Partial Class frmHome
         Me.lblPipe = New MaterialSkin.Controls.MaterialLabel()
         Me.lblUnsaved = New MaterialSkin.Controls.MaterialLabel()
         Me.bkgCheckForUpdates = New System.ComponentModel.BackgroundWorker()
+        Me.btnSColourCustom = New MaterialSkin.Controls.MaterialRaisedButton()
         Me.cxtTray.SuspendLayout()
         Me.tabContent.SuspendLayout()
         Me.tabDailyBrief.SuspendLayout()
@@ -329,6 +334,11 @@ Partial Class frmHome
         'tabSettings
         '
         Me.tabSettings.BackColor = System.Drawing.SystemColors.Control
+        Me.tabSettings.Controls.Add(Me.btnSColourCustom)
+        Me.tabSettings.Controls.Add(Me.radSColourRed)
+        Me.tabSettings.Controls.Add(Me.radSColourGreen)
+        Me.tabSettings.Controls.Add(Me.radSColourIndigo)
+        Me.tabSettings.Controls.Add(Me.radSColourBlueGrey)
         Me.tabSettings.Controls.Add(Me.btnSCheckForUpdates)
         Me.tabSettings.Controls.Add(Me.lblSVersion)
         Me.tabSettings.Controls.Add(Me.lblSYourInvestment)
@@ -352,6 +362,74 @@ Partial Class frmHome
         Me.tabSettings.Size = New System.Drawing.Size(885, 369)
         Me.tabSettings.TabIndex = 2
         Me.tabSettings.Text = "Settings"
+        '
+        'radSColourRed
+        '
+        Me.radSColourRed.AutoSize = True
+        Me.radSColourRed.Depth = 0
+        Me.radSColourRed.Font = New System.Drawing.Font("Roboto", 10.0!)
+        Me.radSColourRed.Location = New System.Drawing.Point(481, 294)
+        Me.radSColourRed.Margin = New System.Windows.Forms.Padding(0)
+        Me.radSColourRed.MouseLocation = New System.Drawing.Point(-1, -1)
+        Me.radSColourRed.MouseState = MaterialSkin.MouseState.HOVER
+        Me.radSColourRed.Name = "radSColourRed"
+        Me.radSColourRed.Ripple = True
+        Me.radSColourRed.Size = New System.Drawing.Size(53, 30)
+        Me.radSColourRed.TabIndex = 32
+        Me.radSColourRed.TabStop = True
+        Me.radSColourRed.Text = "Red"
+        Me.radSColourRed.UseVisualStyleBackColor = True
+        '
+        'radSColourGreen
+        '
+        Me.radSColourGreen.AutoSize = True
+        Me.radSColourGreen.Depth = 0
+        Me.radSColourGreen.Font = New System.Drawing.Font("Roboto", 10.0!)
+        Me.radSColourGreen.Location = New System.Drawing.Point(415, 294)
+        Me.radSColourGreen.Margin = New System.Windows.Forms.Padding(0)
+        Me.radSColourGreen.MouseLocation = New System.Drawing.Point(-1, -1)
+        Me.radSColourGreen.MouseState = MaterialSkin.MouseState.HOVER
+        Me.radSColourGreen.Name = "radSColourGreen"
+        Me.radSColourGreen.Ripple = True
+        Me.radSColourGreen.Size = New System.Drawing.Size(66, 30)
+        Me.radSColourGreen.TabIndex = 31
+        Me.radSColourGreen.TabStop = True
+        Me.radSColourGreen.Text = "Green"
+        Me.radSColourGreen.UseVisualStyleBackColor = True
+        '
+        'radSColourIndigo
+        '
+        Me.radSColourIndigo.AutoSize = True
+        Me.radSColourIndigo.Depth = 0
+        Me.radSColourIndigo.Font = New System.Drawing.Font("Roboto", 10.0!)
+        Me.radSColourIndigo.Location = New System.Drawing.Point(348, 294)
+        Me.radSColourIndigo.Margin = New System.Windows.Forms.Padding(0)
+        Me.radSColourIndigo.MouseLocation = New System.Drawing.Point(-1, -1)
+        Me.radSColourIndigo.MouseState = MaterialSkin.MouseState.HOVER
+        Me.radSColourIndigo.Name = "radSColourIndigo"
+        Me.radSColourIndigo.Ripple = True
+        Me.radSColourIndigo.Size = New System.Drawing.Size(67, 30)
+        Me.radSColourIndigo.TabIndex = 30
+        Me.radSColourIndigo.TabStop = True
+        Me.radSColourIndigo.Text = "Indigo"
+        Me.radSColourIndigo.UseVisualStyleBackColor = True
+        '
+        'radSColourBlueGrey
+        '
+        Me.radSColourBlueGrey.AutoSize = True
+        Me.radSColourBlueGrey.Depth = 0
+        Me.radSColourBlueGrey.Font = New System.Drawing.Font("Roboto", 10.0!)
+        Me.radSColourBlueGrey.Location = New System.Drawing.Point(259, 294)
+        Me.radSColourBlueGrey.Margin = New System.Windows.Forms.Padding(0)
+        Me.radSColourBlueGrey.MouseLocation = New System.Drawing.Point(-1, -1)
+        Me.radSColourBlueGrey.MouseState = MaterialSkin.MouseState.HOVER
+        Me.radSColourBlueGrey.Name = "radSColourBlueGrey"
+        Me.radSColourBlueGrey.Ripple = True
+        Me.radSColourBlueGrey.Size = New System.Drawing.Size(88, 30)
+        Me.radSColourBlueGrey.TabIndex = 29
+        Me.radSColourBlueGrey.TabStop = True
+        Me.radSColourBlueGrey.Text = "Blue Grey"
+        Me.radSColourBlueGrey.UseVisualStyleBackColor = True
         '
         'btnSCheckForUpdates
         '
@@ -723,18 +801,30 @@ Partial Class frmHome
         'bkgCheckForUpdates
         '
         '
+        'btnSColourCustom
+        '
+        Me.btnSColourCustom.Depth = 0
+        Me.btnSColourCustom.Location = New System.Drawing.Point(544, 297)
+        Me.btnSColourCustom.MouseState = MaterialSkin.MouseState.HOVER
+        Me.btnSColourCustom.Name = "btnSColourCustom"
+        Me.btnSColourCustom.Primary = True
+        Me.btnSColourCustom.Size = New System.Drawing.Size(91, 23)
+        Me.btnSColourCustom.TabIndex = 33
+        Me.btnSColourCustom.Text = "Custom..."
+        Me.btnSColourCustom.UseVisualStyleBackColor = True
+        '
         'frmHome
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(900, 462)
-        Me.Controls.Add(Me.pnlApplySettings)
         Me.Controls.Add(Me.btnFeedback)
         Me.Controls.Add(Me.btnBugReport)
         Me.Controls.Add(Me.tbsContent)
         Me.Controls.Add(Me.tabContent)
         Me.Controls.Add(Me.lblLoading)
         Me.Controls.Add(Me.prgLoading)
+        Me.Controls.Add(Me.pnlApplySettings)
         Me.Name = "frmHome"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Maega AltTrackr"
@@ -801,4 +891,9 @@ Partial Class frmHome
     Friend WithEvents tsiVersion As ToolStripMenuItem
     Friend WithEvents btnApplyChanges As MaterialSkin.Controls.MaterialFlatButton
     Friend WithEvents btnCancelChanges As MaterialSkin.Controls.MaterialFlatButton
+    Friend WithEvents radSColourRed As MaterialSkin.Controls.MaterialRadioButton
+    Friend WithEvents radSColourGreen As MaterialSkin.Controls.MaterialRadioButton
+    Friend WithEvents radSColourIndigo As MaterialSkin.Controls.MaterialRadioButton
+    Friend WithEvents radSColourBlueGrey As MaterialSkin.Controls.MaterialRadioButton
+    Friend WithEvents btnSColourCustom As MaterialSkin.Controls.MaterialRaisedButton
 End Class

@@ -11,16 +11,19 @@ Public Class frmHome
     Dim fiatMain As String = My.Computer.Registry.GetValue(My.Settings.RegLocation, "AppMainFiat", Nothing)
     Dim fiatCodes As String = My.Computer.Registry.GetValue(My.Settings.RegLocation, "AppAltFiats", Nothing)
     Dim initialInvestment As String = My.Computer.Registry.GetValue(My.Settings.RegLocation, "InitialInvestment", Nothing)
-    Dim colourScheme() As String = {"4149685", "3162015", "12962537", "4244735", "16777215"}
+    Dim colourScheme() As String
 
     Private Sub frmHome_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Dim SkinManager As MaterialSkinManager = MaterialSkinManager.Instance
         SkinManager.AddFormToManage(Me)
-        SkinManager.ColorScheme = New ColorScheme(colourScheme(0), colourScheme(1), colourScheme(2), colourScheme(3), colourScheme(4))
+        Try
+            colourScheme = My.Computer.Registry.GetValue(My.Settings.RegLocation, "ColourScheme", Nothing).Split(",")
+            SkinManager.ColorScheme = New ColorScheme(colourScheme(0), colourScheme(1), colourScheme(2), colourScheme(3), colourScheme(4))
+        Catch ex As Exception
+            cTiming.WriteDebug("Invalid colour scheme, resetting to default")
+            SkinManager.ColorScheme = New ColorScheme(3622735, 2503224, 6323595, 4244735, 16777215)
+        End Try
         'Due to the nature of the MaterialSkin library (initialises fonts in the constructor), we have to manually specify custom fonts at runtime
-        'lblPrice.Font = New Font("Roboto Light", 25)
-        'lblHoldingsFiat.Font = New Font("Roboto Light", 25)
-        'lblHoldingsCoin.Font = New Font("Roboto Light", 30)
         lblComingSoon.Font = New Font("Roboto Light", 15)
         lblLoading.Font = New Font("Roboto Light", 20)
         lblAltPrices.Font = New Font("Roboto Light", 15)
@@ -63,6 +66,16 @@ Public Class frmHome
         txtSInvestDate.Text = My.Computer.Registry.GetValue(My.Settings.RegLocation, "InvestDate", Nothing)
         lblSCoinCode.Text = coinCodes
         lblSFiatCode.Text = fiatMain
+
+        If My.Computer.Registry.GetValue(My.Settings.RegLocation, "ColourScheme", Nothing) = "3622735,2503224,6323595,4244735,16777215" Then
+            radSColourBlueGrey.Checked = True
+        ElseIf My.Computer.Registry.GetValue(My.Settings.RegLocation, "ColourScheme", Nothing) = "4149685,3162015,12962537,4244735,16777215" Then
+            radSColourIndigo.Checked = True
+        ElseIf My.Computer.Registry.GetValue(My.Settings.RegLocation, "ColourScheme", Nothing) = "4431943,3706428,10868391,10868391,16777215" Then
+            radSColourGreen.Checked = True
+        ElseIf My.Computer.Registry.GetValue(My.Settings.RegLocation, "ColourScheme", Nothing) = "15684432,13840175,15702682,15702682,16777215" Then
+            radSColourRed.Checked = True
+        End If
     End Sub
 
     Private Sub MaterialRaisedButton3_Click(sender As Object, e As EventArgs) Handles MaterialRaisedButton3.Click
@@ -264,6 +277,22 @@ Public Class frmHome
             lblSVersion.Visible = False
         Else
             lblSVersion.Visible = True
+        End If
+    End Sub
+
+    Private Sub radSColour_CheckedChanged(sender As Object, e As EventArgs) Handles radSColourBlueGrey.CheckedChanged, radSColourGreen.CheckedChanged, radSColourIndigo.CheckedChanged, radSColourRed.CheckedChanged
+        If radSColourBlueGrey.Checked Then
+            My.Computer.Registry.SetValue(My.Settings.RegLocation, "ColourScheme", "3622735,2503224,6323595,4244735,16777215")
+            SkinManager.ColorScheme = New ColorScheme(3622735, 2503224, 6323595, 4244735, 16777215)
+        ElseIf radSColourIndigo.Checked Then
+            My.Computer.Registry.SetValue(My.Settings.RegLocation, "ColourScheme", "4149685,3162015,12962537,4244735,16777215")
+            SkinManager.ColorScheme = New ColorScheme(4149685, 3162015, 12962537, 4244735, 16777215)
+        ElseIf radSColourGreen.Checked Then
+            My.Computer.Registry.SetValue(My.Settings.RegLocation, "ColourScheme", "4431943,3706428,10868391,10868391,16777215")
+            SkinManager.ColorScheme = New ColorScheme(4431943, 3706428, 10868391, 10868391, 16777215)
+        ElseIf radSColourRed.Checked Then
+            My.Computer.Registry.SetValue(My.Settings.RegLocation, "ColourScheme", "15684432,13840175,15702682,15702682,16777215")
+            SkinManager.ColorScheme = New ColorScheme(15684432, 13840175, 15702682, 15702682, 16777215)
         End If
     End Sub
 End Class
