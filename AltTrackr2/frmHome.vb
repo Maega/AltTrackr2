@@ -53,7 +53,7 @@ Public Class frmHome
         Return JObject.Parse(reply)
     End Function
 
-    Private Sub GetSettings()
+    Public Sub GetSettings()
         totalHoldings = CDec(My.Computer.Registry.GetValue(My.Settings.RegLocation, "TotalHoldings", Nothing))
         coinCodes = My.Computer.Registry.GetValue(My.Settings.RegLocation, "AppCoins", Nothing)
         fiatMain = My.Computer.Registry.GetValue(My.Settings.RegLocation, "AppMainFiat", Nothing)
@@ -71,10 +71,15 @@ Public Class frmHome
             radSColourBlueGrey.Checked = True
         ElseIf My.Computer.Registry.GetValue(My.Settings.RegLocation, "ColourScheme", Nothing) = "4149685,3162015,12962537,4244735,16777215" Then
             radSColourIndigo.Checked = True
-        ElseIf My.Computer.Registry.GetValue(My.Settings.RegLocation, "ColourScheme", Nothing) = "4431943,3706428,10868391,10868391,16777215" Then
+        ElseIf My.Computer.Registry.GetValue(My.Settings.RegLocation, "ColourScheme", Nothing) = "4431943,3706428,10868391,-1,16777215" Then
             radSColourGreen.Checked = True
-        ElseIf My.Computer.Registry.GetValue(My.Settings.RegLocation, "ColourScheme", Nothing) = "15684432,13840175,15702682,15702682,16777215" Then
+        ElseIf My.Computer.Registry.GetValue(My.Settings.RegLocation, "ColourScheme", Nothing) = "15684432,13840175,15702682,-1,16777215" Then
             radSColourRed.Checked = True
+        Else
+            radSColourBlueGrey.Checked = False
+            radSColourIndigo.Checked = False
+            radSColourGreen.Checked = False
+            radSColourRed.Checked = False
         End If
     End Sub
 
@@ -288,11 +293,15 @@ Public Class frmHome
             My.Computer.Registry.SetValue(My.Settings.RegLocation, "ColourScheme", "4149685,3162015,12962537,4244735,16777215")
             SkinManager.ColorScheme = New ColorScheme(4149685, 3162015, 12962537, 4244735, 16777215)
         ElseIf radSColourGreen.Checked Then
-            My.Computer.Registry.SetValue(My.Settings.RegLocation, "ColourScheme", "4431943,3706428,10868391,10868391,16777215")
-            SkinManager.ColorScheme = New ColorScheme(4431943, 3706428, 10868391, 10868391, 16777215)
+            My.Computer.Registry.SetValue(My.Settings.RegLocation, "ColourScheme", "4431943,3706428,10868391,-1,16777215")
+            SkinManager.ColorScheme = New ColorScheme(4431943, 3706428, 10868391, -1, 16777215)
         ElseIf radSColourRed.Checked Then
-            My.Computer.Registry.SetValue(My.Settings.RegLocation, "ColourScheme", "15684432,13840175,15702682,15702682,16777215")
-            SkinManager.ColorScheme = New ColorScheme(15684432, 13840175, 15702682, 15702682, 16777215)
+            My.Computer.Registry.SetValue(My.Settings.RegLocation, "ColourScheme", "15684432,13840175,15702682,-1,16777215")
+            SkinManager.ColorScheme = New ColorScheme(15684432, 13840175, 15702682, -1, 16777215)
         End If
+    End Sub
+
+    Private Sub btnSColourCustom_Click(sender As Object, e As EventArgs) Handles btnSColourCustom.Click
+        frmCustomColour.Show()
     End Sub
 End Class

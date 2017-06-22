@@ -34,4 +34,37 @@ Public Class frmFeedback
         lblFeedbackType.Text = "Please select a type of feedback"
     End Sub
 
+    Dim apiserver As String = "https://api.maeganetwork.com/feedback.php" 'This should point to the API backend on the feedback server
+    Private Sub SubmitFeedback()
+        Dim apiquery As String = "?uname=" + uname + "&upass=" + upass
+
+        Try
+            Dim apiresponse As String = New System.Net.WebClient().DownloadString(apiserver + apiquery)
+            'Check API response for errors
+            If apiresponse.Contains("MISSINGPARAMETER") Then
+                'This should never happen - it means the API query is missing the ?app value
+                MsgBox("There was a problem checking for updates. Please try again later or contact support if this issue persists.", MsgBoxStyle.Critical)
+            End If
+
+            'Set variables according to the API response - removes the response headers and sets variables to the corresponding responses.
+            'appindex = apiresponse.IndexOf("USRLICENSES=")
+            'MsgBox(appindex.ToString)
+            'rlicense = apiresponse.Substring(appindex + 12, apiresponse.IndexOf("=", appindex + 1) - appindex - 12)
+            If apiresponse.Contains("LoginFAILED") Then
+                Return "IncorrectLogin"
+            ElseIf apiresponse.Contains("SubmitFAILED") Then
+                Return "FAIL"
+            ElseIf apiresponse.Contains("NotImplemented") Then
+
+            ElseIf apiresponse.Contains("SubmitSUCCESS") Then
+                Return "Success"
+            Else
+                Return "FAILUNKNOWN"
+            End If
+        Catch ex As Exception
+            MsgBox("We weren't able to connect to the feedback servers. Please check your connection and try again later.", MsgBoxStyle.Critical)
+            Return "FAIL"
+        End Try
+    End Sub
+
 End Class

@@ -1,12 +1,12 @@
 ﻿Public Class cTiming
 
     Public Shared appVer As Decimal = UpdateAPI.CurrentVer
-    Public Shared Sub transitionForms(fromForm As Form, toForm As Form)
+    Public Shared Sub transitionForms(fromForm As Form, toForm As Form, Optional synclocation As Boolean = True)
         Dim opacityStepping As Double = 0.1
         toForm.Opacity = 1
         fromForm.Opacity = 1
         toForm.Show()
-        toForm.Location = fromForm.Location
+        If synclocation Then toForm.Location = fromForm.Location
         fromForm.TopMost = True
         pause(20)
         Do Until fromForm.Opacity <= 0
