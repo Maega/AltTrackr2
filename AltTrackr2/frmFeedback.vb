@@ -36,7 +36,7 @@ Public Class frmFeedback
 
     Dim apiserver As String = "https://api.maeganetwork.com/feedback.php" 'This should point to the API backend on the feedback server
     Private Sub SubmitFeedback()
-        Dim apiquery As String = "?uname=" + uname + "&upass=" + upass
+        Dim apiquery As String '= "?uname=" + uname + "&upass=" + upass + "&message=" fmessage
 
         Try
             Dim apiresponse As String = New System.Net.WebClient().DownloadString(apiserver + apiquery)
@@ -51,19 +51,18 @@ Public Class frmFeedback
             'MsgBox(appindex.ToString)
             'rlicense = apiresponse.Substring(appindex + 12, apiresponse.IndexOf("=", appindex + 1) - appindex - 12)
             If apiresponse.Contains("LoginFAILED") Then
-                Return "IncorrectLogin"
+                MsgBox("The login request sent alongside your feedback failed." + vbNewLine + "We authenticate every feedback submission to prevent abuse, please restart AltTrackr and try again." + vbNewLine + "If the issue does not correct itself, please report it along with your feedback to support@maeganetwork.com")
             ElseIf apiresponse.Contains("SubmitFAILED") Then
-                Return "FAIL"
+                MsgBox("The server is reporting that submitting your feedback failed." + vbNewLine + "This is likely a server issue and requires no action on your part to correct." + vbNewLine + "Please report this issue, along with your feedback to support@maeganetwork.com", MsgBoxStyle.Critical)
             ElseIf apiresponse.Contains("NotImplemented") Then
-
+                MsgBox("AltTrackr tried submitting your feedback, but the server reports that the backend feedback system isn't ready yet." + vbNewLine + "Until it's ready, please directly send this feedback to tristan@maeganetwork.com or by chat." + vbNewLine + vbNewLine + "Feedback will be switched on automatically when it's ready, no need for an update.", MsgBoxStyle.Exclamation)
             ElseIf apiresponse.Contains("SubmitSUCCESS") Then
-                Return "Success"
+                MsgBox("Thanks for your feedback! Submission was successful.", MsgBoxStyle.Information)
             Else
-                Return "FAILUNKNOWN"
+                MsgBox("The server replied with a response AltTrackr doesn't understand." + vbNewLine + "Please ensure that AltTrackr is up to date. If it is, this is likely a server issue and requires no action on your part to correct." + vbNewLine + "Please report the issue, along with your feedback to support@maeganetwork.com")
             End If
         Catch ex As Exception
             MsgBox("We weren't able to connect to the feedback servers. Please check your connection and try again later.", MsgBoxStyle.Critical)
-            Return "FAIL"
         End Try
     End Sub
 
