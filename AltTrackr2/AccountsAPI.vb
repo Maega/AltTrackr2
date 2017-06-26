@@ -74,6 +74,12 @@ Module AccountsAPI
         End Try
     End Function
 
+    Function ReturnCredentialArray(uname As String, upass As String)
+        Dim byt As Byte() = System.Text.Encoding.UTF8.GetBytes(upass)
+        upass = Convert.ToBase64String(byt)
+        Return {uname, upass}
+    End Function
+
     Sub WebLogin(uname As String, upass As String)
         Dim byt As Byte() = System.Text.Encoding.UTF8.GetBytes(upass)
         upass = Convert.ToBase64String(byt)

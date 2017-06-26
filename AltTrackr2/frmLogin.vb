@@ -89,6 +89,11 @@ Public Class frmLogin
             loginval = String.Empty
             HideSpinner()
         ElseIf loginval.Contains("LOGINOK-/-") Then
+            If autologin Then
+                cTiming.CredentialArray = {My.Computer.Registry.GetValue(AuthLocation, "AccUser", Nothing), My.Computer.Registry.GetValue(AuthLocation, "AccPass", Nothing)}
+            Else
+                cTiming.CredentialArray = AccountsAPI.ReturnCredentialArray(txtUsername.Text, txtPassword.Text)
+            End If
             cTiming.transitionForms(Me, frmWelcome, False)
         End If
     End Sub

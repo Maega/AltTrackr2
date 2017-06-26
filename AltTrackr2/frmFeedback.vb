@@ -10,6 +10,10 @@ Public Class frmFeedback
     Private Sub frmFeedback_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Dim SkinManager As MaterialSkinManager = MaterialSkinManager.Instance
         SkinManager.AddFormToManage(Me)
+        If SkinManager.Theme = MaterialSkinManager.Themes.DARK Then
+            txtFeedback.BackColor = Color.FromArgb(51, 51, 51)
+            txtFeedback.ForeColor = Color.White
+        End If
     End Sub
 
     Private Sub MaterialRaisedButton1_MouseEnter(sender As Object, e As EventArgs) Handles btnPositive.MouseEnter
@@ -35,8 +39,8 @@ Public Class frmFeedback
     End Sub
 
     Dim apiserver As String = "https://api.maeganetwork.com/feedback.php" 'This should point to the API backend on the feedback server
-    Private Sub SubmitFeedback()
-        Dim apiquery As String '= "?uname=" + uname + "&upass=" + upass + "&message=" fmessage
+    Private Sub SubmitFeedback(fmessage As String)
+        Dim apiquery As String = "?uname=" + cTiming.CredentialArray(0) + "&upass=" + cTiming.CredentialArray(1) + "&message=" + feedbackType + fmessage.Replace("&", "+")
 
         Try
             Dim apiresponse As String = New System.Net.WebClient().DownloadString(apiserver + apiquery)
@@ -55,7 +59,7 @@ Public Class frmFeedback
             ElseIf apiresponse.Contains("SubmitFAILED") Then
                 MsgBox("The server is reporting that submitting your feedback failed." + vbNewLine + "This is likely a server issue and requires no action on your part to correct." + vbNewLine + "Please report this issue, along with your feedback to support@maeganetwork.com", MsgBoxStyle.Critical)
             ElseIf apiresponse.Contains("NotImplemented") Then
-                MsgBox("AltTrackr tried submitting your feedback, but the server reports that the backend feedback system isn't ready yet." + vbNewLine + "Until it's ready, please directly send this feedback to tristan@maeganetwork.com or by chat." + vbNewLine + vbNewLine + "Feedback will be switched on automatically when it's ready, no need for an update.", MsgBoxStyle.Exclamation)
+                MsgBox("AltTrackr tried submitting your feedback, but the server reports that the backend feedback system isn't ready yet." + vbNewLine + "Until it's ready, please directly send this feedback to tristan@maeganetwork.com or by chat." + vbNewLine + vbNewLine + "Feedback will be switched on automatically when it's ready, without the need for an update.", MsgBoxStyle.Exclamation)
             ElseIf apiresponse.Contains("SubmitSUCCESS") Then
                 MsgBox("Thanks for your feedback! Submission was successful.", MsgBoxStyle.Information)
             Else
@@ -66,4 +70,18 @@ Public Class frmFeedback
         End Try
     End Sub
 
+    Private Sub btnSubmit_Click(sender As Object, e As EventArgs) Handles btnSubmit.Click
+        SubmitFeedback(txtFeedback.Text)
+    End Sub
+
+    Dim feedbackType As String
+    Private Sub btnPositive_Click(sender As Object, e As EventArgs) Handles btnPositive.Click
+        txtFeedback.Enabled = True
+        feedbackType = "v" + cTiming.appVer.ToString + " - Positive:- "
+    End Sub
+
+    Private Sub btnNegative_Click(sender As Object, e As EventArgs) Handles btnNegative.Click
+        txtFeedback.Enabled = True
+        feedbackType = "v" + cTiming.appVer.ToString + " - Negative:- "
+    End Sub
 End Class

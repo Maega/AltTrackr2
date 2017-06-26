@@ -1,6 +1,8 @@
 ﻿Public Class cTiming
 
-    Public Shared appVer As Decimal = UpdateAPI.CurrentVer
+    Public Const appVer As Decimal = UpdateAPI.CurrentVer
+    Public Shared CredentialArray() As String
+
     Public Shared Sub transitionForms(fromForm As Form, toForm As Form, Optional synclocation As Boolean = True)
         Dim opacityStepping As Double = 0.1
         toForm.Opacity = 1
