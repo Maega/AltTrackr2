@@ -91,18 +91,22 @@ Public Class frmHome
         If Not bkgGetPrices.IsBusy Then
             If Not silent Then
                 cTiming.WriteDebug("Attempting to fetch latest price data...")
-                Select Case GetRandom(0, 4)
-                    Case 0
-                        lblLoading.Text = "Chatting with the servers, just a minute..."
-                    Case 1
-                        lblLoading.Text = "Calculating how rich you've become..."
-                    Case 2
-                        lblLoading.Text = "Loading Tip | Remember, you can report bugs with Win+B"
-                    Case 3
-                        lblLoading.Text = "Flying to the moon with " + coinCodes + "..."
-                    Case 4
-                        lblLoading.Text = "Checking up on your crypto investment..."
-                End Select
+                If My.Computer.Registry.GetValue(My.Settings.RegLocation, "NoMotivationalLoad", Nothing) = "1" Then
+                    lblLoading.Text = "Loading Server Data..."
+                Else
+                    Select Case GetRandom(0, 5)
+                        Case 0
+                            lblLoading.Text = "Chatting with the servers, just a minute..."
+                        Case 1
+                            lblLoading.Text = "Calculating how rich you've become..."
+                        Case 2
+                            lblLoading.Text = "Loading Tip | Remember, you can report bugs with the Feedback button"
+                        Case 3
+                            lblLoading.Text = "Sending " + coinCodes + " to the moon..."
+                        Case 4
+                            lblLoading.Text = "HODL, HODL, HODL, HODL!"
+                    End Select
+                End If
                 btnBugReport.Hide()
                 btnFeedback.Hide()
                 tabContent.Hide()
