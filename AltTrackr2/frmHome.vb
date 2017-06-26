@@ -306,4 +306,14 @@ Public Class frmHome
     Private Sub btnSColourCustom_Click(sender As Object, e As EventArgs) Handles btnSColourCustom.Click
         frmCustomColour.Show()
     End Sub
+
+    Private Sub ResetAltTrackrToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ResetAltTrackrToolStripMenuItem.Click
+        Dim result As Integer = MessageBox.Show("Are you sure you want to reset AltTrackr?" + vbNewLine + vbNewLine + "This will do the following:" + vbNewLine + "- Reset your portfolio, including dates and holding data" + vbNewLine + "- Reset all preferences, including colour schemes" + vbNewLine + "- Relaunch AltTrackr back into the initial setup", "Reset AltTrackr", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation)
+        If result = DialogResult.Yes Then
+            If Not UpdateAPI.AppID Is Nothing Then 'Just in case AppID isn't set to anything, we won't erase the "Maega" key
+                My.Computer.Registry.CurrentUser.DeleteSubKey("Software\Maega\" + UpdateAPI.AppID)
+                Application.Restart()
+            End If
+        End If
+    End Sub
 End Class

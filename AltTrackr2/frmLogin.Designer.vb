@@ -31,6 +31,8 @@ Partial Class frmLogin
         Me.lblOr = New MaterialSkin.Controls.MaterialLabel()
         Me.divLogin = New MaterialSkin.Controls.MaterialDivider()
         Me.prgLoading = New MRG.Controls.UI.LoadingCircle()
+        Me.btnNoAccount = New MaterialSkin.Controls.MaterialRaisedButton()
+        Me.btnForgotPassword = New MaterialSkin.Controls.MaterialRaisedButton()
         Me.SuspendLayout()
         '
         'btnContinue
@@ -145,11 +147,37 @@ Partial Class frmLogin
         Me.prgLoading.TabIndex = 13
         Me.prgLoading.Visible = False
         '
+        'btnNoAccount
+        '
+        Me.btnNoAccount.Depth = 0
+        Me.btnNoAccount.Location = New System.Drawing.Point(340, 4)
+        Me.btnNoAccount.MouseState = MaterialSkin.MouseState.HOVER
+        Me.btnNoAccount.Name = "btnNoAccount"
+        Me.btnNoAccount.Primary = True
+        Me.btnNoAccount.Size = New System.Drawing.Size(123, 16)
+        Me.btnNoAccount.TabIndex = 14
+        Me.btnNoAccount.Text = "No Account?"
+        Me.btnNoAccount.UseVisualStyleBackColor = True
+        '
+        'btnForgotPassword
+        '
+        Me.btnForgotPassword.Depth = 0
+        Me.btnForgotPassword.Location = New System.Drawing.Point(469, 4)
+        Me.btnForgotPassword.MouseState = MaterialSkin.MouseState.HOVER
+        Me.btnForgotPassword.Name = "btnForgotPassword"
+        Me.btnForgotPassword.Primary = True
+        Me.btnForgotPassword.Size = New System.Drawing.Size(158, 16)
+        Me.btnForgotPassword.TabIndex = 15
+        Me.btnForgotPassword.Text = "Forgot Password?"
+        Me.btnForgotPassword.UseVisualStyleBackColor = True
+        '
         'frmLogin
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(713, 341)
+        Me.Controls.Add(Me.btnForgotPassword)
+        Me.Controls.Add(Me.btnNoAccount)
         Me.Controls.Add(Me.lblOr)
         Me.Controls.Add(Me.txtPassword)
         Me.Controls.Add(Me.txtUsername)
@@ -175,4 +203,6 @@ Partial Class frmLogin
     Friend WithEvents lblOr As MaterialSkin.Controls.MaterialLabel
     Friend WithEvents divLogin As MaterialSkin.Controls.MaterialDivider
     Friend WithEvents prgLoading As MRG.Controls.UI.LoadingCircle
+    Friend WithEvents btnNoAccount As MaterialSkin.Controls.MaterialRaisedButton
+    Friend WithEvents btnForgotPassword As MaterialSkin.Controls.MaterialRaisedButton
 End Class

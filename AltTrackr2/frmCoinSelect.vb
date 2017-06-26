@@ -90,7 +90,7 @@ Public Class frmCoinSelect
 
     Private Sub picLogo_Click(sender As Object, e As EventArgs) Handles picLogo.Click
         My.Computer.Registry.SetValue(My.Settings.RegLocation, "AppCoins", coinArray(coinArrayPosition).Split(",")(0).ToUpper)
-        cTiming.transitionForms(Me, frmThemeSelect)
+        cTiming.transitionForms(Me, frmFiatSelect)
     End Sub
 
     Private Sub btnBack_MouseHover(sender As Object, e As EventArgs) Handles btnBack.MouseHover
@@ -133,7 +133,15 @@ Public Class frmCoinSelect
         Loop
     End Sub
 
-    Private Sub LinkLabel1_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LinkLabel1.LinkClicked
+    Private Sub btnOtherCoin_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles btnOtherCoin.LinkClicked
+        btnOtherCoin.Visible = False
+        lblOtherCoin.Visible = True
+        txtOtherCoin.Visible = True
+        btnOtherContinue.Visible = True
+    End Sub
 
+    Private Sub btnOtherContinue_Click(sender As Object, e As EventArgs) Handles btnOtherContinue.Click
+        My.Computer.Registry.SetValue(My.Settings.RegLocation, "AppCoins", txtOtherCoin.Text.ToUpper)
+        cTiming.transitionForms(Me, frmFiatSelect)
     End Sub
 End Class

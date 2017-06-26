@@ -109,6 +109,12 @@
     <Compile Include="frmFeedback.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="frmFiatSelect.Designer.vb">
+      <DependentUpon>frmFiatSelect.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmFiatSelect.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frmHome.Designer.vb">
       <DependentUpon>frmHome.vb</DependentUpon>
     </Compile>
@@ -168,6 +174,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmFeedback.resx">
       <DependentUpon>frmFeedback.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmFiatSelect.resx">
+      <DependentUpon>frmFiatSelect.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmHome.resx">
       <DependentUpon>frmHome.vb</DependentUpon>

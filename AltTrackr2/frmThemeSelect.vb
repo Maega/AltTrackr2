@@ -50,6 +50,7 @@ Public Class frmThemeSelect
             'If DARK (or any other string comes through - to prevent issues), save dark theme.
             My.Computer.Registry.SetValue(My.Settings.RegLocation, "Theme", "DARK")
         End If
+        My.Computer.Registry.SetValue(My.Settings.RegLocation, "AppConfigured", "1")
         cTiming.transitionForms(Me, frmHome)
     End Sub
 End Class

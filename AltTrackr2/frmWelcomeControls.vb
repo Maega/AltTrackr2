@@ -42,11 +42,11 @@ Public Class frmWelcomeControls
             Case 0
                 FadeNew("Remember, AltTrackr is in Alpha")
             Case 1
-                FadeNew("Use Windows Key + B to report bugs", 35)
+                FadeNew("Please report any issues you find", 35)
             Case 2
                 FadeNew("Every bug report helps a ton")
             Case 3
-                FadeNew("You can also leave feedback with Win+B", 33)
+                FadeNew("You can also leave suggestions", 33)
             Case 4
                 FadeNew("We're ready to setup your experience", 35)
             Case 5

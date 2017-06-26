@@ -78,6 +78,8 @@ Partial Class frmHome
         Me.lblPipe = New MaterialSkin.Controls.MaterialLabel()
         Me.lblUnsaved = New MaterialSkin.Controls.MaterialLabel()
         Me.bkgCheckForUpdates = New System.ComponentModel.BackgroundWorker()
+        Me.ToolStripSeparator2 = New System.Windows.Forms.ToolStripSeparator()
+        Me.ResetAltTrackrToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.cxtTray.SuspendLayout()
         Me.tabContent.SuspendLayout()
         Me.tabDailyBrief.SuspendLayout()
@@ -460,10 +462,10 @@ Partial Class frmHome
         '
         Me.cxtBtnCheckForUpdates.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.cxtBtnCheckForUpdates.Depth = 0
-        Me.cxtBtnCheckForUpdates.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.tsiVersion})
+        Me.cxtBtnCheckForUpdates.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.tsiVersion, Me.ToolStripSeparator2, Me.ResetAltTrackrToolStripMenuItem})
         Me.cxtBtnCheckForUpdates.MouseState = MaterialSkin.MouseState.HOVER
         Me.cxtBtnCheckForUpdates.Name = "cxtBtnCheckForUpdates"
-        Me.cxtBtnCheckForUpdates.Size = New System.Drawing.Size(167, 26)
+        Me.cxtBtnCheckForUpdates.Size = New System.Drawing.Size(167, 54)
         '
         'tsiVersion
         '
@@ -799,6 +801,17 @@ Partial Class frmHome
         'bkgCheckForUpdates
         '
         '
+        'ToolStripSeparator2
+        '
+        Me.ToolStripSeparator2.Name = "ToolStripSeparator2"
+        Me.ToolStripSeparator2.Size = New System.Drawing.Size(163, 6)
+        '
+        'ResetAltTrackrToolStripMenuItem
+        '
+        Me.ResetAltTrackrToolStripMenuItem.Name = "ResetAltTrackrToolStripMenuItem"
+        Me.ResetAltTrackrToolStripMenuItem.Size = New System.Drawing.Size(166, 22)
+        Me.ResetAltTrackrToolStripMenuItem.Text = "Reset AltTrackr"
+        '
         'frmHome
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -880,4 +893,6 @@ Partial Class frmHome
     Friend WithEvents radSColourIndigo As MaterialSkin.Controls.MaterialRadioButton
     Friend WithEvents radSColourBlueGrey As MaterialSkin.Controls.MaterialRadioButton
     Friend WithEvents btnSColourCustom As MaterialSkin.Controls.MaterialRaisedButton
+    Friend WithEvents ToolStripSeparator2 As ToolStripSeparator
+    Friend WithEvents ResetAltTrackrToolStripMenuItem As ToolStripMenuItem
 End Class

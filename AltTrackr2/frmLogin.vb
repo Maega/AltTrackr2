@@ -4,6 +4,10 @@ Imports MaterialSkin
 Public Class frmLogin
     Dim AuthLocation As String = "HKEY_CURRENT_USER\Software\Maega\Auth"
     Private Sub frmLogin_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        My.Computer.Registry.SetValue(My.Settings.RegLocation, "AppDir", IO.Directory.GetCurrentDirectory)
+        My.Computer.Registry.SetValue(My.Settings.RegLocation, "AppExe", Application.ExecutablePath)
+        My.Computer.Registry.SetValue(My.Settings.RegLocation, "AppVer", cTiming.appVer.ToString)
+
         Dim SkinManager As MaterialSkinManager = MaterialSkinManager.Instance
         SkinManager.AddFormToManage(Me)
         SkinManager.Theme = MaterialSkinManager.Themes.DARK
@@ -46,6 +50,8 @@ Public Class frmLogin
         divLogin.Visible = False
         txtUsername.Visible = False
         txtPassword.Visible = False
+        btnNoAccount.Visible = False
+        btnForgotPassword.Visible = False
 
         prgLoading.NumberSpoke = 120
         prgLoading.SpokeThickness = 5
@@ -73,6 +79,8 @@ Public Class frmLogin
         divLogin.Visible = True
         txtUsername.Visible = True
         txtPassword.Visible = True
+        btnNoAccount.Visible = True
+        btnForgotPassword.Visible = True
     End Sub
 
     Dim loginval As String
@@ -96,5 +104,13 @@ Public Class frmLogin
             End If
             cTiming.transitionForms(Me, frmWelcome, False)
         End If
+    End Sub
+
+    Private Sub MaterialRaisedButton1_Click(sender As Object, e As EventArgs) Handles btnNoAccount.Click
+        Process.Start("https://my.maeganetwork.com/register")
+    End Sub
+
+    Private Sub MaterialRaisedButton2_Click(sender As Object, e As EventArgs) Handles btnForgotPassword.Click
+        Process.Start("https://my.maeganetwork.com/forgot")
     End Sub
 End Class
