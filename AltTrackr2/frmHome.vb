@@ -40,6 +40,7 @@ Public Class frmHome
         Me.Text = Me.Text + " v" + cTiming.appVer.ToString("n2")
         GetSettings()
         GetPrices()
+        Me.CenterToParent()
     End Sub
 
     Private Sub frmHome_Shown(sender As Object, e As EventArgs) Handles Me.Shown
