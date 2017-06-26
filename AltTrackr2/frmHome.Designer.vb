@@ -45,6 +45,7 @@ Partial Class frmHome
         Me.tabDetails = New System.Windows.Forms.TabPage()
         Me.lblComingSoon = New MaterialSkin.Controls.MaterialLabel()
         Me.tabSettings = New System.Windows.Forms.TabPage()
+        Me.btnSColourCustom = New MaterialSkin.Controls.MaterialRaisedButton()
         Me.radSColourRed = New MaterialSkin.Controls.MaterialRadioButton()
         Me.radSColourGreen = New MaterialSkin.Controls.MaterialRadioButton()
         Me.radSColourIndigo = New MaterialSkin.Controls.MaterialRadioButton()
@@ -70,7 +71,6 @@ Partial Class frmHome
         Me.MaterialLabel2 = New MaterialSkin.Controls.MaterialLabel()
         Me.tbsContent = New MaterialSkin.Controls.MaterialTabSelector()
         Me.tmrRefresh = New System.Windows.Forms.Timer(Me.components)
-        Me.btnBugReport = New MaterialSkin.Controls.MaterialRaisedButton()
         Me.btnFeedback = New MaterialSkin.Controls.MaterialRaisedButton()
         Me.pnlApplySettings = New System.Windows.Forms.Panel()
         Me.btnCancelChanges = New MaterialSkin.Controls.MaterialFlatButton()
@@ -78,7 +78,6 @@ Partial Class frmHome
         Me.lblPipe = New MaterialSkin.Controls.MaterialLabel()
         Me.lblUnsaved = New MaterialSkin.Controls.MaterialLabel()
         Me.bkgCheckForUpdates = New System.ComponentModel.BackgroundWorker()
-        Me.btnSColourCustom = New MaterialSkin.Controls.MaterialRaisedButton()
         Me.cxtTray.SuspendLayout()
         Me.tabContent.SuspendLayout()
         Me.tabDailyBrief.SuspendLayout()
@@ -363,12 +362,24 @@ Partial Class frmHome
         Me.tabSettings.TabIndex = 2
         Me.tabSettings.Text = "Settings"
         '
+        'btnSColourCustom
+        '
+        Me.btnSColourCustom.Depth = 0
+        Me.btnSColourCustom.Location = New System.Drawing.Point(544, 322)
+        Me.btnSColourCustom.MouseState = MaterialSkin.MouseState.HOVER
+        Me.btnSColourCustom.Name = "btnSColourCustom"
+        Me.btnSColourCustom.Primary = True
+        Me.btnSColourCustom.Size = New System.Drawing.Size(91, 23)
+        Me.btnSColourCustom.TabIndex = 33
+        Me.btnSColourCustom.Text = "Custom..."
+        Me.btnSColourCustom.UseVisualStyleBackColor = True
+        '
         'radSColourRed
         '
         Me.radSColourRed.AutoSize = True
         Me.radSColourRed.Depth = 0
         Me.radSColourRed.Font = New System.Drawing.Font("Roboto", 10.0!)
-        Me.radSColourRed.Location = New System.Drawing.Point(481, 294)
+        Me.radSColourRed.Location = New System.Drawing.Point(481, 319)
         Me.radSColourRed.Margin = New System.Windows.Forms.Padding(0)
         Me.radSColourRed.MouseLocation = New System.Drawing.Point(-1, -1)
         Me.radSColourRed.MouseState = MaterialSkin.MouseState.HOVER
@@ -385,7 +396,7 @@ Partial Class frmHome
         Me.radSColourGreen.AutoSize = True
         Me.radSColourGreen.Depth = 0
         Me.radSColourGreen.Font = New System.Drawing.Font("Roboto", 10.0!)
-        Me.radSColourGreen.Location = New System.Drawing.Point(415, 294)
+        Me.radSColourGreen.Location = New System.Drawing.Point(415, 319)
         Me.radSColourGreen.Margin = New System.Windows.Forms.Padding(0)
         Me.radSColourGreen.MouseLocation = New System.Drawing.Point(-1, -1)
         Me.radSColourGreen.MouseState = MaterialSkin.MouseState.HOVER
@@ -402,7 +413,7 @@ Partial Class frmHome
         Me.radSColourIndigo.AutoSize = True
         Me.radSColourIndigo.Depth = 0
         Me.radSColourIndigo.Font = New System.Drawing.Font("Roboto", 10.0!)
-        Me.radSColourIndigo.Location = New System.Drawing.Point(348, 294)
+        Me.radSColourIndigo.Location = New System.Drawing.Point(348, 319)
         Me.radSColourIndigo.Margin = New System.Windows.Forms.Padding(0)
         Me.radSColourIndigo.MouseLocation = New System.Drawing.Point(-1, -1)
         Me.radSColourIndigo.MouseState = MaterialSkin.MouseState.HOVER
@@ -419,7 +430,7 @@ Partial Class frmHome
         Me.radSColourBlueGrey.AutoSize = True
         Me.radSColourBlueGrey.Depth = 0
         Me.radSColourBlueGrey.Font = New System.Drawing.Font("Roboto", 10.0!)
-        Me.radSColourBlueGrey.Location = New System.Drawing.Point(259, 294)
+        Me.radSColourBlueGrey.Location = New System.Drawing.Point(259, 319)
         Me.radSColourBlueGrey.Margin = New System.Windows.Forms.Padding(0)
         Me.radSColourBlueGrey.MouseLocation = New System.Drawing.Point(-1, -1)
         Me.radSColourBlueGrey.MouseState = MaterialSkin.MouseState.HOVER
@@ -465,7 +476,7 @@ Partial Class frmHome
         Me.lblSVersion.Depth = 0
         Me.lblSVersion.Font = New System.Drawing.Font("Roboto", 11.0!)
         Me.lblSVersion.ForeColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.lblSVersion.Location = New System.Drawing.Point(339, 351)
+        Me.lblSVersion.Location = New System.Drawing.Point(339, 363)
         Me.lblSVersion.MouseState = MaterialSkin.MouseState.HOVER
         Me.lblSVersion.Name = "lblSVersion"
         Me.lblSVersion.Size = New System.Drawing.Size(195, 18)
@@ -700,19 +711,6 @@ Partial Class frmHome
         Me.tmrRefresh.Enabled = True
         Me.tmrRefresh.Interval = 10000
         '
-        'btnBugReport
-        '
-        Me.btnBugReport.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnBugReport.Depth = 0
-        Me.btnBugReport.Location = New System.Drawing.Point(692, 3)
-        Me.btnBugReport.MouseState = MaterialSkin.MouseState.HOVER
-        Me.btnBugReport.Name = "btnBugReport"
-        Me.btnBugReport.Primary = True
-        Me.btnBugReport.Size = New System.Drawing.Size(123, 18)
-        Me.btnBugReport.TabIndex = 19
-        Me.btnBugReport.Text = "Bug Report"
-        Me.btnBugReport.UseVisualStyleBackColor = True
-        '
         'btnFeedback
         '
         Me.btnFeedback.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
@@ -721,9 +719,9 @@ Partial Class frmHome
         Me.btnFeedback.MouseState = MaterialSkin.MouseState.HOVER
         Me.btnFeedback.Name = "btnFeedback"
         Me.btnFeedback.Primary = True
-        Me.btnFeedback.Size = New System.Drawing.Size(123, 18)
+        Me.btnFeedback.Size = New System.Drawing.Size(243, 18)
         Me.btnFeedback.TabIndex = 20
-        Me.btnFeedback.Text = "Feedback"
+        Me.btnFeedback.Text = "Feedback/Bug Report"
         Me.btnFeedback.UseVisualStyleBackColor = True
         '
         'pnlApplySettings
@@ -801,25 +799,12 @@ Partial Class frmHome
         'bkgCheckForUpdates
         '
         '
-        'btnSColourCustom
-        '
-        Me.btnSColourCustom.Depth = 0
-        Me.btnSColourCustom.Location = New System.Drawing.Point(544, 297)
-        Me.btnSColourCustom.MouseState = MaterialSkin.MouseState.HOVER
-        Me.btnSColourCustom.Name = "btnSColourCustom"
-        Me.btnSColourCustom.Primary = True
-        Me.btnSColourCustom.Size = New System.Drawing.Size(91, 23)
-        Me.btnSColourCustom.TabIndex = 33
-        Me.btnSColourCustom.Text = "Custom..."
-        Me.btnSColourCustom.UseVisualStyleBackColor = True
-        '
         'frmHome
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(900, 462)
         Me.Controls.Add(Me.btnFeedback)
-        Me.Controls.Add(Me.btnBugReport)
         Me.Controls.Add(Me.tbsContent)
         Me.Controls.Add(Me.tabContent)
         Me.Controls.Add(Me.lblLoading)
@@ -867,7 +852,6 @@ Partial Class frmHome
     Friend WithEvents MaterialLabel3 As MaterialSkin.Controls.MaterialLabel
     Friend WithEvents txtRefreshMins As MaterialSkin.Controls.MaterialSingleLineTextField
     Friend WithEvents MaterialLabel2 As MaterialSkin.Controls.MaterialLabel
-    Friend WithEvents btnBugReport As MaterialSkin.Controls.MaterialRaisedButton
     Friend WithEvents btnFeedback As MaterialSkin.Controls.MaterialRaisedButton
     Friend WithEvents pnlApplySettings As Panel
     Friend WithEvents lblUnsaved As MaterialSkin.Controls.MaterialLabel

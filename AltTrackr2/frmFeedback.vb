@@ -1,10 +1,12 @@
 ﻿Imports MaterialSkin
 
 Public Class frmFeedback
-    Dim referringForm As String
-    Public Sub New(ByVal refForm As Form)
+    'Dim referringForm As String
+    Dim reportInfo As String
+    Public Sub New(Optional reportData As String = "N/A")
         InitializeComponent()
-        referringForm = refForm.Name.ToString
+        'referringForm = refForm.Name.ToString
+        reportInfo = reportData
     End Sub
 
     Private Sub frmFeedback_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -40,7 +42,7 @@ Public Class frmFeedback
 
     Dim apiserver As String = "https://api.maeganetwork.com/feedback.php" 'This should point to the API backend on the feedback server
     Private Sub SubmitFeedback(fmessage As String)
-        Dim apiquery As String = "?uname=" + cTiming.CredentialArray(0) + "&upass=" + cTiming.CredentialArray(1) + "&message=" + feedbackType + fmessage.Replace("&", "+")
+        Dim apiquery As String = "?uname=" + cTiming.CredentialArray(0) + "&upass=" + cTiming.CredentialArray(1) + "&message=" + feedbackType + fmessage.Replace("&", "+") + " -- END -- Report Info: " + reportInfo
 
         Try
             Dim apiresponse As String = New System.Net.WebClient().DownloadString(apiserver + apiquery)

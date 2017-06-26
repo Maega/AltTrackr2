@@ -61,6 +61,12 @@ Public Class frmCustomColour
         lblChanges.Text = "Your changes have been saved. To revert this change, choose a standard colour scheme from settings."
     End Sub
 
+    Private Sub btnCSSubmit_Click(sender As Object, e As EventArgs) Handles btnCSSubmit.Click
+        MsgBox("Your proposed colour scheme will be sent with the feedback report. On the next screen, please choose 'positive' and add any additional information you feel might be necessary.", MsgBoxStyle.Information)
+        Dim frmFeedback As New frmFeedback("Custom Colour Scheme Submission: " + txtCSPrimary.Text + "," + txtCSDarkPrimary.Text + "," + txtCSLightPrimary.Text + "," + txtCSAccent.Text + "," + txtCSTextShade.Text)
+        frmFeedback.Show()
+    End Sub
+
     Private Sub btnCSTextShadeCint_Click(sender As Object, e As EventArgs) Handles btnCSTextShadeCint.Click
         Try
             Dim red As Integer = CInt(txtCSTextShadeR.Text.ToString)

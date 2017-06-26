@@ -96,18 +96,17 @@ Public Class frmHome
                 Else
                     Select Case GetRandom(0, 5)
                         Case 0
-                            lblLoading.Text = "Chatting with the servers, just a minute..."
+                            lblLoading.Text = "Discussing " + coinCodes + " by the water cooler..."
                         Case 1
                             lblLoading.Text = "Calculating how rich you've become..."
                         Case 2
-                            lblLoading.Text = "Loading Tip | Remember, you can report bugs with the Feedback button"
+                            lblLoading.Text = "Loading Tip | Remember, every bug report helps"
                         Case 3
                             lblLoading.Text = "Sending " + coinCodes + " to the moon..."
                         Case 4
                             lblLoading.Text = "HODL, HODL, HODL, HODL!"
                     End Select
                 End If
-                btnBugReport.Hide()
                 btnFeedback.Hide()
                 tabContent.Hide()
                 tbsContent.Hide()
@@ -156,7 +155,6 @@ Public Class frmHome
         tsHoldingsValue.Text = coinCodes + " Holdings Value: " + fiatMain + " " + (totalHoldings * CDec(serverResponse.SelectToken(fiatMain))).ToString("n2")
         prgLoading.Hide()
         lblLoading.Hide()
-        btnBugReport.Show()
         btnFeedback.Show()
         tabContent.Show()
         tbsContent.Show()
@@ -269,8 +267,8 @@ Public Class frmHome
 
     End Sub
 
-    Private Sub btnFeedback_Click(sender As Object, e As EventArgs) Handles btnFeedback.Click, btnBugReport.Click
-        Dim frmFeedback As New frmFeedback(Me)
+    Private Sub btnFeedback_Click(sender As Object, e As EventArgs) Handles btnFeedback.Click
+        Dim frmFeedback As New frmFeedback("Referred from frmHome, no additional data provided.")
         frmFeedback.Show()
     End Sub
 
