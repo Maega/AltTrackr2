@@ -121,6 +121,12 @@
     <Compile Include="frmHome.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="frmHomeAlt.Designer.vb">
+      <DependentUpon>frmHomeAlt.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmHomeAlt.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frmLogin.Designer.vb">
       <DependentUpon>frmLogin.vb</DependentUpon>
     </Compile>
@@ -160,6 +166,9 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="thmYouTube.vb">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="UpdateAPI.vb" />
   </ItemGroup>
   <ItemGroup>
@@ -180,6 +189,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmHome.resx">
       <DependentUpon>frmHome.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmHomeAlt.resx">
+      <DependentUpon>frmHomeAlt.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmLogin.resx">
       <DependentUpon>frmLogin.vb</DependentUpon>
