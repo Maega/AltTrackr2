@@ -53,6 +53,8 @@ Partial Class frmHome
         Me.btnSCheckForUpdates = New MaterialSkin.Controls.MaterialRaisedButton()
         Me.cxtBtnCheckForUpdates = New MaterialSkin.Controls.MaterialContextMenuStrip()
         Me.tsiVersion = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripSeparator2 = New System.Windows.Forms.ToolStripSeparator()
+        Me.ResetAltTrackrToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.lblSVersion = New MaterialSkin.Controls.MaterialLabel()
         Me.lblSYourInvestment = New MaterialSkin.Controls.MaterialLabel()
         Me.lblSUpdates = New MaterialSkin.Controls.MaterialLabel()
@@ -78,8 +80,6 @@ Partial Class frmHome
         Me.lblPipe = New MaterialSkin.Controls.MaterialLabel()
         Me.lblUnsaved = New MaterialSkin.Controls.MaterialLabel()
         Me.bkgCheckForUpdates = New System.ComponentModel.BackgroundWorker()
-        Me.ToolStripSeparator2 = New System.Windows.Forms.ToolStripSeparator()
-        Me.ResetAltTrackrToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.cxtTray.SuspendLayout()
         Me.tabContent.SuspendLayout()
         Me.tabDailyBrief.SuspendLayout()
@@ -473,6 +473,17 @@ Partial Class frmHome
         Me.tsiVersion.Size = New System.Drawing.Size(166, 22)
         Me.tsiVersion.Text = "Version Unknown"
         '
+        'ToolStripSeparator2
+        '
+        Me.ToolStripSeparator2.Name = "ToolStripSeparator2"
+        Me.ToolStripSeparator2.Size = New System.Drawing.Size(163, 6)
+        '
+        'ResetAltTrackrToolStripMenuItem
+        '
+        Me.ResetAltTrackrToolStripMenuItem.Name = "ResetAltTrackrToolStripMenuItem"
+        Me.ResetAltTrackrToolStripMenuItem.Size = New System.Drawing.Size(166, 22)
+        Me.ResetAltTrackrToolStripMenuItem.Text = "Reset AltTrackr"
+        '
         'lblSVersion
         '
         Me.lblSVersion.Depth = 0
@@ -800,17 +811,6 @@ Partial Class frmHome
         '
         'bkgCheckForUpdates
         '
-        '
-        'ToolStripSeparator2
-        '
-        Me.ToolStripSeparator2.Name = "ToolStripSeparator2"
-        Me.ToolStripSeparator2.Size = New System.Drawing.Size(163, 6)
-        '
-        'ResetAltTrackrToolStripMenuItem
-        '
-        Me.ResetAltTrackrToolStripMenuItem.Name = "ResetAltTrackrToolStripMenuItem"
-        Me.ResetAltTrackrToolStripMenuItem.Size = New System.Drawing.Size(166, 22)
-        Me.ResetAltTrackrToolStripMenuItem.Text = "Reset AltTrackr"
         '
         'frmHome
         '

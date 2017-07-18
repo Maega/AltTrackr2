@@ -23,6 +23,7 @@
     <OutputPath>bin\Debug\</OutputPath>
     <DocumentationFile>AltTrackr2.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -121,10 +122,10 @@
     <Compile Include="frmHome.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmHomeAlt.Designer.vb">
-      <DependentUpon>frmHomeAlt.vb</DependentUpon>
+    <Compile Include="frmHomeMulti.Designer.vb">
+      <DependentUpon>frmHomeMulti.vb</DependentUpon>
     </Compile>
-    <Compile Include="frmHomeAlt.vb">
+    <Compile Include="frmHomeMulti.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmLogin.Designer.vb">
@@ -166,7 +167,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="thmYouTube.vb">
+    <Compile Include="thmAether.vb">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="UpdateAPI.vb" />
@@ -190,8 +191,8 @@
     <EmbeddedResource Include="frmHome.resx">
       <DependentUpon>frmHome.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmHomeAlt.resx">
-      <DependentUpon>frmHomeAlt.vb</DependentUpon>
+    <EmbeddedResource Include="frmHomeMulti.resx">
+      <DependentUpon>frmHomeMulti.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmLogin.resx">
       <DependentUpon>frmLogin.vb</DependentUpon>
