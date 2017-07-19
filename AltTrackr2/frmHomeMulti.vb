@@ -30,7 +30,7 @@ Public Class frmHomeMulti
         SkinManager.ColorScheme = New ColorScheme(-13354941, -13354941, 6323595, 4244735, 16777215) 'Third and Fourth need to be updated to current theme.
         tabContent.Dock = DockStyle.None
         tabContent.Location = New Point(0, 64)
-        tabContent.SelectedTab = tpgHome
+        tabContent.SelectedTab = tpHome
         'tabContent.Size = New Point(1022, 490)
         GetPrices()
         Me.CenterToParent()
@@ -216,8 +216,8 @@ Public Class frmHomeMulti
             tagIncorrect2.Left = -86
             pnlLIncorrect.Hide()
             sessionUser = txtLUsername.Text
-            tpgLogin.Text = txtLUsername.Text
-            tpgLogin.ImageIndex = 28
+            tpLogin.Text = txtLUsername.Text
+            tpLogin.ImageIndex = 28
         ElseIf loginResponse.Contains("IncorrectLogin") Then
             pnlLIncorrect.Show()
             Do Until tagIncorrect1.Left >= 3
@@ -235,8 +235,8 @@ Public Class frmHomeMulti
 
     Private Sub btnLLogout_Click(sender As Object, e As EventArgs) Handles btnLLogout.Click
         sessionUser = String.Empty
-        tpgLogin.Text = "Login"
-        tpgLogin.ImageIndex = 25
+        tpLogin.Text = "Login"
+        tpLogin.ImageIndex = 25
     End Sub
 
     Private Sub btnLSignup_Click(sender As Object, e As EventArgs) Handles btnLSignup.Click

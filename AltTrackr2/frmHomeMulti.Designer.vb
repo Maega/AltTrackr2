@@ -24,7 +24,7 @@ Partial Class frmHomeMulti
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmHomeMulti))
-        Me.ilsIcon = New System.Windows.Forms.ImageList(Me.components)
+        Me.ImageList1 = New System.Windows.Forms.ImageList(Me.components)
         Me.bkgGetPrices = New System.ComponentModel.BackgroundWorker()
         Me.tmrRefresh = New System.Windows.Forms.Timer(Me.components)
         Me.pnlUnsaved = New System.Windows.Forms.Panel()
@@ -40,7 +40,7 @@ Partial Class frmHomeMulti
         Me.prgTitleLoad = New MRG.Controls.UI.LoadingCircle()
         Me.ilsImg = New System.Windows.Forms.ImageList(Me.components)
         Me.tabContent = New AltTrackr2.AetherTabControl()
-        Me.TabPage1 = New System.Windows.Forms.TabPage()
+        Me.tpHome = New System.Windows.Forms.TabPage()
         Me.AetherCircular2 = New AltTrackr2.AetherCircular()
         Me.AetherCheckBox1 = New AltTrackr2.AetherCheckBox()
         Me.AetherButton1 = New AltTrackr2.AetherButton()
@@ -52,91 +52,109 @@ Partial Class frmHomeMulti
         Me.lblAltPrices = New MaterialSkin.Controls.MaterialLabel()
         Me.lblFriendlyPrice = New MaterialSkin.Controls.MaterialLabel()
         Me.lblAltHoldings = New MaterialSkin.Controls.MaterialLabel()
-        Me.TabPage2 = New System.Windows.Forms.TabPage()
+        Me.tpHistory = New System.Windows.Forms.TabPage()
         Me.lblLastPriceUpdate = New MaterialSkin.Controls.MaterialLabel()
-        Me.TabPage6 = New System.Windows.Forms.TabPage()
-        Me.TabPage3 = New System.Windows.Forms.TabPage()
+        Me.tpSpacer1 = New System.Windows.Forms.TabPage()
+        Me.tpBitcoin = New System.Windows.Forms.TabPage()
         Me.Label3 = New System.Windows.Forms.Label()
+        Me.Label6 = New System.Windows.Forms.Label()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.AetherGroupBox3 = New AltTrackr2.AetherGroupBox()
         Me.MaterialLabel1 = New MaterialSkin.Controls.MaterialLabel()
         Me.MaterialLabel2 = New MaterialSkin.Controls.MaterialLabel()
         Me.MaterialLabel3 = New MaterialSkin.Controls.MaterialLabel()
-        Me.TabPage4 = New System.Windows.Forms.TabPage()
+        Me.tpEthereum = New System.Windows.Forms.TabPage()
         Me.Label4 = New System.Windows.Forms.Label()
+        Me.Label7 = New System.Windows.Forms.Label()
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.AetherGroupBox4 = New AltTrackr2.AetherGroupBox()
         Me.MaterialLabel4 = New MaterialSkin.Controls.MaterialLabel()
         Me.MaterialLabel5 = New MaterialSkin.Controls.MaterialLabel()
         Me.MaterialLabel6 = New MaterialSkin.Controls.MaterialLabel()
-        Me.TabPage5 = New System.Windows.Forms.TabPage()
+        Me.tpMonero = New System.Windows.Forms.TabPage()
+        Me.Label8 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.PictureBox3 = New System.Windows.Forms.PictureBox()
         Me.AetherGroupBox5 = New AltTrackr2.AetherGroupBox()
         Me.MaterialLabel7 = New MaterialSkin.Controls.MaterialLabel()
         Me.MaterialLabel8 = New MaterialSkin.Controls.MaterialLabel()
         Me.MaterialLabel9 = New MaterialSkin.Controls.MaterialLabel()
-        Me.TabPage11 = New System.Windows.Forms.TabPage()
-        Me.TabPage7 = New System.Windows.Forms.TabPage()
-        Me.TabPage8 = New System.Windows.Forms.TabPage()
+        Me.tpSiacoin = New System.Windows.Forms.TabPage()
+        Me.tpSpacer2 = New System.Windows.Forms.TabPage()
+        Me.tpPrefs = New System.Windows.Forms.TabPage()
         Me.AetherGroupBox2 = New AltTrackr2.AetherGroupBox()
         Me.AetherButton2 = New AltTrackr2.AetherButton()
         Me.radStyle1 = New AltTrackr2.AetherRadioButton()
         Me.radStyle3 = New AltTrackr2.AetherRadioButton()
         Me.radStyle2 = New AltTrackr2.AetherRadioButton()
         Me.AetherButton3 = New AltTrackr2.AetherButton()
-        Me.TabPage9 = New System.Windows.Forms.TabPage()
-        Me.TabPage10 = New System.Windows.Forms.TabPage()
-        Me.Label6 = New System.Windows.Forms.Label()
-        Me.Label7 = New System.Windows.Forms.Label()
-        Me.Label8 = New System.Windows.Forms.Label()
+        Me.tpSupport = New System.Windows.Forms.TabPage()
+        Me.tpFeedback = New System.Windows.Forms.TabPage()
+        Me.tpLogin = New System.Windows.Forms.TabPage()
+        Me.btnLLogin = New AltTrackr2.AetherButton()
+        Me.btnLSignup = New AltTrackr2.AetherButton()
+        Me.btnLForgot = New AltTrackr2.AetherButton()
+        Me.txtLPassword = New AltTrackr2.AetherTextbox()
+        Me.txtLUsername = New AltTrackr2.AetherTextbox()
+        Me.tagIncorrect1 = New AltTrackr2.AetherTag()
+        Me.tagIncorrect2 = New AltTrackr2.AetherTag()
+        Me.pnlLIncorrect = New System.Windows.Forms.Panel()
+        Me.btnLChangeDetails = New AltTrackr2.AetherButton()
+        Me.btnLLogout = New AltTrackr2.AetherButton()
         Me.pnlUnsaved.SuspendLayout()
         Me.pnlLoadingMain.SuspendLayout()
         Me.tabContent.SuspendLayout()
-        Me.TabPage1.SuspendLayout()
+        Me.tpHome.SuspendLayout()
         Me.AetherGroupBox1.SuspendLayout()
-        Me.TabPage2.SuspendLayout()
-        Me.TabPage3.SuspendLayout()
+        Me.tpHistory.SuspendLayout()
+        Me.tpBitcoin.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.AetherGroupBox3.SuspendLayout()
-        Me.TabPage4.SuspendLayout()
+        Me.tpEthereum.SuspendLayout()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.AetherGroupBox4.SuspendLayout()
-        Me.TabPage5.SuspendLayout()
+        Me.tpMonero.SuspendLayout()
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.AetherGroupBox5.SuspendLayout()
-        Me.TabPage8.SuspendLayout()
+        Me.tpPrefs.SuspendLayout()
         Me.AetherGroupBox2.SuspendLayout()
+        Me.tpLogin.SuspendLayout()
+        Me.pnlLIncorrect.SuspendLayout()
         Me.SuspendLayout()
         '
-        'ilsIcon
+        'ImageList1
         '
-        Me.ilsIcon.ImageStream = CType(resources.GetObject("ilsIcon.ImageStream"), System.Windows.Forms.ImageListStreamer)
-        Me.ilsIcon.TransparentColor = System.Drawing.Color.Transparent
-        Me.ilsIcon.Images.SetKeyName(0, "home_icon.png")
-        Me.ilsIcon.Images.SetKeyName(1, "logoETH.png")
-        Me.ilsIcon.Images.SetKeyName(2, "logoBTC.png")
-        Me.ilsIcon.Images.SetKeyName(3, "logoDoge.png")
-        Me.ilsIcon.Images.SetKeyName(4, "logoLTC.png")
-        Me.ilsIcon.Images.SetKeyName(5, "logoXMR.png")
-        Me.ilsIcon.Images.SetKeyName(6, "001-report.png")
-        Me.ilsIcon.Images.SetKeyName(7, "002-male-telemarketer.png")
-        Me.ilsIcon.Images.SetKeyName(8, "003-lifesaver.png")
-        Me.ilsIcon.Images.SetKeyName(9, "004-money.png")
-        Me.ilsIcon.Images.SetKeyName(10, "005-statistics.png")
-        Me.ilsIcon.Images.SetKeyName(11, "007-bitcoin.png")
-        Me.ilsIcon.Images.SetKeyName(12, "008-coin.png")
-        Me.ilsIcon.Images.SetKeyName(13, "014-communications.png")
-        Me.ilsIcon.Images.SetKeyName(14, "017-monitor-1.png")
-        Me.ilsIcon.Images.SetKeyName(15, "018-dashboard.png")
-        Me.ilsIcon.Images.SetKeyName(16, "019-gear.png")
-        Me.ilsIcon.Images.SetKeyName(17, "020-clockwise.png")
-        Me.ilsIcon.Images.SetKeyName(18, "021-anti-clockwise.png")
-        Me.ilsIcon.Images.SetKeyName(19, "022-alarm-1.png")
-        Me.ilsIcon.Images.SetKeyName(20, "023-alarm.png")
-        Me.ilsIcon.Images.SetKeyName(21, "025-home.png")
-        Me.ilsIcon.Images.SetKeyName(22, "027-monero.png")
-        Me.ilsIcon.Images.SetKeyName(23, "028-ethereum.png")
+        Me.ImageList1.ImageStream = CType(resources.GetObject("ImageList1.ImageStream"), System.Windows.Forms.ImageListStreamer)
+        Me.ImageList1.TransparentColor = System.Drawing.Color.Transparent
+        Me.ImageList1.Images.SetKeyName(0, "home_icon.png")
+        Me.ImageList1.Images.SetKeyName(1, "logoETH.png")
+        Me.ImageList1.Images.SetKeyName(2, "logoBTC.png")
+        Me.ImageList1.Images.SetKeyName(3, "logoDoge.png")
+        Me.ImageList1.Images.SetKeyName(4, "logoLTC.png")
+        Me.ImageList1.Images.SetKeyName(5, "logoXMR.png")
+        Me.ImageList1.Images.SetKeyName(6, "001-report.png")
+        Me.ImageList1.Images.SetKeyName(7, "002-male-telemarketer.png")
+        Me.ImageList1.Images.SetKeyName(8, "003-lifesaver.png")
+        Me.ImageList1.Images.SetKeyName(9, "004-money.png")
+        Me.ImageList1.Images.SetKeyName(10, "005-statistics.png")
+        Me.ImageList1.Images.SetKeyName(11, "007-bitcoin.png")
+        Me.ImageList1.Images.SetKeyName(12, "008-coin.png")
+        Me.ImageList1.Images.SetKeyName(13, "014-communications.png")
+        Me.ImageList1.Images.SetKeyName(14, "017-monitor-1.png")
+        Me.ImageList1.Images.SetKeyName(15, "018-dashboard.png")
+        Me.ImageList1.Images.SetKeyName(16, "019-gear.png")
+        Me.ImageList1.Images.SetKeyName(17, "020-clockwise.png")
+        Me.ImageList1.Images.SetKeyName(18, "021-anti-clockwise.png")
+        Me.ImageList1.Images.SetKeyName(19, "022-alarm-1.png")
+        Me.ImageList1.Images.SetKeyName(20, "023-alarm.png")
+        Me.ImageList1.Images.SetKeyName(21, "025-home.png")
+        Me.ImageList1.Images.SetKeyName(22, "027-monero.png")
+        Me.ImageList1.Images.SetKeyName(23, "028-ethereum.png")
+        Me.ImageList1.Images.SetKeyName(24, "")
+        Me.ImageList1.Images.SetKeyName(25, "")
+        Me.ImageList1.Images.SetKeyName(26, "")
+        Me.ImageList1.Images.SetKeyName(27, "")
+        Me.ImageList1.Images.SetKeyName(28, "")
         '
         'bkgGetPrices
         '
@@ -296,18 +314,19 @@ Partial Class frmHomeMulti
         Me.tabContent.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.tabContent.Controls.Add(Me.TabPage1)
-        Me.tabContent.Controls.Add(Me.TabPage2)
-        Me.tabContent.Controls.Add(Me.TabPage6)
-        Me.tabContent.Controls.Add(Me.TabPage3)
-        Me.tabContent.Controls.Add(Me.TabPage4)
-        Me.tabContent.Controls.Add(Me.TabPage5)
-        Me.tabContent.Controls.Add(Me.TabPage11)
-        Me.tabContent.Controls.Add(Me.TabPage7)
-        Me.tabContent.Controls.Add(Me.TabPage8)
-        Me.tabContent.Controls.Add(Me.TabPage9)
-        Me.tabContent.Controls.Add(Me.TabPage10)
-        Me.tabContent.ImageList = Me.ilsIcon
+        Me.tabContent.Controls.Add(Me.tpLogin)
+        Me.tabContent.Controls.Add(Me.tpHome)
+        Me.tabContent.Controls.Add(Me.tpHistory)
+        Me.tabContent.Controls.Add(Me.tpSpacer1)
+        Me.tabContent.Controls.Add(Me.tpBitcoin)
+        Me.tabContent.Controls.Add(Me.tpEthereum)
+        Me.tabContent.Controls.Add(Me.tpMonero)
+        Me.tabContent.Controls.Add(Me.tpSiacoin)
+        Me.tabContent.Controls.Add(Me.tpSpacer2)
+        Me.tabContent.Controls.Add(Me.tpPrefs)
+        Me.tabContent.Controls.Add(Me.tpSupport)
+        Me.tabContent.Controls.Add(Me.tpFeedback)
+        Me.tabContent.ImageList = Me.ImageList1
         Me.tabContent.ItemSize = New System.Drawing.Size(40, 190)
         Me.tabContent.Location = New System.Drawing.Point(0, 64)
         Me.tabContent.Multiline = True
@@ -318,26 +337,26 @@ Partial Class frmHomeMulti
         Me.tabContent.TabIndex = 0
         Me.tabContent.UpperText = True
         '
-        'TabPage1
+        'tpHome
         '
-        Me.TabPage1.BackColor = System.Drawing.Color.White
-        Me.TabPage1.Controls.Add(Me.AetherCircular2)
-        Me.TabPage1.Controls.Add(Me.AetherCheckBox1)
-        Me.TabPage1.Controls.Add(Me.AetherButton1)
-        Me.TabPage1.Controls.Add(Me.AetherRadioButton2)
-        Me.TabPage1.Controls.Add(Me.AetherRadioButton1)
-        Me.TabPage1.Controls.Add(Me.AetherTextbox1)
-        Me.TabPage1.Controls.Add(Me.AetherTag1)
-        Me.TabPage1.Controls.Add(Me.AetherGroupBox1)
-        Me.TabPage1.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        Me.TabPage1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(52, Byte), Integer), CType(CType(56, Byte), Integer), CType(CType(67, Byte), Integer))
-        Me.TabPage1.ImageIndex = 0
-        Me.TabPage1.Location = New System.Drawing.Point(194, 4)
-        Me.TabPage1.Name = "TabPage1"
-        Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage1.Size = New System.Drawing.Size(824, 482)
-        Me.TabPage1.TabIndex = 0
-        Me.TabPage1.Text = "Home"
+        Me.tpHome.BackColor = System.Drawing.Color.White
+        Me.tpHome.Controls.Add(Me.AetherCircular2)
+        Me.tpHome.Controls.Add(Me.AetherCheckBox1)
+        Me.tpHome.Controls.Add(Me.AetherButton1)
+        Me.tpHome.Controls.Add(Me.AetherRadioButton2)
+        Me.tpHome.Controls.Add(Me.AetherRadioButton1)
+        Me.tpHome.Controls.Add(Me.AetherTextbox1)
+        Me.tpHome.Controls.Add(Me.AetherTag1)
+        Me.tpHome.Controls.Add(Me.AetherGroupBox1)
+        Me.tpHome.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.tpHome.ForeColor = System.Drawing.Color.FromArgb(CType(CType(52, Byte), Integer), CType(CType(56, Byte), Integer), CType(CType(67, Byte), Integer))
+        Me.tpHome.ImageIndex = 0
+        Me.tpHome.Location = New System.Drawing.Point(194, 4)
+        Me.tpHome.Name = "tpHome"
+        Me.tpHome.Padding = New System.Windows.Forms.Padding(3)
+        Me.tpHome.Size = New System.Drawing.Size(824, 482)
+        Me.tpHome.TabIndex = 0
+        Me.tpHome.Text = "Home"
         '
         'AetherCircular2
         '
@@ -489,19 +508,19 @@ Partial Class frmHomeMulti
         Me.lblAltHoldings.Text = "XMR Holdings - USD: 00.00 | AUD: 00.00 | GBP: 00.00"
         Me.lblAltHoldings.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
-        'TabPage2
+        'tpHistory
         '
-        Me.TabPage2.BackColor = System.Drawing.Color.White
-        Me.TabPage2.Controls.Add(Me.lblLastPriceUpdate)
-        Me.TabPage2.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        Me.TabPage2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(52, Byte), Integer), CType(CType(56, Byte), Integer), CType(CType(67, Byte), Integer))
-        Me.TabPage2.ImageIndex = 10
-        Me.TabPage2.Location = New System.Drawing.Point(194, 4)
-        Me.TabPage2.Name = "TabPage2"
-        Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage2.Size = New System.Drawing.Size(824, 482)
-        Me.TabPage2.TabIndex = 1
-        Me.TabPage2.Text = "History"
+        Me.tpHistory.BackColor = System.Drawing.Color.White
+        Me.tpHistory.Controls.Add(Me.lblLastPriceUpdate)
+        Me.tpHistory.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.tpHistory.ForeColor = System.Drawing.Color.FromArgb(CType(CType(52, Byte), Integer), CType(CType(56, Byte), Integer), CType(CType(67, Byte), Integer))
+        Me.tpHistory.ImageIndex = 10
+        Me.tpHistory.Location = New System.Drawing.Point(194, 4)
+        Me.tpHistory.Name = "tpHistory"
+        Me.tpHistory.Padding = New System.Windows.Forms.Padding(3)
+        Me.tpHistory.Size = New System.Drawing.Size(824, 482)
+        Me.tpHistory.TabIndex = 1
+        Me.tpHistory.Text = "History"
         '
         'lblLastPriceUpdate
         '
@@ -517,32 +536,32 @@ Partial Class frmHomeMulti
         Me.lblLastPriceUpdate.Text = "Last Updated:"
         Me.lblLastPriceUpdate.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
-        'TabPage6
+        'tpSpacer1
         '
-        Me.TabPage6.BackColor = System.Drawing.Color.White
-        Me.TabPage6.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        Me.TabPage6.ForeColor = System.Drawing.Color.FromArgb(CType(CType(52, Byte), Integer), CType(CType(56, Byte), Integer), CType(CType(67, Byte), Integer))
-        Me.TabPage6.Location = New System.Drawing.Point(194, 4)
-        Me.TabPage6.Name = "TabPage6"
-        Me.TabPage6.Size = New System.Drawing.Size(824, 482)
-        Me.TabPage6.TabIndex = 5
+        Me.tpSpacer1.BackColor = System.Drawing.Color.White
+        Me.tpSpacer1.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.tpSpacer1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(52, Byte), Integer), CType(CType(56, Byte), Integer), CType(CType(67, Byte), Integer))
+        Me.tpSpacer1.Location = New System.Drawing.Point(194, 4)
+        Me.tpSpacer1.Name = "tpSpacer1"
+        Me.tpSpacer1.Size = New System.Drawing.Size(824, 482)
+        Me.tpSpacer1.TabIndex = 5
         '
-        'TabPage3
+        'tpBitcoin
         '
-        Me.TabPage3.BackColor = System.Drawing.Color.White
-        Me.TabPage3.Controls.Add(Me.Label3)
-        Me.TabPage3.Controls.Add(Me.Label6)
-        Me.TabPage3.Controls.Add(Me.PictureBox1)
-        Me.TabPage3.Controls.Add(Me.AetherGroupBox3)
-        Me.TabPage3.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        Me.TabPage3.ForeColor = System.Drawing.Color.FromArgb(CType(CType(52, Byte), Integer), CType(CType(56, Byte), Integer), CType(CType(67, Byte), Integer))
-        Me.TabPage3.ImageIndex = 11
-        Me.TabPage3.Location = New System.Drawing.Point(194, 4)
-        Me.TabPage3.Name = "TabPage3"
-        Me.TabPage3.Size = New System.Drawing.Size(824, 482)
-        Me.TabPage3.TabIndex = 2
-        Me.TabPage3.Tag = "$2587"
-        Me.TabPage3.Text = "Bitcoin"
+        Me.tpBitcoin.BackColor = System.Drawing.Color.White
+        Me.tpBitcoin.Controls.Add(Me.Label3)
+        Me.tpBitcoin.Controls.Add(Me.Label6)
+        Me.tpBitcoin.Controls.Add(Me.PictureBox1)
+        Me.tpBitcoin.Controls.Add(Me.AetherGroupBox3)
+        Me.tpBitcoin.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.tpBitcoin.ForeColor = System.Drawing.Color.FromArgb(CType(CType(52, Byte), Integer), CType(CType(56, Byte), Integer), CType(CType(67, Byte), Integer))
+        Me.tpBitcoin.ImageIndex = 11
+        Me.tpBitcoin.Location = New System.Drawing.Point(194, 4)
+        Me.tpBitcoin.Name = "tpBitcoin"
+        Me.tpBitcoin.Size = New System.Drawing.Size(824, 482)
+        Me.tpBitcoin.TabIndex = 2
+        Me.tpBitcoin.Tag = "$2587"
+        Me.tpBitcoin.Text = "Bitcoin"
         '
         'Label3
         '
@@ -554,6 +573,16 @@ Partial Class frmHomeMulti
         Me.Label3.TabIndex = 4
         Me.Label3.Text = "BITCOIN"
         Me.Label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'Label6
+        '
+        Me.Label6.Font = New System.Drawing.Font("Segoe UI Semibold", 15.0!)
+        Me.Label6.Location = New System.Drawing.Point(421, 73)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(176, 30)
+        Me.Label6.TabIndex = 5
+        Me.Label6.Text = "$2587"
+        Me.Label6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'PictureBox1
         '
@@ -624,22 +653,22 @@ Partial Class frmHomeMulti
         Me.MaterialLabel3.Text = "BTC Holdings - USD: 00.00 | AUD: 00.00 | GBP: 00.00"
         Me.MaterialLabel3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
-        'TabPage4
+        'tpEthereum
         '
-        Me.TabPage4.BackColor = System.Drawing.Color.White
-        Me.TabPage4.Controls.Add(Me.Label4)
-        Me.TabPage4.Controls.Add(Me.Label7)
-        Me.TabPage4.Controls.Add(Me.PictureBox2)
-        Me.TabPage4.Controls.Add(Me.AetherGroupBox4)
-        Me.TabPage4.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        Me.TabPage4.ForeColor = System.Drawing.Color.FromArgb(CType(CType(52, Byte), Integer), CType(CType(56, Byte), Integer), CType(CType(67, Byte), Integer))
-        Me.TabPage4.ImageIndex = 23
-        Me.TabPage4.Location = New System.Drawing.Point(194, 4)
-        Me.TabPage4.Name = "TabPage4"
-        Me.TabPage4.Size = New System.Drawing.Size(824, 482)
-        Me.TabPage4.TabIndex = 3
-        Me.TabPage4.Tag = "$192"
-        Me.TabPage4.Text = "Ethereum"
+        Me.tpEthereum.BackColor = System.Drawing.Color.White
+        Me.tpEthereum.Controls.Add(Me.Label4)
+        Me.tpEthereum.Controls.Add(Me.Label7)
+        Me.tpEthereum.Controls.Add(Me.PictureBox2)
+        Me.tpEthereum.Controls.Add(Me.AetherGroupBox4)
+        Me.tpEthereum.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.tpEthereum.ForeColor = System.Drawing.Color.FromArgb(CType(CType(52, Byte), Integer), CType(CType(56, Byte), Integer), CType(CType(67, Byte), Integer))
+        Me.tpEthereum.ImageIndex = 23
+        Me.tpEthereum.Location = New System.Drawing.Point(194, 4)
+        Me.tpEthereum.Name = "tpEthereum"
+        Me.tpEthereum.Size = New System.Drawing.Size(824, 482)
+        Me.tpEthereum.TabIndex = 3
+        Me.tpEthereum.Tag = "$192"
+        Me.tpEthereum.Text = "Ethereum"
         '
         'Label4
         '
@@ -651,6 +680,16 @@ Partial Class frmHomeMulti
         Me.Label4.TabIndex = 6
         Me.Label4.Text = "ETHEREUM"
         Me.Label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'Label7
+        '
+        Me.Label7.Font = New System.Drawing.Font("Segoe UI Semibold", 15.0!)
+        Me.Label7.Location = New System.Drawing.Point(392, 73)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(211, 30)
+        Me.Label7.TabIndex = 7
+        Me.Label7.Text = "$192"
+        Me.Label7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'PictureBox2
         '
@@ -721,22 +760,32 @@ Partial Class frmHomeMulti
         Me.MaterialLabel6.Text = "ETH Holdings - USD: 00.00 | AUD: 00.00 | GBP: 00.00"
         Me.MaterialLabel6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
-        'TabPage5
+        'tpMonero
         '
-        Me.TabPage5.BackColor = System.Drawing.Color.White
-        Me.TabPage5.Controls.Add(Me.Label8)
-        Me.TabPage5.Controls.Add(Me.Label5)
-        Me.TabPage5.Controls.Add(Me.PictureBox3)
-        Me.TabPage5.Controls.Add(Me.AetherGroupBox5)
-        Me.TabPage5.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        Me.TabPage5.ForeColor = System.Drawing.Color.FromArgb(CType(CType(52, Byte), Integer), CType(CType(56, Byte), Integer), CType(CType(67, Byte), Integer))
-        Me.TabPage5.ImageIndex = 22
-        Me.TabPage5.Location = New System.Drawing.Point(194, 4)
-        Me.TabPage5.Name = "TabPage5"
-        Me.TabPage5.Size = New System.Drawing.Size(824, 482)
-        Me.TabPage5.TabIndex = 4
-        Me.TabPage5.Tag = "$47"
-        Me.TabPage5.Text = "Monero"
+        Me.tpMonero.BackColor = System.Drawing.Color.White
+        Me.tpMonero.Controls.Add(Me.Label8)
+        Me.tpMonero.Controls.Add(Me.Label5)
+        Me.tpMonero.Controls.Add(Me.PictureBox3)
+        Me.tpMonero.Controls.Add(Me.AetherGroupBox5)
+        Me.tpMonero.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.tpMonero.ForeColor = System.Drawing.Color.FromArgb(CType(CType(52, Byte), Integer), CType(CType(56, Byte), Integer), CType(CType(67, Byte), Integer))
+        Me.tpMonero.ImageIndex = 22
+        Me.tpMonero.Location = New System.Drawing.Point(194, 4)
+        Me.tpMonero.Name = "tpMonero"
+        Me.tpMonero.Size = New System.Drawing.Size(824, 482)
+        Me.tpMonero.TabIndex = 4
+        Me.tpMonero.Tag = "$47"
+        Me.tpMonero.Text = "Monero"
+        '
+        'Label8
+        '
+        Me.Label8.Font = New System.Drawing.Font("Segoe UI Semibold", 15.0!)
+        Me.Label8.Location = New System.Drawing.Point(410, 73)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(211, 30)
+        Me.Label8.TabIndex = 9
+        Me.Label8.Text = "$47"
+        Me.Label8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'Label5
         '
@@ -818,41 +867,41 @@ Partial Class frmHomeMulti
         Me.MaterialLabel9.Text = "XMR Holdings - USD: 00.00 | AUD: 00.00 | GBP: 00.00"
         Me.MaterialLabel9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
-        'TabPage11
+        'tpSiacoin
         '
-        Me.TabPage11.BackColor = System.Drawing.Color.White
-        Me.TabPage11.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        Me.TabPage11.ForeColor = System.Drawing.Color.FromArgb(CType(CType(52, Byte), Integer), CType(CType(56, Byte), Integer), CType(CType(67, Byte), Integer))
-        Me.TabPage11.ImageIndex = 9
-        Me.TabPage11.Location = New System.Drawing.Point(194, 4)
-        Me.TabPage11.Name = "TabPage11"
-        Me.TabPage11.Size = New System.Drawing.Size(824, 482)
-        Me.TabPage11.TabIndex = 10
-        Me.TabPage11.Text = "Siacoin"
+        Me.tpSiacoin.BackColor = System.Drawing.Color.White
+        Me.tpSiacoin.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.tpSiacoin.ForeColor = System.Drawing.Color.FromArgb(CType(CType(52, Byte), Integer), CType(CType(56, Byte), Integer), CType(CType(67, Byte), Integer))
+        Me.tpSiacoin.ImageIndex = 9
+        Me.tpSiacoin.Location = New System.Drawing.Point(194, 4)
+        Me.tpSiacoin.Name = "tpSiacoin"
+        Me.tpSiacoin.Size = New System.Drawing.Size(824, 482)
+        Me.tpSiacoin.TabIndex = 10
+        Me.tpSiacoin.Text = "Siacoin"
         '
-        'TabPage7
+        'tpSpacer2
         '
-        Me.TabPage7.BackColor = System.Drawing.Color.White
-        Me.TabPage7.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        Me.TabPage7.ForeColor = System.Drawing.Color.FromArgb(CType(CType(52, Byte), Integer), CType(CType(56, Byte), Integer), CType(CType(67, Byte), Integer))
-        Me.TabPage7.Location = New System.Drawing.Point(194, 4)
-        Me.TabPage7.Name = "TabPage7"
-        Me.TabPage7.Size = New System.Drawing.Size(824, 482)
-        Me.TabPage7.TabIndex = 6
+        Me.tpSpacer2.BackColor = System.Drawing.Color.White
+        Me.tpSpacer2.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.tpSpacer2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(52, Byte), Integer), CType(CType(56, Byte), Integer), CType(CType(67, Byte), Integer))
+        Me.tpSpacer2.Location = New System.Drawing.Point(194, 4)
+        Me.tpSpacer2.Name = "tpSpacer2"
+        Me.tpSpacer2.Size = New System.Drawing.Size(824, 482)
+        Me.tpSpacer2.TabIndex = 6
         '
-        'TabPage8
+        'tpPrefs
         '
-        Me.TabPage8.BackColor = System.Drawing.Color.White
-        Me.TabPage8.Controls.Add(Me.AetherGroupBox2)
-        Me.TabPage8.Controls.Add(Me.AetherButton3)
-        Me.TabPage8.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        Me.TabPage8.ForeColor = System.Drawing.Color.FromArgb(CType(CType(52, Byte), Integer), CType(CType(56, Byte), Integer), CType(CType(67, Byte), Integer))
-        Me.TabPage8.ImageIndex = 14
-        Me.TabPage8.Location = New System.Drawing.Point(194, 4)
-        Me.TabPage8.Name = "TabPage8"
-        Me.TabPage8.Size = New System.Drawing.Size(824, 482)
-        Me.TabPage8.TabIndex = 7
-        Me.TabPage8.Text = "User Preferences"
+        Me.tpPrefs.BackColor = System.Drawing.Color.White
+        Me.tpPrefs.Controls.Add(Me.AetherGroupBox2)
+        Me.tpPrefs.Controls.Add(Me.AetherButton3)
+        Me.tpPrefs.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.tpPrefs.ForeColor = System.Drawing.Color.FromArgb(CType(CType(52, Byte), Integer), CType(CType(56, Byte), Integer), CType(CType(67, Byte), Integer))
+        Me.tpPrefs.ImageIndex = 14
+        Me.tpPrefs.Location = New System.Drawing.Point(194, 4)
+        Me.tpPrefs.Name = "tpPrefs"
+        Me.tpPrefs.Size = New System.Drawing.Size(824, 482)
+        Me.tpPrefs.TabIndex = 7
+        Me.tpPrefs.Text = "User Preferences"
         '
         'AetherGroupBox2
         '
@@ -922,60 +971,158 @@ Partial Class frmHomeMulti
         Me.AetherButton3.TabIndex = 4
         Me.AetherButton3.Text = "Check Prices"
         '
-        'TabPage9
+        'tpSupport
         '
-        Me.TabPage9.BackColor = System.Drawing.Color.White
-        Me.TabPage9.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        Me.TabPage9.ForeColor = System.Drawing.Color.FromArgb(CType(CType(52, Byte), Integer), CType(CType(56, Byte), Integer), CType(CType(67, Byte), Integer))
-        Me.TabPage9.ImageIndex = 8
-        Me.TabPage9.Location = New System.Drawing.Point(194, 4)
-        Me.TabPage9.Name = "TabPage9"
-        Me.TabPage9.Size = New System.Drawing.Size(824, 482)
-        Me.TabPage9.TabIndex = 8
-        Me.TabPage9.Text = "Help & Support"
+        Me.tpSupport.BackColor = System.Drawing.Color.White
+        Me.tpSupport.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.tpSupport.ForeColor = System.Drawing.Color.FromArgb(CType(CType(52, Byte), Integer), CType(CType(56, Byte), Integer), CType(CType(67, Byte), Integer))
+        Me.tpSupport.ImageIndex = 8
+        Me.tpSupport.Location = New System.Drawing.Point(194, 4)
+        Me.tpSupport.Name = "tpSupport"
+        Me.tpSupport.Size = New System.Drawing.Size(824, 482)
+        Me.tpSupport.TabIndex = 8
+        Me.tpSupport.Text = "Help & Support"
         '
-        'TabPage10
+        'tpFeedback
         '
-        Me.TabPage10.BackColor = System.Drawing.Color.White
-        Me.TabPage10.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        Me.TabPage10.ForeColor = System.Drawing.Color.FromArgb(CType(CType(52, Byte), Integer), CType(CType(56, Byte), Integer), CType(CType(67, Byte), Integer))
-        Me.TabPage10.ImageIndex = 6
-        Me.TabPage10.Location = New System.Drawing.Point(194, 4)
-        Me.TabPage10.Name = "TabPage10"
-        Me.TabPage10.Size = New System.Drawing.Size(824, 482)
-        Me.TabPage10.TabIndex = 9
-        Me.TabPage10.Tag = "Beta 1"
-        Me.TabPage10.Text = "Feedback"
+        Me.tpFeedback.BackColor = System.Drawing.Color.White
+        Me.tpFeedback.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.tpFeedback.ForeColor = System.Drawing.Color.FromArgb(CType(CType(52, Byte), Integer), CType(CType(56, Byte), Integer), CType(CType(67, Byte), Integer))
+        Me.tpFeedback.ImageIndex = 6
+        Me.tpFeedback.Location = New System.Drawing.Point(194, 4)
+        Me.tpFeedback.Name = "tpFeedback"
+        Me.tpFeedback.Size = New System.Drawing.Size(824, 482)
+        Me.tpFeedback.TabIndex = 9
+        Me.tpFeedback.Tag = "Beta 1"
+        Me.tpFeedback.Text = "Feedback"
         '
-        'Label6
+        'tpLogin
         '
-        Me.Label6.Font = New System.Drawing.Font("Segoe UI Semibold", 15.0!)
-        Me.Label6.Location = New System.Drawing.Point(421, 73)
-        Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(176, 30)
-        Me.Label6.TabIndex = 5
-        Me.Label6.Text = "$2587"
-        Me.Label6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.tpLogin.BackColor = System.Drawing.Color.White
+        Me.tpLogin.Controls.Add(Me.btnLLogout)
+        Me.tpLogin.Controls.Add(Me.btnLChangeDetails)
+        Me.tpLogin.Controls.Add(Me.txtLUsername)
+        Me.tpLogin.Controls.Add(Me.txtLPassword)
+        Me.tpLogin.Controls.Add(Me.btnLForgot)
+        Me.tpLogin.Controls.Add(Me.btnLSignup)
+        Me.tpLogin.Controls.Add(Me.btnLLogin)
+        Me.tpLogin.Controls.Add(Me.pnlLIncorrect)
+        Me.tpLogin.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.tpLogin.ForeColor = System.Drawing.Color.FromArgb(CType(CType(52, Byte), Integer), CType(CType(56, Byte), Integer), CType(CType(67, Byte), Integer))
+        Me.tpLogin.ImageIndex = 25
+        Me.tpLogin.Location = New System.Drawing.Point(194, 4)
+        Me.tpLogin.Name = "tpLogin"
+        Me.tpLogin.Size = New System.Drawing.Size(824, 482)
+        Me.tpLogin.TabIndex = 11
+        Me.tpLogin.Text = "Login"
         '
-        'Label7
+        'btnLLogin
         '
-        Me.Label7.Font = New System.Drawing.Font("Segoe UI Semibold", 15.0!)
-        Me.Label7.Location = New System.Drawing.Point(392, 73)
-        Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(211, 30)
-        Me.Label7.TabIndex = 7
-        Me.Label7.Text = "$192"
-        Me.Label7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnLLogin.EnabledCalc = True
+        Me.btnLLogin.Location = New System.Drawing.Point(334, 250)
+        Me.btnLLogin.Name = "btnLLogin"
+        Me.btnLLogin.Size = New System.Drawing.Size(75, 23)
+        Me.btnLLogin.TabIndex = 0
+        Me.btnLLogin.Text = "Login"
         '
-        'Label8
+        'btnLSignup
         '
-        Me.Label8.Font = New System.Drawing.Font("Segoe UI Semibold", 15.0!)
-        Me.Label8.Location = New System.Drawing.Point(410, 73)
-        Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(211, 30)
-        Me.Label8.TabIndex = 9
-        Me.Label8.Text = "$47"
-        Me.Label8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnLSignup.EnabledCalc = True
+        Me.btnLSignup.Location = New System.Drawing.Point(416, 249)
+        Me.btnLSignup.Name = "btnLSignup"
+        Me.btnLSignup.Size = New System.Drawing.Size(75, 23)
+        Me.btnLSignup.TabIndex = 1
+        Me.btnLSignup.Text = "Signup"
+        '
+        'btnLForgot
+        '
+        Me.btnLForgot.EnabledCalc = True
+        Me.btnLForgot.Location = New System.Drawing.Point(334, 280)
+        Me.btnLForgot.Name = "btnLForgot"
+        Me.btnLForgot.Size = New System.Drawing.Size(157, 23)
+        Me.btnLForgot.TabIndex = 2
+        Me.btnLForgot.Text = "Problems signing in?"
+        '
+        'txtLPassword
+        '
+        Me.txtLPassword.EnabledCalc = True
+        Me.txtLPassword.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.txtLPassword.ForeColor = System.Drawing.Color.FromArgb(CType(CType(52, Byte), Integer), CType(CType(56, Byte), Integer), CType(CType(67, Byte), Integer))
+        Me.txtLPassword.Location = New System.Drawing.Point(334, 215)
+        Me.txtLPassword.MaxLength = 32767
+        Me.txtLPassword.MultiLine = False
+        Me.txtLPassword.Name = "txtLPassword"
+        Me.txtLPassword.ReadOnly = False
+        Me.txtLPassword.Size = New System.Drawing.Size(157, 29)
+        Me.txtLPassword.TabIndex = 3
+        Me.txtLPassword.Text = "Password"
+        Me.txtLPassword.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
+        Me.txtLPassword.UseSystemPasswordChar = True
+        '
+        'txtLUsername
+        '
+        Me.txtLUsername.EnabledCalc = True
+        Me.txtLUsername.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.txtLUsername.ForeColor = System.Drawing.Color.FromArgb(CType(CType(52, Byte), Integer), CType(CType(56, Byte), Integer), CType(CType(67, Byte), Integer))
+        Me.txtLUsername.Location = New System.Drawing.Point(334, 180)
+        Me.txtLUsername.MaxLength = 32767
+        Me.txtLUsername.MultiLine = False
+        Me.txtLUsername.Name = "txtLUsername"
+        Me.txtLUsername.ReadOnly = False
+        Me.txtLUsername.Size = New System.Drawing.Size(157, 29)
+        Me.txtLUsername.TabIndex = 4
+        Me.txtLUsername.Text = "Username"
+        Me.txtLUsername.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
+        Me.txtLUsername.UseSystemPasswordChar = False
+        '
+        'tagIncorrect1
+        '
+        Me.tagIncorrect1.Background = System.Drawing.Color.Red
+        Me.tagIncorrect1.Border = System.Drawing.Color.Black
+        Me.tagIncorrect1.Location = New System.Drawing.Point(-86, 8)
+        Me.tagIncorrect1.Name = "tagIncorrect1"
+        Me.tagIncorrect1.Size = New System.Drawing.Size(92, 15)
+        Me.tagIncorrect1.TabIndex = 5
+        Me.tagIncorrect1.Text = "INCORRECT LOGIN"
+        Me.tagIncorrect1.TextColor = System.Drawing.Color.White
+        '
+        'tagIncorrect2
+        '
+        Me.tagIncorrect2.Background = System.Drawing.Color.Red
+        Me.tagIncorrect2.Border = System.Drawing.Color.Black
+        Me.tagIncorrect2.Location = New System.Drawing.Point(-86, 41)
+        Me.tagIncorrect2.Name = "tagIncorrect2"
+        Me.tagIncorrect2.Size = New System.Drawing.Size(92, 15)
+        Me.tagIncorrect2.TabIndex = 6
+        Me.tagIncorrect2.Text = "INCORRECT LOGIN"
+        Me.tagIncorrect2.TextColor = System.Drawing.Color.White
+        '
+        'pnlLIncorrect
+        '
+        Me.pnlLIncorrect.Controls.Add(Me.tagIncorrect2)
+        Me.pnlLIncorrect.Controls.Add(Me.tagIncorrect1)
+        Me.pnlLIncorrect.Location = New System.Drawing.Point(487, 180)
+        Me.pnlLIncorrect.Name = "pnlLIncorrect"
+        Me.pnlLIncorrect.Size = New System.Drawing.Size(103, 65)
+        Me.pnlLIncorrect.TabIndex = 7
+        '
+        'btnLChangeDetails
+        '
+        Me.btnLChangeDetails.EnabledCalc = True
+        Me.btnLChangeDetails.Location = New System.Drawing.Point(334, 402)
+        Me.btnLChangeDetails.Name = "btnLChangeDetails"
+        Me.btnLChangeDetails.Size = New System.Drawing.Size(157, 23)
+        Me.btnLChangeDetails.TabIndex = 8
+        Me.btnLChangeDetails.Text = "Change Account Details"
+        '
+        'btnLLogout
+        '
+        Me.btnLLogout.EnabledCalc = True
+        Me.btnLLogout.Location = New System.Drawing.Point(334, 432)
+        Me.btnLLogout.Name = "btnLLogout"
+        Me.btnLLogout.Size = New System.Drawing.Size(157, 23)
+        Me.btnLLogout.TabIndex = 9
+        Me.btnLLogout.Text = "Logout"
         '
         'frmHomeMulti
         '
@@ -993,48 +1140,50 @@ Partial Class frmHomeMulti
         Me.pnlUnsaved.ResumeLayout(False)
         Me.pnlLoadingMain.ResumeLayout(False)
         Me.tabContent.ResumeLayout(False)
-        Me.TabPage1.ResumeLayout(False)
+        Me.tpHome.ResumeLayout(False)
         Me.AetherGroupBox1.ResumeLayout(False)
-        Me.TabPage2.ResumeLayout(False)
-        Me.TabPage3.ResumeLayout(False)
-        Me.TabPage3.PerformLayout()
+        Me.tpHistory.ResumeLayout(False)
+        Me.tpBitcoin.ResumeLayout(False)
+        Me.tpBitcoin.PerformLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.AetherGroupBox3.ResumeLayout(False)
-        Me.TabPage4.ResumeLayout(False)
-        Me.TabPage4.PerformLayout()
+        Me.tpEthereum.ResumeLayout(False)
+        Me.tpEthereum.PerformLayout()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.AetherGroupBox4.ResumeLayout(False)
-        Me.TabPage5.ResumeLayout(False)
-        Me.TabPage5.PerformLayout()
+        Me.tpMonero.ResumeLayout(False)
+        Me.tpMonero.PerformLayout()
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).EndInit()
         Me.AetherGroupBox5.ResumeLayout(False)
-        Me.TabPage8.ResumeLayout(False)
+        Me.tpPrefs.ResumeLayout(False)
         Me.AetherGroupBox2.ResumeLayout(False)
+        Me.tpLogin.ResumeLayout(False)
+        Me.pnlLIncorrect.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
 
     Friend WithEvents tabContent As AetherTabControl
-    Friend WithEvents TabPage1 As TabPage
+    Friend WithEvents tpHome As TabPage
     Friend WithEvents AetherRadioButton2 As AetherRadioButton
     Friend WithEvents AetherRadioButton1 As AetherRadioButton
     Friend WithEvents AetherTextbox1 As AetherTextbox
     Friend WithEvents AetherTag1 As AetherTag
     Friend WithEvents AetherGroupBox1 As AetherGroupBox
-    Friend WithEvents TabPage2 As TabPage
+    Friend WithEvents tpHistory As TabPage
     Friend WithEvents AetherCheckBox1 As AetherCheckBox
     Friend WithEvents AetherButton1 As AetherButton
-    Friend WithEvents TabPage6 As TabPage
-    Friend WithEvents TabPage3 As TabPage
-    Friend WithEvents TabPage4 As TabPage
-    Friend WithEvents TabPage5 As TabPage
-    Friend WithEvents TabPage7 As TabPage
-    Friend WithEvents TabPage8 As TabPage
-    Friend WithEvents TabPage9 As TabPage
-    Friend WithEvents TabPage10 As TabPage
+    Friend WithEvents tpSpacer1 As TabPage
+    Friend WithEvents tpBitcoin As TabPage
+    Friend WithEvents tpEthereum As TabPage
+    Friend WithEvents tpMonero As TabPage
+    Friend WithEvents tpSpacer2 As TabPage
+    Friend WithEvents tpPrefs As TabPage
+    Friend WithEvents tpSupport As TabPage
+    Friend WithEvents tpFeedback As TabPage
     Friend WithEvents AetherCircular2 As AetherCircular
-    Friend WithEvents ilsIcon As ImageList
-    Friend WithEvents TabPage11 As TabPage
+    Friend WithEvents ImageList1 As ImageList
+    Friend WithEvents tpSiacoin As TabPage
     Friend WithEvents AetherButton2 As AetherButton
     Friend WithEvents radStyle3 As AetherRadioButton
     Friend WithEvents radStyle2 As AetherRadioButton
@@ -1080,4 +1229,15 @@ Partial Class frmHomeMulti
     Friend WithEvents Label6 As Label
     Friend WithEvents Label7 As Label
     Friend WithEvents Label8 As Label
+    Friend WithEvents tpLogin As TabPage
+    Friend WithEvents txtLUsername As AetherTextbox
+    Friend WithEvents txtLPassword As AetherTextbox
+    Friend WithEvents btnLForgot As AetherButton
+    Friend WithEvents btnLSignup As AetherButton
+    Friend WithEvents btnLLogin As AetherButton
+    Friend WithEvents tagIncorrect2 As AetherTag
+    Friend WithEvents tagIncorrect1 As AetherTag
+    Friend WithEvents pnlLIncorrect As Panel
+    Friend WithEvents btnLLogout As AetherButton
+    Friend WithEvents btnLChangeDetails As AetherButton
 End Class
