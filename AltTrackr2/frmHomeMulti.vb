@@ -30,13 +30,13 @@ Public Class frmHomeMulti
         SkinManager.ColorScheme = New ColorScheme(-13354941, -13354941, 6323595, 4244735, 16777215) 'Third and Fourth need to be updated to current theme.
         tabContent.Dock = DockStyle.None
         tabContent.Location = New Point(0, 64)
-        tabContent.Size = New Point(1022, 490)
+        tabContent.SelectedTab = tpgHome
+        'tabContent.Size = New Point(1022, 490)
         GetPrices()
         Me.CenterToParent()
     End Sub
 
     Private Sub AetherButton2_Click(sender As Object, e As EventArgs) Handles AetherButton2.Click
-        AetherButton2.Text = "Launching..."
         frmCustomColour.Show()
     End Sub
 
@@ -48,6 +48,8 @@ Public Class frmHomeMulti
         ElseIf radStyle3.Checked Then
             SkinManager.ColorScheme = New ColorScheme(-13354941, -12960183, 6323595, 4244735, 16777215) 'Third and Fourth need to be updated to current theme.
         End If
+        pnlUnsaved.Show()
+        ShowChangeAlert()
     End Sub
 
     Private Sub ShowChangeAlert()
@@ -57,31 +59,31 @@ Public Class frmHomeMulti
         'lblUnsaved.Font = New Font("Roboto Light", 16)
         'lblPipe.ForeColor = Color.White
         'lblUnsaved.ForeColor = Color.White
-        Do Until Me.Height >= 562
-            Me.Height += 10
+        Do Until pnlUnsaved.Left >= 0
+            pnlUnsaved.Left += 8
             'pnlApplySettings.Top = 462
             cTiming.pause(10)
         Loop
-        Me.Height = 562 'In case there was some math error and the height landed above target
+        pnlUnsaved.Left = 0 'In case there was some math error and the height landed above target
     End Sub
 
     Private Sub HideChangeAlert()
-        Do Until Me.Height <= 462
-            Me.Height -= 10
+        Do Until pnlUnsaved.Left <= -194
+            pnlUnsaved.Left -= 8
             'pnlApplySettings.Top = 462
             cTiming.pause(10)
         Loop
-        'pnlApplySettings.Hide()
-        Me.Height = 462 'In case there was some math error and the height landed below target
+        pnlUnsaved.Left = -189 'In case there was some math error and the height landed above target
+        pnlUnsaved.Visible = False
     End Sub
 
     Sub HideLoadingSidebar()
-        Do Until pnlLoading.Left <= -194
-            pnlLoading.Left -= 8
+        Do Until pnlUnsaved.Left <= -194
+            pnlUnsaved.Left -= 8
             cTiming.pause(10)
         Loop
-        pnlLoading.Hide()
-        pnlLoading.Left = 0
+        pnlUnsaved.Hide()
+        pnlUnsaved.Left = 0
     End Sub
 
     Sub HideLoadingPanel()
@@ -144,7 +146,7 @@ Public Class frmHomeMulti
             If Not silent Then
                 cTiming.WriteDebug("Attempting to fetch latest price data...")
                 If My.Computer.Registry.GetValue(My.Settings.RegLocation, "NoMotivationalLoad", Nothing) = "1" Then
-                    lblLoading.Text = "Loading Server Data..."
+                    lblUnsaved.Text = "Loading Server Data..."
                 Else
                     'Select Case GetRandom(0, 5)
                     'Case 0
@@ -196,5 +198,56 @@ Public Class frmHomeMulti
 
     Private Sub AetherButton3_Click(sender As Object, e As EventArgs) Handles AetherButton3.Click
         GetPrices()
+    End Sub
+
+    Private Sub btnConfirmSave_Click(sender As Object, e As EventArgs) Handles btnConfirmSave.Click
+
+    End Sub
+
+    Private Sub btnConfirmCancel_Click(sender As Object, e As EventArgs) Handles btnConfirmCancel.Click
+        HideChangeAlert()
+    End Sub
+
+    Dim sessionUser As String = String.Empty
+    Private Sub btnLLogin_Click(sender As Object, e As EventArgs) Handles btnLLogin.Click
+        Dim loginResponse As String = AccountsAPI.PerformCheck(txtLUsername.Text, txtLPassword.Text)
+        If loginResponse.Contains("LOGINOK-/-") Then
+            tagIncorrect1.Left = -86
+            tagIncorrect2.Left = -86
+            pnlLIncorrect.Hide()
+            sessionUser = txtLUsername.Text
+            tpgLogin.Text = txtLUsername.Text
+            tpgLogin.ImageIndex = 28
+        ElseIf loginResponse.Contains("IncorrectLogin") Then
+            pnlLIncorrect.Show()
+            Do Until tagIncorrect1.Left >= 3
+                tagIncorrect1.Left += 8
+                tagIncorrect2.Left += 8
+                cTiming.pause(10)
+            Loop
+            tagIncorrect1.Left = 3
+            tagIncorrect2.Left = 3
+        Else
+            MsgBox("An error has occurred. The server response is invalid." + vbNewLine + vbNewLine + "Please check for product updates and try again. If the problem persists, please submit a report or get in touch with support.", MsgBoxStyle.Critical)
+        End If
+        loginResponse = String.Empty
+    End Sub
+
+    Private Sub btnLLogout_Click(sender As Object, e As EventArgs) Handles btnLLogout.Click
+        sessionUser = String.Empty
+        tpgLogin.Text = "Login"
+        tpgLogin.ImageIndex = 25
+    End Sub
+
+    Private Sub btnLSignup_Click(sender As Object, e As EventArgs) Handles btnLSignup.Click
+        Process.Start("https://my.maega.com.au/register")
+    End Sub
+
+    Private Sub btnLForgot_Click(sender As Object, e As EventArgs) Handles btnLForgot.Click
+        Process.Start("https://my.maega.com.au/forgot")
+    End Sub
+
+    Private Sub btnLChangeDetails_Click(sender As Object, e As EventArgs) Handles btnLChangeDetails.Click
+        Process.Start("https://my.maega.com.au/dashboard")
     End Sub
 End Class
