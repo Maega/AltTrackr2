@@ -211,6 +211,7 @@ Public Class frmHomeMulti
     Dim sessionUser As String = String.Empty
     Private Sub btnLLogin_Click(sender As Object, e As EventArgs) Handles btnLLogin.Click
         Dim loginResponse As String = AccountsAPI.PerformCheck(txtLUsername.Text, txtLPassword.Text)
+        MsgBox(loginResponse)
         If loginResponse = 1 Then 'Authenticated
             tagIncorrect1.Left = -86
             tagIncorrect2.Left = -86
@@ -227,6 +228,8 @@ Public Class frmHomeMulti
             Loop
             tagIncorrect1.Left = 3
             tagIncorrect2.Left = 3
+        ElseIf loginResponse = 2 Then 'Error
+            'Do Nothing, user has already been notified of the failed login attempt
         Else
             MsgBox("An error has occurred. The server response is invalid." + vbNewLine + vbNewLine + "Please check for product updates and try again. If the problem persists, please submit a report or get in touch with support.", MsgBoxStyle.Critical)
         End If

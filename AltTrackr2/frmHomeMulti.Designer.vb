@@ -101,6 +101,7 @@ Partial Class frmHomeMulti
         Me.AetherButton3 = New AltTrackr2.AetherButton()
         Me.tpSupport = New System.Windows.Forms.TabPage()
         Me.tpFeedback = New System.Windows.Forms.TabPage()
+        Me.Label9 = New System.Windows.Forms.Label()
         Me.pnlUnsaved.SuspendLayout()
         Me.pnlLoadingMain.SuspendLayout()
         Me.tabContent.SuspendLayout()
@@ -340,6 +341,7 @@ Partial Class frmHomeMulti
         'tpLogin
         '
         Me.tpLogin.BackColor = System.Drawing.Color.White
+        Me.tpLogin.Controls.Add(Me.Label9)
         Me.tpLogin.Controls.Add(Me.btnLLogout)
         Me.tpLogin.Controls.Add(Me.btnLChangeDetails)
         Me.tpLogin.Controls.Add(Me.txtLUsername)
@@ -1125,6 +1127,16 @@ Partial Class frmHomeMulti
         Me.tpFeedback.Tag = "Beta 1"
         Me.tpFeedback.Text = "Feedback"
         '
+        'Label9
+        '
+        Me.Label9.AutoSize = True
+        Me.Label9.Font = New System.Drawing.Font("Segoe UI Semibold", 14.0!)
+        Me.Label9.Location = New System.Drawing.Point(301, 147)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(222, 25)
+        Me.Label9.TabIndex = 10
+        Me.Label9.Text = "LOGIN WITH MYMAEGA"
+        '
         'frmHomeMulti
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1142,6 +1154,7 @@ Partial Class frmHomeMulti
         Me.pnlLoadingMain.ResumeLayout(False)
         Me.tabContent.ResumeLayout(False)
         Me.tpLogin.ResumeLayout(False)
+        Me.tpLogin.PerformLayout()
         Me.pnlLIncorrect.ResumeLayout(False)
         Me.tpHome.ResumeLayout(False)
         Me.AetherGroupBox1.ResumeLayout(False)
@@ -1241,4 +1254,5 @@ Partial Class frmHomeMulti
     Friend WithEvents pnlLIncorrect As Panel
     Friend WithEvents btnLLogout As AetherButton
     Friend WithEvents btnLChangeDetails As AetherButton
+    Friend WithEvents Label9 As Label
 End Class

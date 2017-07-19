@@ -48,13 +48,17 @@ Module AccountsAPI
 
             MsgBox(apiresponse.ToString)
 
-            resStatus = apiresponse.Split(";")(0)
-            resApprovedHWID = apiresponse.Split(";")(1)
-            sessionToken = apiresponse.Split(";")(2)
-            resLicenses = apiresponse.Split(";")(3)
-            sessionHWID = apiresponse.Split(";")(4)
+            Try
+                resStatus = apiresponse.Split(";")(0)
+                sessionHWID = apiresponse.Split(";")(1)
+                resApprovedHWID = apiresponse.Split(";")(2)
+                sessionToken = apiresponse.Split(";")(3)
+                resLicenses = apiresponse.Split(";")(4)
 
-            MsgBox(sessionHWID)
+            Catch ex As Exception
+                'Reached end of array
+                cTiming.WriteDebug("The apiresponse array ended prematurely. This is normal behaviour.")
+            End Try
 
             If sessionHWID = GetHWID.ToString Then
                 Select Case resStatus
@@ -70,7 +74,7 @@ Module AccountsAPI
                 Return 2
             End If
         Catch ex As Exception
-            MsgBox("We weren't able to connect to the authentication servers. Please check your connection and try again later.", MsgBoxStyle.Critical)
+            MsgBox("We weren't able to connect to the authentication servers. Please check your connection and try again later." + vbNewLine + ex.ToString, MsgBoxStyle.Critical)
             Return 2
         End Try
     End Function
