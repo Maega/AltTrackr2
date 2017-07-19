@@ -211,14 +211,14 @@ Public Class frmHomeMulti
     Dim sessionUser As String = String.Empty
     Private Sub btnLLogin_Click(sender As Object, e As EventArgs) Handles btnLLogin.Click
         Dim loginResponse As String = AccountsAPI.PerformCheck(txtLUsername.Text, txtLPassword.Text)
-        If loginResponse.Contains("LOGINOK-/-") Then
+        If loginResponse = 1 Then 'Authenticated
             tagIncorrect1.Left = -86
             tagIncorrect2.Left = -86
             pnlLIncorrect.Hide()
             sessionUser = txtLUsername.Text
             tpLogin.Text = txtLUsername.Text
             tpLogin.ImageIndex = 28
-        ElseIf loginResponse.Contains("IncorrectLogin") Then
+        ElseIf loginResponse = 0 Then 'Incorrect Credentials
             pnlLIncorrect.Show()
             Do Until tagIncorrect1.Left >= 3
                 tagIncorrect1.Left += 8

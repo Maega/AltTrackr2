@@ -38,7 +38,7 @@ Module AccountsAPI
             If apiresponse.Contains("MISSINGPARAMETER") Then
                 'This should never happen - it means the API query is missing the ?app value
                 MsgBox("A parameter code is missing. Something has gone very wrong. Please contact support.", MsgBoxStyle.Critical)
-                Return "FAIL"
+                Return 2
             End If
 
             'Set variables according to the API response - removes the response headers and sets variables to the corresponding responses.

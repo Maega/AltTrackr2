@@ -40,6 +40,17 @@ Partial Class frmHomeMulti
         Me.prgTitleLoad = New MRG.Controls.UI.LoadingCircle()
         Me.ilsImg = New System.Windows.Forms.ImageList(Me.components)
         Me.tabContent = New AltTrackr2.AetherTabControl()
+        Me.tpLogin = New System.Windows.Forms.TabPage()
+        Me.btnLLogout = New AltTrackr2.AetherButton()
+        Me.btnLChangeDetails = New AltTrackr2.AetherButton()
+        Me.txtLUsername = New AltTrackr2.AetherTextbox()
+        Me.txtLPassword = New AltTrackr2.AetherTextbox()
+        Me.btnLForgot = New AltTrackr2.AetherButton()
+        Me.btnLSignup = New AltTrackr2.AetherButton()
+        Me.btnLLogin = New AltTrackr2.AetherButton()
+        Me.pnlLIncorrect = New System.Windows.Forms.Panel()
+        Me.tagIncorrect2 = New AltTrackr2.AetherTag()
+        Me.tagIncorrect1 = New AltTrackr2.AetherTag()
         Me.tpHome = New System.Windows.Forms.TabPage()
         Me.AetherCircular2 = New AltTrackr2.AetherCircular()
         Me.AetherCheckBox1 = New AltTrackr2.AetherCheckBox()
@@ -90,20 +101,11 @@ Partial Class frmHomeMulti
         Me.AetherButton3 = New AltTrackr2.AetherButton()
         Me.tpSupport = New System.Windows.Forms.TabPage()
         Me.tpFeedback = New System.Windows.Forms.TabPage()
-        Me.tpLogin = New System.Windows.Forms.TabPage()
-        Me.btnLLogin = New AltTrackr2.AetherButton()
-        Me.btnLSignup = New AltTrackr2.AetherButton()
-        Me.btnLForgot = New AltTrackr2.AetherButton()
-        Me.txtLPassword = New AltTrackr2.AetherTextbox()
-        Me.txtLUsername = New AltTrackr2.AetherTextbox()
-        Me.tagIncorrect1 = New AltTrackr2.AetherTag()
-        Me.tagIncorrect2 = New AltTrackr2.AetherTag()
-        Me.pnlLIncorrect = New System.Windows.Forms.Panel()
-        Me.btnLChangeDetails = New AltTrackr2.AetherButton()
-        Me.btnLLogout = New AltTrackr2.AetherButton()
         Me.pnlUnsaved.SuspendLayout()
         Me.pnlLoadingMain.SuspendLayout()
         Me.tabContent.SuspendLayout()
+        Me.tpLogin.SuspendLayout()
+        Me.pnlLIncorrect.SuspendLayout()
         Me.tpHome.SuspendLayout()
         Me.AetherGroupBox1.SuspendLayout()
         Me.tpHistory.SuspendLayout()
@@ -118,8 +120,6 @@ Partial Class frmHomeMulti
         Me.AetherGroupBox5.SuspendLayout()
         Me.tpPrefs.SuspendLayout()
         Me.AetherGroupBox2.SuspendLayout()
-        Me.tpLogin.SuspendLayout()
-        Me.pnlLIncorrect.SuspendLayout()
         Me.SuspendLayout()
         '
         'ImageList1
@@ -336,6 +336,135 @@ Partial Class frmHomeMulti
         Me.tabContent.SizeMode = System.Windows.Forms.TabSizeMode.Fixed
         Me.tabContent.TabIndex = 0
         Me.tabContent.UpperText = True
+        '
+        'tpLogin
+        '
+        Me.tpLogin.BackColor = System.Drawing.Color.White
+        Me.tpLogin.Controls.Add(Me.btnLLogout)
+        Me.tpLogin.Controls.Add(Me.btnLChangeDetails)
+        Me.tpLogin.Controls.Add(Me.txtLUsername)
+        Me.tpLogin.Controls.Add(Me.txtLPassword)
+        Me.tpLogin.Controls.Add(Me.btnLForgot)
+        Me.tpLogin.Controls.Add(Me.btnLSignup)
+        Me.tpLogin.Controls.Add(Me.btnLLogin)
+        Me.tpLogin.Controls.Add(Me.pnlLIncorrect)
+        Me.tpLogin.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.tpLogin.ForeColor = System.Drawing.Color.FromArgb(CType(CType(52, Byte), Integer), CType(CType(56, Byte), Integer), CType(CType(67, Byte), Integer))
+        Me.tpLogin.ImageIndex = 25
+        Me.tpLogin.Location = New System.Drawing.Point(194, 4)
+        Me.tpLogin.Name = "tpLogin"
+        Me.tpLogin.Size = New System.Drawing.Size(824, 482)
+        Me.tpLogin.TabIndex = 11
+        Me.tpLogin.Text = "Login"
+        '
+        'btnLLogout
+        '
+        Me.btnLLogout.EnabledCalc = True
+        Me.btnLLogout.Location = New System.Drawing.Point(334, 432)
+        Me.btnLLogout.Name = "btnLLogout"
+        Me.btnLLogout.Size = New System.Drawing.Size(157, 23)
+        Me.btnLLogout.TabIndex = 9
+        Me.btnLLogout.Text = "Logout"
+        '
+        'btnLChangeDetails
+        '
+        Me.btnLChangeDetails.EnabledCalc = True
+        Me.btnLChangeDetails.Location = New System.Drawing.Point(334, 402)
+        Me.btnLChangeDetails.Name = "btnLChangeDetails"
+        Me.btnLChangeDetails.Size = New System.Drawing.Size(157, 23)
+        Me.btnLChangeDetails.TabIndex = 8
+        Me.btnLChangeDetails.Text = "Change Account Details"
+        '
+        'txtLUsername
+        '
+        Me.txtLUsername.EnabledCalc = True
+        Me.txtLUsername.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.txtLUsername.ForeColor = System.Drawing.Color.FromArgb(CType(CType(52, Byte), Integer), CType(CType(56, Byte), Integer), CType(CType(67, Byte), Integer))
+        Me.txtLUsername.Location = New System.Drawing.Point(334, 180)
+        Me.txtLUsername.MaxLength = 32767
+        Me.txtLUsername.MultiLine = False
+        Me.txtLUsername.Name = "txtLUsername"
+        Me.txtLUsername.ReadOnly = False
+        Me.txtLUsername.Size = New System.Drawing.Size(157, 29)
+        Me.txtLUsername.TabIndex = 4
+        Me.txtLUsername.Text = "Username"
+        Me.txtLUsername.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
+        Me.txtLUsername.UseSystemPasswordChar = False
+        '
+        'txtLPassword
+        '
+        Me.txtLPassword.EnabledCalc = True
+        Me.txtLPassword.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.txtLPassword.ForeColor = System.Drawing.Color.FromArgb(CType(CType(52, Byte), Integer), CType(CType(56, Byte), Integer), CType(CType(67, Byte), Integer))
+        Me.txtLPassword.Location = New System.Drawing.Point(334, 215)
+        Me.txtLPassword.MaxLength = 32767
+        Me.txtLPassword.MultiLine = False
+        Me.txtLPassword.Name = "txtLPassword"
+        Me.txtLPassword.ReadOnly = False
+        Me.txtLPassword.Size = New System.Drawing.Size(157, 29)
+        Me.txtLPassword.TabIndex = 3
+        Me.txtLPassword.Text = "Password"
+        Me.txtLPassword.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
+        Me.txtLPassword.UseSystemPasswordChar = True
+        '
+        'btnLForgot
+        '
+        Me.btnLForgot.EnabledCalc = True
+        Me.btnLForgot.Location = New System.Drawing.Point(334, 280)
+        Me.btnLForgot.Name = "btnLForgot"
+        Me.btnLForgot.Size = New System.Drawing.Size(157, 23)
+        Me.btnLForgot.TabIndex = 2
+        Me.btnLForgot.Text = "Problems signing in?"
+        '
+        'btnLSignup
+        '
+        Me.btnLSignup.EnabledCalc = True
+        Me.btnLSignup.Location = New System.Drawing.Point(416, 249)
+        Me.btnLSignup.Name = "btnLSignup"
+        Me.btnLSignup.Size = New System.Drawing.Size(75, 23)
+        Me.btnLSignup.TabIndex = 1
+        Me.btnLSignup.Text = "Signup"
+        '
+        'btnLLogin
+        '
+        Me.btnLLogin.EnabledCalc = True
+        Me.btnLLogin.Location = New System.Drawing.Point(334, 250)
+        Me.btnLLogin.Name = "btnLLogin"
+        Me.btnLLogin.Size = New System.Drawing.Size(75, 23)
+        Me.btnLLogin.TabIndex = 0
+        Me.btnLLogin.Text = "Login"
+        '
+        'pnlLIncorrect
+        '
+        Me.pnlLIncorrect.Controls.Add(Me.tagIncorrect2)
+        Me.pnlLIncorrect.Controls.Add(Me.tagIncorrect1)
+        Me.pnlLIncorrect.Location = New System.Drawing.Point(487, 180)
+        Me.pnlLIncorrect.Name = "pnlLIncorrect"
+        Me.pnlLIncorrect.Size = New System.Drawing.Size(103, 65)
+        Me.pnlLIncorrect.TabIndex = 7
+        Me.pnlLIncorrect.Visible = False
+        '
+        'tagIncorrect2
+        '
+        Me.tagIncorrect2.Background = System.Drawing.Color.Red
+        Me.tagIncorrect2.Border = System.Drawing.Color.Black
+        Me.tagIncorrect2.Location = New System.Drawing.Point(-86, 41)
+        Me.tagIncorrect2.Name = "tagIncorrect2"
+        Me.tagIncorrect2.Size = New System.Drawing.Size(92, 15)
+        Me.tagIncorrect2.TabIndex = 6
+        Me.tagIncorrect2.Text = "INCORRECT LOGIN"
+        Me.tagIncorrect2.TextColor = System.Drawing.Color.White
+        '
+        'tagIncorrect1
+        '
+        Me.tagIncorrect1.Background = System.Drawing.Color.Red
+        Me.tagIncorrect1.Border = System.Drawing.Color.Black
+        Me.tagIncorrect1.Location = New System.Drawing.Point(-86, 8)
+        Me.tagIncorrect1.Name = "tagIncorrect1"
+        Me.tagIncorrect1.Size = New System.Drawing.Size(92, 15)
+        Me.tagIncorrect1.TabIndex = 5
+        Me.tagIncorrect1.Text = "INCORRECT LOGIN"
+        Me.tagIncorrect1.TextColor = System.Drawing.Color.White
         '
         'tpHome
         '
@@ -996,134 +1125,6 @@ Partial Class frmHomeMulti
         Me.tpFeedback.Tag = "Beta 1"
         Me.tpFeedback.Text = "Feedback"
         '
-        'tpLogin
-        '
-        Me.tpLogin.BackColor = System.Drawing.Color.White
-        Me.tpLogin.Controls.Add(Me.btnLLogout)
-        Me.tpLogin.Controls.Add(Me.btnLChangeDetails)
-        Me.tpLogin.Controls.Add(Me.txtLUsername)
-        Me.tpLogin.Controls.Add(Me.txtLPassword)
-        Me.tpLogin.Controls.Add(Me.btnLForgot)
-        Me.tpLogin.Controls.Add(Me.btnLSignup)
-        Me.tpLogin.Controls.Add(Me.btnLLogin)
-        Me.tpLogin.Controls.Add(Me.pnlLIncorrect)
-        Me.tpLogin.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        Me.tpLogin.ForeColor = System.Drawing.Color.FromArgb(CType(CType(52, Byte), Integer), CType(CType(56, Byte), Integer), CType(CType(67, Byte), Integer))
-        Me.tpLogin.ImageIndex = 25
-        Me.tpLogin.Location = New System.Drawing.Point(194, 4)
-        Me.tpLogin.Name = "tpLogin"
-        Me.tpLogin.Size = New System.Drawing.Size(824, 482)
-        Me.tpLogin.TabIndex = 11
-        Me.tpLogin.Text = "Login"
-        '
-        'btnLLogin
-        '
-        Me.btnLLogin.EnabledCalc = True
-        Me.btnLLogin.Location = New System.Drawing.Point(334, 250)
-        Me.btnLLogin.Name = "btnLLogin"
-        Me.btnLLogin.Size = New System.Drawing.Size(75, 23)
-        Me.btnLLogin.TabIndex = 0
-        Me.btnLLogin.Text = "Login"
-        '
-        'btnLSignup
-        '
-        Me.btnLSignup.EnabledCalc = True
-        Me.btnLSignup.Location = New System.Drawing.Point(416, 249)
-        Me.btnLSignup.Name = "btnLSignup"
-        Me.btnLSignup.Size = New System.Drawing.Size(75, 23)
-        Me.btnLSignup.TabIndex = 1
-        Me.btnLSignup.Text = "Signup"
-        '
-        'btnLForgot
-        '
-        Me.btnLForgot.EnabledCalc = True
-        Me.btnLForgot.Location = New System.Drawing.Point(334, 280)
-        Me.btnLForgot.Name = "btnLForgot"
-        Me.btnLForgot.Size = New System.Drawing.Size(157, 23)
-        Me.btnLForgot.TabIndex = 2
-        Me.btnLForgot.Text = "Problems signing in?"
-        '
-        'txtLPassword
-        '
-        Me.txtLPassword.EnabledCalc = True
-        Me.txtLPassword.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        Me.txtLPassword.ForeColor = System.Drawing.Color.FromArgb(CType(CType(52, Byte), Integer), CType(CType(56, Byte), Integer), CType(CType(67, Byte), Integer))
-        Me.txtLPassword.Location = New System.Drawing.Point(334, 215)
-        Me.txtLPassword.MaxLength = 32767
-        Me.txtLPassword.MultiLine = False
-        Me.txtLPassword.Name = "txtLPassword"
-        Me.txtLPassword.ReadOnly = False
-        Me.txtLPassword.Size = New System.Drawing.Size(157, 29)
-        Me.txtLPassword.TabIndex = 3
-        Me.txtLPassword.Text = "Password"
-        Me.txtLPassword.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
-        Me.txtLPassword.UseSystemPasswordChar = True
-        '
-        'txtLUsername
-        '
-        Me.txtLUsername.EnabledCalc = True
-        Me.txtLUsername.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        Me.txtLUsername.ForeColor = System.Drawing.Color.FromArgb(CType(CType(52, Byte), Integer), CType(CType(56, Byte), Integer), CType(CType(67, Byte), Integer))
-        Me.txtLUsername.Location = New System.Drawing.Point(334, 180)
-        Me.txtLUsername.MaxLength = 32767
-        Me.txtLUsername.MultiLine = False
-        Me.txtLUsername.Name = "txtLUsername"
-        Me.txtLUsername.ReadOnly = False
-        Me.txtLUsername.Size = New System.Drawing.Size(157, 29)
-        Me.txtLUsername.TabIndex = 4
-        Me.txtLUsername.Text = "Username"
-        Me.txtLUsername.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
-        Me.txtLUsername.UseSystemPasswordChar = False
-        '
-        'tagIncorrect1
-        '
-        Me.tagIncorrect1.Background = System.Drawing.Color.Red
-        Me.tagIncorrect1.Border = System.Drawing.Color.Black
-        Me.tagIncorrect1.Location = New System.Drawing.Point(-86, 8)
-        Me.tagIncorrect1.Name = "tagIncorrect1"
-        Me.tagIncorrect1.Size = New System.Drawing.Size(92, 15)
-        Me.tagIncorrect1.TabIndex = 5
-        Me.tagIncorrect1.Text = "INCORRECT LOGIN"
-        Me.tagIncorrect1.TextColor = System.Drawing.Color.White
-        '
-        'tagIncorrect2
-        '
-        Me.tagIncorrect2.Background = System.Drawing.Color.Red
-        Me.tagIncorrect2.Border = System.Drawing.Color.Black
-        Me.tagIncorrect2.Location = New System.Drawing.Point(-86, 41)
-        Me.tagIncorrect2.Name = "tagIncorrect2"
-        Me.tagIncorrect2.Size = New System.Drawing.Size(92, 15)
-        Me.tagIncorrect2.TabIndex = 6
-        Me.tagIncorrect2.Text = "INCORRECT LOGIN"
-        Me.tagIncorrect2.TextColor = System.Drawing.Color.White
-        '
-        'pnlLIncorrect
-        '
-        Me.pnlLIncorrect.Controls.Add(Me.tagIncorrect2)
-        Me.pnlLIncorrect.Controls.Add(Me.tagIncorrect1)
-        Me.pnlLIncorrect.Location = New System.Drawing.Point(487, 180)
-        Me.pnlLIncorrect.Name = "pnlLIncorrect"
-        Me.pnlLIncorrect.Size = New System.Drawing.Size(103, 65)
-        Me.pnlLIncorrect.TabIndex = 7
-        '
-        'btnLChangeDetails
-        '
-        Me.btnLChangeDetails.EnabledCalc = True
-        Me.btnLChangeDetails.Location = New System.Drawing.Point(334, 402)
-        Me.btnLChangeDetails.Name = "btnLChangeDetails"
-        Me.btnLChangeDetails.Size = New System.Drawing.Size(157, 23)
-        Me.btnLChangeDetails.TabIndex = 8
-        Me.btnLChangeDetails.Text = "Change Account Details"
-        '
-        'btnLLogout
-        '
-        Me.btnLLogout.EnabledCalc = True
-        Me.btnLLogout.Location = New System.Drawing.Point(334, 432)
-        Me.btnLLogout.Name = "btnLLogout"
-        Me.btnLLogout.Size = New System.Drawing.Size(157, 23)
-        Me.btnLLogout.TabIndex = 9
-        Me.btnLLogout.Text = "Logout"
-        '
         'frmHomeMulti
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1140,6 +1141,8 @@ Partial Class frmHomeMulti
         Me.pnlUnsaved.ResumeLayout(False)
         Me.pnlLoadingMain.ResumeLayout(False)
         Me.tabContent.ResumeLayout(False)
+        Me.tpLogin.ResumeLayout(False)
+        Me.pnlLIncorrect.ResumeLayout(False)
         Me.tpHome.ResumeLayout(False)
         Me.AetherGroupBox1.ResumeLayout(False)
         Me.tpHistory.ResumeLayout(False)
@@ -1157,8 +1160,6 @@ Partial Class frmHomeMulti
         Me.AetherGroupBox5.ResumeLayout(False)
         Me.tpPrefs.ResumeLayout(False)
         Me.AetherGroupBox2.ResumeLayout(False)
-        Me.tpLogin.ResumeLayout(False)
-        Me.pnlLIncorrect.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
