@@ -102,24 +102,37 @@ Public Class frmHomeMulti
     End Function
 
     Private Sub bkgGetPrices_DoWork(sender As Object, e As System.ComponentModel.DoWorkEventArgs) Handles bkgGetPrices.DoWork
-        serverResponse = ParseJSON("https://min-api.cryptocompare.com/data/price?fsym=" + My.Computer.Registry.GetValue(My.Settings.RegLocation, "AppCoins", Nothing) + "&tsyms=" + My.Computer.Registry.GetValue(My.Settings.RegLocation, "AppAltFiats", Nothing))
+        serverResponse = ParseJSON("https://min-api.cryptocompare.com/data/pricemulti?fsyms=" + My.Computer.Registry.GetValue(My.Settings.RegLocation, "AppCoins", Nothing) + "&tsyms=" + My.Computer.Registry.GetValue(My.Settings.RegLocation, "AppAltFiats", Nothing))
     End Sub
 
     Dim justLaunched As Boolean = True
     Private Sub bkgGetPrices_RunWorkerCompleted(sender As Object, e As RunWorkerCompletedEventArgs) Handles bkgGetPrices.RunWorkerCompleted
+        'MsgBox(serverResponse.ToString)
         lblAltPrices.Text = String.Empty
         lblAltHoldings.Text = String.Empty
         Dim fiatArray() As String = fiatCodes.Split(",")
-        For Each fiatCode As String In fiatArray
-            lblAltPrices.Text += fiatCode + ": " + CDec(serverResponse.SelectToken(fiatCode)).ToString("n2") + " | "
-            lblAltHoldings.Text += fiatCode + ": " + (totalHoldings * CDec(serverResponse.SelectToken(fiatCode))).ToString("n2") + " | "
+        Dim coinArray() As String = coinCodes.Split(",")
+        For Each coinCode As String In coinArray
+            lblAltPrices.Text += coinCode + " - "
+            lblAltHoldings.Text += coinCode + " - "
+            For Each fiatCode As String In fiatArray
+                'lblAltPrices.Text += fiatCode + ": " + CDec(serverResponse.SelectToken(fiatCode).SelectToken(fiatCode)).ToString("n2") + " | "
+                'lblAltHoldings.Text += fiatCode + ": " + (totalHoldings * CDec(serverResponse.SelectToken(fiatCode))).ToString("n2") + " | "
+                'MsgBox(CDec(serverResponse.SelectToken(coinCode).SelectToken(fiatCode)).ToString("n2"))
+                lblAltPrices.Text += fiatCode + " " + CDec(serverResponse.SelectToken(coinCode).SelectToken(fiatCode)).ToString("n2") + " | "
+                lblAltHoldings.Text += fiatCode + " " + (totalHoldings * CDec(serverResponse.SelectToken(coinCode).SelectToken(fiatCode))).ToString("n2") + " | "
+            Next
+            lblAltPrices.Text += vbNewLine
+            lblAltHoldings.Text += vbNewLine
         Next
-        lblAltPrices.Text = lblAltPrices.Text.TrimEnd(" ")
-        lblAltPrices.Text = lblAltPrices.Text.TrimEnd("|")
-        lblAltPrices.Text = coinCodes + " Prices - " + lblAltPrices.Text
-        lblAltHoldings.Text = lblAltHoldings.Text.TrimEnd(" ")
-        lblAltHoldings.Text = lblAltHoldings.Text.TrimEnd("|")
-        lblAltHoldings.Text = coinCodes + " Holdings - " + lblAltHoldings.Text
+        'lblAltPrices.Text = lblAltPrices.Text.TrimEnd(vbNewLine)
+        'lblAltPrices.Text = lblAltPrices.Text.TrimEnd(" ")
+        'lblAltPrices.Text = lblAltPrices.Text.TrimEnd("|")
+        'lblAltPrices.Text = "Coin Prices = " + lblAltPrices.Text
+        'lblAltHoldings.Text = lblAltHoldings.Text.TrimEnd(vbNewLine)
+        'lblAltHoldings.Text = lblAltHoldings.Text.TrimEnd(" ")
+        'lblAltHoldings.Text = lblAltHoldings.Text.TrimEnd("|")
+        'lblAltHoldings.Text = "Holdings - " + lblAltHoldings.Text
         'lblPrice.Text = fiatMain + ": " + CDec(serverResponse.SelectToken(fiatMain)).ToString("n2")
         'lblHoldingsCoin.Text = totalHoldings.ToString + " " + coinCodes
         'tsCoinPrice.Text = coinCodes + " Price: " + fiatMain + " " + CDec(serverResponse.SelectToken(fiatMain)).ToString("n2")
@@ -132,7 +145,7 @@ Public Class frmHomeMulti
         Dim d1 As DateTime = DateTime.Today
         Dim d2 As DateTime = Convert.ToDateTime(My.Computer.Registry.GetValue(My.Settings.RegLocation, "InvestDate", Nothing))
         Dim months As String = CStr(DateDiff(DateInterval.Month, d2, d1))
-        lblFriendlyPrice.Text = "Today, you hold " + totalHoldings.ToString + " " + coinCodes + " which is valued at " + (totalHoldings * CDec(serverResponse.SelectToken(fiatMain))).ToString("n2") + " " + fiatMain + " at a coin price of " + CDec(serverResponse.SelectToken(fiatMain)).ToString("n2") + " " + fiatMain + vbNewLine + "Your initial investment was " + initialInvestment + " " + fiatMain + " and has matured over " + months + " months, yielding profits of " + ((totalHoldings * CDec(serverResponse.SelectToken(fiatMain))) - CDec(initialInvestment)).ToString("n2") + " " + fiatMain + " so far"
+        'lblFriendlyPrice.Text = "Today, you hold " + totalHoldings.ToString + " " + coinCodes + " which is valued at " + (totalHoldings * CDec(serverResponse.SelectToken(fiatMain))).ToString("n2") + " " + fiatMain + " at a coin price of " + CDec(serverResponse.SelectToken(fiatMain)).ToString("n2") + " " + fiatMain + vbNewLine + "Your initial investment was " + initialInvestment + " " + fiatMain + " and has matured over " + months + " months, yielding profits of " + ((totalHoldings * CDec(serverResponse.SelectToken(fiatMain))) - CDec(initialInvestment)).ToString("n2") + " " + fiatMain + " so far"
         lblLastPriceUpdate.Text = "Last Updated: " + DateTime.Now
         tmrRefresh.Interval = My.Computer.Registry.GetValue(My.Settings.RegLocation, "RefreshInterval", Nothing)
     End Sub
@@ -211,14 +224,17 @@ Public Class frmHomeMulti
     Dim sessionUser As String = String.Empty
     Private Sub btnLLogin_Click(sender As Object, e As EventArgs) Handles btnLLogin.Click
         Dim loginResponse As String = AccountsAPI.PerformCheck(txtLUsername.Text, txtLPassword.Text)
-        MsgBox(loginResponse)
         If loginResponse = 1 Then 'Authenticated
             tagIncorrect1.Left = -86
             tagIncorrect2.Left = -86
             pnlLIncorrect.Hide()
+            pnlLLogin.Hide()
+            pnlLAccount.Show()
             sessionUser = txtLUsername.Text
             tpLogin.Text = txtLUsername.Text
             tpLogin.ImageIndex = 28
+            Me.Text = sessionUser + " | AltTrackr"
+            Invalidate()
         ElseIf loginResponse = 0 Then 'Incorrect Credentials
             pnlLIncorrect.Show()
             Do Until tagIncorrect1.Left >= 3
@@ -237,9 +253,13 @@ Public Class frmHomeMulti
     End Sub
 
     Private Sub btnLLogout_Click(sender As Object, e As EventArgs) Handles btnLLogout.Click
+        pnlLLogin.Show()
+        pnlLAccount.Hide()
         sessionUser = String.Empty
         tpLogin.Text = "Login"
         tpLogin.ImageIndex = 25
+        Me.Text = "Login | AltTrackr"
+        Invalidate()
     End Sub
 
     Private Sub btnLSignup_Click(sender As Object, e As EventArgs) Handles btnLSignup.Click
