@@ -273,4 +273,21 @@ Public Class frmHomeMulti
     Private Sub btnLChangeDetails_Click(sender As Object, e As EventArgs) Handles btnLChangeDetails.Click
         Process.Start("https://my.maega.com.au/dashboard")
     End Sub
+
+    Private Sub AetherButton1_Click(sender As Object, e As EventArgs) Handles AetherButton1.Click
+        prgC1.PostText = " " + fiatMain
+        prgC2.PostText = " " + fiatMain
+        prgC3.PostText = " " + fiatMain
+        prgC4.PostText = " " + fiatMain
+
+        prgC1.Max = txtC1Goal.Text
+        prgC2.Max = txtC2Goal.Text
+        prgC3.Max = txtC3Goal.Text
+        prgC4.Max = txtC4Goal.Text
+
+        prgC1.Text = "Goal: " + txtC1Goal.Text + fiatMain
+        prgC2.Text = "Goal: " + txtC2Goal.Text + fiatMain
+        prgC3.Text = "Goal: " + txtC3Goal.Text + fiatMain
+        prgC4.Text = "Goal: " + txtC4Goal.Text + fiatMain
+    End Sub
 End Class
