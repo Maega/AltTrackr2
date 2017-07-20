@@ -561,16 +561,16 @@ Partial Class frmHomeMulti
         Me.prgC1.HatchPrimary = System.Drawing.Color.FromArgb(CType(CType(86, Byte), Integer), CType(CType(93, Byte), Integer), CType(CType(138, Byte), Integer))
         Me.prgC1.HatchSecondary = System.Drawing.Color.FromArgb(CType(CType(86, Byte), Integer), CType(CType(93, Byte), Integer), CType(CType(138, Byte), Integer))
         Me.prgC1.Location = New System.Drawing.Point(50, 58)
-        Me.prgC1.Max = 500.0!
+        Me.prgC1.Max = 3500.0!
         Me.prgC1.Min = 0!
         Me.prgC1.Name = "prgC1"
         Me.prgC1.Percent = True
         Me.prgC1.PostText = " AUD"
-        Me.prgC1.Progress = 433.64!
+        Me.prgC1.Progress = 2987.21!
         Me.prgC1.ShowMax = False
         Me.prgC1.Size = New System.Drawing.Size(128, 128)
         Me.prgC1.TabIndex = 0
-        Me.prgC1.Text = "Goal: 500 AUD"
+        Me.prgC1.Text = "Goal: 3500 AUD"
         '
         'AetherGroupBox1
         '
@@ -1128,16 +1128,16 @@ Partial Class frmHomeMulti
         Me.prgC2.HatchPrimary = System.Drawing.Color.FromArgb(CType(CType(86, Byte), Integer), CType(CType(93, Byte), Integer), CType(CType(138, Byte), Integer))
         Me.prgC2.HatchSecondary = System.Drawing.Color.FromArgb(CType(CType(86, Byte), Integer), CType(CType(93, Byte), Integer), CType(CType(138, Byte), Integer))
         Me.prgC2.Location = New System.Drawing.Point(244, 58)
-        Me.prgC2.Max = 6000.0!
+        Me.prgC2.Max = 350.0!
         Me.prgC2.Min = 0!
         Me.prgC2.Name = "prgC2"
         Me.prgC2.Percent = True
         Me.prgC2.PostText = " AUD"
-        Me.prgC2.Progress = 3416.45!
+        Me.prgC2.Progress = 293.46!
         Me.prgC2.ShowMax = False
         Me.prgC2.Size = New System.Drawing.Size(128, 128)
         Me.prgC2.TabIndex = 1
-        Me.prgC2.Text = "Goal: 6000 AUD"
+        Me.prgC2.Text = "Goal: 350 AUD"
         '
         'prgC3
         '
@@ -1147,16 +1147,16 @@ Partial Class frmHomeMulti
         Me.prgC3.HatchPrimary = System.Drawing.Color.FromArgb(CType(CType(86, Byte), Integer), CType(CType(93, Byte), Integer), CType(CType(138, Byte), Integer))
         Me.prgC3.HatchSecondary = System.Drawing.Color.FromArgb(CType(CType(86, Byte), Integer), CType(CType(93, Byte), Integer), CType(CType(138, Byte), Integer))
         Me.prgC3.Location = New System.Drawing.Point(438, 58)
-        Me.prgC3.Max = 6000.0!
+        Me.prgC3.Max = 70.0!
         Me.prgC3.Min = 0!
         Me.prgC3.Name = "prgC3"
         Me.prgC3.Percent = True
         Me.prgC3.PostText = " AUD"
-        Me.prgC3.Progress = 327.0!
+        Me.prgC3.Progress = 36.27!
         Me.prgC3.ShowMax = False
         Me.prgC3.Size = New System.Drawing.Size(128, 128)
         Me.prgC3.TabIndex = 2
-        Me.prgC3.Text = "Goal: 6000 AUD"
+        Me.prgC3.Text = "Goal: 70 AUD"
         '
         'prgC4
         '
@@ -1166,16 +1166,16 @@ Partial Class frmHomeMulti
         Me.prgC4.HatchPrimary = System.Drawing.Color.FromArgb(CType(CType(86, Byte), Integer), CType(CType(93, Byte), Integer), CType(CType(138, Byte), Integer))
         Me.prgC4.HatchSecondary = System.Drawing.Color.FromArgb(CType(CType(86, Byte), Integer), CType(CType(93, Byte), Integer), CType(CType(138, Byte), Integer))
         Me.prgC4.Location = New System.Drawing.Point(632, 58)
-        Me.prgC4.Max = 200.0!
+        Me.prgC4.Max = 0.2!
         Me.prgC4.Min = 0!
         Me.prgC4.Name = "prgC4"
         Me.prgC4.Percent = True
         Me.prgC4.PostText = " AUD"
-        Me.prgC4.Progress = 23.64!
+        Me.prgC4.Progress = 0.0067!
         Me.prgC4.ShowMax = False
         Me.prgC4.Size = New System.Drawing.Size(128, 128)
         Me.prgC4.TabIndex = 3
-        Me.prgC4.Text = "Goal: 200 AUD"
+        Me.prgC4.Text = "Goal: 0.2 AUD"
         '
         'txtC1Goal
         '

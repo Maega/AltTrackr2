@@ -709,16 +709,16 @@
   <metadata name="ilsImg.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
-  <data name="lblAltHoldings.Text" xml:space="preserve">
-    <value>BTC Holdings - USD: 00.00 | AUD: 00.00 | GBP: 00.00
-ETH Holdings - USD: 00.00 | AUD: 00.00 | GBP: 00.00
-XMR Holdings - USD: 00.00 | AUD: 00.00 | GBP: 00.00
-SC Holdings - USD: 00.00 | AUD: 00.00 | GBP: 00.00</value>
-  </data>
   <data name="lblAltPrices.Text" xml:space="preserve">
     <value>BTC Prices - USD: 00.00 | AUD: 00.00 | GBP: 00.00
 ETH Prices - USD: 00.00 | AUD: 00.00 | GBP: 00.00
 XMR Prices - USD: 00.00 | AUD: 00.00 | GBP: 00.00
 SC Prices - USD: 00.00 | AUD: 00.00 | GBP: 00.00</value>
+  </data>
+  <data name="lblAltHoldings.Text" xml:space="preserve">
+    <value>BTC Holdings - USD: 00.00 | AUD: 00.00 | GBP: 00.00
+ETH Holdings - USD: 00.00 | AUD: 00.00 | GBP: 00.00
+XMR Holdings - USD: 00.00 | AUD: 00.00 | GBP: 00.00
+SC Holdings - USD: 00.00 | AUD: 00.00 | GBP: 00.00</value>
   </data>
 </root>

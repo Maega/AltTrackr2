@@ -9,9 +9,11 @@ Public Class frmHomeMulti
     Dim serverResponse As JObject
     Dim totalHoldings As Decimal = CDec(My.Computer.Registry.GetValue(My.Settings.RegLocation, "TotalHoldings", Nothing))
     Dim coinCodes As String = My.Computer.Registry.GetValue(My.Settings.RegLocation, "AppCoins", Nothing)
+    Dim coinCodeArray() As String = My.Computer.Registry.GetValue(My.Settings.RegLocation, "AppCoins", Nothing).Split(",")
     Dim fiatMain As String = My.Computer.Registry.GetValue(My.Settings.RegLocation, "AppMainFiat", Nothing)
     Dim fiatCodes As String = My.Computer.Registry.GetValue(My.Settings.RegLocation, "AppAltFiats", Nothing)
     Dim initialInvestment As String = My.Computer.Registry.GetValue(My.Settings.RegLocation, "InitialInvestment", Nothing)
+    Dim coinGoals() As String = My.Computer.Registry.GetValue(My.Settings.RegLocation, "AppGoals", Nothing).Split(",")
     Dim colourScheme() As String
 
 
@@ -111,16 +113,18 @@ Public Class frmHomeMulti
         lblAltPrices.Text = String.Empty
         lblAltHoldings.Text = String.Empty
         Dim fiatArray() As String = fiatCodes.Split(",")
-        Dim coinArray() As String = coinCodes.Split(",")
-        For Each coinCode As String In coinArray
+        'Dim coinArray() As String = coinCodes.Split(",")
+        For Each coinCode As String In coinCodeArray
             lblAltPrices.Text += coinCode + " - "
             lblAltHoldings.Text += coinCode + " - "
             For Each fiatCode As String In fiatArray
-                'lblAltPrices.Text += fiatCode + ": " + CDec(serverResponse.SelectToken(fiatCode).SelectToken(fiatCode)).ToString("n2") + " | "
-                'lblAltHoldings.Text += fiatCode + ": " + (totalHoldings * CDec(serverResponse.SelectToken(fiatCode))).ToString("n2") + " | "
-                'MsgBox(CDec(serverResponse.SelectToken(coinCode).SelectToken(fiatCode)).ToString("n2"))
-                lblAltPrices.Text += fiatCode + " " + CDec(serverResponse.SelectToken(coinCode).SelectToken(fiatCode)).ToString("n2") + " | "
-                lblAltHoldings.Text += fiatCode + " " + (totalHoldings * CDec(serverResponse.SelectToken(coinCode).SelectToken(fiatCode))).ToString("n2") + " | "
+                If CDec(serverResponse.SelectToken(coinCode).SelectToken(fiatCode)) >= 1.0 Then 'If the price is more than one fiat in value, round to two decimal places
+                    lblAltPrices.Text += fiatCode + " " + CDec(serverResponse.SelectToken(coinCode).SelectToken(fiatCode)).ToString("n2") + " | "
+                    lblAltHoldings.Text += fiatCode + " " + (totalHoldings * CDec(serverResponse.SelectToken(coinCode).SelectToken(fiatCode))).ToString("n2") + " | "
+                Else 'If the price is less than one fiat, round to four decimal places for less valuable coins
+                    lblAltPrices.Text += fiatCode + " " + CDec(serverResponse.SelectToken(coinCode).SelectToken(fiatCode)).ToString("n4") + " | "
+                    lblAltHoldings.Text += fiatCode + " " + (totalHoldings * CDec(serverResponse.SelectToken(coinCode).SelectToken(fiatCode))).ToString("n4") + " | "
+                End If
             Next
             lblAltPrices.Text = lblAltPrices.Text.TrimEnd(" ")
             lblAltPrices.Text = lblAltPrices.Text.TrimEnd("|")
@@ -131,6 +135,24 @@ Public Class frmHomeMulti
         Next
         lblAltPrices.Text = lblAltPrices.Text.Remove(lblAltPrices.Text.LastIndexOf(Environment.NewLine))
         lblAltHoldings.Text = lblAltHoldings.Text.Remove(lblAltHoldings.Text.LastIndexOf(Environment.NewLine))
+
+        'MsgBox(coinGoals.Count - 1)
+
+        If coinGoals.Count - 0 > 0 Then prgC1.Max = coinGoals(0) Else prgC1.Max = 1
+        If coinGoals.Count - 1 > 0 Then prgC2.Max = coinGoals(1) Else prgC2.Max = 1
+        If coinGoals.Count - 2 > 0 Then prgC3.Max = coinGoals(2) Else prgC3.Max = 1
+        If coinGoals.Count - 3 > 0 Then prgC4.Max = coinGoals(3) Else prgC4.Max = 1
+
+        If coinCodeArray.Count - 0 > 0 Then prgC1.Progress = CDec(serverResponse.SelectToken(coinCodeArray(0)).SelectToken(fiatMain)).ToString("n2") Else prgC1.Progress = 0 : prgC1.PostText = " N/A" : prgC1.Text = "CONFIGURE"
+        If coinCodeArray.Count - 1 > 0 Then prgC2.Progress = CDec(serverResponse.SelectToken(coinCodeArray(1)).SelectToken(fiatMain)).ToString("n2") Else prgC2.Progress = 0 : prgC2.PostText = " N/A" : prgC2.Text = "CONFIGURE"
+        If coinCodeArray.Count - 2 > 0 Then prgC3.Progress = CDec(serverResponse.SelectToken(coinCodeArray(2)).SelectToken(fiatMain)).ToString("n2") Else prgC3.Progress = 0 : prgC3.PostText = " N/A" : prgC3.Text = "CONFIGURE"
+        If coinCodeArray.Count - 3 > 0 Then prgC4.Progress = CDec(serverResponse.SelectToken(coinCodeArray(3)).SelectToken(fiatMain)).ToString("n2") Else prgC4.Progress = 0 : prgC4.PostText = " N/A" : prgC4.Text = "CONFIGURE"
+
+        If coinCodeArray.Count - 0 > 0 Then tpCoin1.Tag = "$" + CDec(serverResponse.SelectToken(coinCodeArray(0)).SelectToken(fiatMain)).ToString("0.00").ToString 'Unlike n(x), 0.(x) doesn't format with CultureInfo - meaning no commas
+        If coinCodeArray.Count - 1 > 0 Then tpCoin2.Tag = "$" + CDec(serverResponse.SelectToken(coinCodeArray(1)).SelectToken(fiatMain)).ToString("0.00").ToString
+        If coinCodeArray.Count - 2 > 0 Then tpCoin3.Tag = "$" + CDec(serverResponse.SelectToken(coinCodeArray(2)).SelectToken(fiatMain)).ToString("0.00").ToString
+        If coinCodeArray.Count - 3 > 0 Then tpCoin4.Tag = "$" + CDec(serverResponse.SelectToken(coinCodeArray(3)).SelectToken(fiatMain)).ToString("0.00").ToString
+
         'lblAltPrices.Text = lblAltPrices.Text.TrimEnd(vbNewLine)
         'lblAltPrices.Text = lblAltPrices.Text.TrimEnd(" ")
         'lblAltPrices.Text = lblAltPrices.Text.TrimEnd("|")
