@@ -122,9 +122,15 @@ Public Class frmHomeMulti
                 lblAltPrices.Text += fiatCode + " " + CDec(serverResponse.SelectToken(coinCode).SelectToken(fiatCode)).ToString("n2") + " | "
                 lblAltHoldings.Text += fiatCode + " " + (totalHoldings * CDec(serverResponse.SelectToken(coinCode).SelectToken(fiatCode))).ToString("n2") + " | "
             Next
+            lblAltPrices.Text = lblAltPrices.Text.TrimEnd(" ")
+            lblAltPrices.Text = lblAltPrices.Text.TrimEnd("|")
             lblAltPrices.Text += vbNewLine
+            lblAltHoldings.Text = lblAltHoldings.Text.TrimEnd(" ")
+            lblAltHoldings.Text = lblAltHoldings.Text.TrimEnd("|")
             lblAltHoldings.Text += vbNewLine
         Next
+        lblAltPrices.Text = lblAltPrices.Text.Remove(lblAltPrices.Text.LastIndexOf(Environment.NewLine))
+        lblAltHoldings.Text = lblAltHoldings.Text.Remove(lblAltHoldings.Text.LastIndexOf(Environment.NewLine))
         'lblAltPrices.Text = lblAltPrices.Text.TrimEnd(vbNewLine)
         'lblAltPrices.Text = lblAltPrices.Text.TrimEnd(" ")
         'lblAltPrices.Text = lblAltPrices.Text.TrimEnd("|")
