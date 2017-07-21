@@ -503,7 +503,7 @@ Partial Class frmHomeMulti
         Me.txtLUsername.Name = "txtLUsername"
         Me.txtLUsername.ReadOnly = False
         Me.txtLUsername.Size = New System.Drawing.Size(217, 29)
-        Me.txtLUsername.TabIndex = 4
+        Me.txtLUsername.TabIndex = 3
         Me.txtLUsername.Text = "Username"
         Me.txtLUsername.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
         Me.txtLUsername.UseSystemPasswordChar = False
@@ -528,7 +528,7 @@ Partial Class frmHomeMulti
         Me.txtLPassword.Name = "txtLPassword"
         Me.txtLPassword.ReadOnly = False
         Me.txtLPassword.Size = New System.Drawing.Size(217, 29)
-        Me.txtLPassword.TabIndex = 3
+        Me.txtLPassword.TabIndex = 4
         Me.txtLPassword.Text = "Password"
         Me.txtLPassword.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
         Me.txtLPassword.UseSystemPasswordChar = True

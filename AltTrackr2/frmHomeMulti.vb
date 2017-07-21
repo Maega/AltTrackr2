@@ -108,7 +108,6 @@ Public Class frmHomeMulti
 
     Dim justLaunched As Boolean = True
     Private Sub bkgGetPrices_RunWorkerCompleted(sender As Object, e As RunWorkerCompletedEventArgs) Handles bkgGetPrices.RunWorkerCompleted
-        'MsgBox(serverResponse.ToString)
         lblAltPrices.Text = String.Empty
         lblAltHoldings.Text = String.Empty
         Dim fiatArray() As String = fiatCodes.Split(",")
@@ -149,10 +148,11 @@ Public Class frmHomeMulti
         If coinCodeArray.Count - 2 > 0 Then prgC3.Progress = CDec(serverResponse.SelectToken(coinCodeArray(2)).SelectToken(fiatMain)).ToString("n2") Else prgC3.Progress = 0 : prgC3.PostText = " N/A" : prgC3.Text = "CONFIGURE"
         If coinCodeArray.Count - 3 > 0 Then prgC4.Progress = CDec(serverResponse.SelectToken(coinCodeArray(3)).SelectToken(fiatMain)).ToString("n2") Else prgC4.Progress = 0 : prgC4.PostText = " N/A" : prgC4.Text = "CONFIGURE"
 
-        If coinCodeArray.Count - 0 > 0 Then tpCoin1.Tag = "$" + CDec(serverResponse.SelectToken(coinCodeArray(0)).SelectToken(fiatMain)).ToString("0.00").ToString 'Unlike n(x), 0.(x) doesn't format with CultureInfo - meaning no commas
-        If coinCodeArray.Count - 1 > 0 Then tpCoin2.Tag = "$" + CDec(serverResponse.SelectToken(coinCodeArray(1)).SelectToken(fiatMain)).ToString("0.00").ToString
-        If coinCodeArray.Count - 2 > 0 Then tpCoin3.Tag = "$" + CDec(serverResponse.SelectToken(coinCodeArray(2)).SelectToken(fiatMain)).ToString("0.00").ToString
-        If coinCodeArray.Count - 3 > 0 Then tpCoin4.Tag = "$" + CDec(serverResponse.SelectToken(coinCodeArray(3)).SelectToken(fiatMain)).ToString("0.00").ToString
+        'Unlike n(x), 0.(x) doesn't format with CultureInfo - meaning no commas
+        If coinCodeArray.Count - 0 > 0 Then tpCoin1.Tag = "$" + CDec(serverResponse.SelectToken(coinCodeArray(0)).SelectToken(fiatMain)).ToString("0.00").ToString : lblC1Price.Text = "$" + CDec(serverResponse.SelectToken(coinCodeArray(0)).SelectToken(fiatMain)).ToString("0.00").ToString
+        If coinCodeArray.Count - 1 > 0 Then tpCoin2.Tag = "$" + CDec(serverResponse.SelectToken(coinCodeArray(1)).SelectToken(fiatMain)).ToString("0.00").ToString : lblC2Price.Text = "$" + CDec(serverResponse.SelectToken(coinCodeArray(1)).SelectToken(fiatMain)).ToString("0.00").ToString
+        If coinCodeArray.Count - 2 > 0 Then tpCoin3.Tag = "$" + CDec(serverResponse.SelectToken(coinCodeArray(2)).SelectToken(fiatMain)).ToString("0.00").ToString : lblC3Price.Text = "$" + CDec(serverResponse.SelectToken(coinCodeArray(2)).SelectToken(fiatMain)).ToString("0.00").ToString
+        If coinCodeArray.Count - 3 > 0 Then tpCoin4.Tag = "$" + CDec(serverResponse.SelectToken(coinCodeArray(3)).SelectToken(fiatMain)).ToString("0.00").ToString ': lblC4Price.Text = "$" + CDec(serverResponse.SelectToken(coinCodeArray(3)).SelectToken(fiatMain)).ToString("0.00").ToString
 
         'Redraw the tabcontrol in order to update tabpage tags
         tabContent.Invalidate()
