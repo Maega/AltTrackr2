@@ -46,15 +46,15 @@ Partial Class frmHomeMulti
         Me.btnLChangeDetails = New AltTrackr2.AetherButton()
         Me.btnLLogout = New AltTrackr2.AetherButton()
         Me.pnlLLogin = New System.Windows.Forms.Panel()
+        Me.txtLUsername = New AltTrackr2.AetherTextbox()
+        Me.txtLPassword = New AltTrackr2.AetherTextbox()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.pnlLIncorrect = New System.Windows.Forms.Panel()
         Me.tagIncorrect2 = New AltTrackr2.AetherTag()
         Me.tagIncorrect1 = New AltTrackr2.AetherTag()
         Me.btnLLogin = New AltTrackr2.AetherButton()
         Me.btnLSignup = New AltTrackr2.AetherButton()
-        Me.txtLUsername = New AltTrackr2.AetherTextbox()
         Me.btnLForgot = New AltTrackr2.AetherButton()
-        Me.txtLPassword = New AltTrackr2.AetherTextbox()
         Me.tpHome = New System.Windows.Forms.TabPage()
         Me.AetherGroupBox9 = New AltTrackr2.AetherGroupBox()
         Me.Label15 = New System.Windows.Forms.Label()
@@ -114,6 +114,11 @@ Partial Class frmHomeMulti
         Me.tpCoin4 = New System.Windows.Forms.TabPage()
         Me.tpSpacer2 = New System.Windows.Forms.TabPage()
         Me.tpPrefs = New System.Windows.Forms.TabPage()
+        Me.AetherGroupBox12 = New AltTrackr2.AetherGroupBox()
+        Me.radNotifC1 = New AltTrackr2.AetherRadioButton()
+        Me.radNotifC3 = New AltTrackr2.AetherRadioButton()
+        Me.radNotifC2 = New AltTrackr2.AetherRadioButton()
+        Me.radNotifC4 = New AltTrackr2.AetherRadioButton()
         Me.AetherButton1 = New AltTrackr2.AetherButton()
         Me.Label11 = New System.Windows.Forms.Label()
         Me.Label10 = New System.Windows.Forms.Label()
@@ -131,6 +136,21 @@ Partial Class frmHomeMulti
         Me.radStyle2 = New AltTrackr2.AetherRadioButton()
         Me.tpSupport = New System.Windows.Forms.TabPage()
         Me.tpFeedback = New System.Windows.Forms.TabPage()
+        Me.LvModule = New MaterialSkin.Controls.MaterialListView()
+        Me.ColumnHeader5 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader6 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader7 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader1 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader2 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.pnlNotifAdd = New System.Windows.Forms.Panel()
+        Me.btnNotifAdd = New AltTrackr2.AetherButton()
+        Me.txtNotifName = New AltTrackr2.AetherTextbox()
+        Me.txtNotifTime = New AltTrackr2.AetherTextbox()
+        Me.radNotifFD = New AltTrackr2.AetherRadioButton()
+        Me.radNotifFW = New AltTrackr2.AetherRadioButton()
+        Me.radNotifFM = New AltTrackr2.AetherRadioButton()
+        Me.MaterialDivider1 = New MaterialSkin.Controls.MaterialDivider()
+        Me.Panel1 = New System.Windows.Forms.Panel()
         Me.pnlUnsaved.SuspendLayout()
         Me.pnlLoadingMain.SuspendLayout()
         Me.tabContent.SuspendLayout()
@@ -157,7 +177,10 @@ Partial Class frmHomeMulti
         CType(Me.picC3Logo, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.AetherGroupBox5.SuspendLayout()
         Me.tpPrefs.SuspendLayout()
+        Me.AetherGroupBox12.SuspendLayout()
         Me.AetherGroupBox2.SuspendLayout()
+        Me.pnlNotifAdd.SuspendLayout()
+        Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
         '
         'ilsIcon
@@ -241,25 +264,31 @@ Partial Class frmHomeMulti
         '
         'btnConfirmCancel
         '
+        Me.btnConfirmCancel.AutoSize = True
+        Me.btnConfirmCancel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.btnConfirmCancel.BackColor = System.Drawing.Color.FromArgb(CType(CType(52, Byte), Integer), CType(CType(56, Byte), Integer), CType(CType(67, Byte), Integer))
         Me.btnConfirmCancel.Depth = 0
+        Me.btnConfirmCancel.Icon = Nothing
         Me.btnConfirmCancel.Location = New System.Drawing.Point(99, 247)
         Me.btnConfirmCancel.MouseState = MaterialSkin.MouseState.HOVER
         Me.btnConfirmCancel.Name = "btnConfirmCancel"
         Me.btnConfirmCancel.Primary = True
-        Me.btnConfirmCancel.Size = New System.Drawing.Size(84, 23)
+        Me.btnConfirmCancel.Size = New System.Drawing.Size(99, 36)
         Me.btnConfirmCancel.TabIndex = 18
         Me.btnConfirmCancel.Text = "No, Cancel"
         Me.btnConfirmCancel.UseVisualStyleBackColor = False
         '
         'btnConfirmSave
         '
+        Me.btnConfirmSave.AutoSize = True
+        Me.btnConfirmSave.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.btnConfirmSave.Depth = 0
+        Me.btnConfirmSave.Icon = Nothing
         Me.btnConfirmSave.Location = New System.Drawing.Point(9, 247)
         Me.btnConfirmSave.MouseState = MaterialSkin.MouseState.HOVER
         Me.btnConfirmSave.Name = "btnConfirmSave"
         Me.btnConfirmSave.Primary = True
-        Me.btnConfirmSave.Size = New System.Drawing.Size(84, 23)
+        Me.btnConfirmSave.Size = New System.Drawing.Size(86, 36)
         Me.btnConfirmSave.TabIndex = 17
         Me.btnConfirmSave.Text = "YES, SAVE"
         Me.btnConfirmSave.UseVisualStyleBackColor = True
@@ -342,9 +371,14 @@ Partial Class frmHomeMulti
         '
         'ilsImg
         '
-        Me.ilsImg.ColorDepth = System.Windows.Forms.ColorDepth.Depth32Bit
-        Me.ilsImg.ImageSize = New System.Drawing.Size(256, 256)
+        Me.ilsImg.ImageStream = CType(resources.GetObject("ilsImg.ImageStream"), System.Windows.Forms.ImageListStreamer)
         Me.ilsImg.TransparentColor = System.Drawing.Color.Transparent
+        Me.ilsImg.Images.SetKeyName(0, "Box-Incoming.png")
+        Me.ilsImg.Images.SetKeyName(1, "Minus.png")
+        Me.ilsImg.Images.SetKeyName(2, "OK.png")
+        Me.ilsImg.Images.SetKeyName(3, "On.png")
+        Me.ilsImg.Images.SetKeyName(4, "Plus.png")
+        Me.ilsImg.Images.SetKeyName(5, "Remove.png")
         '
         'tabContent
         '
@@ -444,6 +478,38 @@ Partial Class frmHomeMulti
         Me.pnlLLogin.Size = New System.Drawing.Size(328, 169)
         Me.pnlLLogin.TabIndex = 11
         '
+        'txtLUsername
+        '
+        Me.txtLUsername.EnabledCalc = True
+        Me.txtLUsername.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.txtLUsername.ForeColor = System.Drawing.Color.FromArgb(CType(CType(52, Byte), Integer), CType(CType(56, Byte), Integer), CType(CType(67, Byte), Integer))
+        Me.txtLUsername.Location = New System.Drawing.Point(5, 28)
+        Me.txtLUsername.MaxLength = 32767
+        Me.txtLUsername.MultiLine = False
+        Me.txtLUsername.Name = "txtLUsername"
+        Me.txtLUsername.ReadOnly = False
+        Me.txtLUsername.Size = New System.Drawing.Size(217, 29)
+        Me.txtLUsername.TabIndex = 3
+        Me.txtLUsername.Text = "Username"
+        Me.txtLUsername.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
+        Me.txtLUsername.UseSystemPasswordChar = False
+        '
+        'txtLPassword
+        '
+        Me.txtLPassword.EnabledCalc = True
+        Me.txtLPassword.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.txtLPassword.ForeColor = System.Drawing.Color.FromArgb(CType(CType(52, Byte), Integer), CType(CType(56, Byte), Integer), CType(CType(67, Byte), Integer))
+        Me.txtLPassword.Location = New System.Drawing.Point(5, 63)
+        Me.txtLPassword.MaxLength = 32767
+        Me.txtLPassword.MultiLine = False
+        Me.txtLPassword.Name = "txtLPassword"
+        Me.txtLPassword.ReadOnly = False
+        Me.txtLPassword.Size = New System.Drawing.Size(217, 29)
+        Me.txtLPassword.TabIndex = 4
+        Me.txtLPassword.Text = "Password"
+        Me.txtLPassword.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
+        Me.txtLPassword.UseSystemPasswordChar = True
+        '
         'Label9
         '
         Me.Label9.AutoSize = True
@@ -504,22 +570,6 @@ Partial Class frmHomeMulti
         Me.btnLSignup.TabIndex = 1
         Me.btnLSignup.Text = "Signup"
         '
-        'txtLUsername
-        '
-        Me.txtLUsername.EnabledCalc = True
-        Me.txtLUsername.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        Me.txtLUsername.ForeColor = System.Drawing.Color.FromArgb(CType(CType(52, Byte), Integer), CType(CType(56, Byte), Integer), CType(CType(67, Byte), Integer))
-        Me.txtLUsername.Location = New System.Drawing.Point(5, 28)
-        Me.txtLUsername.MaxLength = 32767
-        Me.txtLUsername.MultiLine = False
-        Me.txtLUsername.Name = "txtLUsername"
-        Me.txtLUsername.ReadOnly = False
-        Me.txtLUsername.Size = New System.Drawing.Size(217, 29)
-        Me.txtLUsername.TabIndex = 3
-        Me.txtLUsername.Text = "Username"
-        Me.txtLUsername.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
-        Me.txtLUsername.UseSystemPasswordChar = False
-        '
         'btnLForgot
         '
         Me.btnLForgot.EnabledCalc = True
@@ -528,22 +578,6 @@ Partial Class frmHomeMulti
         Me.btnLForgot.Size = New System.Drawing.Size(217, 23)
         Me.btnLForgot.TabIndex = 2
         Me.btnLForgot.Text = "Problems signing in?"
-        '
-        'txtLPassword
-        '
-        Me.txtLPassword.EnabledCalc = True
-        Me.txtLPassword.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        Me.txtLPassword.ForeColor = System.Drawing.Color.FromArgb(CType(CType(52, Byte), Integer), CType(CType(56, Byte), Integer), CType(CType(67, Byte), Integer))
-        Me.txtLPassword.Location = New System.Drawing.Point(5, 63)
-        Me.txtLPassword.MaxLength = 32767
-        Me.txtLPassword.MultiLine = False
-        Me.txtLPassword.Name = "txtLPassword"
-        Me.txtLPassword.ReadOnly = False
-        Me.txtLPassword.Size = New System.Drawing.Size(217, 29)
-        Me.txtLPassword.TabIndex = 4
-        Me.txtLPassword.Text = "Password"
-        Me.txtLPassword.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
-        Me.txtLPassword.UseSystemPasswordChar = True
         '
         'tpHome
         '
@@ -1286,6 +1320,7 @@ Partial Class frmHomeMulti
         'tpPrefs
         '
         Me.tpPrefs.BackColor = System.Drawing.Color.White
+        Me.tpPrefs.Controls.Add(Me.AetherGroupBox12)
         Me.tpPrefs.Controls.Add(Me.AetherButton1)
         Me.tpPrefs.Controls.Add(Me.Label11)
         Me.tpPrefs.Controls.Add(Me.Label10)
@@ -1305,10 +1340,71 @@ Partial Class frmHomeMulti
         Me.tpPrefs.TabIndex = 7
         Me.tpPrefs.Text = "User Preferences"
         '
+        'AetherGroupBox12
+        '
+        Me.AetherGroupBox12.Controls.Add(Me.pnlNotifAdd)
+        Me.AetherGroupBox12.Controls.Add(Me.LvModule)
+        Me.AetherGroupBox12.Footer = False
+        Me.AetherGroupBox12.FooterText = Nothing
+        Me.AetherGroupBox12.Location = New System.Drawing.Point(6, 170)
+        Me.AetherGroupBox12.Name = "AetherGroupBox12"
+        Me.AetherGroupBox12.Size = New System.Drawing.Size(810, 210)
+        Me.AetherGroupBox12.TabIndex = 19
+        Me.AetherGroupBox12.Text = "Alerts"
+        '
+        'radNotifC1
+        '
+        Me.radNotifC1.Checked = False
+        Me.radNotifC1.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.radNotifC1.EnabledCalc = True
+        Me.radNotifC1.HatchBrush = False
+        Me.radNotifC1.Location = New System.Drawing.Point(0, 0)
+        Me.radNotifC1.Name = "radNotifC1"
+        Me.radNotifC1.Size = New System.Drawing.Size(64, 19)
+        Me.radNotifC1.TabIndex = 15
+        Me.radNotifC1.Text = "Coin 1"
+        '
+        'radNotifC3
+        '
+        Me.radNotifC3.Checked = False
+        Me.radNotifC3.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.radNotifC3.EnabledCalc = True
+        Me.radNotifC3.HatchBrush = False
+        Me.radNotifC3.Location = New System.Drawing.Point(0, 26)
+        Me.radNotifC3.Name = "radNotifC3"
+        Me.radNotifC3.Size = New System.Drawing.Size(64, 19)
+        Me.radNotifC3.TabIndex = 17
+        Me.radNotifC3.Text = "Coin 3"
+        '
+        'radNotifC2
+        '
+        Me.radNotifC2.Checked = False
+        Me.radNotifC2.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.radNotifC2.EnabledCalc = True
+        Me.radNotifC2.HatchBrush = False
+        Me.radNotifC2.Location = New System.Drawing.Point(70, 0)
+        Me.radNotifC2.Name = "radNotifC2"
+        Me.radNotifC2.Size = New System.Drawing.Size(64, 19)
+        Me.radNotifC2.TabIndex = 16
+        Me.radNotifC2.Tag = ""
+        Me.radNotifC2.Text = "Coin 2"
+        '
+        'radNotifC4
+        '
+        Me.radNotifC4.Checked = False
+        Me.radNotifC4.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.radNotifC4.EnabledCalc = True
+        Me.radNotifC4.HatchBrush = False
+        Me.radNotifC4.Location = New System.Drawing.Point(70, 26)
+        Me.radNotifC4.Name = "radNotifC4"
+        Me.radNotifC4.Size = New System.Drawing.Size(64, 19)
+        Me.radNotifC4.TabIndex = 18
+        Me.radNotifC4.Text = "Coin 4"
+        '
         'AetherButton1
         '
         Me.AetherButton1.EnabledCalc = True
-        Me.AetherButton1.Location = New System.Drawing.Point(344, 350)
+        Me.AetherButton1.Location = New System.Drawing.Point(340, 447)
         Me.AetherButton1.Name = "AetherButton1"
         Me.AetherButton1.Size = New System.Drawing.Size(113, 23)
         Me.AetherButton1.TabIndex = 14
@@ -1317,7 +1413,7 @@ Partial Class frmHomeMulti
         'Label11
         '
         Me.Label11.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!)
-        Me.Label11.Location = New System.Drawing.Point(547, 297)
+        Me.Label11.Location = New System.Drawing.Point(543, 394)
         Me.Label11.Name = "Label11"
         Me.Label11.Size = New System.Drawing.Size(130, 15)
         Me.Label11.TabIndex = 13
@@ -1327,7 +1423,7 @@ Partial Class frmHomeMulti
         'Label10
         '
         Me.Label10.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!)
-        Me.Label10.Location = New System.Drawing.Point(411, 297)
+        Me.Label10.Location = New System.Drawing.Point(407, 394)
         Me.Label10.Name = "Label10"
         Me.Label10.Size = New System.Drawing.Size(130, 15)
         Me.Label10.TabIndex = 12
@@ -1337,7 +1433,7 @@ Partial Class frmHomeMulti
         'Label6
         '
         Me.Label6.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!)
-        Me.Label6.Location = New System.Drawing.Point(275, 297)
+        Me.Label6.Location = New System.Drawing.Point(271, 394)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(130, 15)
         Me.Label6.TabIndex = 11
@@ -1347,7 +1443,7 @@ Partial Class frmHomeMulti
         'Label3
         '
         Me.Label3.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!)
-        Me.Label3.Location = New System.Drawing.Point(139, 297)
+        Me.Label3.Location = New System.Drawing.Point(135, 394)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(130, 15)
         Me.Label3.TabIndex = 10
@@ -1359,7 +1455,7 @@ Partial Class frmHomeMulti
         Me.txtC4Goal.EnabledCalc = True
         Me.txtC4Goal.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.txtC4Goal.ForeColor = System.Drawing.Color.FromArgb(CType(CType(52, Byte), Integer), CType(CType(56, Byte), Integer), CType(CType(67, Byte), Integer))
-        Me.txtC4Goal.Location = New System.Drawing.Point(547, 315)
+        Me.txtC4Goal.Location = New System.Drawing.Point(543, 412)
         Me.txtC4Goal.MaxLength = 32767
         Me.txtC4Goal.MultiLine = False
         Me.txtC4Goal.Name = "txtC4Goal"
@@ -1375,7 +1471,7 @@ Partial Class frmHomeMulti
         Me.txtC3Goal.EnabledCalc = True
         Me.txtC3Goal.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.txtC3Goal.ForeColor = System.Drawing.Color.FromArgb(CType(CType(52, Byte), Integer), CType(CType(56, Byte), Integer), CType(CType(67, Byte), Integer))
-        Me.txtC3Goal.Location = New System.Drawing.Point(411, 315)
+        Me.txtC3Goal.Location = New System.Drawing.Point(407, 412)
         Me.txtC3Goal.MaxLength = 32767
         Me.txtC3Goal.MultiLine = False
         Me.txtC3Goal.Name = "txtC3Goal"
@@ -1391,7 +1487,7 @@ Partial Class frmHomeMulti
         Me.txtC2Goal.EnabledCalc = True
         Me.txtC2Goal.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.txtC2Goal.ForeColor = System.Drawing.Color.FromArgb(CType(CType(52, Byte), Integer), CType(CType(56, Byte), Integer), CType(CType(67, Byte), Integer))
-        Me.txtC2Goal.Location = New System.Drawing.Point(275, 315)
+        Me.txtC2Goal.Location = New System.Drawing.Point(271, 412)
         Me.txtC2Goal.MaxLength = 32767
         Me.txtC2Goal.MultiLine = False
         Me.txtC2Goal.Name = "txtC2Goal"
@@ -1407,7 +1503,7 @@ Partial Class frmHomeMulti
         Me.txtC1Goal.EnabledCalc = True
         Me.txtC1Goal.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.txtC1Goal.ForeColor = System.Drawing.Color.FromArgb(CType(CType(52, Byte), Integer), CType(CType(56, Byte), Integer), CType(CType(67, Byte), Integer))
-        Me.txtC1Goal.Location = New System.Drawing.Point(139, 315)
+        Me.txtC1Goal.Location = New System.Drawing.Point(135, 412)
         Me.txtC1Goal.MaxLength = 32767
         Me.txtC1Goal.MultiLine = False
         Me.txtC1Goal.Name = "txtC1Goal"
@@ -1512,6 +1608,166 @@ Partial Class frmHomeMulti
         Me.tpFeedback.Tag = "Beta 1"
         Me.tpFeedback.Text = "Feedback"
         '
+        'LvModule
+        '
+        Me.LvModule.BackColor = System.Drawing.SystemColors.Window
+        Me.LvModule.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.LvModule.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader5, Me.ColumnHeader6, Me.ColumnHeader7, Me.ColumnHeader1, Me.ColumnHeader2})
+        Me.LvModule.Depth = 0
+        Me.LvModule.Font = New System.Drawing.Font("Roboto", 32.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.World)
+        Me.LvModule.FullRowSelect = True
+        Me.LvModule.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable
+        Me.LvModule.Location = New System.Drawing.Point(3, 39)
+        Me.LvModule.MouseLocation = New System.Drawing.Point(-1, -1)
+        Me.LvModule.MouseState = MaterialSkin.MouseState.OUT
+        Me.LvModule.MultiSelect = False
+        Me.LvModule.Name = "LvModule"
+        Me.LvModule.OwnerDraw = True
+        Me.LvModule.Size = New System.Drawing.Size(565, 164)
+        Me.LvModule.TabIndex = 21
+        Me.LvModule.UseCompatibleStateImageBehavior = False
+        Me.LvModule.View = System.Windows.Forms.View.Details
+        '
+        'ColumnHeader5
+        '
+        Me.ColumnHeader5.Text = "Name"
+        Me.ColumnHeader5.Width = 150
+        '
+        'ColumnHeader6
+        '
+        Me.ColumnHeader6.Text = "Time"
+        Me.ColumnHeader6.Width = 130
+        '
+        'ColumnHeader7
+        '
+        Me.ColumnHeader7.Text = "Type"
+        Me.ColumnHeader7.Width = 120
+        '
+        'ColumnHeader1
+        '
+        Me.ColumnHeader1.Text = "Coin"
+        Me.ColumnHeader1.Width = 80
+        '
+        'ColumnHeader2
+        '
+        Me.ColumnHeader2.Text = "Fiat"
+        Me.ColumnHeader2.Width = 80
+        '
+        'pnlNotifAdd
+        '
+        Me.pnlNotifAdd.Controls.Add(Me.Panel1)
+        Me.pnlNotifAdd.Controls.Add(Me.MaterialDivider1)
+        Me.pnlNotifAdd.Controls.Add(Me.radNotifFM)
+        Me.pnlNotifAdd.Controls.Add(Me.radNotifFW)
+        Me.pnlNotifAdd.Controls.Add(Me.radNotifFD)
+        Me.pnlNotifAdd.Controls.Add(Me.txtNotifTime)
+        Me.pnlNotifAdd.Controls.Add(Me.txtNotifName)
+        Me.pnlNotifAdd.Controls.Add(Me.btnNotifAdd)
+        Me.pnlNotifAdd.Location = New System.Drawing.Point(564, 39)
+        Me.pnlNotifAdd.Name = "pnlNotifAdd"
+        Me.pnlNotifAdd.Size = New System.Drawing.Size(243, 168)
+        Me.pnlNotifAdd.TabIndex = 22
+        '
+        'btnNotifAdd
+        '
+        Me.btnNotifAdd.EnabledCalc = True
+        Me.btnNotifAdd.Location = New System.Drawing.Point(55, 137)
+        Me.btnNotifAdd.Name = "btnNotifAdd"
+        Me.btnNotifAdd.Size = New System.Drawing.Size(134, 23)
+        Me.btnNotifAdd.TabIndex = 19
+        Me.btnNotifAdd.Text = "Add Alert"
+        '
+        'txtNotifName
+        '
+        Me.txtNotifName.EnabledCalc = True
+        Me.txtNotifName.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.txtNotifName.ForeColor = System.Drawing.Color.FromArgb(CType(CType(52, Byte), Integer), CType(CType(56, Byte), Integer), CType(CType(67, Byte), Integer))
+        Me.txtNotifName.Location = New System.Drawing.Point(3, 8)
+        Me.txtNotifName.MaxLength = 32767
+        Me.txtNotifName.MultiLine = False
+        Me.txtNotifName.Name = "txtNotifName"
+        Me.txtNotifName.ReadOnly = False
+        Me.txtNotifName.Size = New System.Drawing.Size(134, 29)
+        Me.txtNotifName.TabIndex = 20
+        Me.txtNotifName.Text = "What? (Name)"
+        Me.txtNotifName.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
+        Me.txtNotifName.UseSystemPasswordChar = False
+        '
+        'txtNotifTime
+        '
+        Me.txtNotifTime.EnabledCalc = True
+        Me.txtNotifTime.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.txtNotifTime.ForeColor = System.Drawing.Color.FromArgb(CType(CType(52, Byte), Integer), CType(CType(56, Byte), Integer), CType(CType(67, Byte), Integer))
+        Me.txtNotifTime.Location = New System.Drawing.Point(141, 8)
+        Me.txtNotifTime.MaxLength = 32767
+        Me.txtNotifTime.MultiLine = False
+        Me.txtNotifTime.Name = "txtNotifTime"
+        Me.txtNotifTime.ReadOnly = False
+        Me.txtNotifTime.Size = New System.Drawing.Size(97, 29)
+        Me.txtNotifTime.TabIndex = 21
+        Me.txtNotifTime.Text = "When? (Time)"
+        Me.txtNotifTime.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
+        Me.txtNotifTime.UseSystemPasswordChar = False
+        '
+        'radNotifFD
+        '
+        Me.radNotifFD.Checked = False
+        Me.radNotifFD.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.radNotifFD.EnabledCalc = True
+        Me.radNotifFD.HatchBrush = False
+        Me.radNotifFD.Location = New System.Drawing.Point(16, 46)
+        Me.radNotifFD.Name = "radNotifFD"
+        Me.radNotifFD.Size = New System.Drawing.Size(55, 19)
+        Me.radNotifFD.TabIndex = 22
+        Me.radNotifFD.Text = "Daily"
+        '
+        'radNotifFW
+        '
+        Me.radNotifFW.Checked = False
+        Me.radNotifFW.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.radNotifFW.EnabledCalc = True
+        Me.radNotifFW.HatchBrush = False
+        Me.radNotifFW.Location = New System.Drawing.Point(77, 46)
+        Me.radNotifFW.Name = "radNotifFW"
+        Me.radNotifFW.Size = New System.Drawing.Size(66, 19)
+        Me.radNotifFW.TabIndex = 23
+        Me.radNotifFW.Text = "Weekly"
+        '
+        'radNotifFM
+        '
+        Me.radNotifFM.Checked = False
+        Me.radNotifFM.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.radNotifFM.EnabledCalc = True
+        Me.radNotifFM.HatchBrush = False
+        Me.radNotifFM.Location = New System.Drawing.Point(149, 46)
+        Me.radNotifFM.Name = "radNotifFM"
+        Me.radNotifFM.Size = New System.Drawing.Size(75, 19)
+        Me.radNotifFM.TabIndex = 24
+        Me.radNotifFM.Text = "Monthly"
+        '
+        'MaterialDivider1
+        '
+        Me.MaterialDivider1.BackColor = System.Drawing.Color.FromArgb(CType(CType(86, Byte), Integer), CType(CType(93, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.MaterialDivider1.Depth = 0
+        Me.MaterialDivider1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(86, Byte), Integer), CType(CType(93, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.MaterialDivider1.Location = New System.Drawing.Point(16, 72)
+        Me.MaterialDivider1.MouseState = MaterialSkin.MouseState.HOVER
+        Me.MaterialDivider1.Name = "MaterialDivider1"
+        Me.MaterialDivider1.Size = New System.Drawing.Size(208, 1)
+        Me.MaterialDivider1.TabIndex = 25
+        Me.MaterialDivider1.Text = "MaterialDivider1"
+        '
+        'Panel1
+        '
+        Me.Panel1.Controls.Add(Me.radNotifC3)
+        Me.Panel1.Controls.Add(Me.radNotifC2)
+        Me.Panel1.Controls.Add(Me.radNotifC4)
+        Me.Panel1.Controls.Add(Me.radNotifC1)
+        Me.Panel1.Location = New System.Drawing.Point(55, 79)
+        Me.Panel1.Name = "Panel1"
+        Me.Panel1.Size = New System.Drawing.Size(134, 48)
+        Me.Panel1.TabIndex = 26
+        '
         'frmHomeMulti
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1526,6 +1782,7 @@ Partial Class frmHomeMulti
         Me.Text = "Loading Data"
         Me.TransparencyKey = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
         Me.pnlUnsaved.ResumeLayout(False)
+        Me.pnlUnsaved.PerformLayout()
         Me.pnlLoadingMain.ResumeLayout(False)
         Me.tabContent.ResumeLayout(False)
         Me.tpLogin.ResumeLayout(False)
@@ -1555,7 +1812,10 @@ Partial Class frmHomeMulti
         CType(Me.picC3Logo, System.ComponentModel.ISupportInitialize).EndInit()
         Me.AetherGroupBox5.ResumeLayout(False)
         Me.tpPrefs.ResumeLayout(False)
+        Me.AetherGroupBox12.ResumeLayout(False)
         Me.AetherGroupBox2.ResumeLayout(False)
+        Me.pnlNotifAdd.ResumeLayout(False)
+        Me.Panel1.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
@@ -1667,4 +1927,24 @@ Partial Class frmHomeMulti
     Friend WithEvents Label21 As Label
     Friend WithEvents Label20 As Label
     Friend WithEvents lblAuthRequest As Label
+    Friend WithEvents AetherGroupBox12 As AetherGroupBox
+    Friend WithEvents radNotifC1 As AetherRadioButton
+    Friend WithEvents radNotifC3 As AetherRadioButton
+    Friend WithEvents radNotifC2 As AetherRadioButton
+    Friend WithEvents radNotifC4 As AetherRadioButton
+    Friend WithEvents LvModule As MaterialSkin.Controls.MaterialListView
+    Friend WithEvents ColumnHeader5 As ColumnHeader
+    Friend WithEvents ColumnHeader6 As ColumnHeader
+    Friend WithEvents ColumnHeader7 As ColumnHeader
+    Friend WithEvents ColumnHeader1 As ColumnHeader
+    Friend WithEvents ColumnHeader2 As ColumnHeader
+    Friend WithEvents pnlNotifAdd As Panel
+    Friend WithEvents txtNotifName As AetherTextbox
+    Friend WithEvents btnNotifAdd As AetherButton
+    Friend WithEvents MaterialDivider1 As MaterialSkin.Controls.MaterialDivider
+    Friend WithEvents radNotifFM As AetherRadioButton
+    Friend WithEvents radNotifFW As AetherRadioButton
+    Friend WithEvents radNotifFD As AetherRadioButton
+    Friend WithEvents txtNotifTime As AetherTextbox
+    Friend WithEvents Panel1 As Panel
 End Class

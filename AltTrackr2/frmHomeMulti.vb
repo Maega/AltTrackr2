@@ -3,6 +3,7 @@ Imports MaterialSkin
 Imports System.Net
 Imports Newtonsoft.Json
 Imports Newtonsoft.Json.Linq
+Imports Notification
 
 Public Class frmHomeMulti
 
@@ -10,11 +11,14 @@ Public Class frmHomeMulti
     Dim totalHoldings() As String = My.Computer.Registry.GetValue(My.Settings.RegLocation, "AppHoldings", Nothing).Split(",")
     Dim coinCodes As String = My.Computer.Registry.GetValue(My.Settings.RegLocation, "AppCoins", Nothing)
     Dim coinCodeArray() As String = My.Computer.Registry.GetValue(My.Settings.RegLocation, "AppCoins", Nothing).Split(",")
+    Dim coinNameArray() As String = My.Computer.Registry.GetValue(My.Settings.RegLocation, "AppCoinNames", Nothing).Split(",")
     Dim fiatMain As String = My.Computer.Registry.GetValue(My.Settings.RegLocation, "AppMainFiat", Nothing)
     Dim fiatCodes As String = My.Computer.Registry.GetValue(My.Settings.RegLocation, "AppAltFiats", Nothing)
     Dim initialInvestment() As String = My.Computer.Registry.GetValue(My.Settings.RegLocation, "InitialInvestment", Nothing).Split(",")
     Dim coinGoals() As String = My.Computer.Registry.GetValue(My.Settings.RegLocation, "AppGoals", Nothing).Split(",")
     Dim colourScheme() As String
+
+    Dim notifArray As New ArrayList
 
     Private Sub tabContent_Selecting(sender As Object, e As TabControlCancelEventArgs) Handles tabContent.Selecting
         If e.TabPage.Text = String.Empty Then e.Cancel = True 'If TabPage text is nothing, make it unselectable (for use as a section divider)
@@ -327,5 +331,76 @@ Public Class frmHomeMulti
         prgC2.Text = "Goal: " + txtC2Goal.Text + fiatMain
         prgC3.Text = "Goal: " + txtC3Goal.Text + fiatMain
         prgC4.Text = "Goal: " + txtC4Goal.Text + fiatMain
+    End Sub
+
+    Private Sub tpPrefs_Click(sender As Object, e As EventArgs) Handles tpPrefs.Click
+
+    End Sub
+
+    Dim _colour As Color
+    Private Sub AetherButton7_Click(sender As Object, e As EventArgs) Handles btnNotifAdd.Click
+        Dim notifType As String = String.Empty
+        If radNotifFD.Checked Then
+            notifType = "D"
+        ElseIf radNotifFW.Checked Then
+            notifType = "W"
+        ElseIf radNotifFM.Checked Then
+            notifType = "M"
+        End If
+
+        Dim notifName As String = String.Empty
+        Dim notifCoin As String = String.Empty
+        Dim notifTime As String = String.Empty
+
+        If radNotifC1.Checked Then
+            notifCoin = coinCodeArray(0)
+            notifName = coinNameArray(0)
+        ElseIf radNotifC2.Checked Then
+            notifCoin = coinCodeArray(1)
+            notifName = coinNameArray(1)
+        ElseIf radNotifC3.Checked Then
+            notifCoin = coinCodeArray(2)
+            notifName = coinNameArray(2)
+        ElseIf radNotifC4.Checked Then
+            notifCoin = coinCodeArray(3)
+            notifName = coinNameArray(3)
+        End If
+
+        'Add a check to ensure no fields have a semicolon, since that's the string delimiter for array subitems
+        notifArray.Add(notifName + ";" + notifType + ";" + notifTime + ";" + notifCoin + ";")
+        My.Computer.Registry.SetValue(My.Settings.RegLocation, "AppNotifs", String.Join(",", notifArray.ToArray()))
+
+        'Sample Notification using notifArray item 0
+        MsgBox(notifArray(0))
+        ShowNotification(notifArray(0).Split(";")(0), notifArray(0).Split(";")(1), False, "14.55", "$5679", "$57.85")
+    End Sub
+
+    Private Sub ShowNotification(coinname As String, frequency As String, priceup As Boolean, changepercent As String, holdingsvalue As String, coinprice As String)
+        Select Case frequency.ToUpper
+            Case "D"
+                frequency = "Daily"
+            Case "W"
+                frequency = "Weekly"
+            Case "M"
+                frequency = "Monthly"
+        End Select
+
+        Dim friendlyAlert As String
+        Dim img As Image
+        If priceup Then
+            friendlyAlert = "Good news! " + coinname + " is up " + changepercent + "% in the last 24 hours."
+            img = ilsImg.Images.Item(4)
+        Else
+            friendlyAlert = "Bad news! " + coinname + " is down " + changepercent + "% in the last 24 hours."
+            img = ilsImg.Images.Item(1)
+        End If
+
+        Dim notif As New Notification(img, coinname + " " + frequency + " Price Update", friendlyAlert + vbNewLine + "Holdings Value: " + holdingsvalue + vbNewLine + "Coin Price: " + coinprice, _colour)
+        notif.Seconds = 10
+        notif.Show()
+    End Sub
+
+    Private Sub AetherRadioButton3_CheckedChanged(sender As Object, e As EventArgs) Handles radNotifC3.CheckedChanged
+
     End Sub
 End Class
