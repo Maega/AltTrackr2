@@ -432,13 +432,13 @@ Partial Class frmHomeMulti
         '
         'pnlLLogin
         '
+        Me.pnlLLogin.Controls.Add(Me.txtLUsername)
+        Me.pnlLLogin.Controls.Add(Me.txtLPassword)
         Me.pnlLLogin.Controls.Add(Me.Label9)
         Me.pnlLLogin.Controls.Add(Me.pnlLIncorrect)
         Me.pnlLLogin.Controls.Add(Me.btnLLogin)
         Me.pnlLLogin.Controls.Add(Me.btnLSignup)
-        Me.pnlLLogin.Controls.Add(Me.txtLUsername)
         Me.pnlLLogin.Controls.Add(Me.btnLForgot)
-        Me.pnlLLogin.Controls.Add(Me.txtLPassword)
         Me.pnlLLogin.Location = New System.Drawing.Point(299, 157)
         Me.pnlLLogin.Name = "pnlLLogin"
         Me.pnlLLogin.Size = New System.Drawing.Size(328, 169)

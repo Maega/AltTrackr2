@@ -138,15 +138,15 @@ Public Class frmHomeMulti
 
         'MsgBox(coinGoals.Count - 1)
 
-        If coinGoals.Count - 0 > 0 Then prgC1.Max = coinGoals(0) : prgC1.Text = "Goal: " + coinGoals(0) + " AUD" Else prgC1.Max = 1
-        If coinGoals.Count - 1 > 0 Then prgC2.Max = coinGoals(1) : prgC2.Text = "Goal: " + coinGoals(1) + " AUD" Else prgC2.Max = 1
-        If coinGoals.Count - 2 > 0 Then prgC3.Max = coinGoals(2) : prgC3.Text = "Goal: " + coinGoals(2) + " AUD" Else prgC3.Max = 1
-        If coinGoals.Count - 3 > 0 Then prgC4.Max = coinGoals(3) : prgC4.Text = "Goal: " + coinGoals(3) + " AUD" Else prgC4.Max = 1
+        If coinGoals.Count - 0 > 0 Then prgC1.Max = coinGoals(0) : prgC1.Text = "Goal: " + coinGoals(0) + " " + fiatMain Else prgC1.Max = 1
+        If coinGoals.Count - 1 > 0 Then prgC2.Max = coinGoals(1) : prgC2.Text = "Goal: " + coinGoals(1) + " " + fiatMain Else prgC2.Max = 1
+        If coinGoals.Count - 2 > 0 Then prgC3.Max = coinGoals(2) : prgC3.Text = "Goal: " + coinGoals(2) + " " + fiatMain Else prgC3.Max = 1
+        If coinGoals.Count - 3 > 0 Then prgC4.Max = coinGoals(3) : prgC4.Text = "Goal: " + coinGoals(3) + " " + fiatMain Else prgC4.Max = 1
 
-        If coinCodeArray.Count - 0 > 0 Then prgC1.Progress = CDec(serverResponse.SelectToken(coinCodeArray(0)).SelectToken(fiatMain)).ToString("n2") Else prgC1.Progress = 0 : prgC1.PostText = " N/A" : prgC1.Text = "CONFIGURE"
-        If coinCodeArray.Count - 1 > 0 Then prgC2.Progress = CDec(serverResponse.SelectToken(coinCodeArray(1)).SelectToken(fiatMain)).ToString("n2") Else prgC2.Progress = 0 : prgC2.PostText = " N/A" : prgC2.Text = "CONFIGURE"
-        If coinCodeArray.Count - 2 > 0 Then prgC3.Progress = CDec(serverResponse.SelectToken(coinCodeArray(2)).SelectToken(fiatMain)).ToString("n2") Else prgC3.Progress = 0 : prgC3.PostText = " N/A" : prgC3.Text = "CONFIGURE"
-        If coinCodeArray.Count - 3 > 0 Then prgC4.Progress = CDec(serverResponse.SelectToken(coinCodeArray(3)).SelectToken(fiatMain)).ToString("n2") Else prgC4.Progress = 0 : prgC4.PostText = " N/A" : prgC4.Text = "CONFIGURE"
+        If coinCodeArray.Count - 0 > 0 Then prgC1.Progress = CDec(serverResponse.SelectToken(coinCodeArray(0)).SelectToken(fiatMain)).ToString("n2") : prgC1.PostText = " " + fiatMain Else prgC1.Progress = 0 : prgC1.PostText = " N/A" : prgC1.Text = "CONFIGURE"
+        If coinCodeArray.Count - 1 > 0 Then prgC2.Progress = CDec(serverResponse.SelectToken(coinCodeArray(1)).SelectToken(fiatMain)).ToString("n2") : prgC2.PostText = " " + fiatMain Else prgC2.Progress = 0 : prgC2.PostText = " N/A" : prgC2.Text = "CONFIGURE"
+        If coinCodeArray.Count - 2 > 0 Then prgC3.Progress = CDec(serverResponse.SelectToken(coinCodeArray(2)).SelectToken(fiatMain)).ToString("n2") : prgC3.PostText = " " + fiatMain Else prgC3.Progress = 0 : prgC3.PostText = " N/A" : prgC3.Text = "CONFIGURE"
+        If coinCodeArray.Count - 3 > 0 Then prgC4.Progress = CDec(serverResponse.SelectToken(coinCodeArray(3)).SelectToken(fiatMain)).ToString("n2") : prgC4.PostText = " " + fiatMain Else prgC4.Progress = 0 : prgC4.PostText = " N/A" : prgC4.Text = "CONFIGURE"
 
         'Unlike n(x), 0.(x) doesn't format with CultureInfo - meaning no commas
         If coinCodeArray.Count - 0 > 0 Then tpCoin1.Tag = "$" + CDec(serverResponse.SelectToken(coinCodeArray(0)).SelectToken(fiatMain)).ToString("0.00").ToString : lblC1Price.Text = "$" + CDec(serverResponse.SelectToken(coinCodeArray(0)).SelectToken(fiatMain)).ToString("0.00").ToString
@@ -156,7 +156,6 @@ Public Class frmHomeMulti
 
         'Redraw the tabcontrol in order to update tabpage tags
         tabContent.Invalidate()
-
 
         Dim d1 As DateTime = DateTime.Today
         Dim d2 As DateTime = Convert.ToDateTime(My.Computer.Registry.GetValue(My.Settings.RegLocation, "InvestDate", Nothing).Split(",")(0))
