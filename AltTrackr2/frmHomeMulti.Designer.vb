@@ -41,6 +41,7 @@ Partial Class frmHomeMulti
         Me.ilsImg = New System.Windows.Forms.ImageList(Me.components)
         Me.tabContent = New AltTrackr2.AetherTabControl()
         Me.tpLogin = New System.Windows.Forms.TabPage()
+        Me.lblAuthRequest = New System.Windows.Forms.Label()
         Me.pnlLAccount = New System.Windows.Forms.Panel()
         Me.btnLChangeDetails = New AltTrackr2.AetherButton()
         Me.btnLLogout = New AltTrackr2.AetherButton()
@@ -377,6 +378,7 @@ Partial Class frmHomeMulti
         'tpLogin
         '
         Me.tpLogin.BackColor = System.Drawing.Color.White
+        Me.tpLogin.Controls.Add(Me.lblAuthRequest)
         Me.tpLogin.Controls.Add(Me.pnlLAccount)
         Me.tpLogin.Controls.Add(Me.pnlLLogin)
         Me.tpLogin.Font = New System.Drawing.Font("Segoe UI", 9.0!)
@@ -387,6 +389,16 @@ Partial Class frmHomeMulti
         Me.tpLogin.Size = New System.Drawing.Size(824, 482)
         Me.tpLogin.TabIndex = 11
         Me.tpLogin.Text = "Login"
+        '
+        'lblAuthRequest
+        '
+        Me.lblAuthRequest.Font = New System.Drawing.Font("Segoe UI Semibold", 11.0!)
+        Me.lblAuthRequest.ForeColor = System.Drawing.Color.SeaGreen
+        Me.lblAuthRequest.Location = New System.Drawing.Point(6, 329)
+        Me.lblAuthRequest.Name = "lblAuthRequest"
+        Me.lblAuthRequest.Size = New System.Drawing.Size(810, 63)
+        Me.lblAuthRequest.TabIndex = 13
+        Me.lblAuthRequest.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'pnlLAccount
         '
@@ -1654,4 +1666,5 @@ Partial Class frmHomeMulti
     Friend WithEvents Label22 As Label
     Friend WithEvents Label21 As Label
     Friend WithEvents Label20 As Label
+    Friend WithEvents lblAuthRequest As Label
 End Class

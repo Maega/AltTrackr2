@@ -46,15 +46,13 @@ Module AccountsAPI
             'MsgBox(appindex.ToString)
             'rlicense = apiresponse.Substring(appindex + 12, apiresponse.IndexOf("=", appindex + 1) - appindex - 12)
 
-            MsgBox(apiresponse.ToString)
-
             Try
-                resStatus = apiresponse.Split(";")(0)
-                sessionHWID = apiresponse.Split(";")(1)
-                resApprovedHWID = apiresponse.Split(";")(2)
-                sessionToken = apiresponse.Split(";")(3)
-                resLicenses = apiresponse.Split(";")(4)
-
+                Dim responseArray() As String = apiresponse.Split(";")
+                resStatus = responseArray(0)
+                sessionHWID = responseArray(1)
+                resApprovedHWID = responseArray(2)
+                sessionToken = responseArray(3)
+                resLicenses = responseArray(4)
             Catch ex As Exception
                 'Reached end of array
                 cTiming.WriteDebug("The apiresponse array ended prematurely. This is normal behaviour.")
@@ -65,6 +63,8 @@ Module AccountsAPI
                     Case 0 'resStatus 0 means Incorrect Login.
                         Return 0 'Return 0 for Incorrect Login.
                     Case 1 'resStatus 1 means Authenticated.
+                        'MsgBox(apiresponse.ToString)
+                        frmHomeMulti.lblAuthRequest.Text = "RESP EPOCH APPROVED! DATA RESPONSE: " + apiresponse.ToString
                         Return 1 'Return 1 for OK - Login successful, all variables have been set.
                     Case Else
                         Return 2 'Return 2 for Error - Something went wrong with the request.
