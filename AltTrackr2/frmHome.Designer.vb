@@ -92,12 +92,15 @@ Partial Class frmHome
         'MaterialRaisedButton3
         '
         Me.MaterialRaisedButton3.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.MaterialRaisedButton3.AutoSize = True
+        Me.MaterialRaisedButton3.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.MaterialRaisedButton3.Depth = 0
+        Me.MaterialRaisedButton3.Icon = Nothing
         Me.MaterialRaisedButton3.Location = New System.Drawing.Point(48, 219)
         Me.MaterialRaisedButton3.MouseState = MaterialSkin.MouseState.HOVER
         Me.MaterialRaisedButton3.Name = "MaterialRaisedButton3"
         Me.MaterialRaisedButton3.Primary = True
-        Me.MaterialRaisedButton3.Size = New System.Drawing.Size(161, 23)
+        Me.MaterialRaisedButton3.Size = New System.Drawing.Size(164, 36)
         Me.MaterialRaisedButton3.TabIndex = 10
         Me.MaterialRaisedButton3.Text = "Refresh Prices Now"
         Me.MaterialRaisedButton3.UseVisualStyleBackColor = True
@@ -124,12 +127,15 @@ Partial Class frmHome
         '
         'MaterialRaisedButton7
         '
+        Me.MaterialRaisedButton7.AutoSize = True
+        Me.MaterialRaisedButton7.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.MaterialRaisedButton7.Depth = 0
+        Me.MaterialRaisedButton7.Icon = Nothing
         Me.MaterialRaisedButton7.Location = New System.Drawing.Point(692, 80)
         Me.MaterialRaisedButton7.MouseState = MaterialSkin.MouseState.HOVER
         Me.MaterialRaisedButton7.Name = "MaterialRaisedButton7"
         Me.MaterialRaisedButton7.Primary = True
-        Me.MaterialRaisedButton7.Size = New System.Drawing.Size(132, 23)
+        Me.MaterialRaisedButton7.Size = New System.Drawing.Size(110, 36)
         Me.MaterialRaisedButton7.TabIndex = 17
         Me.MaterialRaisedButton7.Text = "View Charts"
         Me.MaterialRaisedButton7.UseVisualStyleBackColor = True
@@ -137,12 +143,15 @@ Partial Class frmHome
         '
         'MaterialRaisedButton6
         '
+        Me.MaterialRaisedButton6.AutoSize = True
+        Me.MaterialRaisedButton6.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.MaterialRaisedButton6.Depth = 0
+        Me.MaterialRaisedButton6.Icon = Nothing
         Me.MaterialRaisedButton6.Location = New System.Drawing.Point(554, 80)
         Me.MaterialRaisedButton6.MouseState = MaterialSkin.MouseState.HOVER
         Me.MaterialRaisedButton6.Name = "MaterialRaisedButton6"
         Me.MaterialRaisedButton6.Primary = True
-        Me.MaterialRaisedButton6.Size = New System.Drawing.Size(132, 23)
+        Me.MaterialRaisedButton6.Size = New System.Drawing.Size(85, 36)
         Me.MaterialRaisedButton6.TabIndex = 16
         Me.MaterialRaisedButton6.Text = "Sell XMR"
         Me.MaterialRaisedButton6.UseVisualStyleBackColor = True
@@ -150,12 +159,15 @@ Partial Class frmHome
         '
         'MaterialRaisedButton5
         '
+        Me.MaterialRaisedButton5.AutoSize = True
+        Me.MaterialRaisedButton5.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.MaterialRaisedButton5.Depth = 0
+        Me.MaterialRaisedButton5.Icon = Nothing
         Me.MaterialRaisedButton5.Location = New System.Drawing.Point(416, 80)
         Me.MaterialRaisedButton5.MouseState = MaterialSkin.MouseState.HOVER
         Me.MaterialRaisedButton5.Name = "MaterialRaisedButton5"
         Me.MaterialRaisedButton5.Primary = True
-        Me.MaterialRaisedButton5.Size = New System.Drawing.Size(132, 23)
+        Me.MaterialRaisedButton5.Size = New System.Drawing.Size(80, 36)
         Me.MaterialRaisedButton5.TabIndex = 15
         Me.MaterialRaisedButton5.Text = "Buy XMR"
         Me.MaterialRaisedButton5.UseVisualStyleBackColor = True
@@ -194,12 +206,15 @@ Partial Class frmHome
         '
         'MaterialRaisedButton4
         '
+        Me.MaterialRaisedButton4.AutoSize = True
+        Me.MaterialRaisedButton4.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.MaterialRaisedButton4.Depth = 0
+        Me.MaterialRaisedButton4.Icon = Nothing
         Me.MaterialRaisedButton4.Location = New System.Drawing.Point(111, 80)
         Me.MaterialRaisedButton4.MouseState = MaterialSkin.MouseState.HOVER
         Me.MaterialRaisedButton4.Name = "MaterialRaisedButton4"
         Me.MaterialRaisedButton4.Primary = True
-        Me.MaterialRaisedButton4.Size = New System.Drawing.Size(259, 23)
+        Me.MaterialRaisedButton4.Size = New System.Drawing.Size(188, 36)
         Me.MaterialRaisedButton4.TabIndex = 12
         Me.MaterialRaisedButton4.Text = "Send Test Notification"
         Me.MaterialRaisedButton4.UseVisualStyleBackColor = True
@@ -366,12 +381,15 @@ Partial Class frmHome
         '
         'btnSColourCustom
         '
+        Me.btnSColourCustom.AutoSize = True
+        Me.btnSColourCustom.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.btnSColourCustom.Depth = 0
+        Me.btnSColourCustom.Icon = Nothing
         Me.btnSColourCustom.Location = New System.Drawing.Point(544, 322)
         Me.btnSColourCustom.MouseState = MaterialSkin.MouseState.HOVER
         Me.btnSColourCustom.Name = "btnSColourCustom"
         Me.btnSColourCustom.Primary = True
-        Me.btnSColourCustom.Size = New System.Drawing.Size(91, 23)
+        Me.btnSColourCustom.Size = New System.Drawing.Size(88, 36)
         Me.btnSColourCustom.TabIndex = 33
         Me.btnSColourCustom.Text = "Custom..."
         Me.btnSColourCustom.UseVisualStyleBackColor = True
@@ -447,13 +465,16 @@ Partial Class frmHome
         'btnSCheckForUpdates
         '
         Me.btnSCheckForUpdates.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.btnSCheckForUpdates.AutoSize = True
+        Me.btnSCheckForUpdates.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.btnSCheckForUpdates.ContextMenuStrip = Me.cxtBtnCheckForUpdates
         Me.btnSCheckForUpdates.Depth = 0
+        Me.btnSCheckForUpdates.Icon = Nothing
         Me.btnSCheckForUpdates.Location = New System.Drawing.Point(215, 219)
         Me.btnSCheckForUpdates.MouseState = MaterialSkin.MouseState.HOVER
         Me.btnSCheckForUpdates.Name = "btnSCheckForUpdates"
         Me.btnSCheckForUpdates.Primary = True
-        Me.btnSCheckForUpdates.Size = New System.Drawing.Size(161, 23)
+        Me.btnSCheckForUpdates.Size = New System.Drawing.Size(158, 36)
         Me.btnSCheckForUpdates.TabIndex = 28
         Me.btnSCheckForUpdates.Text = "Check for Updates"
         Me.btnSCheckForUpdates.UseVisualStyleBackColor = True
@@ -555,6 +576,7 @@ Partial Class frmHome
         Me.txtSInvestDate.Depth = 0
         Me.txtSInvestDate.Hint = ""
         Me.txtSInvestDate.Location = New System.Drawing.Point(595, 219)
+        Me.txtSInvestDate.MaxLength = 32767
         Me.txtSInvestDate.MouseState = MaterialSkin.MouseState.HOVER
         Me.txtSInvestDate.Name = "txtSInvestDate"
         Me.txtSInvestDate.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
@@ -563,6 +585,7 @@ Partial Class frmHome
         Me.txtSInvestDate.SelectionStart = 0
         Me.txtSInvestDate.Size = New System.Drawing.Size(201, 23)
         Me.txtSInvestDate.TabIndex = 22
+        Me.txtSInvestDate.TabStop = False
         Me.txtSInvestDate.Text = "00/00/0000"
         Me.txtSInvestDate.UseSystemPasswordChar = False
         '
@@ -584,6 +607,7 @@ Partial Class frmHome
         Me.txtSInitialInvestment.Depth = 0
         Me.txtSInitialInvestment.Hint = ""
         Me.txtSInitialInvestment.Location = New System.Drawing.Point(595, 177)
+        Me.txtSInitialInvestment.MaxLength = 32767
         Me.txtSInitialInvestment.MouseState = MaterialSkin.MouseState.HOVER
         Me.txtSInitialInvestment.Name = "txtSInitialInvestment"
         Me.txtSInitialInvestment.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
@@ -592,6 +616,7 @@ Partial Class frmHome
         Me.txtSInitialInvestment.SelectionStart = 0
         Me.txtSInitialInvestment.Size = New System.Drawing.Size(201, 23)
         Me.txtSInitialInvestment.TabIndex = 19
+        Me.txtSInitialInvestment.TabStop = False
         Me.txtSInitialInvestment.Text = "00.00"
         Me.txtSInitialInvestment.UseSystemPasswordChar = False
         '
@@ -637,6 +662,7 @@ Partial Class frmHome
         Me.txtSHoldings.Depth = 0
         Me.txtSHoldings.Hint = ""
         Me.txtSHoldings.Location = New System.Drawing.Point(595, 136)
+        Me.txtSHoldings.MaxLength = 32767
         Me.txtSHoldings.MouseState = MaterialSkin.MouseState.HOVER
         Me.txtSHoldings.Name = "txtSHoldings"
         Me.txtSHoldings.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
@@ -645,6 +671,7 @@ Partial Class frmHome
         Me.txtSHoldings.SelectionStart = 0
         Me.txtSHoldings.Size = New System.Drawing.Size(201, 23)
         Me.txtSHoldings.TabIndex = 15
+        Me.txtSHoldings.TabStop = False
         Me.txtSHoldings.Text = "00.00"
         Me.txtSHoldings.UseSystemPasswordChar = False
         '
@@ -682,6 +709,7 @@ Partial Class frmHome
         Me.txtRefreshMins.Depth = 0
         Me.txtRefreshMins.Hint = ""
         Me.txtRefreshMins.Location = New System.Drawing.Point(227, 138)
+        Me.txtRefreshMins.MaxLength = 32767
         Me.txtRefreshMins.MouseState = MaterialSkin.MouseState.HOVER
         Me.txtRefreshMins.Name = "txtRefreshMins"
         Me.txtRefreshMins.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
@@ -690,6 +718,7 @@ Partial Class frmHome
         Me.txtRefreshMins.SelectionStart = 0
         Me.txtRefreshMins.Size = New System.Drawing.Size(82, 23)
         Me.txtRefreshMins.TabIndex = 11
+        Me.txtRefreshMins.TabStop = False
         Me.txtRefreshMins.Text = "1"
         Me.txtRefreshMins.UseSystemPasswordChar = False
         '
@@ -727,12 +756,15 @@ Partial Class frmHome
         'btnFeedback
         '
         Me.btnFeedback.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnFeedback.AutoSize = True
+        Me.btnFeedback.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.btnFeedback.Depth = 0
+        Me.btnFeedback.Icon = Nothing
         Me.btnFeedback.Location = New System.Drawing.Point(566, 3)
         Me.btnFeedback.MouseState = MaterialSkin.MouseState.HOVER
         Me.btnFeedback.Name = "btnFeedback"
         Me.btnFeedback.Primary = True
-        Me.btnFeedback.Size = New System.Drawing.Size(243, 18)
+        Me.btnFeedback.Size = New System.Drawing.Size(176, 36)
         Me.btnFeedback.TabIndex = 20
         Me.btnFeedback.Text = "Feedback/Bug Report"
         Me.btnFeedback.UseVisualStyleBackColor = True
@@ -757,12 +789,13 @@ Partial Class frmHome
         Me.btnCancelChanges.AutoSize = True
         Me.btnCancelChanges.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.btnCancelChanges.Depth = 0
+        Me.btnCancelChanges.Icon = Nothing
         Me.btnCancelChanges.Location = New System.Drawing.Point(487, 52)
         Me.btnCancelChanges.Margin = New System.Windows.Forms.Padding(4, 6, 4, 6)
         Me.btnCancelChanges.MouseState = MaterialSkin.MouseState.HOVER
         Me.btnCancelChanges.Name = "btnCancelChanges"
         Me.btnCancelChanges.Primary = False
-        Me.btnCancelChanges.Size = New System.Drawing.Size(64, 36)
+        Me.btnCancelChanges.Size = New System.Drawing.Size(73, 36)
         Me.btnCancelChanges.TabIndex = 20
         Me.btnCancelChanges.Text = "Cancel"
         Me.btnCancelChanges.UseVisualStyleBackColor = True
@@ -772,12 +805,13 @@ Partial Class frmHome
         Me.btnApplyChanges.AutoSize = True
         Me.btnApplyChanges.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.btnApplyChanges.Depth = 0
+        Me.btnApplyChanges.Icon = Nothing
         Me.btnApplyChanges.Location = New System.Drawing.Point(341, 52)
         Me.btnApplyChanges.Margin = New System.Windows.Forms.Padding(4, 6, 4, 6)
         Me.btnApplyChanges.MouseState = MaterialSkin.MouseState.HOVER
         Me.btnApplyChanges.Name = "btnApplyChanges"
         Me.btnApplyChanges.Primary = False
-        Me.btnApplyChanges.Size = New System.Drawing.Size(121, 36)
+        Me.btnApplyChanges.Size = New System.Drawing.Size(130, 36)
         Me.btnApplyChanges.TabIndex = 19
         Me.btnApplyChanges.Text = "Apply Changes"
         Me.btnApplyChanges.UseVisualStyleBackColor = True
@@ -830,12 +864,14 @@ Partial Class frmHome
         Me.tabContent.ResumeLayout(False)
         Me.tabDailyBrief.ResumeLayout(False)
         Me.tabDetails.ResumeLayout(False)
+        Me.tabDetails.PerformLayout()
         Me.tabSettings.ResumeLayout(False)
         Me.tabSettings.PerformLayout()
         Me.cxtBtnCheckForUpdates.ResumeLayout(False)
         Me.pnlApplySettings.ResumeLayout(False)
         Me.pnlApplySettings.PerformLayout()
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
     Friend WithEvents MaterialRaisedButton3 As MaterialSkin.Controls.MaterialRaisedButton

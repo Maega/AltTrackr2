@@ -6,7 +6,6 @@ Imports Newtonsoft.Json.Linq
 Imports Notification
 
 Public Class frmHomeMulti
-
     Dim serverResponse As JObject
     Dim totalHoldings() As String = My.Computer.Registry.GetValue(My.Settings.RegLocation, "AppHoldings", Nothing).Split(",")
     Dim coinCodes As String = My.Computer.Registry.GetValue(My.Settings.RegLocation, "AppCoins", Nothing)
@@ -158,13 +157,32 @@ Public Class frmHomeMulti
         If coinCodeArray.Count - 2 > 0 Then tpCoin3.Tag = "$" + CDec(serverResponse.SelectToken(coinCodeArray(2)).SelectToken(fiatMain)).ToString("0.00").ToString : lblC3Price.Text = "$" + CDec(serverResponse.SelectToken(coinCodeArray(2)).SelectToken(fiatMain)).ToString("0.00").ToString
         If coinCodeArray.Count - 3 > 0 Then tpCoin4.Tag = "$" + CDec(serverResponse.SelectToken(coinCodeArray(3)).SelectToken(fiatMain)).ToString("0.00").ToString ': lblC4Price.Text = "$" + CDec(serverResponse.SelectToken(coinCodeArray(3)).SelectToken(fiatMain)).ToString("0.00").ToString
 
+        'Set coin names according to array position
+        lblC1Name.Text = coinNameArray(0).ToUpper
+        lblC2Name.Text = coinNameArray(1).ToUpper
+        lblC3Name.Text = coinNameArray(2).ToUpper
+
         'Redraw the tabcontrol in order to update tabpage tags
         tabContent.Invalidate()
 
         Dim d1 As DateTime = DateTime.Today
-        Dim d2 As DateTime = Convert.ToDateTime(My.Computer.Registry.GetValue(My.Settings.RegLocation, "InvestDate", Nothing).Split(",")(0))
-        Dim months As String = CStr(DateDiff(DateInterval.Month, d2, d1))
-        lblC1Friendly.Text = "Today, you hold " + totalHoldings(0) + " " + coinCodeArray(0) + " which is valued at " + "? " + fiatMain + " at a coin price of " + CDec(serverResponse.SelectToken(coinCodeArray(0)).SelectToken(fiatMain)).ToString("n2") + " " + fiatMain + vbNewLine + "Your initial investment was " + initialInvestment(0) + " " + fiatMain + " and has matured over " + months + " months, yielding profits of " + ((CDec(totalHoldings(0)) * CDec(serverResponse.SelectToken(coinCodeArray(0)).SelectToken(fiatMain))) - CDec(initialInvestment(0))).ToString("n2") + " " + fiatMain + " so far"
+        'Dim d2 As DateTime = Convert.ToDateTime(My.Computer.Registry.GetValue(My.Settings.RegLocation, "InvestDate", Nothing).Split(",")(0))
+        Dim months As String
+
+        Dim C1Holdings As String = (totalHoldings(0) * CDec(serverResponse.SelectToken(coinCodeArray(0)).SelectToken(fiatMain))).ToString("n2")
+        months = CStr(DateDiff(DateInterval.Month, Convert.ToDateTime(My.Computer.Registry.GetValue(My.Settings.RegLocation, "InvestDate", Nothing).Split(",")(0)), d1))
+        lblC1Friendly.Text = "Today, you hold " + totalHoldings(0) + " " + coinCodeArray(0) + " which is valued at " + C1Holdings + " " + fiatMain + " at a coin price of " + CDec(serverResponse.SelectToken(coinCodeArray(0)).SelectToken(fiatMain)).ToString("n2") + " " + fiatMain + vbNewLine + "Your initial investment was " + initialInvestment(0) + " " + fiatMain + " and has matured over " + months + " months, yielding profits of " + ((CDec(totalHoldings(0)) * CDec(serverResponse.SelectToken(coinCodeArray(0)).SelectToken(fiatMain))) - CDec(initialInvestment(0))).ToString("n2") + " " + fiatMain + " so far"
+
+        Dim C2Holdings As String = (totalHoldings(1) * CDec(serverResponse.SelectToken(coinCodeArray(1)).SelectToken(fiatMain))).ToString("n2")
+        months = CStr(DateDiff(DateInterval.Month, Convert.ToDateTime(My.Computer.Registry.GetValue(My.Settings.RegLocation, "InvestDate", Nothing).Split(",")(1)), d1))
+        lblC2Friendly.Text = "Today, you hold " + totalHoldings(1) + " " + coinCodeArray(1) + " which is valued at " + C2Holdings + " " + fiatMain + " at a coin price of " + CDec(serverResponse.SelectToken(coinCodeArray(1)).SelectToken(fiatMain)).ToString("n2") + " " + fiatMain + vbNewLine + "Your initial investment was " + initialInvestment(1) + " " + fiatMain + " and has matured over " + months + " months, yielding profits of " + ((CDec(totalHoldings(1)) * CDec(serverResponse.SelectToken(coinCodeArray(1)).SelectToken(fiatMain))) - CDec(initialInvestment(1))).ToString("n2") + " " + fiatMain + " so far"
+
+        Dim C3Holdings As String = (totalHoldings(2) * CDec(serverResponse.SelectToken(coinCodeArray(2)).SelectToken(fiatMain))).ToString("n2")
+        months = CStr(DateDiff(DateInterval.Month, Convert.ToDateTime(My.Computer.Registry.GetValue(My.Settings.RegLocation, "InvestDate", Nothing).Split(",")(2)), d1))
+        lblC3Friendly.Text = "Today, you hold " + totalHoldings(2) + " " + coinCodeArray(2) + " which is valued at " + C3Holdings + " " + fiatMain + " at a coin price of " + CDec(serverResponse.SelectToken(coinCodeArray(2)).SelectToken(fiatMain)).ToString("n2") + " " + fiatMain + vbNewLine + "Your initial investment was " + initialInvestment(2) + " " + fiatMain + " and has matured over " + months + " months, yielding profits of " + ((CDec(totalHoldings(2)) * CDec(serverResponse.SelectToken(coinCodeArray(2)).SelectToken(fiatMain))) - CDec(initialInvestment(2))).ToString("n2") + " " + fiatMain + " so far"
+
+        'months = CStr(DateDiff(DateInterval.Month, Convert.ToDateTime(My.Computer.Registry.GetValue(My.Settings.RegLocation, "InvestDate", Nothing).Split(",")(3)), d1))
+        'lblC1Friendly.Text = "Today, you hold " + totalHoldings(3) + " " + coinCodeArray(3) + " which is valued at " + "? " + fiatMain + " at a coin price of " + CDec(serverResponse.SelectToken(coinCodeArray(3)).SelectToken(fiatMain)).ToString("n2") + " " + fiatMain + vbNewLine + "Your initial investment was " + initialInvestment(3) + " " + fiatMain + " and has matured over " + months + " months, yielding profits of " + ((CDec(totalHoldings(3)) * CDec(serverResponse.SelectToken(coinCodeArray(3)).SelectToken(fiatMain))) - CDec(initialInvestment(3))).ToString("n2") + " " + fiatMain + " so far"
         '(totalHoldings(0) * CDec(serverResponse.SelectToken(fiatMain))).ToString("n2") +
 
         'lblAltPrices.Text = lblAltPrices.Text.TrimEnd(vbNewLine)
@@ -338,7 +356,7 @@ Public Class frmHomeMulti
     End Sub
 
     Dim _colour As Color
-    Private Sub AetherButton7_Click(sender As Object, e As EventArgs) Handles btnNotifAdd.Click
+    Private Sub AetherButton7_Click(sender As Object, e As EventArgs)
         Dim notifType As String = String.Empty
         If radNotifFD.Checked Then
             notifType = "D"
@@ -400,7 +418,7 @@ Public Class frmHomeMulti
         notif.Show()
     End Sub
 
-    Private Sub AetherRadioButton3_CheckedChanged(sender As Object, e As EventArgs) Handles radNotifC3.CheckedChanged
+    Private Sub AetherRadioButton3_CheckedChanged(sender As Object, e As EventArgs)
 
     End Sub
 End Class
