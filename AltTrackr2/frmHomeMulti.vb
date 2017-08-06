@@ -303,6 +303,7 @@ Public Class frmHomeMulti
             sessionUser = txtLUsername.Text
             tpLogin.Text = txtLUsername.Text
             tpLogin.ImageIndex = 28
+            lblLUser.Text = sessionUser
             Me.Text = sessionUser + " | AltTrackr"
             Invalidate()
         ElseIf loginResponse = 0 Then 'Incorrect Credentials
