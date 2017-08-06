@@ -114,6 +114,19 @@ Partial Class frmHomeMulti
         Me.tpCoin4 = New System.Windows.Forms.TabPage()
         Me.tpSpacer2 = New System.Windows.Forms.TabPage()
         Me.tpPrefs = New System.Windows.Forms.TabPage()
+        Me.AetherGroupBox13 = New AltTrackr2.AetherGroupBox()
+        Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.radNotifC3 = New AltTrackr2.AetherRadioButton()
+        Me.radNotifC2 = New AltTrackr2.AetherRadioButton()
+        Me.radNotifC4 = New AltTrackr2.AetherRadioButton()
+        Me.radNotifC1 = New AltTrackr2.AetherRadioButton()
+        Me.MaterialDivider1 = New MaterialSkin.Controls.MaterialDivider()
+        Me.radNotifFM = New AltTrackr2.AetherRadioButton()
+        Me.radNotifFW = New AltTrackr2.AetherRadioButton()
+        Me.radNotifFD = New AltTrackr2.AetherRadioButton()
+        Me.txtNotifTime = New AltTrackr2.AetherTextbox()
+        Me.txtNotifName = New AltTrackr2.AetherTextbox()
+        Me.btnNotifAdd = New AltTrackr2.AetherButton()
         Me.AetherGroupBox12 = New AltTrackr2.AetherGroupBox()
         Me.LvModule = New MaterialSkin.Controls.MaterialListView()
         Me.ColumnHeader5 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
@@ -138,19 +151,13 @@ Partial Class frmHomeMulti
         Me.radStyle2 = New AltTrackr2.AetherRadioButton()
         Me.tpSupport = New System.Windows.Forms.TabPage()
         Me.tpFeedback = New System.Windows.Forms.TabPage()
-        Me.AetherGroupBox13 = New AltTrackr2.AetherGroupBox()
-        Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.radNotifC3 = New AltTrackr2.AetherRadioButton()
-        Me.radNotifC2 = New AltTrackr2.AetherRadioButton()
-        Me.radNotifC4 = New AltTrackr2.AetherRadioButton()
-        Me.radNotifC1 = New AltTrackr2.AetherRadioButton()
-        Me.MaterialDivider1 = New MaterialSkin.Controls.MaterialDivider()
-        Me.radNotifFM = New AltTrackr2.AetherRadioButton()
-        Me.radNotifFW = New AltTrackr2.AetherRadioButton()
-        Me.radNotifFD = New AltTrackr2.AetherRadioButton()
-        Me.txtNotifTime = New AltTrackr2.AetherTextbox()
-        Me.txtNotifName = New AltTrackr2.AetherTextbox()
-        Me.btnNotifAdd = New AltTrackr2.AetherButton()
+        Me.lblC4Price = New System.Windows.Forms.Label()
+        Me.lblC4Name = New System.Windows.Forms.Label()
+        Me.lblC4Logo = New System.Windows.Forms.PictureBox()
+        Me.AetherGroupBox14 = New AltTrackr2.AetherGroupBox()
+        Me.MaterialLabel1 = New MaterialSkin.Controls.MaterialLabel()
+        Me.lblC4Friendly = New MaterialSkin.Controls.MaterialLabel()
+        Me.MaterialLabel3 = New MaterialSkin.Controls.MaterialLabel()
         Me.pnlUnsaved.SuspendLayout()
         Me.pnlLoadingMain.SuspendLayout()
         Me.tabContent.SuspendLayout()
@@ -176,11 +183,14 @@ Partial Class frmHomeMulti
         Me.tpCoin3.SuspendLayout()
         CType(Me.picC3Logo, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.AetherGroupBox5.SuspendLayout()
+        Me.tpCoin4.SuspendLayout()
         Me.tpPrefs.SuspendLayout()
-        Me.AetherGroupBox12.SuspendLayout()
-        Me.AetherGroupBox2.SuspendLayout()
         Me.AetherGroupBox13.SuspendLayout()
         Me.Panel1.SuspendLayout()
+        Me.AetherGroupBox12.SuspendLayout()
+        Me.AetherGroupBox2.SuspendLayout()
+        CType(Me.lblC4Logo, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.AetherGroupBox14.SuspendLayout()
         Me.SuspendLayout()
         '
         'ilsIcon
@@ -407,6 +417,7 @@ Partial Class frmHomeMulti
         Me.tabContent.Size = New System.Drawing.Size(1022, 490)
         Me.tabContent.SizeMode = System.Windows.Forms.TabSizeMode.Fixed
         Me.tabContent.TabIndex = 0
+        Me.tabContent.Tag = "$0.017"
         Me.tabContent.UpperText = True
         '
         'tpLogin
@@ -1298,6 +1309,10 @@ Partial Class frmHomeMulti
         'tpCoin4
         '
         Me.tpCoin4.BackColor = System.Drawing.Color.White
+        Me.tpCoin4.Controls.Add(Me.lblC4Price)
+        Me.tpCoin4.Controls.Add(Me.lblC4Name)
+        Me.tpCoin4.Controls.Add(Me.lblC4Logo)
+        Me.tpCoin4.Controls.Add(Me.AetherGroupBox14)
         Me.tpCoin4.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.tpCoin4.ForeColor = System.Drawing.Color.FromArgb(CType(CType(52, Byte), Integer), CType(CType(56, Byte), Integer), CType(CType(67, Byte), Integer))
         Me.tpCoin4.ImageIndex = 9
@@ -1340,6 +1355,173 @@ Partial Class frmHomeMulti
         Me.tpPrefs.Size = New System.Drawing.Size(824, 482)
         Me.tpPrefs.TabIndex = 7
         Me.tpPrefs.Text = "User Preferences"
+        '
+        'AetherGroupBox13
+        '
+        Me.AetherGroupBox13.Controls.Add(Me.Panel1)
+        Me.AetherGroupBox13.Controls.Add(Me.MaterialDivider1)
+        Me.AetherGroupBox13.Controls.Add(Me.radNotifFM)
+        Me.AetherGroupBox13.Controls.Add(Me.radNotifFW)
+        Me.AetherGroupBox13.Controls.Add(Me.radNotifFD)
+        Me.AetherGroupBox13.Controls.Add(Me.txtNotifTime)
+        Me.AetherGroupBox13.Controls.Add(Me.txtNotifName)
+        Me.AetherGroupBox13.Controls.Add(Me.btnNotifAdd)
+        Me.AetherGroupBox13.Footer = False
+        Me.AetherGroupBox13.FooterText = Nothing
+        Me.AetherGroupBox13.Location = New System.Drawing.Point(578, 170)
+        Me.AetherGroupBox13.Name = "AetherGroupBox13"
+        Me.AetherGroupBox13.Size = New System.Drawing.Size(238, 210)
+        Me.AetherGroupBox13.TabIndex = 20
+        Me.AetherGroupBox13.Text = "Create Alert"
+        '
+        'Panel1
+        '
+        Me.Panel1.Controls.Add(Me.radNotifC3)
+        Me.Panel1.Controls.Add(Me.radNotifC2)
+        Me.Panel1.Controls.Add(Me.radNotifC4)
+        Me.Panel1.Controls.Add(Me.radNotifC1)
+        Me.Panel1.Location = New System.Drawing.Point(52, 118)
+        Me.Panel1.Name = "Panel1"
+        Me.Panel1.Size = New System.Drawing.Size(134, 48)
+        Me.Panel1.TabIndex = 34
+        '
+        'radNotifC3
+        '
+        Me.radNotifC3.Checked = False
+        Me.radNotifC3.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.radNotifC3.EnabledCalc = True
+        Me.radNotifC3.HatchBrush = False
+        Me.radNotifC3.Location = New System.Drawing.Point(0, 26)
+        Me.radNotifC3.Name = "radNotifC3"
+        Me.radNotifC3.Size = New System.Drawing.Size(64, 19)
+        Me.radNotifC3.TabIndex = 17
+        Me.radNotifC3.Text = "Coin 3"
+        '
+        'radNotifC2
+        '
+        Me.radNotifC2.Checked = False
+        Me.radNotifC2.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.radNotifC2.EnabledCalc = True
+        Me.radNotifC2.HatchBrush = False
+        Me.radNotifC2.Location = New System.Drawing.Point(70, 0)
+        Me.radNotifC2.Name = "radNotifC2"
+        Me.radNotifC2.Size = New System.Drawing.Size(64, 19)
+        Me.radNotifC2.TabIndex = 16
+        Me.radNotifC2.Tag = ""
+        Me.radNotifC2.Text = "Coin 2"
+        '
+        'radNotifC4
+        '
+        Me.radNotifC4.Checked = False
+        Me.radNotifC4.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.radNotifC4.EnabledCalc = True
+        Me.radNotifC4.HatchBrush = False
+        Me.radNotifC4.Location = New System.Drawing.Point(70, 26)
+        Me.radNotifC4.Name = "radNotifC4"
+        Me.radNotifC4.Size = New System.Drawing.Size(64, 19)
+        Me.radNotifC4.TabIndex = 18
+        Me.radNotifC4.Text = "Coin 4"
+        '
+        'radNotifC1
+        '
+        Me.radNotifC1.Checked = False
+        Me.radNotifC1.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.radNotifC1.EnabledCalc = True
+        Me.radNotifC1.HatchBrush = False
+        Me.radNotifC1.Location = New System.Drawing.Point(0, 0)
+        Me.radNotifC1.Name = "radNotifC1"
+        Me.radNotifC1.Size = New System.Drawing.Size(64, 19)
+        Me.radNotifC1.TabIndex = 15
+        Me.radNotifC1.Text = "Coin 1"
+        '
+        'MaterialDivider1
+        '
+        Me.MaterialDivider1.BackColor = System.Drawing.Color.FromArgb(CType(CType(86, Byte), Integer), CType(CType(93, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.MaterialDivider1.Depth = 0
+        Me.MaterialDivider1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(86, Byte), Integer), CType(CType(93, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.MaterialDivider1.Location = New System.Drawing.Point(13, 111)
+        Me.MaterialDivider1.MouseState = MaterialSkin.MouseState.HOVER
+        Me.MaterialDivider1.Name = "MaterialDivider1"
+        Me.MaterialDivider1.Size = New System.Drawing.Size(208, 1)
+        Me.MaterialDivider1.TabIndex = 33
+        Me.MaterialDivider1.Text = "MaterialDivider1"
+        '
+        'radNotifFM
+        '
+        Me.radNotifFM.Checked = False
+        Me.radNotifFM.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.radNotifFM.EnabledCalc = True
+        Me.radNotifFM.HatchBrush = False
+        Me.radNotifFM.Location = New System.Drawing.Point(146, 85)
+        Me.radNotifFM.Name = "radNotifFM"
+        Me.radNotifFM.Size = New System.Drawing.Size(75, 19)
+        Me.radNotifFM.TabIndex = 32
+        Me.radNotifFM.Text = "Monthly"
+        '
+        'radNotifFW
+        '
+        Me.radNotifFW.Checked = False
+        Me.radNotifFW.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.radNotifFW.EnabledCalc = True
+        Me.radNotifFW.HatchBrush = False
+        Me.radNotifFW.Location = New System.Drawing.Point(74, 85)
+        Me.radNotifFW.Name = "radNotifFW"
+        Me.radNotifFW.Size = New System.Drawing.Size(66, 19)
+        Me.radNotifFW.TabIndex = 31
+        Me.radNotifFW.Text = "Weekly"
+        '
+        'radNotifFD
+        '
+        Me.radNotifFD.Checked = False
+        Me.radNotifFD.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.radNotifFD.EnabledCalc = True
+        Me.radNotifFD.HatchBrush = False
+        Me.radNotifFD.Location = New System.Drawing.Point(13, 85)
+        Me.radNotifFD.Name = "radNotifFD"
+        Me.radNotifFD.Size = New System.Drawing.Size(55, 19)
+        Me.radNotifFD.TabIndex = 30
+        Me.radNotifFD.Text = "Daily"
+        '
+        'txtNotifTime
+        '
+        Me.txtNotifTime.EnabledCalc = True
+        Me.txtNotifTime.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.txtNotifTime.ForeColor = System.Drawing.Color.FromArgb(CType(CType(52, Byte), Integer), CType(CType(56, Byte), Integer), CType(CType(67, Byte), Integer))
+        Me.txtNotifTime.Location = New System.Drawing.Point(137, 47)
+        Me.txtNotifTime.MaxLength = 32767
+        Me.txtNotifTime.MultiLine = False
+        Me.txtNotifTime.Name = "txtNotifTime"
+        Me.txtNotifTime.ReadOnly = False
+        Me.txtNotifTime.Size = New System.Drawing.Size(97, 29)
+        Me.txtNotifTime.TabIndex = 29
+        Me.txtNotifTime.Text = "When? (Time)"
+        Me.txtNotifTime.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
+        Me.txtNotifTime.UseSystemPasswordChar = False
+        '
+        'txtNotifName
+        '
+        Me.txtNotifName.EnabledCalc = True
+        Me.txtNotifName.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.txtNotifName.ForeColor = System.Drawing.Color.FromArgb(CType(CType(52, Byte), Integer), CType(CType(56, Byte), Integer), CType(CType(67, Byte), Integer))
+        Me.txtNotifName.Location = New System.Drawing.Point(5, 47)
+        Me.txtNotifName.MaxLength = 32767
+        Me.txtNotifName.MultiLine = False
+        Me.txtNotifName.Name = "txtNotifName"
+        Me.txtNotifName.ReadOnly = False
+        Me.txtNotifName.Size = New System.Drawing.Size(130, 29)
+        Me.txtNotifName.TabIndex = 28
+        Me.txtNotifName.Text = "What? (Name)"
+        Me.txtNotifName.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
+        Me.txtNotifName.UseSystemPasswordChar = False
+        '
+        'btnNotifAdd
+        '
+        Me.btnNotifAdd.EnabledCalc = True
+        Me.btnNotifAdd.Location = New System.Drawing.Point(52, 176)
+        Me.btnNotifAdd.Name = "btnNotifAdd"
+        Me.btnNotifAdd.Size = New System.Drawing.Size(134, 23)
+        Me.btnNotifAdd.TabIndex = 27
+        Me.btnNotifAdd.Text = "Add Alert"
         '
         'AetherGroupBox12
         '
@@ -1604,172 +1786,95 @@ Partial Class frmHomeMulti
         Me.tpFeedback.Tag = "Beta 1"
         Me.tpFeedback.Text = "Feedback"
         '
-        'AetherGroupBox13
+        'lblC4Price
         '
-        Me.AetherGroupBox13.Controls.Add(Me.Panel1)
-        Me.AetherGroupBox13.Controls.Add(Me.MaterialDivider1)
-        Me.AetherGroupBox13.Controls.Add(Me.radNotifFM)
-        Me.AetherGroupBox13.Controls.Add(Me.radNotifFW)
-        Me.AetherGroupBox13.Controls.Add(Me.radNotifFD)
-        Me.AetherGroupBox13.Controls.Add(Me.txtNotifTime)
-        Me.AetherGroupBox13.Controls.Add(Me.txtNotifName)
-        Me.AetherGroupBox13.Controls.Add(Me.btnNotifAdd)
-        Me.AetherGroupBox13.Footer = False
-        Me.AetherGroupBox13.FooterText = Nothing
-        Me.AetherGroupBox13.Location = New System.Drawing.Point(578, 170)
-        Me.AetherGroupBox13.Name = "AetherGroupBox13"
-        Me.AetherGroupBox13.Size = New System.Drawing.Size(238, 210)
-        Me.AetherGroupBox13.TabIndex = 20
-        Me.AetherGroupBox13.Text = "Create Alert"
+        Me.lblC4Price.Font = New System.Drawing.Font("Segoe UI Semibold", 15.0!)
+        Me.lblC4Price.Location = New System.Drawing.Point(410, 73)
+        Me.lblC4Price.Name = "lblC4Price"
+        Me.lblC4Price.Size = New System.Drawing.Size(211, 30)
+        Me.lblC4Price.TabIndex = 13
+        Me.lblC4Price.Text = "$47"
+        Me.lblC4Price.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
-        'Panel1
+        'lblC4Name
         '
-        Me.Panel1.Controls.Add(Me.radNotifC3)
-        Me.Panel1.Controls.Add(Me.radNotifC2)
-        Me.Panel1.Controls.Add(Me.radNotifC4)
-        Me.Panel1.Controls.Add(Me.radNotifC1)
-        Me.Panel1.Location = New System.Drawing.Point(52, 118)
-        Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(134, 48)
-        Me.Panel1.TabIndex = 34
+        Me.lblC4Name.AutoSize = True
+        Me.lblC4Name.Font = New System.Drawing.Font("Segoe UI Semibold", 30.0!)
+        Me.lblC4Name.Location = New System.Drawing.Point(404, 26)
+        Me.lblC4Name.Name = "lblC4Name"
+        Me.lblC4Name.Size = New System.Drawing.Size(197, 54)
+        Me.lblC4Name.TabIndex = 12
+        Me.lblC4Name.Text = "MONERO"
+        Me.lblC4Name.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
-        'radNotifC3
+        'lblC4Logo
         '
-        Me.radNotifC3.Checked = False
-        Me.radNotifC3.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.radNotifC3.EnabledCalc = True
-        Me.radNotifC3.HatchBrush = False
-        Me.radNotifC3.Location = New System.Drawing.Point(0, 26)
-        Me.radNotifC3.Name = "radNotifC3"
-        Me.radNotifC3.Size = New System.Drawing.Size(64, 19)
-        Me.radNotifC3.TabIndex = 17
-        Me.radNotifC3.Text = "Coin 3"
+        Me.lblC4Logo.Image = Global.AltTrackr2.My.Resources.Resources._004_money
+        Me.lblC4Logo.Location = New System.Drawing.Point(224, 26)
+        Me.lblC4Logo.Name = "lblC4Logo"
+        Me.lblC4Logo.Size = New System.Drawing.Size(169, 163)
+        Me.lblC4Logo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.lblC4Logo.TabIndex = 11
+        Me.lblC4Logo.TabStop = False
         '
-        'radNotifC2
+        'AetherGroupBox14
         '
-        Me.radNotifC2.Checked = False
-        Me.radNotifC2.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.radNotifC2.EnabledCalc = True
-        Me.radNotifC2.HatchBrush = False
-        Me.radNotifC2.Location = New System.Drawing.Point(70, 0)
-        Me.radNotifC2.Name = "radNotifC2"
-        Me.radNotifC2.Size = New System.Drawing.Size(64, 19)
-        Me.radNotifC2.TabIndex = 16
-        Me.radNotifC2.Tag = ""
-        Me.radNotifC2.Text = "Coin 2"
+        Me.AetherGroupBox14.Controls.Add(Me.MaterialLabel1)
+        Me.AetherGroupBox14.Controls.Add(Me.lblC4Friendly)
+        Me.AetherGroupBox14.Controls.Add(Me.MaterialLabel3)
+        Me.AetherGroupBox14.Footer = False
+        Me.AetherGroupBox14.FooterText = Nothing
+        Me.AetherGroupBox14.Location = New System.Drawing.Point(6, 294)
+        Me.AetherGroupBox14.Name = "AetherGroupBox14"
+        Me.AetherGroupBox14.Size = New System.Drawing.Size(810, 181)
+        Me.AetherGroupBox14.TabIndex = 10
+        Me.AetherGroupBox14.Text = "Holdings Summary"
         '
-        'radNotifC4
+        'MaterialLabel1
         '
-        Me.radNotifC4.Checked = False
-        Me.radNotifC4.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.radNotifC4.EnabledCalc = True
-        Me.radNotifC4.HatchBrush = False
-        Me.radNotifC4.Location = New System.Drawing.Point(70, 26)
-        Me.radNotifC4.Name = "radNotifC4"
-        Me.radNotifC4.Size = New System.Drawing.Size(64, 19)
-        Me.radNotifC4.TabIndex = 18
-        Me.radNotifC4.Text = "Coin 4"
+        Me.MaterialLabel1.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.MaterialLabel1.BackColor = System.Drawing.Color.Transparent
+        Me.MaterialLabel1.Depth = 0
+        Me.MaterialLabel1.Font = New System.Drawing.Font("Roboto", 11.0!)
+        Me.MaterialLabel1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.MaterialLabel1.Location = New System.Drawing.Point(3, 46)
+        Me.MaterialLabel1.MouseState = MaterialSkin.MouseState.HOVER
+        Me.MaterialLabel1.Name = "MaterialLabel1"
+        Me.MaterialLabel1.Size = New System.Drawing.Size(804, 28)
+        Me.MaterialLabel1.TabIndex = 15
+        Me.MaterialLabel1.Text = "SC Prices - USD: 00.00 | AUD: 00.00 | GBP: 00.00"
+        Me.MaterialLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
-        'radNotifC1
+        'lblC4Friendly
         '
-        Me.radNotifC1.Checked = False
-        Me.radNotifC1.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.radNotifC1.EnabledCalc = True
-        Me.radNotifC1.HatchBrush = False
-        Me.radNotifC1.Location = New System.Drawing.Point(0, 0)
-        Me.radNotifC1.Name = "radNotifC1"
-        Me.radNotifC1.Size = New System.Drawing.Size(64, 19)
-        Me.radNotifC1.TabIndex = 15
-        Me.radNotifC1.Text = "Coin 1"
+        Me.lblC4Friendly.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.lblC4Friendly.Depth = 0
+        Me.lblC4Friendly.Font = New System.Drawing.Font("Roboto", 11.0!)
+        Me.lblC4Friendly.ForeColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.lblC4Friendly.Location = New System.Drawing.Point(3, 107)
+        Me.lblC4Friendly.MouseState = MaterialSkin.MouseState.HOVER
+        Me.lblC4Friendly.Name = "lblC4Friendly"
+        Me.lblC4Friendly.Size = New System.Drawing.Size(804, 71)
+        Me.lblC4Friendly.TabIndex = 17
+        Me.lblC4Friendly.Text = "Today, you hold 00.00 XMR which is valued at 00.00 AUD at a coin price of 00.00 A" &
+    "UD" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Your initial investment was 00.00 AUD and has matured over 0 months, yieldin" &
+    "g profits of 00.00 AUD so far"
+        Me.lblC4Friendly.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
-        'MaterialDivider1
+        'MaterialLabel3
         '
-        Me.MaterialDivider1.BackColor = System.Drawing.Color.FromArgb(CType(CType(86, Byte), Integer), CType(CType(93, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.MaterialDivider1.Depth = 0
-        Me.MaterialDivider1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(86, Byte), Integer), CType(CType(93, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.MaterialDivider1.Location = New System.Drawing.Point(13, 111)
-        Me.MaterialDivider1.MouseState = MaterialSkin.MouseState.HOVER
-        Me.MaterialDivider1.Name = "MaterialDivider1"
-        Me.MaterialDivider1.Size = New System.Drawing.Size(208, 1)
-        Me.MaterialDivider1.TabIndex = 33
-        Me.MaterialDivider1.Text = "MaterialDivider1"
-        '
-        'radNotifFM
-        '
-        Me.radNotifFM.Checked = False
-        Me.radNotifFM.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.radNotifFM.EnabledCalc = True
-        Me.radNotifFM.HatchBrush = False
-        Me.radNotifFM.Location = New System.Drawing.Point(146, 85)
-        Me.radNotifFM.Name = "radNotifFM"
-        Me.radNotifFM.Size = New System.Drawing.Size(75, 19)
-        Me.radNotifFM.TabIndex = 32
-        Me.radNotifFM.Text = "Monthly"
-        '
-        'radNotifFW
-        '
-        Me.radNotifFW.Checked = False
-        Me.radNotifFW.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.radNotifFW.EnabledCalc = True
-        Me.radNotifFW.HatchBrush = False
-        Me.radNotifFW.Location = New System.Drawing.Point(74, 85)
-        Me.radNotifFW.Name = "radNotifFW"
-        Me.radNotifFW.Size = New System.Drawing.Size(66, 19)
-        Me.radNotifFW.TabIndex = 31
-        Me.radNotifFW.Text = "Weekly"
-        '
-        'radNotifFD
-        '
-        Me.radNotifFD.Checked = False
-        Me.radNotifFD.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.radNotifFD.EnabledCalc = True
-        Me.radNotifFD.HatchBrush = False
-        Me.radNotifFD.Location = New System.Drawing.Point(13, 85)
-        Me.radNotifFD.Name = "radNotifFD"
-        Me.radNotifFD.Size = New System.Drawing.Size(55, 19)
-        Me.radNotifFD.TabIndex = 30
-        Me.radNotifFD.Text = "Daily"
-        '
-        'txtNotifTime
-        '
-        Me.txtNotifTime.EnabledCalc = True
-        Me.txtNotifTime.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        Me.txtNotifTime.ForeColor = System.Drawing.Color.FromArgb(CType(CType(52, Byte), Integer), CType(CType(56, Byte), Integer), CType(CType(67, Byte), Integer))
-        Me.txtNotifTime.Location = New System.Drawing.Point(137, 47)
-        Me.txtNotifTime.MaxLength = 32767
-        Me.txtNotifTime.MultiLine = False
-        Me.txtNotifTime.Name = "txtNotifTime"
-        Me.txtNotifTime.ReadOnly = False
-        Me.txtNotifTime.Size = New System.Drawing.Size(97, 29)
-        Me.txtNotifTime.TabIndex = 29
-        Me.txtNotifTime.Text = "When? (Time)"
-        Me.txtNotifTime.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
-        Me.txtNotifTime.UseSystemPasswordChar = False
-        '
-        'txtNotifName
-        '
-        Me.txtNotifName.EnabledCalc = True
-        Me.txtNotifName.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        Me.txtNotifName.ForeColor = System.Drawing.Color.FromArgb(CType(CType(52, Byte), Integer), CType(CType(56, Byte), Integer), CType(CType(67, Byte), Integer))
-        Me.txtNotifName.Location = New System.Drawing.Point(5, 47)
-        Me.txtNotifName.MaxLength = 32767
-        Me.txtNotifName.MultiLine = False
-        Me.txtNotifName.Name = "txtNotifName"
-        Me.txtNotifName.ReadOnly = False
-        Me.txtNotifName.Size = New System.Drawing.Size(130, 29)
-        Me.txtNotifName.TabIndex = 28
-        Me.txtNotifName.Text = "What? (Name)"
-        Me.txtNotifName.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
-        Me.txtNotifName.UseSystemPasswordChar = False
-        '
-        'btnNotifAdd
-        '
-        Me.btnNotifAdd.EnabledCalc = True
-        Me.btnNotifAdd.Location = New System.Drawing.Point(52, 176)
-        Me.btnNotifAdd.Name = "btnNotifAdd"
-        Me.btnNotifAdd.Size = New System.Drawing.Size(134, 23)
-        Me.btnNotifAdd.TabIndex = 27
-        Me.btnNotifAdd.Text = "Add Alert"
+        Me.MaterialLabel3.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.MaterialLabel3.BackColor = System.Drawing.Color.Transparent
+        Me.MaterialLabel3.Depth = 0
+        Me.MaterialLabel3.Font = New System.Drawing.Font("Roboto", 11.0!)
+        Me.MaterialLabel3.ForeColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.MaterialLabel3.Location = New System.Drawing.Point(3, 74)
+        Me.MaterialLabel3.MouseState = MaterialSkin.MouseState.HOVER
+        Me.MaterialLabel3.Name = "MaterialLabel3"
+        Me.MaterialLabel3.Size = New System.Drawing.Size(804, 28)
+        Me.MaterialLabel3.TabIndex = 16
+        Me.MaterialLabel3.Text = "SC Holdings - USD: 00.00 | AUD: 00.00 | GBP: 00.00"
+        Me.MaterialLabel3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'frmHomeMulti
         '
@@ -1814,11 +1919,15 @@ Partial Class frmHomeMulti
         Me.tpCoin3.PerformLayout()
         CType(Me.picC3Logo, System.ComponentModel.ISupportInitialize).EndInit()
         Me.AetherGroupBox5.ResumeLayout(False)
+        Me.tpCoin4.ResumeLayout(False)
+        Me.tpCoin4.PerformLayout()
         Me.tpPrefs.ResumeLayout(False)
-        Me.AetherGroupBox12.ResumeLayout(False)
-        Me.AetherGroupBox2.ResumeLayout(False)
         Me.AetherGroupBox13.ResumeLayout(False)
         Me.Panel1.ResumeLayout(False)
+        Me.AetherGroupBox12.ResumeLayout(False)
+        Me.AetherGroupBox2.ResumeLayout(False)
+        CType(Me.lblC4Logo, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.AetherGroupBox14.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
@@ -1950,4 +2059,11 @@ Partial Class frmHomeMulti
     Friend WithEvents txtNotifTime As AetherTextbox
     Friend WithEvents txtNotifName As AetherTextbox
     Friend WithEvents btnNotifAdd As AetherButton
+    Friend WithEvents lblC4Price As Label
+    Friend WithEvents lblC4Name As Label
+    Friend WithEvents lblC4Logo As PictureBox
+    Friend WithEvents AetherGroupBox14 As AetherGroupBox
+    Friend WithEvents MaterialLabel1 As MaterialSkin.Controls.MaterialLabel
+    Friend WithEvents lblC4Friendly As MaterialSkin.Controls.MaterialLabel
+    Friend WithEvents MaterialLabel3 As MaterialSkin.Controls.MaterialLabel
 End Class
