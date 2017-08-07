@@ -42,18 +42,22 @@ Partial Class frmHomeMulti
         Me.tabContent = New AltTrackr2.AetherTabControl()
         Me.tpLogin = New System.Windows.Forms.TabPage()
         Me.pnlLAccount = New System.Windows.Forms.Panel()
+        Me.AetherGroupBox16 = New AltTrackr2.AetherGroupBox()
+        Me.btnLLogout = New AltTrackr2.AetherButton()
+        Me.btnLChangeDetails = New AltTrackr2.AetherButton()
+        Me.AetherGroupBox15 = New AltTrackr2.AetherGroupBox()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.chkLAutoUpdate = New AltTrackr2.AetherCheckBox()
+        Me.btnLCheckUpdates = New AltTrackr2.AetherButton()
+        Me.chkLUpdateNotifier = New AltTrackr2.AetherCheckBox()
+        Me.btnLUpdateNow = New AltTrackr2.AetherButton()
+        Me.AetherTag1 = New AltTrackr2.AetherTag()
+        Me.AetherTag3 = New AltTrackr2.AetherTag()
+        Me.Label5 = New System.Windows.Forms.Label()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.lblLUser = New System.Windows.Forms.Label()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.Label5 = New System.Windows.Forms.Label()
-        Me.Label4 = New System.Windows.Forms.Label()
-        Me.AetherTag3 = New AltTrackr2.AetherTag()
-        Me.AetherTag1 = New AltTrackr2.AetherTag()
         Me.lblAuthRequest = New System.Windows.Forms.Label()
-        Me.AetherButton8 = New AltTrackr2.AetherButton()
-        Me.AetherButton7 = New AltTrackr2.AetherButton()
-        Me.btnLChangeDetails = New AltTrackr2.AetherButton()
-        Me.btnLLogout = New AltTrackr2.AetherButton()
         Me.pnlLLogin = New System.Windows.Forms.Panel()
         Me.txtLUsername = New AltTrackr2.AetherTextbox()
         Me.txtLPassword = New AltTrackr2.AetherTextbox()
@@ -81,10 +85,10 @@ Partial Class frmHomeMulti
         Me.AetherButton6 = New AltTrackr2.AetherButton()
         Me.lblAltHoldings = New System.Windows.Forms.Label()
         Me.AetherGroupBox6 = New AltTrackr2.AetherGroupBox()
-        Me.Label23 = New System.Windows.Forms.Label()
-        Me.Label22 = New System.Windows.Forms.Label()
-        Me.Label21 = New System.Windows.Forms.Label()
-        Me.Label20 = New System.Windows.Forms.Label()
+        Me.lblGoalC4 = New System.Windows.Forms.Label()
+        Me.lblGoalC3 = New System.Windows.Forms.Label()
+        Me.lblGoalC2 = New System.Windows.Forms.Label()
+        Me.lblGoalC1 = New System.Windows.Forms.Label()
         Me.AetherButton4 = New AltTrackr2.AetherButton()
         Me.prgC4 = New AltTrackr2.AetherCircular()
         Me.prgC3 = New AltTrackr2.AetherCircular()
@@ -167,15 +171,16 @@ Partial Class frmHomeMulti
         Me.radStyle2 = New AltTrackr2.AetherRadioButton()
         Me.tpSupport = New System.Windows.Forms.TabPage()
         Me.tpFeedback = New System.Windows.Forms.TabPage()
-        Me.AetherCheckBox1 = New AltTrackr2.AetherCheckBox()
-        Me.AetherCheckBox2 = New AltTrackr2.AetherCheckBox()
-        Me.AetherGroupBox15 = New AltTrackr2.AetherGroupBox()
-        Me.AetherGroupBox16 = New AltTrackr2.AetherGroupBox()
+        Me.prgUpdate = New AltTrackr2.Ambiance.Ambiance_ProgressBar()
+        Me.Ambiance_ProgressBar1 = New AltTrackr2.Ambiance.Ambiance_ProgressBar()
+        Me.lblLUpdateStatus = New System.Windows.Forms.Label()
         Me.pnlUnsaved.SuspendLayout()
         Me.pnlLoadingMain.SuspendLayout()
         Me.tabContent.SuspendLayout()
         Me.tpLogin.SuspendLayout()
         Me.pnlLAccount.SuspendLayout()
+        Me.AetherGroupBox16.SuspendLayout()
+        Me.AetherGroupBox15.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.pnlLLogin.SuspendLayout()
         Me.pnlLIncorrect.SuspendLayout()
@@ -205,8 +210,6 @@ Partial Class frmHomeMulti
         Me.Panel1.SuspendLayout()
         Me.AetherGroupBox12.SuspendLayout()
         Me.AetherGroupBox2.SuspendLayout()
-        Me.AetherGroupBox15.SuspendLayout()
-        Me.AetherGroupBox16.SuspendLayout()
         Me.SuspendLayout()
         '
         'ilsIcon
@@ -464,6 +467,142 @@ Partial Class frmHomeMulti
         Me.pnlLAccount.TabIndex = 12
         Me.pnlLAccount.Visible = False
         '
+        'AetherGroupBox16
+        '
+        Me.AetherGroupBox16.Controls.Add(Me.btnLLogout)
+        Me.AetherGroupBox16.Controls.Add(Me.btnLChangeDetails)
+        Me.AetherGroupBox16.Footer = False
+        Me.AetherGroupBox16.FooterText = Nothing
+        Me.AetherGroupBox16.Location = New System.Drawing.Point(3, 318)
+        Me.AetherGroupBox16.Name = "AetherGroupBox16"
+        Me.AetherGroupBox16.Size = New System.Drawing.Size(348, 150)
+        Me.AetherGroupBox16.TabIndex = 24
+        Me.AetherGroupBox16.Text = "Account Preferences"
+        '
+        'btnLLogout
+        '
+        Me.btnLLogout.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnLLogout.EnabledCalc = True
+        Me.btnLLogout.Location = New System.Drawing.Point(66, 95)
+        Me.btnLLogout.Name = "btnLLogout"
+        Me.btnLLogout.Size = New System.Drawing.Size(217, 23)
+        Me.btnLLogout.TabIndex = 9
+        Me.btnLLogout.Text = "Logout"
+        '
+        'btnLChangeDetails
+        '
+        Me.btnLChangeDetails.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnLChangeDetails.EnabledCalc = True
+        Me.btnLChangeDetails.Location = New System.Drawing.Point(66, 65)
+        Me.btnLChangeDetails.Name = "btnLChangeDetails"
+        Me.btnLChangeDetails.Size = New System.Drawing.Size(217, 23)
+        Me.btnLChangeDetails.TabIndex = 8
+        Me.btnLChangeDetails.Text = "Change Account Details"
+        '
+        'AetherGroupBox15
+        '
+        Me.AetherGroupBox15.Controls.Add(Me.lblLUpdateStatus)
+        Me.AetherGroupBox15.Controls.Add(Me.Label4)
+        Me.AetherGroupBox15.Controls.Add(Me.chkLAutoUpdate)
+        Me.AetherGroupBox15.Controls.Add(Me.btnLCheckUpdates)
+        Me.AetherGroupBox15.Controls.Add(Me.chkLUpdateNotifier)
+        Me.AetherGroupBox15.Controls.Add(Me.btnLUpdateNow)
+        Me.AetherGroupBox15.Controls.Add(Me.AetherTag1)
+        Me.AetherGroupBox15.Controls.Add(Me.AetherTag3)
+        Me.AetherGroupBox15.Controls.Add(Me.Label5)
+        Me.AetherGroupBox15.Controls.Add(Me.prgUpdate)
+        Me.AetherGroupBox15.Footer = False
+        Me.AetherGroupBox15.FooterText = Nothing
+        Me.AetherGroupBox15.Location = New System.Drawing.Point(357, 318)
+        Me.AetherGroupBox15.Name = "AetherGroupBox15"
+        Me.AetherGroupBox15.Size = New System.Drawing.Size(453, 150)
+        Me.AetherGroupBox15.TabIndex = 23
+        Me.AetherGroupBox15.Text = "Software Updates"
+        '
+        'Label4
+        '
+        Me.Label4.Location = New System.Drawing.Point(155, 11)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(96, 15)
+        Me.Label4.TabIndex = 16
+        Me.Label4.Text = "Current Version:"
+        Me.Label4.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
+        'chkLAutoUpdate
+        '
+        Me.chkLAutoUpdate.Checked = False
+        Me.chkLAutoUpdate.Cursor = System.Windows.Forms.Cursors.Default
+        Me.chkLAutoUpdate.EnabledCalc = False
+        Me.chkLAutoUpdate.HatchBrush = False
+        Me.chkLAutoUpdate.Location = New System.Drawing.Point(267, 105)
+        Me.chkLAutoUpdate.Name = "chkLAutoUpdate"
+        Me.chkLAutoUpdate.Size = New System.Drawing.Size(152, 19)
+        Me.chkLAutoUpdate.TabIndex = 22
+        Me.chkLAutoUpdate.Text = "Update automatically"
+        '
+        'btnLCheckUpdates
+        '
+        Me.btnLCheckUpdates.EnabledCalc = True
+        Me.btnLCheckUpdates.Location = New System.Drawing.Point(85, 61)
+        Me.btnLCheckUpdates.Name = "btnLCheckUpdates"
+        Me.btnLCheckUpdates.Size = New System.Drawing.Size(156, 23)
+        Me.btnLCheckUpdates.TabIndex = 10
+        Me.btnLCheckUpdates.Text = "Check for Updates"
+        '
+        'chkLUpdateNotifier
+        '
+        Me.chkLUpdateNotifier.Checked = False
+        Me.chkLUpdateNotifier.Cursor = System.Windows.Forms.Cursors.Default
+        Me.chkLUpdateNotifier.EnabledCalc = False
+        Me.chkLUpdateNotifier.HatchBrush = False
+        Me.chkLUpdateNotifier.Location = New System.Drawing.Point(34, 105)
+        Me.chkLUpdateNotifier.Name = "chkLUpdateNotifier"
+        Me.chkLUpdateNotifier.Size = New System.Drawing.Size(233, 19)
+        Me.chkLUpdateNotifier.TabIndex = 21
+        Me.chkLUpdateNotifier.Text = "Notify me when updates are available"
+        '
+        'btnLUpdateNow
+        '
+        Me.btnLUpdateNow.EnabledCalc = True
+        Me.btnLUpdateNow.Location = New System.Drawing.Point(247, 61)
+        Me.btnLUpdateNow.Name = "btnLUpdateNow"
+        Me.btnLUpdateNow.Size = New System.Drawing.Size(123, 23)
+        Me.btnLUpdateNow.TabIndex = 11
+        Me.btnLUpdateNow.Text = "Update Now"
+        '
+        'AetherTag1
+        '
+        Me.AetherTag1.Background = System.Drawing.Color.FromArgb(CType(CType(66, Byte), Integer), CType(CType(68, Byte), Integer), CType(CType(82, Byte), Integer))
+        Me.AetherTag1.Border = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(53, Byte), Integer), CType(CType(65, Byte), Integer))
+        Me.AetherTag1.ForeColor = System.Drawing.Color.White
+        Me.AetherTag1.Location = New System.Drawing.Point(257, 11)
+        Me.AetherTag1.Name = "AetherTag1"
+        Me.AetherTag1.Size = New System.Drawing.Size(44, 15)
+        Me.AetherTag1.TabIndex = 14
+        Me.AetherTag1.Text = "v1.0.0"
+        Me.AetherTag1.TextColor = System.Drawing.Color.LightGray
+        '
+        'AetherTag3
+        '
+        Me.AetherTag3.Background = System.Drawing.Color.FromArgb(CType(CType(66, Byte), Integer), CType(CType(68, Byte), Integer), CType(CType(82, Byte), Integer))
+        Me.AetherTag3.Border = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(53, Byte), Integer), CType(CType(65, Byte), Integer))
+        Me.AetherTag3.ForeColor = System.Drawing.Color.White
+        Me.AetherTag3.Location = New System.Drawing.Point(399, 10)
+        Me.AetherTag3.Name = "AetherTag3"
+        Me.AetherTag3.Size = New System.Drawing.Size(44, 15)
+        Me.AetherTag3.TabIndex = 15
+        Me.AetherTag3.Text = "v1.0.0"
+        Me.AetherTag3.TextColor = System.Drawing.Color.LightGray
+        '
+        'Label5
+        '
+        Me.Label5.Location = New System.Drawing.Point(307, 10)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(86, 15)
+        Me.Label5.TabIndex = 17
+        Me.Label5.Text = "Latest Version:"
+        Me.Label5.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
         'Label7
         '
         Me.Label7.Font = New System.Drawing.Font("Segoe UI Semibold", 15.0!)
@@ -495,48 +634,6 @@ Partial Class frmHomeMulti
         Me.PictureBox1.TabIndex = 18
         Me.PictureBox1.TabStop = False
         '
-        'Label5
-        '
-        Me.Label5.Location = New System.Drawing.Point(307, 10)
-        Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(86, 15)
-        Me.Label5.TabIndex = 17
-        Me.Label5.Text = "Latest Version:"
-        Me.Label5.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        '
-        'Label4
-        '
-        Me.Label4.Location = New System.Drawing.Point(155, 11)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(96, 15)
-        Me.Label4.TabIndex = 16
-        Me.Label4.Text = "Current Version:"
-        Me.Label4.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        '
-        'AetherTag3
-        '
-        Me.AetherTag3.Background = System.Drawing.Color.FromArgb(CType(CType(66, Byte), Integer), CType(CType(68, Byte), Integer), CType(CType(82, Byte), Integer))
-        Me.AetherTag3.Border = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(53, Byte), Integer), CType(CType(65, Byte), Integer))
-        Me.AetherTag3.ForeColor = System.Drawing.Color.White
-        Me.AetherTag3.Location = New System.Drawing.Point(399, 10)
-        Me.AetherTag3.Name = "AetherTag3"
-        Me.AetherTag3.Size = New System.Drawing.Size(44, 15)
-        Me.AetherTag3.TabIndex = 15
-        Me.AetherTag3.Text = "v1.0.0"
-        Me.AetherTag3.TextColor = System.Drawing.Color.LightGray
-        '
-        'AetherTag1
-        '
-        Me.AetherTag1.Background = System.Drawing.Color.FromArgb(CType(CType(66, Byte), Integer), CType(CType(68, Byte), Integer), CType(CType(82, Byte), Integer))
-        Me.AetherTag1.Border = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(53, Byte), Integer), CType(CType(65, Byte), Integer))
-        Me.AetherTag1.ForeColor = System.Drawing.Color.White
-        Me.AetherTag1.Location = New System.Drawing.Point(257, 11)
-        Me.AetherTag1.Name = "AetherTag1"
-        Me.AetherTag1.Size = New System.Drawing.Size(44, 15)
-        Me.AetherTag1.TabIndex = 14
-        Me.AetherTag1.Text = "v1.0.0"
-        Me.AetherTag1.TextColor = System.Drawing.Color.LightGray
-        '
         'lblAuthRequest
         '
         Me.lblAuthRequest.Font = New System.Drawing.Font("Segoe UI Semibold", 11.0!)
@@ -546,44 +643,6 @@ Partial Class frmHomeMulti
         Me.lblAuthRequest.Size = New System.Drawing.Size(807, 63)
         Me.lblAuthRequest.TabIndex = 13
         Me.lblAuthRequest.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'AetherButton8
-        '
-        Me.AetherButton8.EnabledCalc = True
-        Me.AetherButton8.Location = New System.Drawing.Point(247, 61)
-        Me.AetherButton8.Name = "AetherButton8"
-        Me.AetherButton8.Size = New System.Drawing.Size(123, 23)
-        Me.AetherButton8.TabIndex = 11
-        Me.AetherButton8.Text = "Update Now"
-        '
-        'AetherButton7
-        '
-        Me.AetherButton7.EnabledCalc = True
-        Me.AetherButton7.Location = New System.Drawing.Point(85, 61)
-        Me.AetherButton7.Name = "AetherButton7"
-        Me.AetherButton7.Size = New System.Drawing.Size(156, 23)
-        Me.AetherButton7.TabIndex = 10
-        Me.AetherButton7.Text = "Check for Updates"
-        '
-        'btnLChangeDetails
-        '
-        Me.btnLChangeDetails.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnLChangeDetails.EnabledCalc = True
-        Me.btnLChangeDetails.Location = New System.Drawing.Point(66, 65)
-        Me.btnLChangeDetails.Name = "btnLChangeDetails"
-        Me.btnLChangeDetails.Size = New System.Drawing.Size(217, 23)
-        Me.btnLChangeDetails.TabIndex = 8
-        Me.btnLChangeDetails.Text = "Change Account Details"
-        '
-        'btnLLogout
-        '
-        Me.btnLLogout.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnLLogout.EnabledCalc = True
-        Me.btnLLogout.Location = New System.Drawing.Point(66, 95)
-        Me.btnLLogout.Name = "btnLLogout"
-        Me.btnLLogout.Size = New System.Drawing.Size(217, 23)
-        Me.btnLLogout.TabIndex = 9
-        Me.btnLLogout.Text = "Logout"
         '
         'pnlLLogin
         '
@@ -882,10 +941,10 @@ Partial Class frmHomeMulti
         '
         'AetherGroupBox6
         '
-        Me.AetherGroupBox6.Controls.Add(Me.Label23)
-        Me.AetherGroupBox6.Controls.Add(Me.Label22)
-        Me.AetherGroupBox6.Controls.Add(Me.Label21)
-        Me.AetherGroupBox6.Controls.Add(Me.Label20)
+        Me.AetherGroupBox6.Controls.Add(Me.lblGoalC4)
+        Me.AetherGroupBox6.Controls.Add(Me.lblGoalC3)
+        Me.AetherGroupBox6.Controls.Add(Me.lblGoalC2)
+        Me.AetherGroupBox6.Controls.Add(Me.lblGoalC1)
         Me.AetherGroupBox6.Controls.Add(Me.AetherButton4)
         Me.AetherGroupBox6.Controls.Add(Me.prgC4)
         Me.AetherGroupBox6.Controls.Add(Me.prgC3)
@@ -899,45 +958,45 @@ Partial Class frmHomeMulti
         Me.AetherGroupBox6.TabIndex = 2
         Me.AetherGroupBox6.Text = "Goals"
         '
-        'Label23
+        'lblGoalC4
         '
-        Me.Label23.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!)
-        Me.Label23.Location = New System.Drawing.Point(651, 94)
-        Me.Label23.Name = "Label23"
-        Me.Label23.Size = New System.Drawing.Size(90, 21)
-        Me.Label23.TabIndex = 7
-        Me.Label23.Text = "Siacoin"
-        Me.Label23.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.lblGoalC4.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!)
+        Me.lblGoalC4.Location = New System.Drawing.Point(651, 94)
+        Me.lblGoalC4.Name = "lblGoalC4"
+        Me.lblGoalC4.Size = New System.Drawing.Size(90, 21)
+        Me.lblGoalC4.TabIndex = 7
+        Me.lblGoalC4.Text = "Coin #4"
+        Me.lblGoalC4.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         '
-        'Label22
+        'lblGoalC3
         '
-        Me.Label22.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!)
-        Me.Label22.Location = New System.Drawing.Point(457, 94)
-        Me.Label22.Name = "Label22"
-        Me.Label22.Size = New System.Drawing.Size(90, 21)
-        Me.Label22.TabIndex = 6
-        Me.Label22.Text = "Monero"
-        Me.Label22.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.lblGoalC3.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!)
+        Me.lblGoalC3.Location = New System.Drawing.Point(457, 94)
+        Me.lblGoalC3.Name = "lblGoalC3"
+        Me.lblGoalC3.Size = New System.Drawing.Size(90, 21)
+        Me.lblGoalC3.TabIndex = 6
+        Me.lblGoalC3.Text = "Coin #3"
+        Me.lblGoalC3.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         '
-        'Label21
+        'lblGoalC2
         '
-        Me.Label21.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!)
-        Me.Label21.Location = New System.Drawing.Point(263, 94)
-        Me.Label21.Name = "Label21"
-        Me.Label21.Size = New System.Drawing.Size(90, 21)
-        Me.Label21.TabIndex = 5
-        Me.Label21.Text = "Ethereum"
-        Me.Label21.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.lblGoalC2.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!)
+        Me.lblGoalC2.Location = New System.Drawing.Point(263, 94)
+        Me.lblGoalC2.Name = "lblGoalC2"
+        Me.lblGoalC2.Size = New System.Drawing.Size(90, 21)
+        Me.lblGoalC2.TabIndex = 5
+        Me.lblGoalC2.Text = "Coin #2"
+        Me.lblGoalC2.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         '
-        'Label20
+        'lblGoalC1
         '
-        Me.Label20.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!)
-        Me.Label20.Location = New System.Drawing.Point(69, 94)
-        Me.Label20.Name = "Label20"
-        Me.Label20.Size = New System.Drawing.Size(90, 21)
-        Me.Label20.TabIndex = 2
-        Me.Label20.Text = "Bitcoin"
-        Me.Label20.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.lblGoalC1.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!)
+        Me.lblGoalC1.Location = New System.Drawing.Point(69, 94)
+        Me.lblGoalC1.Name = "lblGoalC1"
+        Me.lblGoalC1.Size = New System.Drawing.Size(90, 21)
+        Me.lblGoalC1.TabIndex = 2
+        Me.lblGoalC1.Text = "Coin #1"
+        Me.lblGoalC1.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         '
         'AetherButton4
         '
@@ -1027,6 +1086,7 @@ Partial Class frmHomeMulti
         '
         'AetherGroupBox1
         '
+        Me.AetherGroupBox1.Controls.Add(Me.Ambiance_ProgressBar1)
         Me.AetherGroupBox1.Controls.Add(Me.AetherButton5)
         Me.AetherGroupBox1.Controls.Add(Me.lblAltPrices)
         Me.AetherGroupBox1.Footer = False
@@ -1075,7 +1135,7 @@ Partial Class frmHomeMulti
         '
         Me.lblLastPriceUpdate.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.lblLastPriceUpdate.Depth = 0
-        Me.lblLastPriceUpdate.Font = New System.Drawing.Font("Roboto", 11.0!)
+        Me.lblLastPriceUpdate.Font = New System.Drawing.Font("Segoe UI Semibold", 11.0!)
         Me.lblLastPriceUpdate.ForeColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
         Me.lblLastPriceUpdate.Location = New System.Drawing.Point(241, 229)
         Me.lblLastPriceUpdate.MouseState = MaterialSkin.MouseState.HOVER
@@ -1161,7 +1221,7 @@ Partial Class frmHomeMulti
         Me.lblC1Prices.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.lblC1Prices.BackColor = System.Drawing.Color.Transparent
         Me.lblC1Prices.Depth = 0
-        Me.lblC1Prices.Font = New System.Drawing.Font("Roboto", 11.0!)
+        Me.lblC1Prices.Font = New System.Drawing.Font("Segoe UI", 11.0!)
         Me.lblC1Prices.ForeColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
         Me.lblC1Prices.Location = New System.Drawing.Point(3, 46)
         Me.lblC1Prices.MouseState = MaterialSkin.MouseState.HOVER
@@ -1175,7 +1235,7 @@ Partial Class frmHomeMulti
         '
         Me.lblC1Friendly.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.lblC1Friendly.Depth = 0
-        Me.lblC1Friendly.Font = New System.Drawing.Font("Roboto", 11.0!)
+        Me.lblC1Friendly.Font = New System.Drawing.Font("Segoe UI", 11.0!)
         Me.lblC1Friendly.ForeColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
         Me.lblC1Friendly.Location = New System.Drawing.Point(3, 107)
         Me.lblC1Friendly.MouseState = MaterialSkin.MouseState.HOVER
@@ -1192,7 +1252,7 @@ Partial Class frmHomeMulti
         Me.lblC1Holdings.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.lblC1Holdings.BackColor = System.Drawing.Color.Transparent
         Me.lblC1Holdings.Depth = 0
-        Me.lblC1Holdings.Font = New System.Drawing.Font("Roboto", 11.0!)
+        Me.lblC1Holdings.Font = New System.Drawing.Font("Segoe UI", 11.0!)
         Me.lblC1Holdings.ForeColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
         Me.lblC1Holdings.Location = New System.Drawing.Point(3, 74)
         Me.lblC1Holdings.MouseState = MaterialSkin.MouseState.HOVER
@@ -1986,59 +2046,48 @@ Partial Class frmHomeMulti
         Me.tpFeedback.Tag = "Beta 1"
         Me.tpFeedback.Text = "Feedback"
         '
-        'AetherCheckBox1
+        'prgUpdate
         '
-        Me.AetherCheckBox1.Checked = False
-        Me.AetherCheckBox1.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.AetherCheckBox1.EnabledCalc = True
-        Me.AetherCheckBox1.HatchBrush = False
-        Me.AetherCheckBox1.Location = New System.Drawing.Point(34, 105)
-        Me.AetherCheckBox1.Name = "AetherCheckBox1"
-        Me.AetherCheckBox1.Size = New System.Drawing.Size(233, 19)
-        Me.AetherCheckBox1.TabIndex = 21
-        Me.AetherCheckBox1.Text = "Notify me when updates are available"
+        Me.prgUpdate.BackColor = System.Drawing.Color.Transparent
+        Me.prgUpdate.DrawHatch = True
+        Me.prgUpdate.Location = New System.Drawing.Point(85, 62)
+        Me.prgUpdate.Maximum = 100
+        Me.prgUpdate.Minimum = 0
+        Me.prgUpdate.MinimumSize = New System.Drawing.Size(58, 20)
+        Me.prgUpdate.Name = "prgUpdate"
+        Me.prgUpdate.ShowPercentage = True
+        Me.prgUpdate.Size = New System.Drawing.Size(285, 20)
+        Me.prgUpdate.TabIndex = 25
+        Me.prgUpdate.Value = 0
+        Me.prgUpdate.ValueAlignment = AltTrackr2.Ambiance.Ambiance_ProgressBar.Alignment.Right
+        Me.prgUpdate.Visible = False
         '
-        'AetherCheckBox2
+        'Ambiance_ProgressBar1
         '
-        Me.AetherCheckBox2.Checked = False
-        Me.AetherCheckBox2.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.AetherCheckBox2.EnabledCalc = True
-        Me.AetherCheckBox2.HatchBrush = False
-        Me.AetherCheckBox2.Location = New System.Drawing.Point(267, 105)
-        Me.AetherCheckBox2.Name = "AetherCheckBox2"
-        Me.AetherCheckBox2.Size = New System.Drawing.Size(152, 19)
-        Me.AetherCheckBox2.TabIndex = 22
-        Me.AetherCheckBox2.Text = "Update automatically"
+        Me.Ambiance_ProgressBar1.BackColor = System.Drawing.Color.Transparent
+        Me.Ambiance_ProgressBar1.DrawHatch = True
+        Me.Ambiance_ProgressBar1.Location = New System.Drawing.Point(114, 136)
+        Me.Ambiance_ProgressBar1.Maximum = 100
+        Me.Ambiance_ProgressBar1.Minimum = 0
+        Me.Ambiance_ProgressBar1.MinimumSize = New System.Drawing.Size(58, 20)
+        Me.Ambiance_ProgressBar1.Name = "Ambiance_ProgressBar1"
+        Me.Ambiance_ProgressBar1.ShowPercentage = False
+        Me.Ambiance_ProgressBar1.Size = New System.Drawing.Size(75, 20)
+        Me.Ambiance_ProgressBar1.TabIndex = 17
+        Me.Ambiance_ProgressBar1.Text = "Ambiance_ProgressBar1"
+        Me.Ambiance_ProgressBar1.Value = 0
+        Me.Ambiance_ProgressBar1.ValueAlignment = AltTrackr2.Ambiance.Ambiance_ProgressBar.Alignment.Right
         '
-        'AetherGroupBox15
+        'lblLUpdateStatus
         '
-        Me.AetherGroupBox15.Controls.Add(Me.Label4)
-        Me.AetherGroupBox15.Controls.Add(Me.AetherCheckBox2)
-        Me.AetherGroupBox15.Controls.Add(Me.AetherButton7)
-        Me.AetherGroupBox15.Controls.Add(Me.AetherCheckBox1)
-        Me.AetherGroupBox15.Controls.Add(Me.AetherButton8)
-        Me.AetherGroupBox15.Controls.Add(Me.AetherTag1)
-        Me.AetherGroupBox15.Controls.Add(Me.AetherTag3)
-        Me.AetherGroupBox15.Controls.Add(Me.Label5)
-        Me.AetherGroupBox15.Footer = False
-        Me.AetherGroupBox15.FooterText = Nothing
-        Me.AetherGroupBox15.Location = New System.Drawing.Point(357, 318)
-        Me.AetherGroupBox15.Name = "AetherGroupBox15"
-        Me.AetherGroupBox15.Size = New System.Drawing.Size(453, 150)
-        Me.AetherGroupBox15.TabIndex = 23
-        Me.AetherGroupBox15.Text = "Software Updates"
-        '
-        'AetherGroupBox16
-        '
-        Me.AetherGroupBox16.Controls.Add(Me.btnLLogout)
-        Me.AetherGroupBox16.Controls.Add(Me.btnLChangeDetails)
-        Me.AetherGroupBox16.Footer = False
-        Me.AetherGroupBox16.FooterText = Nothing
-        Me.AetherGroupBox16.Location = New System.Drawing.Point(3, 318)
-        Me.AetherGroupBox16.Name = "AetherGroupBox16"
-        Me.AetherGroupBox16.Size = New System.Drawing.Size(348, 150)
-        Me.AetherGroupBox16.TabIndex = 24
-        Me.AetherGroupBox16.Text = "Account Preferences"
+        Me.lblLUpdateStatus.Font = New System.Drawing.Font("Segoe UI", 11.0!)
+        Me.lblLUpdateStatus.Location = New System.Drawing.Point(3, 95)
+        Me.lblLUpdateStatus.Name = "lblLUpdateStatus"
+        Me.lblLUpdateStatus.Size = New System.Drawing.Size(447, 23)
+        Me.lblLUpdateStatus.TabIndex = 26
+        Me.lblLUpdateStatus.Text = "Downloading AltTrackr x.xx"
+        Me.lblLUpdateStatus.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.lblLUpdateStatus.Visible = False
         '
         'frmHomeMulti
         '
@@ -2060,6 +2109,8 @@ Partial Class frmHomeMulti
         Me.tpLogin.ResumeLayout(False)
         Me.pnlLAccount.ResumeLayout(False)
         Me.pnlLAccount.PerformLayout()
+        Me.AetherGroupBox16.ResumeLayout(False)
+        Me.AetherGroupBox15.ResumeLayout(False)
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.pnlLLogin.ResumeLayout(False)
         Me.pnlLLogin.PerformLayout()
@@ -2094,8 +2145,6 @@ Partial Class frmHomeMulti
         Me.Panel1.ResumeLayout(False)
         Me.AetherGroupBox12.ResumeLayout(False)
         Me.AetherGroupBox2.ResumeLayout(False)
-        Me.AetherGroupBox15.ResumeLayout(False)
-        Me.AetherGroupBox16.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
@@ -2202,10 +2251,10 @@ Partial Class frmHomeMulti
     Friend WithEvents Label19 As Label
     Friend WithEvents Label13 As Label
     Friend WithEvents Label12 As Label
-    Friend WithEvents Label23 As Label
-    Friend WithEvents Label22 As Label
-    Friend WithEvents Label21 As Label
-    Friend WithEvents Label20 As Label
+    Friend WithEvents lblGoalC4 As Label
+    Friend WithEvents lblGoalC3 As Label
+    Friend WithEvents lblGoalC2 As Label
+    Friend WithEvents lblGoalC1 As Label
     Friend WithEvents lblAuthRequest As Label
     Friend WithEvents AetherGroupBox12 As AetherGroupBox
     Friend WithEvents LvModule As MaterialSkin.Controls.MaterialListView
@@ -2235,8 +2284,8 @@ Partial Class frmHomeMulti
     Friend WithEvents lblC4Friendly As MaterialSkin.Controls.MaterialLabel
     Friend WithEvents MaterialLabel3 As MaterialSkin.Controls.MaterialLabel
     Friend WithEvents AetherTag1 As AetherTag
-    Friend WithEvents AetherButton8 As AetherButton
-    Friend WithEvents AetherButton7 As AetherButton
+    Friend WithEvents btnLUpdateNow As AetherButton
+    Friend WithEvents btnLCheckUpdates As AetherButton
     Friend WithEvents Label7 As Label
     Friend WithEvents lblLUser As Label
     Friend WithEvents PictureBox1 As PictureBox
@@ -2245,6 +2294,9 @@ Partial Class frmHomeMulti
     Friend WithEvents AetherTag3 As AetherTag
     Friend WithEvents AetherGroupBox16 As AetherGroupBox
     Friend WithEvents AetherGroupBox15 As AetherGroupBox
-    Friend WithEvents AetherCheckBox2 As AetherCheckBox
-    Friend WithEvents AetherCheckBox1 As AetherCheckBox
+    Friend WithEvents chkLAutoUpdate As AetherCheckBox
+    Friend WithEvents chkLUpdateNotifier As AetherCheckBox
+    Friend WithEvents prgUpdate As Ambiance.Ambiance_ProgressBar
+    Friend WithEvents Ambiance_ProgressBar1 As Ambiance.Ambiance_ProgressBar
+    Friend WithEvents lblLUpdateStatus As Label
 End Class

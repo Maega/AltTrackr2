@@ -146,8 +146,13 @@ Public Class frmHomeMulti
             lblAltPrices.Text = lblAltPrices.Text.Remove(lblAltPrices.Text.LastIndexOf(Environment.NewLine))
             lblAltHoldings.Text = lblAltHoldings.Text.Remove(lblAltHoldings.Text.LastIndexOf(Environment.NewLine))
 
-            'MsgBox(coinGoals.Count - 1)
+            'Set goal coin names
+            lblGoalC1.Text = coinNameArray(0)
+            lblGoalC2.Text = coinNameArray(1)
+            lblGoalC3.Text = coinNameArray(2)
+            lblGoalC4.Text = coinNameArray(3)
 
+            'Set goal ring parameters
             If coinGoals.Count - 0 > 0 Then prgC1.Max = coinGoals(0) : prgC1.Text = "Goal: " + coinGoals(0) + " " + fiatMain Else prgC1.Max = 1
             If coinGoals.Count - 1 > 0 Then prgC2.Max = coinGoals(1) : prgC2.Text = "Goal: " + coinGoals(1) + " " + fiatMain Else prgC2.Max = 1
             If coinGoals.Count - 2 > 0 Then prgC3.Max = coinGoals(2) : prgC3.Text = "Goal: " + coinGoals(2) + " " + fiatMain Else prgC3.Max = 1
@@ -162,7 +167,7 @@ Public Class frmHomeMulti
             If coinCodeArray.Count - 0 > 0 Then tpCoin1.Tag = "$" + CDec(serverResponse.SelectToken(coinCodeArray(0)).SelectToken(fiatMain)).ToString("0.00").ToString : lblC1Price.Text = "$" + CDec(serverResponse.SelectToken(coinCodeArray(0)).SelectToken(fiatMain)).ToString("0.00").ToString
             If coinCodeArray.Count - 1 > 0 Then tpCoin2.Tag = "$" + CDec(serverResponse.SelectToken(coinCodeArray(1)).SelectToken(fiatMain)).ToString("0.00").ToString : lblC2Price.Text = "$" + CDec(serverResponse.SelectToken(coinCodeArray(1)).SelectToken(fiatMain)).ToString("0.00").ToString
             If coinCodeArray.Count - 2 > 0 Then tpCoin3.Tag = "$" + CDec(serverResponse.SelectToken(coinCodeArray(2)).SelectToken(fiatMain)).ToString("0.00").ToString : lblC3Price.Text = "$" + CDec(serverResponse.SelectToken(coinCodeArray(2)).SelectToken(fiatMain)).ToString("0.00").ToString
-            If coinCodeArray.Count - 3 > 0 Then tpCoin4.Tag = "$" + CDec(serverResponse.SelectToken(coinCodeArray(3)).SelectToken(fiatMain)).ToString("0.00").ToString ': lblC4Price.Text = "$" + CDec(serverResponse.SelectToken(coinCodeArray(3)).SelectToken(fiatMain)).ToString("0.00").ToString
+            If coinCodeArray.Count - 3 > 0 Then tpCoin4.Tag = "$" + CDec(serverResponse.SelectToken(coinCodeArray(3)).SelectToken(fiatMain)).ToString("0.00").ToString : lblC4Price.Text = "$" + CDec(serverResponse.SelectToken(coinCodeArray(3)).SelectToken(fiatMain)).ToString("0.00").ToString
 
             'Set coin names according to array position
             lblC1Name.Text = coinNameArray(0).ToUpper
@@ -423,5 +428,25 @@ Public Class frmHomeMulti
         Dim notif As New Notification(img, coinname + " " + frequency + " Price Update", friendlyAlert + vbNewLine + "Holdings Value: " + holdingsvalue + vbNewLine + "Coin Price: " + coinprice, _colour)
         notif.Seconds = 10
         notif.Show()
+    End Sub
+
+    Private Sub btnLCheckUpdates_Click(sender As Object, e As EventArgs) Handles btnLCheckUpdates.Click
+        If UpdateAPI.UpdateAvailable = True Then
+            btnLUpdateNow.Enabled = True
+            Dim result As Integer = MessageBox.Show("An update is available for AltTrackr!" + vbNewLine + "Would you like to update now?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Information)
+            If result = DialogResult.OK Then
+                'Launch Update
+            End If
+        End If
+    End Sub
+
+    Private Sub btnLUpdateNow_Click(sender As Object, e As EventArgs) Handles btnLUpdateNow.Click
+        btnLUpdateNow.Hide()
+        btnLCheckUpdates.Hide()
+        prgUpdate.Show()
+        lblLUpdateStatus.Show()
+        chkLAutoUpdate.Hide()
+        chkLUpdateNotifier.Hide()
+        UpdateEngine.UpdateNow(UpdateAPI.LatestVer.ToString)
     End Sub
 End Class

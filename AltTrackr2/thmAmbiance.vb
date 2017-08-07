@@ -1309,19 +1309,16 @@ Namespace Ambiance
             End If
 
             ' Draw value as a string
-            Dim DrawString As String = CStr(CInt(Value)) & "%"
-            Dim textX As Integer = Me.Width - G.MeasureString(DrawString, Font).Width - 1
-            Dim textY As Integer = (Me.Height / 2) - (G.MeasureString(DrawString, Font).Height / 2 - 2)
+            'Dim DrawString As String = CStr(CInt(Value)) & "%"
+            'Dim textX As Integer = Me.Width - G.MeasureString(DrawString, Font).Width - 1
+            'Dim textY As Integer = (Me.Height / 2) - (G.MeasureString(DrawString, Font).Height / 2 - 2)
 
             If _ShowPercentage = True Then
                 Select Case ValueAlignment
                     Case Alignment.Right
-                        G.DrawString(DrawString, New Font("Segoe UI", 8), Brushes.DimGray, New Point(textX, textY))
+                        'G.DrawString(DrawString, New Font("Segoe UI", 8), Brushes.DimGray, New Point(textX, textY))
                     Case Alignment.Center
-                        G.DrawString(DrawString, New Font("Segoe UI", 8), Brushes.DimGray,
-                                     New Rectangle(0, 0, Width, Height + 2),
-                                     New StringFormat() With {.Alignment = StringAlignment.Center,
-                                                              .LineAlignment = StringAlignment.Center})
+                        'G.DrawString(DrawString, New Font("Segoe UI", 8), Brushes.DimGray, New Rectangle(0, 0, Width, Height + 2), New StringFormat() With {.Alignment = StringAlignment.Center, .LineAlignment = StringAlignment.Center})
                 End Select
             End If
 
