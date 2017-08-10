@@ -50,9 +50,9 @@ Public Class frmWelcomeControls
             Case 4
                 FadeNew("We're ready to setup your experience", 35)
             Case 5
-                FadeNew("On the next screen you'll select your coin", 33)
+                FadeNew("On the next screen you'll select your coins", 33)
             Case 6
-                FadeNew("Then you'll get to choose your theme and fiat", 30)
+                FadeNew("Then you'll get to choose your goals and fiat", 30)
             Case 7
                 FadeNew("We'll setup the rest from there")
             Case 8

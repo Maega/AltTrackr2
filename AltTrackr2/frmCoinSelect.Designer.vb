@@ -81,7 +81,7 @@ Partial Class frmCoinSelect
         '
         Me.btnNext.Anchor = System.Windows.Forms.AnchorStyles.Right
         Me.btnNext.BackColor = System.Drawing.Color.Transparent
-        Me.btnNext.Image = Global.AltTrackr2.My.Resources.Resources.arrowRight
+        Me.btnNext.Image = CType(resources.GetObject("btnNext.Image"), System.Drawing.Image)
         Me.btnNext.Location = New System.Drawing.Point(807, 223)
         Me.btnNext.Name = "btnNext"
         Me.btnNext.Size = New System.Drawing.Size(32, 73)
@@ -93,7 +93,7 @@ Partial Class frmCoinSelect
         '
         Me.btnBack.Anchor = System.Windows.Forms.AnchorStyles.Left
         Me.btnBack.BackColor = System.Drawing.Color.Transparent
-        Me.btnBack.Image = Global.AltTrackr2.My.Resources.Resources.arrowLeft
+        Me.btnBack.Image = CType(resources.GetObject("btnBack.Image"), System.Drawing.Image)
         Me.btnBack.Location = New System.Drawing.Point(52, 223)
         Me.btnBack.Name = "btnBack"
         Me.btnBack.Size = New System.Drawing.Size(32, 73)
@@ -105,7 +105,8 @@ Partial Class frmCoinSelect
         '
         Me.txtOtherCoin.Depth = 0
         Me.txtOtherCoin.Hint = ""
-        Me.txtOtherCoin.Location = New System.Drawing.Point(328, 425)
+        Me.txtOtherCoin.Location = New System.Drawing.Point(328, 426)
+        Me.txtOtherCoin.MaxLength = 32767
         Me.txtOtherCoin.MouseState = MaterialSkin.MouseState.HOVER
         Me.txtOtherCoin.Name = "txtOtherCoin"
         Me.txtOtherCoin.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
@@ -114,17 +115,21 @@ Partial Class frmCoinSelect
         Me.txtOtherCoin.SelectionStart = 0
         Me.txtOtherCoin.Size = New System.Drawing.Size(109, 23)
         Me.txtOtherCoin.TabIndex = 5
+        Me.txtOtherCoin.TabStop = False
         Me.txtOtherCoin.UseSystemPasswordChar = False
         Me.txtOtherCoin.Visible = False
         '
         'btnOtherContinue
         '
+        Me.btnOtherContinue.AutoSize = True
+        Me.btnOtherContinue.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.btnOtherContinue.Depth = 0
-        Me.btnOtherContinue.Location = New System.Drawing.Point(469, 425)
+        Me.btnOtherContinue.Icon = Nothing
+        Me.btnOtherContinue.Location = New System.Drawing.Point(461, 418)
         Me.btnOtherContinue.MouseState = MaterialSkin.MouseState.HOVER
         Me.btnOtherContinue.Name = "btnOtherContinue"
         Me.btnOtherContinue.Primary = True
-        Me.btnOtherContinue.Size = New System.Drawing.Size(104, 23)
+        Me.btnOtherContinue.Size = New System.Drawing.Size(88, 36)
         Me.btnOtherContinue.TabIndex = 6
         Me.btnOtherContinue.Text = "Continue"
         Me.btnOtherContinue.UseVisualStyleBackColor = True

@@ -853,10 +853,10 @@ Partial Class frmHome
         Me.ClientSize = New System.Drawing.Size(900, 462)
         Me.Controls.Add(Me.btnFeedback)
         Me.Controls.Add(Me.tbsContent)
-        Me.Controls.Add(Me.tabContent)
         Me.Controls.Add(Me.lblLoading)
         Me.Controls.Add(Me.prgLoading)
         Me.Controls.Add(Me.pnlApplySettings)
+        Me.Controls.Add(Me.tabContent)
         Me.Name = "frmHome"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Maega AltTrackr"

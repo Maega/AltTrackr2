@@ -16,7 +16,7 @@ Public Class frmWelcome
                 SkinManager.Theme = MaterialSkinManager.Themes.DARK
             End If
             frmWelcomeControls.tmrTransition.Stop()
-            frmHome.Show()
+            frmHomeMulti.Show()
             Me.Close()
         Else
             frmWelcomeControls.Show()

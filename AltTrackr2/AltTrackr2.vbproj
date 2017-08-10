@@ -48,8 +48,8 @@
     <OptionInfer>On</OptionInfer>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="MaterialSkin, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\MaterialSkin.0.2.1\lib\MaterialSkin.dll</HintPath>
+    <Reference Include="MaterialSkin">
+      <HintPath>bin\Debug\MaterialSkin.dll</HintPath>
     </Reference>
     <Reference Include="MRG.Controls.UI, Version=1.0.6122.409, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -94,6 +94,12 @@
     </Compile>
     <Compile Include="frmCoinSelect.Designer.vb">
       <DependentUpon>frmCoinSelect.vb</DependentUpon>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCoinSelectAll.Designer.vb">
+      <DependentUpon>frmCoinSelectAll.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmCoinSelectAll.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmCustomColour.Designer.vb">
@@ -183,6 +189,9 @@
   <ItemGroup>
     <EmbeddedResource Include="frmCoinSelect.resx">
       <DependentUpon>frmCoinSelect.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmCoinSelectAll.resx">
+      <DependentUpon>frmCoinSelectAll.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmCustomColour.resx">
       <DependentUpon>frmCustomColour.vb</DependentUpon>

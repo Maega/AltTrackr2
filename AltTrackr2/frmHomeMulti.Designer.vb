@@ -54,6 +54,8 @@ Partial Class frmHomeMulti
         Me.AetherTag1 = New AltTrackr2.AetherTag()
         Me.AetherTag3 = New AltTrackr2.AetherTag()
         Me.Label5 = New System.Windows.Forms.Label()
+        Me.prgUpdate = New AltTrackr2.Ambiance.Ambiance_ProgressBar()
+        Me.lblLUpdateStatus = New System.Windows.Forms.Label()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.lblLUser = New System.Windows.Forms.Label()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
@@ -171,9 +173,6 @@ Partial Class frmHomeMulti
         Me.radStyle2 = New AltTrackr2.AetherRadioButton()
         Me.tpSupport = New System.Windows.Forms.TabPage()
         Me.tpFeedback = New System.Windows.Forms.TabPage()
-        Me.prgUpdate = New AltTrackr2.Ambiance.Ambiance_ProgressBar()
-        Me.Ambiance_ProgressBar1 = New AltTrackr2.Ambiance.Ambiance_ProgressBar()
-        Me.lblLUpdateStatus = New System.Windows.Forms.Label()
         Me.pnlUnsaved.SuspendLayout()
         Me.pnlLoadingMain.SuspendLayout()
         Me.tabContent.SuspendLayout()
@@ -501,7 +500,6 @@ Partial Class frmHomeMulti
         '
         'AetherGroupBox15
         '
-        Me.AetherGroupBox15.Controls.Add(Me.lblLUpdateStatus)
         Me.AetherGroupBox15.Controls.Add(Me.Label4)
         Me.AetherGroupBox15.Controls.Add(Me.chkLAutoUpdate)
         Me.AetherGroupBox15.Controls.Add(Me.btnLCheckUpdates)
@@ -511,6 +509,7 @@ Partial Class frmHomeMulti
         Me.AetherGroupBox15.Controls.Add(Me.AetherTag3)
         Me.AetherGroupBox15.Controls.Add(Me.Label5)
         Me.AetherGroupBox15.Controls.Add(Me.prgUpdate)
+        Me.AetherGroupBox15.Controls.Add(Me.lblLUpdateStatus)
         Me.AetherGroupBox15.Footer = False
         Me.AetherGroupBox15.FooterText = Nothing
         Me.AetherGroupBox15.Location = New System.Drawing.Point(357, 318)
@@ -602,6 +601,33 @@ Partial Class frmHomeMulti
         Me.Label5.TabIndex = 17
         Me.Label5.Text = "Latest Version:"
         Me.Label5.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
+        'prgUpdate
+        '
+        Me.prgUpdate.BackColor = System.Drawing.Color.Transparent
+        Me.prgUpdate.DrawHatch = True
+        Me.prgUpdate.Location = New System.Drawing.Point(85, 62)
+        Me.prgUpdate.Maximum = 100
+        Me.prgUpdate.Minimum = 0
+        Me.prgUpdate.MinimumSize = New System.Drawing.Size(58, 20)
+        Me.prgUpdate.Name = "prgUpdate"
+        Me.prgUpdate.ShowPercentage = True
+        Me.prgUpdate.Size = New System.Drawing.Size(285, 20)
+        Me.prgUpdate.TabIndex = 25
+        Me.prgUpdate.Value = 0
+        Me.prgUpdate.ValueAlignment = AltTrackr2.Ambiance.Ambiance_ProgressBar.Alignment.Right
+        Me.prgUpdate.Visible = False
+        '
+        'lblLUpdateStatus
+        '
+        Me.lblLUpdateStatus.Font = New System.Drawing.Font("Segoe UI", 11.0!)
+        Me.lblLUpdateStatus.Location = New System.Drawing.Point(3, 105)
+        Me.lblLUpdateStatus.Name = "lblLUpdateStatus"
+        Me.lblLUpdateStatus.Size = New System.Drawing.Size(447, 23)
+        Me.lblLUpdateStatus.TabIndex = 26
+        Me.lblLUpdateStatus.Text = "Talking with the update servers..."
+        Me.lblLUpdateStatus.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.lblLUpdateStatus.Visible = False
         '
         'Label7
         '
@@ -1086,7 +1112,6 @@ Partial Class frmHomeMulti
         '
         'AetherGroupBox1
         '
-        Me.AetherGroupBox1.Controls.Add(Me.Ambiance_ProgressBar1)
         Me.AetherGroupBox1.Controls.Add(Me.AetherButton5)
         Me.AetherGroupBox1.Controls.Add(Me.lblAltPrices)
         Me.AetherGroupBox1.Footer = False
@@ -1135,7 +1160,7 @@ Partial Class frmHomeMulti
         '
         Me.lblLastPriceUpdate.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.lblLastPriceUpdate.Depth = 0
-        Me.lblLastPriceUpdate.Font = New System.Drawing.Font("Segoe UI Semibold", 11.0!)
+        Me.lblLastPriceUpdate.Font = New System.Drawing.Font("Roboto", 11.0!)
         Me.lblLastPriceUpdate.ForeColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
         Me.lblLastPriceUpdate.Location = New System.Drawing.Point(241, 229)
         Me.lblLastPriceUpdate.MouseState = MaterialSkin.MouseState.HOVER
@@ -1221,7 +1246,7 @@ Partial Class frmHomeMulti
         Me.lblC1Prices.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.lblC1Prices.BackColor = System.Drawing.Color.Transparent
         Me.lblC1Prices.Depth = 0
-        Me.lblC1Prices.Font = New System.Drawing.Font("Segoe UI", 11.0!)
+        Me.lblC1Prices.Font = New System.Drawing.Font("Roboto", 11.0!)
         Me.lblC1Prices.ForeColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
         Me.lblC1Prices.Location = New System.Drawing.Point(3, 46)
         Me.lblC1Prices.MouseState = MaterialSkin.MouseState.HOVER
@@ -1235,7 +1260,7 @@ Partial Class frmHomeMulti
         '
         Me.lblC1Friendly.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.lblC1Friendly.Depth = 0
-        Me.lblC1Friendly.Font = New System.Drawing.Font("Segoe UI", 11.0!)
+        Me.lblC1Friendly.Font = New System.Drawing.Font("Roboto", 11.0!)
         Me.lblC1Friendly.ForeColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
         Me.lblC1Friendly.Location = New System.Drawing.Point(3, 107)
         Me.lblC1Friendly.MouseState = MaterialSkin.MouseState.HOVER
@@ -1252,7 +1277,7 @@ Partial Class frmHomeMulti
         Me.lblC1Holdings.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.lblC1Holdings.BackColor = System.Drawing.Color.Transparent
         Me.lblC1Holdings.Depth = 0
-        Me.lblC1Holdings.Font = New System.Drawing.Font("Segoe UI", 11.0!)
+        Me.lblC1Holdings.Font = New System.Drawing.Font("Roboto", 11.0!)
         Me.lblC1Holdings.ForeColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
         Me.lblC1Holdings.Location = New System.Drawing.Point(3, 74)
         Me.lblC1Holdings.MouseState = MaterialSkin.MouseState.HOVER
@@ -2046,49 +2071,6 @@ Partial Class frmHomeMulti
         Me.tpFeedback.Tag = "Beta 1"
         Me.tpFeedback.Text = "Feedback"
         '
-        'prgUpdate
-        '
-        Me.prgUpdate.BackColor = System.Drawing.Color.Transparent
-        Me.prgUpdate.DrawHatch = True
-        Me.prgUpdate.Location = New System.Drawing.Point(85, 62)
-        Me.prgUpdate.Maximum = 100
-        Me.prgUpdate.Minimum = 0
-        Me.prgUpdate.MinimumSize = New System.Drawing.Size(58, 20)
-        Me.prgUpdate.Name = "prgUpdate"
-        Me.prgUpdate.ShowPercentage = True
-        Me.prgUpdate.Size = New System.Drawing.Size(285, 20)
-        Me.prgUpdate.TabIndex = 25
-        Me.prgUpdate.Value = 0
-        Me.prgUpdate.ValueAlignment = AltTrackr2.Ambiance.Ambiance_ProgressBar.Alignment.Right
-        Me.prgUpdate.Visible = False
-        '
-        'Ambiance_ProgressBar1
-        '
-        Me.Ambiance_ProgressBar1.BackColor = System.Drawing.Color.Transparent
-        Me.Ambiance_ProgressBar1.DrawHatch = True
-        Me.Ambiance_ProgressBar1.Location = New System.Drawing.Point(114, 136)
-        Me.Ambiance_ProgressBar1.Maximum = 100
-        Me.Ambiance_ProgressBar1.Minimum = 0
-        Me.Ambiance_ProgressBar1.MinimumSize = New System.Drawing.Size(58, 20)
-        Me.Ambiance_ProgressBar1.Name = "Ambiance_ProgressBar1"
-        Me.Ambiance_ProgressBar1.ShowPercentage = False
-        Me.Ambiance_ProgressBar1.Size = New System.Drawing.Size(75, 20)
-        Me.Ambiance_ProgressBar1.TabIndex = 17
-        Me.Ambiance_ProgressBar1.Text = "Ambiance_ProgressBar1"
-        Me.Ambiance_ProgressBar1.Value = 0
-        Me.Ambiance_ProgressBar1.ValueAlignment = AltTrackr2.Ambiance.Ambiance_ProgressBar.Alignment.Right
-        '
-        'lblLUpdateStatus
-        '
-        Me.lblLUpdateStatus.Font = New System.Drawing.Font("Segoe UI", 11.0!)
-        Me.lblLUpdateStatus.Location = New System.Drawing.Point(3, 95)
-        Me.lblLUpdateStatus.Name = "lblLUpdateStatus"
-        Me.lblLUpdateStatus.Size = New System.Drawing.Size(447, 23)
-        Me.lblLUpdateStatus.TabIndex = 26
-        Me.lblLUpdateStatus.Text = "Downloading AltTrackr x.xx"
-        Me.lblLUpdateStatus.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        Me.lblLUpdateStatus.Visible = False
-        '
         'frmHomeMulti
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -2186,7 +2168,6 @@ Partial Class frmHomeMulti
     Friend WithEvents pnlPipe As Panel
     Friend WithEvents AetherGroupBox2 As AetherGroupBox
     Friend WithEvents AetherGroupBox3 As AetherGroupBox
-    Friend WithEvents lblC1Prices As MaterialSkin.Controls.MaterialLabel
     Friend WithEvents lblC1Friendly As MaterialSkin.Controls.MaterialLabel
     Friend WithEvents lblC1Holdings As MaterialSkin.Controls.MaterialLabel
     Friend WithEvents AetherGroupBox4 As AetherGroupBox
@@ -2297,6 +2278,6 @@ Partial Class frmHomeMulti
     Friend WithEvents chkLAutoUpdate As AetherCheckBox
     Friend WithEvents chkLUpdateNotifier As AetherCheckBox
     Friend WithEvents prgUpdate As Ambiance.Ambiance_ProgressBar
-    Friend WithEvents Ambiance_ProgressBar1 As Ambiance.Ambiance_ProgressBar
     Friend WithEvents lblLUpdateStatus As Label
+    Friend WithEvents lblC1Prices As MaterialSkin.Controls.MaterialLabel
 End Class
