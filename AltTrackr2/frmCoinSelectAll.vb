@@ -86,6 +86,8 @@ Public Class frmCoinSelectAll
 
         If LvModule.SelectedItems.Count > 0 Then
             Try
+                If bkgGetData.IsBusy Then bkgGetData.CancelAsync()
+
                 'Get base image URL from request
                 Dim baseimageurl As String = results("BaseImageUrl").ToString
                 Dim baselinkurl As String = results("BaseLinkUrl").ToString
@@ -112,18 +114,22 @@ Public Class frmCoinSelectAll
         End If
     End Sub
 
+    Dim textChangedFire As Boolean = True
     Private Sub txtSearch_TextChanged(sender As Object, e As EventArgs) Handles txtSearch.TextChanged
-        Dim item1 As ListViewItem = LvModule.FindItemWithText(txtSearch.Text)
-        If item1 IsNot Nothing Then
-            'MsgBox("Item: " + item1.Text)
-            LvModule.FocusedItem = item1
-            'LvModule.Focus()
-            item1.Selected = True
-            'item1.Focused = True
-            item1.EnsureVisible()
+        If textChangedFire Then
+            Dim item1 As ListViewItem = LvModule.FindItemWithText(txtSearch.Text)
+            If item1 IsNot Nothing Then
+                'MsgBox("Item: " + item1.Text)
+                LvModule.FocusedItem = item1
+                'LvModule.Focus()
+                item1.Selected = True
+                'item1.Focused = True
+                item1.EnsureVisible()
 
-            txtSearch.Focus()
+                txtSearch.Focus()
+            End If
         End If
+        textChangedFire = True
     End Sub
 
     Private Sub bkgGetData_DoWork(sender As Object, e As DoWorkEventArgs) Handles bkgGetData.DoWork
@@ -142,6 +148,6 @@ Public Class frmCoinSelectAll
     End Sub
 
     Private Sub txtSearch_Click(sender As Object, e As EventArgs) Handles txtSearch.Click
-        If txtSearch.Text = "Search by Coin Code" Then txtSearch.Text = String.Empty
+        If txtSearch.Text = "Search by Coin Code" Then textChangedFire = False : txtSearch.Text = String.Empty
     End Sub
 End Class

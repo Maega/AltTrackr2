@@ -27,13 +27,6 @@ Partial Class frmCoinSelectAll
         Me.ColumnHeader5 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader6 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader7 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.txtSearch = New MaterialSkin.Controls.MaterialSingleLineTextField()
-        Me.prgLoading = New MRG.Controls.UI.LoadingCircle()
-        Me.bkgGetData = New System.ComponentModel.BackgroundWorker()
-        Me.chkC1 = New MaterialSkin.Controls.MaterialCheckBox()
-        Me.chkC2 = New MaterialSkin.Controls.MaterialCheckBox()
-        Me.chkC3 = New MaterialSkin.Controls.MaterialCheckBox()
-        Me.chkC4 = New MaterialSkin.Controls.MaterialCheckBox()
         Me.cxtItem = New MaterialSkin.Controls.MaterialContextMenuStrip()
         Me.AddToSlot1ToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AddToSlot2ToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -43,6 +36,14 @@ Partial Class frmCoinSelectAll
         Me.ViewInfoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator2 = New System.Windows.Forms.ToolStripSeparator()
         Me.ReloadAllToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.txtSearch = New MaterialSkin.Controls.MaterialSingleLineTextField()
+        Me.prgLoading = New MRG.Controls.UI.LoadingCircle()
+        Me.bkgGetData = New System.ComponentModel.BackgroundWorker()
+        Me.chkC1 = New MaterialSkin.Controls.MaterialCheckBox()
+        Me.chkC2 = New MaterialSkin.Controls.MaterialCheckBox()
+        Me.chkC3 = New MaterialSkin.Controls.MaterialCheckBox()
+        Me.chkC4 = New MaterialSkin.Controls.MaterialCheckBox()
+        Me.MaterialRaisedButton1 = New MaterialSkin.Controls.MaterialRaisedButton()
         CType(Me.picCoinLogo, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.cxtItem.SuspendLayout()
         Me.SuspendLayout()
@@ -93,6 +94,61 @@ Partial Class frmCoinSelectAll
         Me.ColumnHeader7.Text = "Algorithm"
         Me.ColumnHeader7.Width = 200
         '
+        'cxtItem
+        '
+        Me.cxtItem.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.cxtItem.Depth = 0
+        Me.cxtItem.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AddToSlot1ToolStripMenuItem, Me.AddToSlot2ToolStripMenuItem, Me.AddToSlot3ToolStripMenuItem, Me.AddToSlot4ToolStripMenuItem, Me.ToolStripSeparator1, Me.ViewInfoToolStripMenuItem, Me.ToolStripSeparator2, Me.ReloadAllToolStripMenuItem})
+        Me.cxtItem.MouseState = MaterialSkin.MouseState.HOVER
+        Me.cxtItem.Name = "cxtItem"
+        Me.cxtItem.Size = New System.Drawing.Size(143, 148)
+        '
+        'AddToSlot1ToolStripMenuItem
+        '
+        Me.AddToSlot1ToolStripMenuItem.Name = "AddToSlot1ToolStripMenuItem"
+        Me.AddToSlot1ToolStripMenuItem.Size = New System.Drawing.Size(142, 22)
+        Me.AddToSlot1ToolStripMenuItem.Text = "Add to Slot 1"
+        '
+        'AddToSlot2ToolStripMenuItem
+        '
+        Me.AddToSlot2ToolStripMenuItem.Name = "AddToSlot2ToolStripMenuItem"
+        Me.AddToSlot2ToolStripMenuItem.Size = New System.Drawing.Size(142, 22)
+        Me.AddToSlot2ToolStripMenuItem.Text = "Add to Slot 2"
+        '
+        'AddToSlot3ToolStripMenuItem
+        '
+        Me.AddToSlot3ToolStripMenuItem.Name = "AddToSlot3ToolStripMenuItem"
+        Me.AddToSlot3ToolStripMenuItem.Size = New System.Drawing.Size(142, 22)
+        Me.AddToSlot3ToolStripMenuItem.Text = "Add to Slot 3"
+        '
+        'AddToSlot4ToolStripMenuItem
+        '
+        Me.AddToSlot4ToolStripMenuItem.Name = "AddToSlot4ToolStripMenuItem"
+        Me.AddToSlot4ToolStripMenuItem.Size = New System.Drawing.Size(142, 22)
+        Me.AddToSlot4ToolStripMenuItem.Text = "Add to Slot 4"
+        '
+        'ToolStripSeparator1
+        '
+        Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
+        Me.ToolStripSeparator1.Size = New System.Drawing.Size(139, 6)
+        '
+        'ViewInfoToolStripMenuItem
+        '
+        Me.ViewInfoToolStripMenuItem.Name = "ViewInfoToolStripMenuItem"
+        Me.ViewInfoToolStripMenuItem.Size = New System.Drawing.Size(142, 22)
+        Me.ViewInfoToolStripMenuItem.Text = "View Info"
+        '
+        'ToolStripSeparator2
+        '
+        Me.ToolStripSeparator2.Name = "ToolStripSeparator2"
+        Me.ToolStripSeparator2.Size = New System.Drawing.Size(139, 6)
+        '
+        'ReloadAllToolStripMenuItem
+        '
+        Me.ReloadAllToolStripMenuItem.Name = "ReloadAllToolStripMenuItem"
+        Me.ReloadAllToolStripMenuItem.Size = New System.Drawing.Size(142, 22)
+        Me.ReloadAllToolStripMenuItem.Text = "Reload All"
+        '
         'txtSearch
         '
         Me.txtSearch.Depth = 0
@@ -129,6 +185,7 @@ Partial Class frmCoinSelectAll
         '
         'bkgGetData
         '
+        Me.bkgGetData.WorkerSupportsCancellation = True
         '
         'chkC1
         '
@@ -206,66 +263,27 @@ Partial Class frmCoinSelectAll
         Me.chkC4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         Me.chkC4.UseVisualStyleBackColor = False
         '
-        'cxtItem
+        'MaterialRaisedButton1
         '
-        Me.cxtItem.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.cxtItem.Depth = 0
-        Me.cxtItem.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AddToSlot1ToolStripMenuItem, Me.AddToSlot2ToolStripMenuItem, Me.AddToSlot3ToolStripMenuItem, Me.AddToSlot4ToolStripMenuItem, Me.ToolStripSeparator1, Me.ViewInfoToolStripMenuItem, Me.ToolStripSeparator2, Me.ReloadAllToolStripMenuItem})
-        Me.cxtItem.MouseState = MaterialSkin.MouseState.HOVER
-        Me.cxtItem.Name = "cxtItem"
-        Me.cxtItem.Size = New System.Drawing.Size(143, 148)
-        '
-        'AddToSlot1ToolStripMenuItem
-        '
-        Me.AddToSlot1ToolStripMenuItem.Name = "AddToSlot1ToolStripMenuItem"
-        Me.AddToSlot1ToolStripMenuItem.Size = New System.Drawing.Size(142, 22)
-        Me.AddToSlot1ToolStripMenuItem.Text = "Add to Slot 1"
-        '
-        'AddToSlot2ToolStripMenuItem
-        '
-        Me.AddToSlot2ToolStripMenuItem.Name = "AddToSlot2ToolStripMenuItem"
-        Me.AddToSlot2ToolStripMenuItem.Size = New System.Drawing.Size(142, 22)
-        Me.AddToSlot2ToolStripMenuItem.Text = "Add to Slot 2"
-        '
-        'AddToSlot3ToolStripMenuItem
-        '
-        Me.AddToSlot3ToolStripMenuItem.Name = "AddToSlot3ToolStripMenuItem"
-        Me.AddToSlot3ToolStripMenuItem.Size = New System.Drawing.Size(142, 22)
-        Me.AddToSlot3ToolStripMenuItem.Text = "Add to Slot 3"
-        '
-        'AddToSlot4ToolStripMenuItem
-        '
-        Me.AddToSlot4ToolStripMenuItem.Name = "AddToSlot4ToolStripMenuItem"
-        Me.AddToSlot4ToolStripMenuItem.Size = New System.Drawing.Size(142, 22)
-        Me.AddToSlot4ToolStripMenuItem.Text = "Add to Slot 4"
-        '
-        'ToolStripSeparator1
-        '
-        Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
-        Me.ToolStripSeparator1.Size = New System.Drawing.Size(139, 6)
-        '
-        'ViewInfoToolStripMenuItem
-        '
-        Me.ViewInfoToolStripMenuItem.Name = "ViewInfoToolStripMenuItem"
-        Me.ViewInfoToolStripMenuItem.Size = New System.Drawing.Size(142, 22)
-        Me.ViewInfoToolStripMenuItem.Text = "View Info"
-        '
-        'ToolStripSeparator2
-        '
-        Me.ToolStripSeparator2.Name = "ToolStripSeparator2"
-        Me.ToolStripSeparator2.Size = New System.Drawing.Size(139, 6)
-        '
-        'ReloadAllToolStripMenuItem
-        '
-        Me.ReloadAllToolStripMenuItem.Name = "ReloadAllToolStripMenuItem"
-        Me.ReloadAllToolStripMenuItem.Size = New System.Drawing.Size(142, 22)
-        Me.ReloadAllToolStripMenuItem.Text = "Reload All"
+        Me.MaterialRaisedButton1.AutoSize = True
+        Me.MaterialRaisedButton1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.MaterialRaisedButton1.Depth = 0
+        Me.MaterialRaisedButton1.Icon = Nothing
+        Me.MaterialRaisedButton1.Location = New System.Drawing.Point(811, 26)
+        Me.MaterialRaisedButton1.MouseState = MaterialSkin.MouseState.HOVER
+        Me.MaterialRaisedButton1.Name = "MaterialRaisedButton1"
+        Me.MaterialRaisedButton1.Primary = True
+        Me.MaterialRaisedButton1.Size = New System.Drawing.Size(88, 36)
+        Me.MaterialRaisedButton1.TabIndex = 26
+        Me.MaterialRaisedButton1.Text = "Continue"
+        Me.MaterialRaisedButton1.UseVisualStyleBackColor = True
         '
         'frmCoinSelectAll
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(900, 462)
+        Me.Controls.Add(Me.MaterialRaisedButton1)
         Me.Controls.Add(Me.chkC4)
         Me.Controls.Add(Me.chkC3)
         Me.Controls.Add(Me.chkC2)
@@ -280,6 +298,7 @@ Partial Class frmCoinSelectAll
         CType(Me.picCoinLogo, System.ComponentModel.ISupportInitialize).EndInit()
         Me.cxtItem.ResumeLayout(False)
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
     Friend WithEvents picCoinLogo As PictureBox
@@ -303,4 +322,5 @@ Partial Class frmCoinSelectAll
     Friend WithEvents ViewInfoToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ToolStripSeparator2 As ToolStripSeparator
     Friend WithEvents ReloadAllToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents MaterialRaisedButton1 As MaterialSkin.Controls.MaterialRaisedButton
 End Class
