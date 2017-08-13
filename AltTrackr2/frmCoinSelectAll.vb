@@ -5,12 +5,20 @@ Imports Newtonsoft.Json
 Imports Newtonsoft.Json.Linq
 
 Public Class frmCoinSelectAll
+
+    Public Shared coinArray() As String = {String.Empty, String.Empty, String.Empty, String.Empty}
+    Public Shared coinNameArray() As String = {String.Empty, String.Empty, String.Empty, String.Empty}
+
     Private Sub frmCoinSelectAll_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Dim SkinManager As MaterialSkinManager = MaterialSkinManager.Instance
 
         SkinManager.AddFormToManage(Me)
-        SkinManager.Theme = MaterialSkinManager.Themes.LIGHT
+        SkinManager.Theme = MaterialSkinManager.Themes.DARK
 
+        If Not coinArray(0) = String.Empty Then
+            chkC1.Text = "Slot 1: " + coinArray(0)
+            chkC1.Checked = True
+        End If
         ' MsgBox(results.ToString)
     End Sub
 
@@ -149,5 +157,57 @@ Public Class frmCoinSelectAll
 
     Private Sub txtSearch_Click(sender As Object, e As EventArgs) Handles txtSearch.Click
         If txtSearch.Text = "Search by Coin Code" Then textChangedFire = False : txtSearch.Text = String.Empty
+    End Sub
+
+    Private Sub LvModule_MouseClick(sender As Object, e As MouseEventArgs) Handles LvModule.MouseClick
+        If e.Button = MouseButtons.Right Then
+            If LvModule.FocusedItem.Bounds.Contains(e.Location) = True Then
+                tsiCoinName.Text = LvModule.FocusedItem.Text
+                selectedCoin(0) = LvModule.FocusedItem.Text
+                selectedCoin(1) = LvModule.FocusedItem.SubItems(1).Text
+                cxtItem.Show(Cursor.Position)
+            End If
+        End If
+    End Sub
+
+    Dim selectedCoin() As String = {String.Empty, String.Empty} '0 = Crypto Code, 1 = Crypto Name
+    Private Sub tsiAddC1_Click(sender As Object, e As EventArgs) Handles tsiAddC1.Click
+        coinArray(0) = selectedCoin(0)
+        coinNameArray(0) = selectedCoin(1)
+        chkC1.Text = "Slot 1: " + selectedCoin(0)
+        chkC1.Checked = True
+    End Sub
+
+    Private Sub tsiAddC2_Click(sender As Object, e As EventArgs) Handles tsiAddC2.Click
+        coinArray(1) = selectedCoin(0)
+        coinNameArray(1) = selectedCoin(1)
+        chkC2.Text = "Slot 2: " + selectedCoin(0)
+        chkC2.Checked = True
+    End Sub
+
+    Private Sub tsiAddC3_Click(sender As Object, e As EventArgs) Handles tsiAddC3.Click
+        coinArray(2) = selectedCoin(0)
+        coinNameArray(2) = selectedCoin(1)
+        chkC3.Text = "Slot 3: " + selectedCoin(0)
+        chkC3.Checked = True
+    End Sub
+
+    Private Sub tsiAddC4_Click(sender As Object, e As EventArgs) Handles tsiAddC4.Click
+        coinArray(3) = selectedCoin(0)
+        coinNameArray(3) = selectedCoin(1)
+        chkC4.Text = "Slot 4: " + selectedCoin(0)
+        chkC4.Checked = True
+    End Sub
+
+    Private Sub MaterialRaisedButton1_Click_1(sender As Object, e As EventArgs) Handles MaterialRaisedButton1.Click
+        If chkC1.Checked And chkC2.Checked And chkC3.Checked And chkC4.Checked Then
+            'Ready to continue
+            My.Computer.Registry.SetValue(My.Settings.RegLocation, "AppCoins", String.Join(",", coinArray).ToUpper)
+            My.Computer.Registry.SetValue(My.Settings.RegLocation, "AppCoinNames", String.Join(",", coinNameArray))
+            Me.Text = "Coin Manager"
+            cTiming.transitionForms(Me, frmFiatSelect)
+        Else
+            MsgBox("Sorry, for now you need to assign all four coins a value. This will be optimised in future builds.", MsgBoxStyle.Exclamation)
+        End If
     End Sub
 End Class

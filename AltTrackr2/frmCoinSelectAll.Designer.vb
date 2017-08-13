@@ -28,10 +28,12 @@ Partial Class frmCoinSelectAll
         Me.ColumnHeader6 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader7 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.cxtItem = New MaterialSkin.Controls.MaterialContextMenuStrip()
-        Me.AddToSlot1ToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.AddToSlot2ToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.AddToSlot3ToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.AddToSlot4ToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.tsiCoinName = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripSeparator3 = New System.Windows.Forms.ToolStripSeparator()
+        Me.tsiAddC1 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.tsiAddC2 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.tsiAddC3 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.tsiAddC4 = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
         Me.ViewInfoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator2 = New System.Windows.Forms.ToolStripSeparator()
@@ -98,34 +100,46 @@ Partial Class frmCoinSelectAll
         '
         Me.cxtItem.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.cxtItem.Depth = 0
-        Me.cxtItem.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AddToSlot1ToolStripMenuItem, Me.AddToSlot2ToolStripMenuItem, Me.AddToSlot3ToolStripMenuItem, Me.AddToSlot4ToolStripMenuItem, Me.ToolStripSeparator1, Me.ViewInfoToolStripMenuItem, Me.ToolStripSeparator2, Me.ReloadAllToolStripMenuItem})
+        Me.cxtItem.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.tsiCoinName, Me.ToolStripSeparator3, Me.tsiAddC1, Me.tsiAddC2, Me.tsiAddC3, Me.tsiAddC4, Me.ToolStripSeparator1, Me.ViewInfoToolStripMenuItem, Me.ToolStripSeparator2, Me.ReloadAllToolStripMenuItem})
         Me.cxtItem.MouseState = MaterialSkin.MouseState.HOVER
         Me.cxtItem.Name = "cxtItem"
-        Me.cxtItem.Size = New System.Drawing.Size(143, 148)
+        Me.cxtItem.Size = New System.Drawing.Size(143, 176)
         '
-        'AddToSlot1ToolStripMenuItem
+        'tsiCoinName
         '
-        Me.AddToSlot1ToolStripMenuItem.Name = "AddToSlot1ToolStripMenuItem"
-        Me.AddToSlot1ToolStripMenuItem.Size = New System.Drawing.Size(142, 22)
-        Me.AddToSlot1ToolStripMenuItem.Text = "Add to Slot 1"
+        Me.tsiCoinName.Enabled = False
+        Me.tsiCoinName.Name = "tsiCoinName"
+        Me.tsiCoinName.Size = New System.Drawing.Size(142, 22)
+        Me.tsiCoinName.Text = "CoinName"
         '
-        'AddToSlot2ToolStripMenuItem
+        'ToolStripSeparator3
         '
-        Me.AddToSlot2ToolStripMenuItem.Name = "AddToSlot2ToolStripMenuItem"
-        Me.AddToSlot2ToolStripMenuItem.Size = New System.Drawing.Size(142, 22)
-        Me.AddToSlot2ToolStripMenuItem.Text = "Add to Slot 2"
+        Me.ToolStripSeparator3.Name = "ToolStripSeparator3"
+        Me.ToolStripSeparator3.Size = New System.Drawing.Size(139, 6)
         '
-        'AddToSlot3ToolStripMenuItem
+        'tsiAddC1
         '
-        Me.AddToSlot3ToolStripMenuItem.Name = "AddToSlot3ToolStripMenuItem"
-        Me.AddToSlot3ToolStripMenuItem.Size = New System.Drawing.Size(142, 22)
-        Me.AddToSlot3ToolStripMenuItem.Text = "Add to Slot 3"
+        Me.tsiAddC1.Name = "tsiAddC1"
+        Me.tsiAddC1.Size = New System.Drawing.Size(142, 22)
+        Me.tsiAddC1.Text = "Add to Slot 1"
         '
-        'AddToSlot4ToolStripMenuItem
+        'tsiAddC2
         '
-        Me.AddToSlot4ToolStripMenuItem.Name = "AddToSlot4ToolStripMenuItem"
-        Me.AddToSlot4ToolStripMenuItem.Size = New System.Drawing.Size(142, 22)
-        Me.AddToSlot4ToolStripMenuItem.Text = "Add to Slot 4"
+        Me.tsiAddC2.Name = "tsiAddC2"
+        Me.tsiAddC2.Size = New System.Drawing.Size(142, 22)
+        Me.tsiAddC2.Text = "Add to Slot 2"
+        '
+        'tsiAddC3
+        '
+        Me.tsiAddC3.Name = "tsiAddC3"
+        Me.tsiAddC3.Size = New System.Drawing.Size(142, 22)
+        Me.tsiAddC3.Text = "Add to Slot 3"
+        '
+        'tsiAddC4
+        '
+        Me.tsiAddC4.Name = "tsiAddC4"
+        Me.tsiAddC4.Size = New System.Drawing.Size(142, 22)
+        Me.tsiAddC4.Text = "Add to Slot 4"
         '
         'ToolStripSeparator1
         '
@@ -314,13 +328,15 @@ Partial Class frmCoinSelectAll
     Friend WithEvents chkC3 As MaterialSkin.Controls.MaterialCheckBox
     Friend WithEvents chkC4 As MaterialSkin.Controls.MaterialCheckBox
     Friend WithEvents cxtItem As MaterialSkin.Controls.MaterialContextMenuStrip
-    Friend WithEvents AddToSlot1ToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents AddToSlot2ToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents AddToSlot3ToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents AddToSlot4ToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents tsiAddC1 As ToolStripMenuItem
+    Friend WithEvents tsiAddC2 As ToolStripMenuItem
+    Friend WithEvents tsiAddC3 As ToolStripMenuItem
+    Friend WithEvents tsiAddC4 As ToolStripMenuItem
     Friend WithEvents ToolStripSeparator1 As ToolStripSeparator
     Friend WithEvents ViewInfoToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ToolStripSeparator2 As ToolStripSeparator
     Friend WithEvents ReloadAllToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents MaterialRaisedButton1 As MaterialSkin.Controls.MaterialRaisedButton
+    Friend WithEvents tsiCoinName As ToolStripMenuItem
+    Friend WithEvents ToolStripSeparator3 As ToolStripSeparator
 End Class

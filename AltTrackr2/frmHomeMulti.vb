@@ -32,6 +32,7 @@ Public Class frmHomeMulti
         Dim SkinManager As MaterialSkinManager = MaterialSkinManager.Instance
         SkinManager.AddFormToManage(Me)
         SkinManager.ColorScheme = New ColorScheme(-13354941, -13354941, 6323595, 4244735, 16777215) 'Third and Fourth need to be updated to current theme.
+        SkinManager.Theme = MaterialSkinManager.Themes.LIGHT
         tabContent.Dock = DockStyle.None
         tabContent.Location = New Point(0, 64)
         tabContent.SelectedTab = tpHome
@@ -151,6 +152,12 @@ Public Class frmHomeMulti
             lblGoalC2.Text = coinNameArray(1)
             lblGoalC3.Text = coinNameArray(2)
             lblGoalC4.Text = coinNameArray(3)
+
+            'Set coin tab page names
+            tpCoin1.Text = coinNameArray(0)
+            tpCoin2.Text = coinNameArray(1)
+            tpCoin3.Text = coinNameArray(2)
+            tpCoin4.Text = coinNameArray(3)
 
             'Set goal ring parameters
             If coinGoals.Count - 0 > 0 Then prgC1.Max = coinGoals(0) : prgC1.Text = "Goal: " + coinGoals(0) + " " + fiatMain Else prgC1.Max = 1

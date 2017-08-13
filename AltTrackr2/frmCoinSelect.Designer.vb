@@ -28,8 +28,6 @@ Partial Class frmCoinSelect
         Me.picLogo = New System.Windows.Forms.PictureBox()
         Me.btnNext = New System.Windows.Forms.PictureBox()
         Me.btnBack = New System.Windows.Forms.PictureBox()
-        Me.txtOtherCoin = New MaterialSkin.Controls.MaterialSingleLineTextField()
-        Me.btnOtherContinue = New MaterialSkin.Controls.MaterialRaisedButton()
         Me.lblOtherCoin = New MaterialSkin.Controls.MaterialLabel()
         CType(Me.picLogo, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.btnNext, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -101,40 +99,6 @@ Partial Class frmCoinSelect
         Me.btnBack.TabIndex = 1
         Me.btnBack.TabStop = False
         '
-        'txtOtherCoin
-        '
-        Me.txtOtherCoin.Depth = 0
-        Me.txtOtherCoin.Hint = ""
-        Me.txtOtherCoin.Location = New System.Drawing.Point(328, 426)
-        Me.txtOtherCoin.MaxLength = 32767
-        Me.txtOtherCoin.MouseState = MaterialSkin.MouseState.HOVER
-        Me.txtOtherCoin.Name = "txtOtherCoin"
-        Me.txtOtherCoin.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
-        Me.txtOtherCoin.SelectedText = ""
-        Me.txtOtherCoin.SelectionLength = 0
-        Me.txtOtherCoin.SelectionStart = 0
-        Me.txtOtherCoin.Size = New System.Drawing.Size(109, 23)
-        Me.txtOtherCoin.TabIndex = 5
-        Me.txtOtherCoin.TabStop = False
-        Me.txtOtherCoin.UseSystemPasswordChar = False
-        Me.txtOtherCoin.Visible = False
-        '
-        'btnOtherContinue
-        '
-        Me.btnOtherContinue.AutoSize = True
-        Me.btnOtherContinue.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
-        Me.btnOtherContinue.Depth = 0
-        Me.btnOtherContinue.Icon = Nothing
-        Me.btnOtherContinue.Location = New System.Drawing.Point(461, 418)
-        Me.btnOtherContinue.MouseState = MaterialSkin.MouseState.HOVER
-        Me.btnOtherContinue.Name = "btnOtherContinue"
-        Me.btnOtherContinue.Primary = True
-        Me.btnOtherContinue.Size = New System.Drawing.Size(88, 36)
-        Me.btnOtherContinue.TabIndex = 6
-        Me.btnOtherContinue.Text = "Continue"
-        Me.btnOtherContinue.UseVisualStyleBackColor = True
-        Me.btnOtherContinue.Visible = False
-        '
         'lblOtherCoin
         '
         Me.lblOtherCoin.AutoSize = True
@@ -156,8 +120,6 @@ Partial Class frmCoinSelect
         Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(900, 462)
         Me.Controls.Add(Me.lblOtherCoin)
-        Me.Controls.Add(Me.btnOtherContinue)
-        Me.Controls.Add(Me.txtOtherCoin)
         Me.Controls.Add(Me.lblCoinName)
         Me.Controls.Add(Me.picLogo)
         Me.Controls.Add(Me.btnOtherCoin)
@@ -165,7 +127,7 @@ Partial Class frmCoinSelect
         Me.Controls.Add(Me.btnBack)
         Me.Name = "frmCoinSelect"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "Select Your Coin"
+        Me.Text = "Select Your First Coin"
         CType(Me.picLogo, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.btnNext, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.btnBack, System.ComponentModel.ISupportInitialize).EndInit()
@@ -179,7 +141,5 @@ Partial Class frmCoinSelect
     Friend WithEvents btnNext As PictureBox
     Friend WithEvents btnOtherCoin As LinkLabel
     Friend WithEvents lblCoinName As MaterialSkin.Controls.MaterialLabel
-    Friend WithEvents txtOtherCoin As MaterialSkin.Controls.MaterialSingleLineTextField
-    Friend WithEvents btnOtherContinue As MaterialSkin.Controls.MaterialRaisedButton
     Friend WithEvents lblOtherCoin As MaterialSkin.Controls.MaterialLabel
 End Class
