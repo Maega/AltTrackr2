@@ -2005,7 +2005,7 @@ Partial Class frmHomeMulti
         'AetherButton3
         '
         Me.AetherButton3.EnabledCalc = True
-        Me.AetherButton3.Location = New System.Drawing.Point(434, 94)
+        Me.AetherButton3.Location = New System.Drawing.Point(428, 94)
         Me.AetherButton3.Name = "AetherButton3"
         Me.AetherButton3.Size = New System.Drawing.Size(330, 23)
         Me.AetherButton3.TabIndex = 4

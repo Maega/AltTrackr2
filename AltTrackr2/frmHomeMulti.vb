@@ -373,6 +373,10 @@ Public Class frmHomeMulti
         prgC2.Text = "Goal: " + txtC2Goal.Text + fiatMain
         prgC3.Text = "Goal: " + txtC3Goal.Text + fiatMain
         prgC4.Text = "Goal: " + txtC4Goal.Text + fiatMain
+
+        My.Computer.Registry.SetValue(My.Settings.RegLocation, "AppGoals", txtC1Goal.Text + "," + txtC2Goal.Text + "," + txtC3Goal.Text + "," + txtC4Goal.Text)
+
+        MsgBox("New goals have been set", MsgBoxStyle.Exclamation)
     End Sub
 
     Dim _colour As Color
