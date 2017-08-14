@@ -165,6 +165,21 @@ Public Class frmHomeMulti
             tpCoin3.Text = coinNameArray(2)
             tpCoin4.Text = coinNameArray(3)
 
+            'Change percentage container name
+            grpC1Change.Text = coinNameArray(0) + " - Day/Total"
+            grpC2Change.Text = coinNameArray(1) + " - Day/Total"
+            grpC3Change.Text = coinNameArray(2) + " - Day/Total"
+            grpC4Change.Text = coinNameArray(3) + " - Day/Total"
+
+            lblC1DChange.Text = "+" + serverResponse.SelectToken("DISPLAY").SelectToken(coinCodeArray(0)).SelectToken(fiatMain).SelectToken("CHANGEPCT24HOUR").ToString("0.00") + "%"
+            lblC1DChange.Text = lblC1DChange.Text.Replace("+-", "-")
+            lblC2DChange.Text = "+" + serverResponse.SelectToken("DISPLAY").SelectToken(coinCodeArray(1)).SelectToken(fiatMain).SelectToken("CHANGEPCT24HOUR").ToString("0.00") + "%"
+            lblC2DChange.Text = lblC2DChange.Text.Replace("+-", "-")
+            lblC3DChange.Text = "+" + serverResponse.SelectToken("DISPLAY").SelectToken(coinCodeArray(2)).SelectToken(fiatMain).SelectToken("CHANGEPCT24HOUR").ToString("0.00") + "%"
+            lblC3DChange.Text = lblC3DChange.Text.Replace("+-", "-")
+            lblC4DChange.Text = "+" + serverResponse.SelectToken("DISPLAY").SelectToken(coinCodeArray(3)).SelectToken(fiatMain).SelectToken("CHANGEPCT24HOUR").ToString("0.00") + "%"
+            lblC4DChange.Text = lblC4DChange.Text.Replace("+-", "-")
+
             'Set goal ring parameters
             If coinGoals.Count - 0 > 0 Then prgC1.Max = coinGoals(0) : prgC1.Text = "Goal: " + coinGoals(0) + " " + fiatMain Else prgC1.Max = 1
             If coinGoals.Count - 1 > 0 Then prgC2.Max = coinGoals(1) : prgC2.Text = "Goal: " + coinGoals(1) + " " + fiatMain Else prgC2.Max = 1
