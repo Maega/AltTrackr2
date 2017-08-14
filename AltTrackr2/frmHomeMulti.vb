@@ -40,6 +40,11 @@ Public Class frmHomeMulti
         GetPrices()
         Me.CenterToParent()
         tagCurrentVer.Text = "v" + UpdateAPI.CurrentVer.ToString("0.0.0")
+
+        txtC1Goal.Text = My.Computer.Registry.GetValue(My.Settings.RegLocation, "AppGoals", Nothing).Split(",")(0)
+        txtC2Goal.Text = My.Computer.Registry.GetValue(My.Settings.RegLocation, "AppGoals", Nothing).Split(",")(1)
+        txtC3Goal.Text = My.Computer.Registry.GetValue(My.Settings.RegLocation, "AppGoals", Nothing).Split(",")(2)
+        txtC4Goal.Text = My.Computer.Registry.GetValue(My.Settings.RegLocation, "AppGoals", Nothing).Split(",")(3)
     End Sub
 
     Private Sub AetherButton2_Click(sender As Object, e As EventArgs) Handles AetherButton2.Click
@@ -109,7 +114,7 @@ Public Class frmHomeMulti
 
     Private Sub bkgGetPrices_DoWork(sender As Object, e As System.ComponentModel.DoWorkEventArgs) Handles bkgGetPrices.DoWork
         Try
-            serverResponse = ParseJSON("https://min-api.cryptocompare.com/data/pricemulti?fsyms=" + My.Computer.Registry.GetValue(My.Settings.RegLocation, "AppCoins", Nothing) + "&tsyms=" + My.Computer.Registry.GetValue(My.Settings.RegLocation, "AppAltFiats", Nothing))
+            serverResponse = ParseJSON("https://min-api.cryptocompare.com/data/pricemultifull?fsyms=" + My.Computer.Registry.GetValue(My.Settings.RegLocation, "AppCoins", Nothing) + "&tsyms=" + My.Computer.Registry.GetValue(My.Settings.RegLocation, "AppAltFiats", Nothing))
         Catch ex As Exception
             bkgGetPrices.CancelAsync()
         End Try
@@ -128,14 +133,14 @@ Public Class frmHomeMulti
                 lblAltPrices.Text += coinCode + " - "
                 lblAltHoldings.Text += coinCode + " - "
                 For Each fiatCode As String In fiatArray
-                    If CDec(serverResponse.SelectToken(coinCode).SelectToken(fiatCode)) >= 1.0 Then 'If the price is more than one fiat in value, round to two decimal places
-                        lblAltPrices.Text += fiatCode + " " + CDec(serverResponse.SelectToken(coinCode).SelectToken(fiatCode)).ToString("n2") + " | "
+                    If CDec(serverResponse.SelectToken("RAW").SelectToken(coinCode).SelectToken(fiatCode).SelectToken("PRICE")) >= 1.0 Then 'If the price is more than one fiat in value, round to two decimal places
+                        lblAltPrices.Text += fiatCode + " " + CDec(serverResponse.SelectToken("RAW").SelectToken(coinCode).SelectToken(fiatCode).SelectToken("PRICE")).ToString("n2") + " | "
 
                         'MsgBox(Array.IndexOf(coinCodeArray, coinCode))
-                        lblAltHoldings.Text += fiatCode + " " + (totalHoldings(Array.IndexOf(coinCodeArray, coinCode)) * CDec(serverResponse.SelectToken(coinCode).SelectToken(fiatCode))).ToString("n2") + " | "
+                        lblAltHoldings.Text += fiatCode + " " + (totalHoldings(Array.IndexOf(coinCodeArray, coinCode)) * CDec(serverResponse.SelectToken("RAW").SelectToken(coinCode).SelectToken(fiatCode).SelectToken("PRICE"))).ToString("n2") + " | "
                     Else 'If the price is less than one fiat, round to four decimal places for less valuable coins
-                        lblAltPrices.Text += fiatCode + " " + CDec(serverResponse.SelectToken(coinCode).SelectToken(fiatCode)).ToString("n4") + " | "
-                        lblAltHoldings.Text += fiatCode + " " + (totalHoldings(Array.IndexOf(coinCodeArray, coinCode)) * CDec(serverResponse.SelectToken(coinCode).SelectToken(fiatCode))).ToString("n4") + " | "
+                        lblAltPrices.Text += fiatCode + " " + CDec(serverResponse.SelectToken("RAW").SelectToken(coinCode).SelectToken(fiatCode).SelectToken("PRICE")).ToString("n4") + " | "
+                        lblAltHoldings.Text += fiatCode + " " + (totalHoldings(Array.IndexOf(coinCodeArray, coinCode)) * CDec(serverResponse.SelectToken("RAW").SelectToken(coinCode).SelectToken(fiatCode).SelectToken("PRICE"))).ToString("n4") + " | "
                     End If
                 Next
                 lblAltPrices.Text = lblAltPrices.Text.TrimEnd(" ")
@@ -166,16 +171,16 @@ Public Class frmHomeMulti
             If coinGoals.Count - 2 > 0 Then prgC3.Max = coinGoals(2) : prgC3.Text = "Goal: " + coinGoals(2) + " " + fiatMain Else prgC3.Max = 1
             If coinGoals.Count - 3 > 0 Then prgC4.Max = coinGoals(3) : prgC4.Text = "Goal: " + coinGoals(3) + " " + fiatMain Else prgC4.Max = 1
 
-            If coinCodeArray.Count - 0 > 0 Then prgC1.Progress = CDec(serverResponse.SelectToken(coinCodeArray(0)).SelectToken(fiatMain)).ToString("n2") : prgC1.PostText = " " + fiatMain Else prgC1.Progress = 0 : prgC1.PostText = " N/A" : prgC1.Text = "CONFIGURE"
-            If coinCodeArray.Count - 1 > 0 Then prgC2.Progress = CDec(serverResponse.SelectToken(coinCodeArray(1)).SelectToken(fiatMain)).ToString("n2") : prgC2.PostText = " " + fiatMain Else prgC2.Progress = 0 : prgC2.PostText = " N/A" : prgC2.Text = "CONFIGURE"
-            If coinCodeArray.Count - 2 > 0 Then prgC3.Progress = CDec(serverResponse.SelectToken(coinCodeArray(2)).SelectToken(fiatMain)).ToString("n2") : prgC3.PostText = " " + fiatMain Else prgC3.Progress = 0 : prgC3.PostText = " N/A" : prgC3.Text = "CONFIGURE"
-            If coinCodeArray.Count - 3 > 0 Then prgC4.Progress = CDec(serverResponse.SelectToken(coinCodeArray(3)).SelectToken(fiatMain)).ToString("n2") : prgC4.PostText = " " + fiatMain Else prgC4.Progress = 0 : prgC4.PostText = " N/A" : prgC4.Text = "CONFIGURE"
+            If coinCodeArray.Count - 0 > 0 Then prgC1.Progress = CDec(serverResponse.SelectToken("RAW").SelectToken(coinCodeArray(0)).SelectToken(fiatMain).SelectToken("PRICE")).ToString("n2") : prgC1.PostText = " " + fiatMain Else prgC1.Progress = 0 : prgC1.PostText = " N/A" : prgC1.Text = "CONFIGURE"
+            If coinCodeArray.Count - 1 > 0 Then prgC2.Progress = CDec(serverResponse.SelectToken("RAW").SelectToken(coinCodeArray(1)).SelectToken(fiatMain).SelectToken("PRICE")).ToString("n2") : prgC2.PostText = " " + fiatMain Else prgC2.Progress = 0 : prgC2.PostText = " N/A" : prgC2.Text = "CONFIGURE"
+            If coinCodeArray.Count - 2 > 0 Then prgC3.Progress = CDec(serverResponse.SelectToken("RAW").SelectToken(coinCodeArray(2)).SelectToken(fiatMain).SelectToken("PRICE")).ToString("n2") : prgC3.PostText = " " + fiatMain Else prgC3.Progress = 0 : prgC3.PostText = " N/A" : prgC3.Text = "CONFIGURE"
+            If coinCodeArray.Count - 3 > 0 Then prgC4.Progress = CDec(serverResponse.SelectToken("RAW").SelectToken(coinCodeArray(3)).SelectToken(fiatMain).SelectToken("PRICE")).ToString("n2") : prgC4.PostText = " " + fiatMain Else prgC4.Progress = 0 : prgC4.PostText = " N/A" : prgC4.Text = "CONFIGURE"
 
             'Unlike n(x), 0.(x) doesn't format with CultureInfo - meaning no commas
-            If coinCodeArray.Count - 0 > 0 Then tpCoin1.Tag = "$" + CDec(serverResponse.SelectToken(coinCodeArray(0)).SelectToken(fiatMain)).ToString("0.00").ToString : lblC1Price.Text = "$" + CDec(serverResponse.SelectToken(coinCodeArray(0)).SelectToken(fiatMain)).ToString("0.00").ToString
-            If coinCodeArray.Count - 1 > 0 Then tpCoin2.Tag = "$" + CDec(serverResponse.SelectToken(coinCodeArray(1)).SelectToken(fiatMain)).ToString("0.00").ToString : lblC2Price.Text = "$" + CDec(serverResponse.SelectToken(coinCodeArray(1)).SelectToken(fiatMain)).ToString("0.00").ToString
-            If coinCodeArray.Count - 2 > 0 Then tpCoin3.Tag = "$" + CDec(serverResponse.SelectToken(coinCodeArray(2)).SelectToken(fiatMain)).ToString("0.00").ToString : lblC3Price.Text = "$" + CDec(serverResponse.SelectToken(coinCodeArray(2)).SelectToken(fiatMain)).ToString("0.00").ToString
-            If coinCodeArray.Count - 3 > 0 Then tpCoin4.Tag = "$" + CDec(serverResponse.SelectToken(coinCodeArray(3)).SelectToken(fiatMain)).ToString("0.00").ToString : lblC4Price.Text = "$" + CDec(serverResponse.SelectToken(coinCodeArray(3)).SelectToken(fiatMain)).ToString("0.00").ToString
+            If coinCodeArray.Count - 0 > 0 Then tpCoin1.Tag = "$" + CDec(serverResponse.SelectToken("RAW").SelectToken(coinCodeArray(0)).SelectToken(fiatMain).SelectToken("PRICE")).ToString("0.00").ToString : lblC1Price.Text = "$" + CDec(serverResponse.SelectToken("RAW").SelectToken(coinCodeArray(0)).SelectToken(fiatMain).SelectToken("PRICE")).ToString("0.00").ToString
+            If coinCodeArray.Count - 1 > 0 Then tpCoin2.Tag = "$" + CDec(serverResponse.SelectToken("RAW").SelectToken(coinCodeArray(1)).SelectToken(fiatMain).SelectToken("PRICE")).ToString("0.00").ToString : lblC2Price.Text = "$" + CDec(serverResponse.SelectToken("RAW").SelectToken(coinCodeArray(1)).SelectToken(fiatMain).SelectToken("PRICE")).ToString("0.00").ToString
+            If coinCodeArray.Count - 2 > 0 Then tpCoin3.Tag = "$" + CDec(serverResponse.SelectToken("RAW").SelectToken(coinCodeArray(2)).SelectToken(fiatMain).SelectToken("PRICE")).ToString("0.00").ToString : lblC3Price.Text = "$" + CDec(serverResponse.SelectToken("RAW").SelectToken(coinCodeArray(2)).SelectToken(fiatMain).SelectToken("PRICE")).ToString("0.00").ToString
+            If coinCodeArray.Count - 3 > 0 Then tpCoin4.Tag = "$" + CDec(serverResponse.SelectToken("RAW").SelectToken(coinCodeArray(3)).SelectToken(fiatMain).SelectToken("PRICE")).ToString("0.00").ToString : lblC4Price.Text = "$" + CDec(serverResponse.SelectToken("RAW").SelectToken(coinCodeArray(3)).SelectToken(fiatMain).SelectToken("PRICE")).ToString("0.00").ToString
 
             'Set coin names according to array position
             lblC1Name.Text = coinNameArray(0).ToUpper
@@ -190,26 +195,26 @@ Public Class frmHomeMulti
             'Dim d2 As DateTime = Convert.ToDateTime(My.Computer.Registry.GetValue(My.Settings.RegLocation, "InvestDate", Nothing).Split(",")(0))
             Dim months As String
 
-            Dim C1Holdings As String = (totalHoldings(0) * CDec(serverResponse.SelectToken(coinCodeArray(0)).SelectToken(fiatMain))).ToString("n2")
+            Dim C1Holdings As String = (totalHoldings(0) * CDec(serverResponse.SelectToken("RAW").SelectToken(coinCodeArray(0)).SelectToken(fiatMain).SelectToken("PRICE"))).ToString("n2")
             months = CStr(DateDiff(DateInterval.Month, Convert.ToDateTime(My.Computer.Registry.GetValue(My.Settings.RegLocation, "InvestDate", Nothing).Split(",")(0)), d1))
-            lblC1Friendly.Text = "Today, you hold " + totalHoldings(0) + " " + coinCodeArray(0) + " which is valued at " + C1Holdings + " " + fiatMain + " at a coin price of " + CDec(serverResponse.SelectToken(coinCodeArray(0)).SelectToken(fiatMain)).ToString("n2") + " " + fiatMain + vbNewLine + "Your initial investment was " + initialInvestment(0) + " " + fiatMain + " and has matured over " + months + " months, yielding profits of " + ((CDec(totalHoldings(0)) * CDec(serverResponse.SelectToken(coinCodeArray(0)).SelectToken(fiatMain))) - CDec(initialInvestment(0))).ToString("n2") + " " + fiatMain + " so far"
+            lblC1Friendly.Text = "Today, you hold " + totalHoldings(0) + " " + coinCodeArray(0) + " which is valued at " + C1Holdings + " " + fiatMain + " at a coin price of " + CDec(serverResponse.SelectToken("RAW").SelectToken(coinCodeArray(0)).SelectToken(fiatMain).SelectToken("PRICE")).ToString("n2") + " " + fiatMain + vbNewLine + "Your initial investment was " + initialInvestment(0) + " " + fiatMain + " and has matured over " + months + " months, yielding profits of " + ((CDec(totalHoldings(0)) * CDec(serverResponse.SelectToken("RAW").SelectToken(coinCodeArray(0)).SelectToken(fiatMain).SelectToken("PRICE"))) - CDec(initialInvestment(0))).ToString("n2") + " " + fiatMain + " so far"
 
-            Dim C2Holdings As String = (totalHoldings(1) * CDec(serverResponse.SelectToken(coinCodeArray(1)).SelectToken(fiatMain))).ToString("n2")
+            Dim C2Holdings As String = (totalHoldings(1) * CDec(serverResponse.SelectToken("RAW").SelectToken(coinCodeArray(1)).SelectToken(fiatMain).SelectToken("PRICE"))).ToString("n2")
             months = CStr(DateDiff(DateInterval.Month, Convert.ToDateTime(My.Computer.Registry.GetValue(My.Settings.RegLocation, "InvestDate", Nothing).Split(",")(1)), d1))
-            lblC2Friendly.Text = "Today, you hold " + totalHoldings(1) + " " + coinCodeArray(1) + " which is valued at " + C2Holdings + " " + fiatMain + " at a coin price of " + CDec(serverResponse.SelectToken(coinCodeArray(1)).SelectToken(fiatMain)).ToString("n2") + " " + fiatMain + vbNewLine + "Your initial investment was " + initialInvestment(1) + " " + fiatMain + " and has matured over " + months + " months, yielding profits of " + ((CDec(totalHoldings(1)) * CDec(serverResponse.SelectToken(coinCodeArray(1)).SelectToken(fiatMain))) - CDec(initialInvestment(1))).ToString("n2") + " " + fiatMain + " so far"
+            lblC2Friendly.Text = "Today, you hold " + totalHoldings(1) + " " + coinCodeArray(1) + " which is valued at " + C2Holdings + " " + fiatMain + " at a coin price of " + CDec(serverResponse.SelectToken("RAW").SelectToken(coinCodeArray(1)).SelectToken(fiatMain).SelectToken("PRICE")).ToString("n2") + " " + fiatMain + vbNewLine + "Your initial investment was " + initialInvestment(1) + " " + fiatMain + " and has matured over " + months + " months, yielding profits of " + ((CDec(totalHoldings(1)) * CDec(serverResponse.SelectToken("RAW").SelectToken(coinCodeArray(1)).SelectToken(fiatMain).SelectToken("PRICE"))) - CDec(initialInvestment(1))).ToString("n2") + " " + fiatMain + " so far"
 
-            Dim C3Holdings As String = (totalHoldings(2) * CDec(serverResponse.SelectToken(coinCodeArray(2)).SelectToken(fiatMain))).ToString("n2")
+            Dim C3Holdings As String = (totalHoldings(2) * CDec(serverResponse.SelectToken("RAW").SelectToken(coinCodeArray(2)).SelectToken(fiatMain).SelectToken("PRICE"))).ToString("n2")
             months = CStr(DateDiff(DateInterval.Month, Convert.ToDateTime(My.Computer.Registry.GetValue(My.Settings.RegLocation, "InvestDate", Nothing).Split(",")(2)), d1))
-            lblC3Friendly.Text = "Today, you hold " + totalHoldings(2) + " " + coinCodeArray(2) + " which is valued at " + C3Holdings + " " + fiatMain + " at a coin price of " + CDec(serverResponse.SelectToken(coinCodeArray(2)).SelectToken(fiatMain)).ToString("n2") + " " + fiatMain + vbNewLine + "Your initial investment was " + initialInvestment(2) + " " + fiatMain + " and has matured over " + months + " months, yielding profits of " + ((CDec(totalHoldings(2)) * CDec(serverResponse.SelectToken(coinCodeArray(2)).SelectToken(fiatMain))) - CDec(initialInvestment(2))).ToString("n2") + " " + fiatMain + " so far"
+            lblC3Friendly.Text = "Today, you hold " + totalHoldings(2) + " " + coinCodeArray(2) + " which is valued at " + C3Holdings + " " + fiatMain + " at a coin price of " + CDec(serverResponse.SelectToken("RAW").SelectToken(coinCodeArray(2)).SelectToken(fiatMain).SelectToken("PRICE")).ToString("n2") + " " + fiatMain + vbNewLine + "Your initial investment was " + initialInvestment(2) + " " + fiatMain + " and has matured over " + months + " months, yielding profits of " + ((CDec(totalHoldings(2)) * CDec(serverResponse.SelectToken("RAW").SelectToken(coinCodeArray(2)).SelectToken(fiatMain).SelectToken("PRICE"))) - CDec(initialInvestment(2))).ToString("n2") + " " + fiatMain + " so far"
 
-            Dim C4Holdings As String = (totalHoldings(3) * CDec(serverResponse.SelectToken(coinCodeArray(3)).SelectToken(fiatMain))).ToString("n2")
+            Dim C4Holdings As String = (totalHoldings(3) * CDec(serverResponse.SelectToken("RAW").SelectToken(coinCodeArray(3)).SelectToken(fiatMain).SelectToken("PRICE"))).ToString("n2")
             months = CStr(DateDiff(DateInterval.Month, Convert.ToDateTime(My.Computer.Registry.GetValue(My.Settings.RegLocation, "InvestDate", Nothing).Split(",")(3)), d1))
-            lblC4Friendly.Text = "Today, you hold " + totalHoldings(3) + " " + coinCodeArray(3) + " which is valued at " + C4Holdings + " " + fiatMain + " at a coin price of " + CDec(serverResponse.SelectToken(coinCodeArray(3)).SelectToken(fiatMain)).ToString("n2") + " " + fiatMain + vbNewLine + "Your initial investment was " + initialInvestment(3) + " " + fiatMain + " and has matured over " + months + " months, yielding profits of " + ((CDec(totalHoldings(3)) * CDec(serverResponse.SelectToken(coinCodeArray(3)).SelectToken(fiatMain))) - CDec(initialInvestment(3))).ToString("n2") + " " + fiatMain + " so far"
+            lblC4Friendly.Text = "Today, you hold " + totalHoldings(3) + " " + coinCodeArray(3) + " which is valued at " + C4Holdings + " " + fiatMain + " at a coin price of " + CDec(serverResponse.SelectToken("RAW").SelectToken(coinCodeArray(3)).SelectToken(fiatMain).SelectToken("PRICE")).ToString("n2") + " " + fiatMain + vbNewLine + "Your initial investment was " + initialInvestment(3) + " " + fiatMain + " and has matured over " + months + " months, yielding profits of " + ((CDec(totalHoldings(3)) * CDec(serverResponse.SelectToken("RAW").SelectToken(coinCodeArray(3)).SelectToken(fiatMain).SelectToken("PRICE"))) - CDec(initialInvestment(3))).ToString("n2") + " " + fiatMain + " so far"
 
 
             'months = CStr(DateDiff(DateInterval.Month, Convert.ToDateTime(My.Computer.Registry.GetValue(My.Settings.RegLocation, "InvestDate", Nothing).Split(",")(3)), d1))
-            'lblC1Friendly.Text = "Today, you hold " + totalHoldings(3) + " " + coinCodeArray(3) + " which is valued at " + "? " + fiatMain + " at a coin price of " + CDec(serverResponse.SelectToken(coinCodeArray(3)).SelectToken(fiatMain)).ToString("n2") + " " + fiatMain + vbNewLine + "Your initial investment was " + initialInvestment(3) + " " + fiatMain + " and has matured over " + months + " months, yielding profits of " + ((CDec(totalHoldings(3)) * CDec(serverResponse.SelectToken(coinCodeArray(3)).SelectToken(fiatMain))) - CDec(initialInvestment(3))).ToString("n2") + " " + fiatMain + " so far"
-            '(totalHoldings(0) * CDec(serverResponse.SelectToken(fiatMain))).ToString("n2") +
+            'lblC1Friendly.Text = "Today, you hold " + totalHoldings(3) + " " + coinCodeArray(3) + " which is valued at " + "? " + fiatMain + " at a coin price of " + CDec(serverResponse.SelectToken("RAW").SelectToken(coinCodeArray(3)).SelectToken(fiatMain).SelectToken("PRICE")).ToString("n2") + " " + fiatMain + vbNewLine + "Your initial investment was " + initialInvestment(3) + " " + fiatMain + " and has matured over " + months + " months, yielding profits of " + ((CDec(totalHoldings(3)) * CDec(serverResponse.SelectToken("RAW").SelectToken(coinCodeArray(3)).SelectToken(fiatMain).SelectToken("PRICE"))) - CDec(initialInvestment(3))).ToString("n2") + " " + fiatMain + " so far"
+            '(totalHoldings(0) * CDec(serverResponse.SelectToken("RAW").SelectToken(fiatMain).SelectToken("PRICE"))).ToString("n2") +
 
             'lblAltPrices.Text = lblAltPrices.Text.TrimEnd(vbNewLine)
             'lblAltPrices.Text = lblAltPrices.Text.TrimEnd(" ")
@@ -219,10 +224,10 @@ Public Class frmHomeMulti
             'lblAltHoldings.Text = lblAltHoldings.Text.TrimEnd(" ")
             'lblAltHoldings.Text = lblAltHoldings.Text.TrimEnd("|")
             'lblAltHoldings.Text = "Holdings - " + lblAltHoldings.Text
-            'lblPrice.Text = fiatMain + ": " + CDec(serverResponse.SelectToken(fiatMain)).ToString("n2")
+            'lblPrice.Text = fiatMain + ": " + CDec(serverResponse.SelectToken("RAW").SelectToken(fiatMain).SelectToken("PRICE")).ToString("n2")
             'lblHoldingsCoin.Text = totalHoldings.ToString + " " + coinCodes
-            'tsCoinPrice.Text = coinCodes + " Price: " + fiatMain + " " + CDec(serverResponse.SelectToken(fiatMain)).ToString("n2")
-            'tsHoldingsValue.Text = coinCodes + " Holdings Value: " + fiatMain + " " + (totalHoldings * CDec(serverResponse.SelectToken(fiatMain))).ToString("n2")
+            'tsCoinPrice.Text = coinCodes + " Price: " + fiatMain + " " + CDec(serverResponse.SelectToken("RAW").SelectToken(fiatMain).SelectToken("PRICE")).ToString("n2")
+            'tsHoldingsValue.Text = coinCodes + " Holdings Value: " + fiatMain + " " + (totalHoldings * CDec(serverResponse.SelectToken("RAW").SelectToken(fiatMain).SelectToken("PRICE"))).ToString("n2")
             'tabContent.Show()
             prgTitleLoad.Hide()
             Me.Text = tabContent.SelectedTab.Text + " | AltTrackr"
@@ -231,7 +236,7 @@ Public Class frmHomeMulti
             'Dim d1 As DateTime = DateTime.Today
             'Dim d2 As DateTime = Convert.ToDateTime(My.Computer.Registry.GetValue(My.Settings.RegLocation, "InvestDate", Nothing))
             'Dim months As String = CStr(DateDiff(DateInterval.Month, d2, d1))
-            'lblFriendlyPrice.Text = "Today, you hold " + totalHoldings.ToString + " " + coinCodes + " which is valued at " + (totalHoldings * CDec(serverResponse.SelectToken(fiatMain))).ToString("n2") + " " + fiatMain + " at a coin price of " + CDec(serverResponse.SelectToken(fiatMain)).ToString("n2") + " " + fiatMain + vbNewLine + "Your initial investment was " + initialInvestment + " " + fiatMain + " and has matured over " + months + " months, yielding profits of " + ((totalHoldings * CDec(serverResponse.SelectToken(fiatMain))) - CDec(initialInvestment)).ToString("n2") + " " + fiatMain + " so far"
+            'lblFriendlyPrice.Text = "Today, you hold " + totalHoldings.ToString + " " + coinCodes + " which is valued at " + (totalHoldings * CDec(serverResponse.SelectToken("RAW").SelectToken(fiatMain).SelectToken("PRICE"))).ToString("n2") + " " + fiatMain + " at a coin price of " + CDec(serverResponse.SelectToken("RAW").SelectToken(fiatMain).SelectToken("PRICE")).ToString("n2") + " " + fiatMain + vbNewLine + "Your initial investment was " + initialInvestment + " " + fiatMain + " and has matured over " + months + " months, yielding profits of " + ((totalHoldings * CDec(serverResponse.SelectToken("RAW").SelectToken(fiatMain).SelectToken("PRICE"))) - CDec(initialInvestment)).ToString("n2") + " " + fiatMain + " so far"
             lblLastPriceUpdate.Text = "Last Updated: " + DateTime.Now
         End If
         tmrRefresh.Interval = My.Computer.Registry.GetValue(My.Settings.RegLocation, "RefreshInterval", Nothing)

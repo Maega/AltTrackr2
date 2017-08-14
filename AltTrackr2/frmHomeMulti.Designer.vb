@@ -173,6 +173,7 @@ Partial Class frmHomeMulti
         Me.radStyle2 = New AltTrackr2.AetherRadioButton()
         Me.tpSupport = New System.Windows.Forms.TabPage()
         Me.tpFeedback = New System.Windows.Forms.TabPage()
+        Me.AetherGroupBox17 = New AltTrackr2.AetherGroupBox()
         Me.pnlUnsaved.SuspendLayout()
         Me.pnlLoadingMain.SuspendLayout()
         Me.tabContent.SuspendLayout()
@@ -209,6 +210,7 @@ Partial Class frmHomeMulti
         Me.Panel1.SuspendLayout()
         Me.AetherGroupBox12.SuspendLayout()
         Me.AetherGroupBox2.SuspendLayout()
+        Me.AetherGroupBox17.SuspendLayout()
         Me.SuspendLayout()
         '
         'ilsIcon
@@ -1621,17 +1623,10 @@ Partial Class frmHomeMulti
         'tpPrefs
         '
         Me.tpPrefs.BackColor = System.Drawing.Color.White
+        Me.tpPrefs.Controls.Add(Me.AetherGroupBox17)
         Me.tpPrefs.Controls.Add(Me.AetherGroupBox13)
+        Me.tpPrefs.Controls.Add(Me.AetherButton3)
         Me.tpPrefs.Controls.Add(Me.AetherGroupBox12)
-        Me.tpPrefs.Controls.Add(Me.AetherButton1)
-        Me.tpPrefs.Controls.Add(Me.Label11)
-        Me.tpPrefs.Controls.Add(Me.Label10)
-        Me.tpPrefs.Controls.Add(Me.Label6)
-        Me.tpPrefs.Controls.Add(Me.Label3)
-        Me.tpPrefs.Controls.Add(Me.txtC4Goal)
-        Me.tpPrefs.Controls.Add(Me.txtC3Goal)
-        Me.tpPrefs.Controls.Add(Me.txtC2Goal)
-        Me.tpPrefs.Controls.Add(Me.txtC1Goal)
         Me.tpPrefs.Controls.Add(Me.AetherGroupBox2)
         Me.tpPrefs.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.tpPrefs.ForeColor = System.Drawing.Color.FromArgb(CType(CType(52, Byte), Integer), CType(CType(56, Byte), Integer), CType(CType(67, Byte), Integer))
@@ -1644,8 +1639,8 @@ Partial Class frmHomeMulti
         '
         'AetherGroupBox13
         '
-        Me.AetherGroupBox13.Controls.Add(Me.Panel1)
         Me.AetherGroupBox13.Controls.Add(Me.MaterialDivider1)
+        Me.AetherGroupBox13.Controls.Add(Me.Panel1)
         Me.AetherGroupBox13.Controls.Add(Me.radNotifFM)
         Me.AetherGroupBox13.Controls.Add(Me.radNotifFW)
         Me.AetherGroupBox13.Controls.Add(Me.radNotifFD)
@@ -1868,7 +1863,7 @@ Partial Class frmHomeMulti
         'AetherButton1
         '
         Me.AetherButton1.EnabledCalc = True
-        Me.AetherButton1.Location = New System.Drawing.Point(340, 447)
+        Me.AetherButton1.Location = New System.Drawing.Point(341, 73)
         Me.AetherButton1.Name = "AetherButton1"
         Me.AetherButton1.Size = New System.Drawing.Size(113, 23)
         Me.AetherButton1.TabIndex = 14
@@ -1877,9 +1872,9 @@ Partial Class frmHomeMulti
         'Label11
         '
         Me.Label11.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!)
-        Me.Label11.Location = New System.Drawing.Point(543, 394)
+        Me.Label11.Location = New System.Drawing.Point(262, 52)
         Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(130, 15)
+        Me.Label11.Size = New System.Drawing.Size(71, 15)
         Me.Label11.TabIndex = 13
         Me.Label11.Text = "COIN 4 GOAL"
         Me.Label11.TextAlign = System.Drawing.ContentAlignment.BottomCenter
@@ -1887,9 +1882,9 @@ Partial Class frmHomeMulti
         'Label10
         '
         Me.Label10.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!)
-        Me.Label10.Location = New System.Drawing.Point(407, 394)
+        Me.Label10.Location = New System.Drawing.Point(185, 52)
         Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(130, 15)
+        Me.Label10.Size = New System.Drawing.Size(71, 15)
         Me.Label10.TabIndex = 12
         Me.Label10.Text = "COIN 3 GOAL"
         Me.Label10.TextAlign = System.Drawing.ContentAlignment.BottomCenter
@@ -1897,9 +1892,9 @@ Partial Class frmHomeMulti
         'Label6
         '
         Me.Label6.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!)
-        Me.Label6.Location = New System.Drawing.Point(271, 394)
+        Me.Label6.Location = New System.Drawing.Point(108, 52)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(130, 15)
+        Me.Label6.Size = New System.Drawing.Size(71, 15)
         Me.Label6.TabIndex = 11
         Me.Label6.Text = "COIN 2 GOAL"
         Me.Label6.TextAlign = System.Drawing.ContentAlignment.BottomCenter
@@ -1907,9 +1902,9 @@ Partial Class frmHomeMulti
         'Label3
         '
         Me.Label3.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!)
-        Me.Label3.Location = New System.Drawing.Point(135, 394)
+        Me.Label3.Location = New System.Drawing.Point(31, 52)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(130, 15)
+        Me.Label3.Size = New System.Drawing.Size(71, 15)
         Me.Label3.TabIndex = 10
         Me.Label3.Text = "COIN 1 GOAL"
         Me.Label3.TextAlign = System.Drawing.ContentAlignment.BottomCenter
@@ -1919,12 +1914,12 @@ Partial Class frmHomeMulti
         Me.txtC4Goal.EnabledCalc = True
         Me.txtC4Goal.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.txtC4Goal.ForeColor = System.Drawing.Color.FromArgb(CType(CType(52, Byte), Integer), CType(CType(56, Byte), Integer), CType(CType(67, Byte), Integer))
-        Me.txtC4Goal.Location = New System.Drawing.Point(543, 412)
+        Me.txtC4Goal.Location = New System.Drawing.Point(262, 70)
         Me.txtC4Goal.MaxLength = 32767
         Me.txtC4Goal.MultiLine = False
         Me.txtC4Goal.Name = "txtC4Goal"
         Me.txtC4Goal.ReadOnly = False
-        Me.txtC4Goal.Size = New System.Drawing.Size(130, 29)
+        Me.txtC4Goal.Size = New System.Drawing.Size(71, 29)
         Me.txtC4Goal.TabIndex = 9
         Me.txtC4Goal.Text = "0"
         Me.txtC4Goal.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
@@ -1935,12 +1930,12 @@ Partial Class frmHomeMulti
         Me.txtC3Goal.EnabledCalc = True
         Me.txtC3Goal.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.txtC3Goal.ForeColor = System.Drawing.Color.FromArgb(CType(CType(52, Byte), Integer), CType(CType(56, Byte), Integer), CType(CType(67, Byte), Integer))
-        Me.txtC3Goal.Location = New System.Drawing.Point(407, 412)
+        Me.txtC3Goal.Location = New System.Drawing.Point(185, 70)
         Me.txtC3Goal.MaxLength = 32767
         Me.txtC3Goal.MultiLine = False
         Me.txtC3Goal.Name = "txtC3Goal"
         Me.txtC3Goal.ReadOnly = False
-        Me.txtC3Goal.Size = New System.Drawing.Size(130, 29)
+        Me.txtC3Goal.Size = New System.Drawing.Size(71, 29)
         Me.txtC3Goal.TabIndex = 8
         Me.txtC3Goal.Text = "0"
         Me.txtC3Goal.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
@@ -1951,12 +1946,12 @@ Partial Class frmHomeMulti
         Me.txtC2Goal.EnabledCalc = True
         Me.txtC2Goal.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.txtC2Goal.ForeColor = System.Drawing.Color.FromArgb(CType(CType(52, Byte), Integer), CType(CType(56, Byte), Integer), CType(CType(67, Byte), Integer))
-        Me.txtC2Goal.Location = New System.Drawing.Point(271, 412)
+        Me.txtC2Goal.Location = New System.Drawing.Point(108, 70)
         Me.txtC2Goal.MaxLength = 32767
         Me.txtC2Goal.MultiLine = False
         Me.txtC2Goal.Name = "txtC2Goal"
         Me.txtC2Goal.ReadOnly = False
-        Me.txtC2Goal.Size = New System.Drawing.Size(130, 29)
+        Me.txtC2Goal.Size = New System.Drawing.Size(71, 29)
         Me.txtC2Goal.TabIndex = 7
         Me.txtC2Goal.Text = "0"
         Me.txtC2Goal.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
@@ -1967,12 +1962,12 @@ Partial Class frmHomeMulti
         Me.txtC1Goal.EnabledCalc = True
         Me.txtC1Goal.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.txtC1Goal.ForeColor = System.Drawing.Color.FromArgb(CType(CType(52, Byte), Integer), CType(CType(56, Byte), Integer), CType(CType(67, Byte), Integer))
-        Me.txtC1Goal.Location = New System.Drawing.Point(135, 412)
+        Me.txtC1Goal.Location = New System.Drawing.Point(31, 70)
         Me.txtC1Goal.MaxLength = 32767
         Me.txtC1Goal.MultiLine = False
         Me.txtC1Goal.Name = "txtC1Goal"
         Me.txtC1Goal.ReadOnly = False
-        Me.txtC1Goal.Size = New System.Drawing.Size(130, 29)
+        Me.txtC1Goal.Size = New System.Drawing.Size(71, 29)
         Me.txtC1Goal.TabIndex = 6
         Me.txtC1Goal.Text = "0"
         Me.txtC1Goal.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
@@ -1981,7 +1976,6 @@ Partial Class frmHomeMulti
         'AetherGroupBox2
         '
         Me.AetherGroupBox2.Controls.Add(Me.AetherButton2)
-        Me.AetherGroupBox2.Controls.Add(Me.AetherButton3)
         Me.AetherGroupBox2.Controls.Add(Me.radStyle1)
         Me.AetherGroupBox2.Controls.Add(Me.radStyle3)
         Me.AetherGroupBox2.Controls.Add(Me.radStyle2)
@@ -1989,23 +1983,23 @@ Partial Class frmHomeMulti
         Me.AetherGroupBox2.FooterText = Nothing
         Me.AetherGroupBox2.Location = New System.Drawing.Point(6, 8)
         Me.AetherGroupBox2.Name = "AetherGroupBox2"
-        Me.AetherGroupBox2.Size = New System.Drawing.Size(810, 156)
+        Me.AetherGroupBox2.Size = New System.Drawing.Size(810, 37)
         Me.AetherGroupBox2.TabIndex = 5
         Me.AetherGroupBox2.Text = "User Interface"
         '
         'AetherButton2
         '
         Me.AetherButton2.EnabledCalc = True
-        Me.AetherButton2.Location = New System.Drawing.Point(30, 94)
+        Me.AetherButton2.Location = New System.Drawing.Point(584, 7)
         Me.AetherButton2.Name = "AetherButton2"
-        Me.AetherButton2.Size = New System.Drawing.Size(330, 23)
+        Me.AetherButton2.Size = New System.Drawing.Size(221, 23)
         Me.AetherButton2.TabIndex = 1
         Me.AetherButton2.Text = "Create Custom Colour Scheme..."
         '
         'AetherButton3
         '
         Me.AetherButton3.EnabledCalc = True
-        Me.AetherButton3.Location = New System.Drawing.Point(428, 94)
+        Me.AetherButton3.Location = New System.Drawing.Point(469, 447)
         Me.AetherButton3.Name = "AetherButton3"
         Me.AetherButton3.Size = New System.Drawing.Size(330, 23)
         Me.AetherButton3.TabIndex = 4
@@ -2017,7 +2011,7 @@ Partial Class frmHomeMulti
         Me.radStyle1.Cursor = System.Windows.Forms.Cursors.Hand
         Me.radStyle1.EnabledCalc = True
         Me.radStyle1.HatchBrush = False
-        Me.radStyle1.Location = New System.Drawing.Point(30, 69)
+        Me.radStyle1.Location = New System.Drawing.Point(248, 10)
         Me.radStyle1.Name = "radStyle1"
         Me.radStyle1.Size = New System.Drawing.Size(106, 19)
         Me.radStyle1.TabIndex = 1
@@ -2029,7 +2023,7 @@ Partial Class frmHomeMulti
         Me.radStyle3.Cursor = System.Windows.Forms.Cursors.Hand
         Me.radStyle3.EnabledCalc = True
         Me.radStyle3.HatchBrush = False
-        Me.radStyle3.Location = New System.Drawing.Point(254, 69)
+        Me.radStyle3.Location = New System.Drawing.Point(472, 10)
         Me.radStyle3.Name = "radStyle3"
         Me.radStyle3.Size = New System.Drawing.Size(106, 19)
         Me.radStyle3.TabIndex = 3
@@ -2041,7 +2035,7 @@ Partial Class frmHomeMulti
         Me.radStyle2.Cursor = System.Windows.Forms.Cursors.Hand
         Me.radStyle2.EnabledCalc = True
         Me.radStyle2.HatchBrush = False
-        Me.radStyle2.Location = New System.Drawing.Point(142, 69)
+        Me.radStyle2.Location = New System.Drawing.Point(360, 10)
         Me.radStyle2.Name = "radStyle2"
         Me.radStyle2.Size = New System.Drawing.Size(106, 19)
         Me.radStyle2.TabIndex = 2
@@ -2071,6 +2065,25 @@ Partial Class frmHomeMulti
         Me.tpFeedback.TabIndex = 9
         Me.tpFeedback.Tag = "Beta 1"
         Me.tpFeedback.Text = "Feedback"
+        '
+        'AetherGroupBox17
+        '
+        Me.AetherGroupBox17.Controls.Add(Me.txtC1Goal)
+        Me.AetherGroupBox17.Controls.Add(Me.txtC2Goal)
+        Me.AetherGroupBox17.Controls.Add(Me.txtC3Goal)
+        Me.AetherGroupBox17.Controls.Add(Me.txtC4Goal)
+        Me.AetherGroupBox17.Controls.Add(Me.AetherButton1)
+        Me.AetherGroupBox17.Controls.Add(Me.Label3)
+        Me.AetherGroupBox17.Controls.Add(Me.Label11)
+        Me.AetherGroupBox17.Controls.Add(Me.Label6)
+        Me.AetherGroupBox17.Controls.Add(Me.Label10)
+        Me.AetherGroupBox17.Footer = False
+        Me.AetherGroupBox17.FooterText = Nothing
+        Me.AetherGroupBox17.Location = New System.Drawing.Point(6, 51)
+        Me.AetherGroupBox17.Name = "AetherGroupBox17"
+        Me.AetherGroupBox17.Size = New System.Drawing.Size(810, 113)
+        Me.AetherGroupBox17.TabIndex = 21
+        Me.AetherGroupBox17.Text = "Goals"
         '
         'frmHomeMulti
         '
@@ -2128,6 +2141,7 @@ Partial Class frmHomeMulti
         Me.Panel1.ResumeLayout(False)
         Me.AetherGroupBox12.ResumeLayout(False)
         Me.AetherGroupBox2.ResumeLayout(False)
+        Me.AetherGroupBox17.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
@@ -2281,4 +2295,5 @@ Partial Class frmHomeMulti
     Friend WithEvents prgUpdate As Ambiance.Ambiance_ProgressBar
     Friend WithEvents lblLUpdateStatus As Label
     Friend WithEvents lblC1Prices As MaterialSkin.Controls.MaterialLabel
+    Friend WithEvents AetherGroupBox17 As AetherGroupBox
 End Class
