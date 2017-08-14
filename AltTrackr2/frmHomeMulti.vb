@@ -39,6 +39,7 @@ Public Class frmHomeMulti
         'tabContent.Size = New Point(1022, 490)
         GetPrices()
         Me.CenterToParent()
+        tagCurrentVer.Text = "v" + UpdateAPI.CurrentVer.ToString("0.0.0")
     End Sub
 
     Private Sub AetherButton2_Click(sender As Object, e As EventArgs) Handles AetherButton2.Click
@@ -438,16 +439,25 @@ Public Class frmHomeMulti
     End Sub
 
     Private Sub btnLCheckUpdates_Click(sender As Object, e As EventArgs) Handles btnLCheckUpdates.Click
-        If UpdateAPI.UpdateAvailable = True Then
+        Dim LatestVer As Decimal = UpdateAPI.LatestVer()
+        tagLatestVer.Text = "v" + LatestVer.ToString("0.0.0")
+        tagLatestVer.Invalidate()
+
+        If LatestVer > UpdateAPI.CurrentVer Then
             btnLUpdateNow.Enabled = True
             Dim result As Integer = MessageBox.Show("An update is available for AltTrackr!" + vbNewLine + "Would you like to update now?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Information)
-            If result = DialogResult.OK Then
+            If result = DialogResult.Yes Then
                 'Launch Update
+                LaunchUpdate()
             End If
         End If
     End Sub
 
     Private Sub btnLUpdateNow_Click(sender As Object, e As EventArgs) Handles btnLUpdateNow.Click
+        LaunchUpdate()
+    End Sub
+
+    Private Sub LaunchUpdate()
         btnLUpdateNow.Hide()
         btnLCheckUpdates.Hide()
         prgUpdate.Show()

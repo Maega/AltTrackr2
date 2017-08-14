@@ -51,8 +51,8 @@ Partial Class frmHomeMulti
         Me.btnLCheckUpdates = New AltTrackr2.AetherButton()
         Me.chkLUpdateNotifier = New AltTrackr2.AetherCheckBox()
         Me.btnLUpdateNow = New AltTrackr2.AetherButton()
-        Me.AetherTag1 = New AltTrackr2.AetherTag()
-        Me.AetherTag3 = New AltTrackr2.AetherTag()
+        Me.tagCurrentVer = New AltTrackr2.AetherTag()
+        Me.tagLatestVer = New AltTrackr2.AetherTag()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.prgUpdate = New AltTrackr2.Ambiance.Ambiance_ProgressBar()
         Me.lblLUpdateStatus = New System.Windows.Forms.Label()
@@ -505,8 +505,8 @@ Partial Class frmHomeMulti
         Me.AetherGroupBox15.Controls.Add(Me.btnLCheckUpdates)
         Me.AetherGroupBox15.Controls.Add(Me.chkLUpdateNotifier)
         Me.AetherGroupBox15.Controls.Add(Me.btnLUpdateNow)
-        Me.AetherGroupBox15.Controls.Add(Me.AetherTag1)
-        Me.AetherGroupBox15.Controls.Add(Me.AetherTag3)
+        Me.AetherGroupBox15.Controls.Add(Me.tagCurrentVer)
+        Me.AetherGroupBox15.Controls.Add(Me.tagLatestVer)
         Me.AetherGroupBox15.Controls.Add(Me.Label5)
         Me.AetherGroupBox15.Controls.Add(Me.prgUpdate)
         Me.AetherGroupBox15.Controls.Add(Me.lblLUpdateStatus)
@@ -562,36 +562,37 @@ Partial Class frmHomeMulti
         '
         'btnLUpdateNow
         '
-        Me.btnLUpdateNow.EnabledCalc = True
+        Me.btnLUpdateNow.Enabled = False
+        Me.btnLUpdateNow.EnabledCalc = False
         Me.btnLUpdateNow.Location = New System.Drawing.Point(247, 61)
         Me.btnLUpdateNow.Name = "btnLUpdateNow"
         Me.btnLUpdateNow.Size = New System.Drawing.Size(123, 23)
         Me.btnLUpdateNow.TabIndex = 11
         Me.btnLUpdateNow.Text = "Update Now"
         '
-        'AetherTag1
+        'tagCurrentVer
         '
-        Me.AetherTag1.Background = System.Drawing.Color.FromArgb(CType(CType(66, Byte), Integer), CType(CType(68, Byte), Integer), CType(CType(82, Byte), Integer))
-        Me.AetherTag1.Border = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(53, Byte), Integer), CType(CType(65, Byte), Integer))
-        Me.AetherTag1.ForeColor = System.Drawing.Color.White
-        Me.AetherTag1.Location = New System.Drawing.Point(257, 11)
-        Me.AetherTag1.Name = "AetherTag1"
-        Me.AetherTag1.Size = New System.Drawing.Size(44, 15)
-        Me.AetherTag1.TabIndex = 14
-        Me.AetherTag1.Text = "v1.0.0"
-        Me.AetherTag1.TextColor = System.Drawing.Color.LightGray
+        Me.tagCurrentVer.Background = System.Drawing.Color.FromArgb(CType(CType(66, Byte), Integer), CType(CType(68, Byte), Integer), CType(CType(82, Byte), Integer))
+        Me.tagCurrentVer.Border = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(53, Byte), Integer), CType(CType(65, Byte), Integer))
+        Me.tagCurrentVer.ForeColor = System.Drawing.Color.White
+        Me.tagCurrentVer.Location = New System.Drawing.Point(257, 11)
+        Me.tagCurrentVer.Name = "tagCurrentVer"
+        Me.tagCurrentVer.Size = New System.Drawing.Size(44, 15)
+        Me.tagCurrentVer.TabIndex = 14
+        Me.tagCurrentVer.Text = "v1.0.0"
+        Me.tagCurrentVer.TextColor = System.Drawing.Color.LightGray
         '
-        'AetherTag3
+        'tagLatestVer
         '
-        Me.AetherTag3.Background = System.Drawing.Color.FromArgb(CType(CType(66, Byte), Integer), CType(CType(68, Byte), Integer), CType(CType(82, Byte), Integer))
-        Me.AetherTag3.Border = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(53, Byte), Integer), CType(CType(65, Byte), Integer))
-        Me.AetherTag3.ForeColor = System.Drawing.Color.White
-        Me.AetherTag3.Location = New System.Drawing.Point(399, 10)
-        Me.AetherTag3.Name = "AetherTag3"
-        Me.AetherTag3.Size = New System.Drawing.Size(44, 15)
-        Me.AetherTag3.TabIndex = 15
-        Me.AetherTag3.Text = "v1.0.0"
-        Me.AetherTag3.TextColor = System.Drawing.Color.LightGray
+        Me.tagLatestVer.Background = System.Drawing.Color.FromArgb(CType(CType(66, Byte), Integer), CType(CType(68, Byte), Integer), CType(CType(82, Byte), Integer))
+        Me.tagLatestVer.Border = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(53, Byte), Integer), CType(CType(65, Byte), Integer))
+        Me.tagLatestVer.ForeColor = System.Drawing.Color.White
+        Me.tagLatestVer.Location = New System.Drawing.Point(399, 10)
+        Me.tagLatestVer.Name = "tagLatestVer"
+        Me.tagLatestVer.Size = New System.Drawing.Size(44, 15)
+        Me.tagLatestVer.TabIndex = 15
+        Me.tagLatestVer.Text = "n/a"
+        Me.tagLatestVer.TextColor = System.Drawing.Color.LightGray
         '
         'Label5
         '
@@ -1825,7 +1826,7 @@ Partial Class frmHomeMulti
         Me.LvModule.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.LvModule.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader5, Me.ColumnHeader6, Me.ColumnHeader7, Me.ColumnHeader1, Me.ColumnHeader2})
         Me.LvModule.Depth = 0
-        Me.LvModule.Font = New System.Drawing.Font("Roboto", 32.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.World)
+        Me.LvModule.Font = New System.Drawing.Font("Microsoft Sans Serif", 24.0!)
         Me.LvModule.FullRowSelect = True
         Me.LvModule.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable
         Me.LvModule.Location = New System.Drawing.Point(3, 39)
@@ -2264,7 +2265,7 @@ Partial Class frmHomeMulti
     Friend WithEvents MaterialLabel1 As MaterialSkin.Controls.MaterialLabel
     Friend WithEvents lblC4Friendly As MaterialSkin.Controls.MaterialLabel
     Friend WithEvents MaterialLabel3 As MaterialSkin.Controls.MaterialLabel
-    Friend WithEvents AetherTag1 As AetherTag
+    Friend WithEvents tagCurrentVer As AetherTag
     Friend WithEvents btnLUpdateNow As AetherButton
     Friend WithEvents btnLCheckUpdates As AetherButton
     Friend WithEvents Label7 As Label
@@ -2272,7 +2273,7 @@ Partial Class frmHomeMulti
     Friend WithEvents PictureBox1 As PictureBox
     Friend WithEvents Label5 As Label
     Friend WithEvents Label4 As Label
-    Friend WithEvents AetherTag3 As AetherTag
+    Friend WithEvents tagLatestVer As AetherTag
     Friend WithEvents AetherGroupBox16 As AetherGroupBox
     Friend WithEvents AetherGroupBox15 As AetherGroupBox
     Friend WithEvents chkLAutoUpdate As AetherCheckBox

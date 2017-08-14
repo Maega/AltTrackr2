@@ -66,7 +66,7 @@ Partial Class frmCoinSelectAll
         Me.LvModule.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader5, Me.ColumnHeader6, Me.ColumnHeader7})
         Me.LvModule.ContextMenuStrip = Me.cxtItem
         Me.LvModule.Depth = 0
-        Me.LvModule.Font = New System.Drawing.Font("Roboto", 32.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.World)
+        Me.LvModule.Font = New System.Drawing.Font("Microsoft Sans Serif", 24.0!)
         Me.LvModule.FullRowSelect = True
         Me.LvModule.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable
         Me.LvModule.Location = New System.Drawing.Point(270, 68)
@@ -103,64 +103,64 @@ Partial Class frmCoinSelectAll
         Me.cxtItem.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.tsiCoinName, Me.ToolStripSeparator3, Me.tsiAddC1, Me.tsiAddC2, Me.tsiAddC3, Me.tsiAddC4, Me.ToolStripSeparator1, Me.ViewInfoToolStripMenuItem, Me.ToolStripSeparator2, Me.ReloadAllToolStripMenuItem})
         Me.cxtItem.MouseState = MaterialSkin.MouseState.HOVER
         Me.cxtItem.Name = "cxtItem"
-        Me.cxtItem.Size = New System.Drawing.Size(143, 176)
+        Me.cxtItem.Size = New System.Drawing.Size(156, 176)
         '
         'tsiCoinName
         '
         Me.tsiCoinName.Enabled = False
         Me.tsiCoinName.Name = "tsiCoinName"
-        Me.tsiCoinName.Size = New System.Drawing.Size(142, 22)
+        Me.tsiCoinName.Size = New System.Drawing.Size(155, 22)
         Me.tsiCoinName.Text = "CoinName"
         '
         'ToolStripSeparator3
         '
         Me.ToolStripSeparator3.Name = "ToolStripSeparator3"
-        Me.ToolStripSeparator3.Size = New System.Drawing.Size(139, 6)
+        Me.ToolStripSeparator3.Size = New System.Drawing.Size(152, 6)
         '
         'tsiAddC1
         '
         Me.tsiAddC1.Name = "tsiAddC1"
-        Me.tsiAddC1.Size = New System.Drawing.Size(142, 22)
-        Me.tsiAddC1.Text = "Add to Slot 1"
+        Me.tsiAddC1.Size = New System.Drawing.Size(155, 22)
+        Me.tsiAddC1.Text = "Assign to Slot 1"
         '
         'tsiAddC2
         '
         Me.tsiAddC2.Name = "tsiAddC2"
-        Me.tsiAddC2.Size = New System.Drawing.Size(142, 22)
-        Me.tsiAddC2.Text = "Add to Slot 2"
+        Me.tsiAddC2.Size = New System.Drawing.Size(155, 22)
+        Me.tsiAddC2.Text = "Assign to Slot 2"
         '
         'tsiAddC3
         '
         Me.tsiAddC3.Name = "tsiAddC3"
-        Me.tsiAddC3.Size = New System.Drawing.Size(142, 22)
-        Me.tsiAddC3.Text = "Add to Slot 3"
+        Me.tsiAddC3.Size = New System.Drawing.Size(155, 22)
+        Me.tsiAddC3.Text = "Assign to Slot 3"
         '
         'tsiAddC4
         '
         Me.tsiAddC4.Name = "tsiAddC4"
-        Me.tsiAddC4.Size = New System.Drawing.Size(142, 22)
-        Me.tsiAddC4.Text = "Add to Slot 4"
+        Me.tsiAddC4.Size = New System.Drawing.Size(155, 22)
+        Me.tsiAddC4.Text = "Assign to Slot 4"
         '
         'ToolStripSeparator1
         '
         Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
-        Me.ToolStripSeparator1.Size = New System.Drawing.Size(139, 6)
+        Me.ToolStripSeparator1.Size = New System.Drawing.Size(152, 6)
         '
         'ViewInfoToolStripMenuItem
         '
         Me.ViewInfoToolStripMenuItem.Name = "ViewInfoToolStripMenuItem"
-        Me.ViewInfoToolStripMenuItem.Size = New System.Drawing.Size(142, 22)
+        Me.ViewInfoToolStripMenuItem.Size = New System.Drawing.Size(155, 22)
         Me.ViewInfoToolStripMenuItem.Text = "View Info"
         '
         'ToolStripSeparator2
         '
         Me.ToolStripSeparator2.Name = "ToolStripSeparator2"
-        Me.ToolStripSeparator2.Size = New System.Drawing.Size(139, 6)
+        Me.ToolStripSeparator2.Size = New System.Drawing.Size(152, 6)
         '
         'ReloadAllToolStripMenuItem
         '
         Me.ReloadAllToolStripMenuItem.Name = "ReloadAllToolStripMenuItem"
-        Me.ReloadAllToolStripMenuItem.Size = New System.Drawing.Size(142, 22)
+        Me.ReloadAllToolStripMenuItem.Size = New System.Drawing.Size(155, 22)
         Me.ReloadAllToolStripMenuItem.Text = "Reload All"
         '
         'txtSearch
@@ -216,7 +216,7 @@ Partial Class frmCoinSelectAll
         Me.chkC1.Ripple = True
         Me.chkC1.Size = New System.Drawing.Size(180, 30)
         Me.chkC1.TabIndex = 21
-        Me.chkC1.Text = "Slot 1: BTC"
+        Me.chkC1.Text = "Slot 1: Unassigned"
         Me.chkC1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         Me.chkC1.UseVisualStyleBackColor = False
         '
