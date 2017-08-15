@@ -45,6 +45,11 @@ Public Class frmHomeMulti
         txtC2Goal.Text = My.Computer.Registry.GetValue(My.Settings.RegLocation, "AppGoals", Nothing).Split(",")(1)
         txtC3Goal.Text = My.Computer.Registry.GetValue(My.Settings.RegLocation, "AppGoals", Nothing).Split(",")(2)
         txtC4Goal.Text = My.Computer.Registry.GetValue(My.Settings.RegLocation, "AppGoals", Nothing).Split(",")(3)
+
+        txtC1Holdings.Text = My.Computer.Registry.GetValue(My.Settings.RegLocation, "AppHoldings", Nothing).Split(",")(0)
+        txtC2Holdings.Text = My.Computer.Registry.GetValue(My.Settings.RegLocation, "AppHoldings", Nothing).Split(",")(1)
+        txtC3Holdings.Text = My.Computer.Registry.GetValue(My.Settings.RegLocation, "AppHoldings", Nothing).Split(",")(2)
+        txtC4Holdings.Text = My.Computer.Registry.GetValue(My.Settings.RegLocation, "AppHoldings", Nothing).Split(",")(3)
     End Sub
 
     Private Sub AetherButton2_Click(sender As Object, e As EventArgs) Handles AetherButton2.Click
@@ -380,24 +385,9 @@ Public Class frmHomeMulti
     End Sub
 
     Private Sub AetherButton1_Click(sender As Object, e As EventArgs) Handles AetherButton1.Click
-        prgC1.PostText = " " + fiatMain
-        prgC2.PostText = " " + fiatMain
-        prgC3.PostText = " " + fiatMain
-        prgC4.PostText = " " + fiatMain
-
-        prgC1.Max = txtC1Goal.Text
-        prgC2.Max = txtC2Goal.Text
-        prgC3.Max = txtC3Goal.Text
-        prgC4.Max = txtC4Goal.Text
-
-        prgC1.Text = "Goal: " + txtC1Goal.Text + fiatMain
-        prgC2.Text = "Goal: " + txtC2Goal.Text + fiatMain
-        prgC3.Text = "Goal: " + txtC3Goal.Text + fiatMain
-        prgC4.Text = "Goal: " + txtC4Goal.Text + fiatMain
-
         My.Computer.Registry.SetValue(My.Settings.RegLocation, "AppGoals", txtC1Goal.Text + "," + txtC2Goal.Text + "," + txtC3Goal.Text + "," + txtC4Goal.Text)
-
-        MsgBox("New goals have been set", MsgBoxStyle.Exclamation)
+        coinGoals = My.Computer.Registry.GetValue(My.Settings.RegLocation, "AppGoals", Nothing).Split(",")
+        GetPrices()
     End Sub
 
     Dim _colour As Color
@@ -501,5 +491,11 @@ Public Class frmHomeMulti
 
     Private Sub btnEdit_Click(sender As Object, e As EventArgs) Handles btnEditHoldings.Click, btnEditGoals.Click
         tabContent.SelectedTab = tpPrefs
+    End Sub
+
+    Private Sub btnSaveHoldings_Click(sender As Object, e As EventArgs) Handles btnSaveHoldings.Click
+        My.Computer.Registry.SetValue(My.Settings.RegLocation, "AppHoldings", txtC1Holdings.Text + "," + txtC2Holdings.Text + "," + txtC3Holdings.Text + "," + txtC4Holdings.Text)
+        totalHoldings = My.Computer.Registry.GetValue(My.Settings.RegLocation, "AppHoldings", Nothing).Split(",")
+        GetPrices()
     End Sub
 End Class
