@@ -253,6 +253,12 @@ Public Class frmHomeMulti
             lblPrefC3Holdings.Text = "Holdings (" + coinCodeArray(2) + ")"
             lblPrefC4Holdings.Text = "Holdings (" + coinCodeArray(3) + ")"
 
+            'Set "prefs" coin rads
+            radC1Edit.Text = coinNameArray(0) + " (" + coinCodeArray(0) + ")"
+            radC2Edit.Text = coinNameArray(1) + " (" + coinCodeArray(1) + ")"
+            radC3Edit.Text = coinNameArray(2) + " (" + coinCodeArray(2) + ")"
+            radC4Edit.Text = coinNameArray(3) + " (" + coinCodeArray(3) + ")"
+
             'Set Coin 1 Price & Holdings Stats
             lblC1PricesDetailed.Text = coinCodeArray(0) + " Prices - "
             lblC1HoldingsDetailed.Text = coinCodeArray(0) + " Holdings - "
@@ -611,6 +617,26 @@ Public Class frmHomeMulti
         UpdateEngine.UpdateNow(UpdateAPI.LatestVer.ToString)
     End Sub
 
+    Private Sub radEdit_CheckedChanged(sender As Object, e As EventArgs) Handles radC1Edit.CheckedChanged, radC2Edit.CheckedChanged, radC3Edit.CheckedChanged, radC4Edit.CheckedChanged
+        grpC1Pref.Hide()
+        grpC2Pref.Hide()
+        grpC3Pref.Hide()
+        grpC4Pref.Hide()
+        If radC1Edit.Checked Then
+            grpC1Pref.Show()
+        ElseIf radC2Edit.Checked Then
+            grpC2Pref.Show()
+        ElseIf radC3Edit.Checked Then
+            grpC3Pref.Show()
+        ElseIf radC4Edit.Checked Then
+            grpC4Pref.Show()
+        End If
+    End Sub
+
+    Private Sub Ambiance_Button_21_Click(sender As Object, e As EventArgs) Handles Ambiance_Button_21.Click
+        ShowChangeAlert()
+    End Sub
+
     Private Sub AetherButton5_Click(sender As Object, e As EventArgs) Handles btnEditPrices.Click
         frmCoinSelectAll.coinArray = {coinCodeArray(0), coinCodeArray(1), coinCodeArray(2), coinCodeArray(3)}
         frmCoinSelectAll.coinNameArray = {coinNameArray(0), coinNameArray(1), coinNameArray(2), coinNameArray(3)}
@@ -632,6 +658,7 @@ Public Class frmHomeMulti
         My.Computer.Registry.SetValue(My.Settings.RegLocation, "AppHoldings", txtC1Holdings.Text + "," + txtC2Holdings.Text + "," + txtC3Holdings.Text + "," + txtC4Holdings.Text)
         totalHoldings = My.Computer.Registry.GetValue(My.Settings.RegLocation, "AppHoldings", Nothing).Split(",")
 
+        HideChangeAlert()
         GetPrices()
     End Sub
 End Class

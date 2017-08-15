@@ -67,6 +67,7 @@ Partial Class frmCustomColour
         Me.txtCSPrimary.Depth = 0
         Me.txtCSPrimary.Hint = ""
         Me.txtCSPrimary.Location = New System.Drawing.Point(184, 183)
+        Me.txtCSPrimary.MaxLength = 32767
         Me.txtCSPrimary.MouseState = MaterialSkin.MouseState.HOVER
         Me.txtCSPrimary.Name = "txtCSPrimary"
         Me.txtCSPrimary.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
@@ -75,6 +76,7 @@ Partial Class frmCustomColour
         Me.txtCSPrimary.SelectionStart = 0
         Me.txtCSPrimary.Size = New System.Drawing.Size(143, 23)
         Me.txtCSPrimary.TabIndex = 0
+        Me.txtCSPrimary.TabStop = False
         Me.txtCSPrimary.UseSystemPasswordChar = False
         '
         'txtCSDarkPrimary
@@ -82,6 +84,7 @@ Partial Class frmCustomColour
         Me.txtCSDarkPrimary.Depth = 0
         Me.txtCSDarkPrimary.Hint = ""
         Me.txtCSDarkPrimary.Location = New System.Drawing.Point(184, 212)
+        Me.txtCSDarkPrimary.MaxLength = 32767
         Me.txtCSDarkPrimary.MouseState = MaterialSkin.MouseState.HOVER
         Me.txtCSDarkPrimary.Name = "txtCSDarkPrimary"
         Me.txtCSDarkPrimary.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
@@ -90,6 +93,7 @@ Partial Class frmCustomColour
         Me.txtCSDarkPrimary.SelectionStart = 0
         Me.txtCSDarkPrimary.Size = New System.Drawing.Size(143, 23)
         Me.txtCSDarkPrimary.TabIndex = 1
+        Me.txtCSDarkPrimary.TabStop = False
         Me.txtCSDarkPrimary.UseSystemPasswordChar = False
         '
         'txtCSLightPrimary
@@ -97,6 +101,7 @@ Partial Class frmCustomColour
         Me.txtCSLightPrimary.Depth = 0
         Me.txtCSLightPrimary.Hint = ""
         Me.txtCSLightPrimary.Location = New System.Drawing.Point(184, 241)
+        Me.txtCSLightPrimary.MaxLength = 32767
         Me.txtCSLightPrimary.MouseState = MaterialSkin.MouseState.HOVER
         Me.txtCSLightPrimary.Name = "txtCSLightPrimary"
         Me.txtCSLightPrimary.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
@@ -105,6 +110,7 @@ Partial Class frmCustomColour
         Me.txtCSLightPrimary.SelectionStart = 0
         Me.txtCSLightPrimary.Size = New System.Drawing.Size(143, 23)
         Me.txtCSLightPrimary.TabIndex = 2
+        Me.txtCSLightPrimary.TabStop = False
         Me.txtCSLightPrimary.UseSystemPasswordChar = False
         '
         'txtCSAccent
@@ -112,6 +118,7 @@ Partial Class frmCustomColour
         Me.txtCSAccent.Depth = 0
         Me.txtCSAccent.Hint = ""
         Me.txtCSAccent.Location = New System.Drawing.Point(184, 270)
+        Me.txtCSAccent.MaxLength = 32767
         Me.txtCSAccent.MouseState = MaterialSkin.MouseState.HOVER
         Me.txtCSAccent.Name = "txtCSAccent"
         Me.txtCSAccent.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
@@ -120,6 +127,7 @@ Partial Class frmCustomColour
         Me.txtCSAccent.SelectionStart = 0
         Me.txtCSAccent.Size = New System.Drawing.Size(143, 23)
         Me.txtCSAccent.TabIndex = 3
+        Me.txtCSAccent.TabStop = False
         Me.txtCSAccent.UseSystemPasswordChar = False
         '
         'txtCSTextShade
@@ -127,6 +135,7 @@ Partial Class frmCustomColour
         Me.txtCSTextShade.Depth = 0
         Me.txtCSTextShade.Hint = ""
         Me.txtCSTextShade.Location = New System.Drawing.Point(184, 299)
+        Me.txtCSTextShade.MaxLength = 32767
         Me.txtCSTextShade.MouseState = MaterialSkin.MouseState.HOVER
         Me.txtCSTextShade.Name = "txtCSTextShade"
         Me.txtCSTextShade.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
@@ -135,6 +144,7 @@ Partial Class frmCustomColour
         Me.txtCSTextShade.SelectionStart = 0
         Me.txtCSTextShade.Size = New System.Drawing.Size(143, 23)
         Me.txtCSTextShade.TabIndex = 4
+        Me.txtCSTextShade.TabStop = False
         Me.txtCSTextShade.UseSystemPasswordChar = False
         '
         'MaterialLabel1
@@ -235,6 +245,7 @@ Partial Class frmCustomColour
         Me.txtCSPrimaryR.Depth = 0
         Me.txtCSPrimaryR.Hint = ""
         Me.txtCSPrimaryR.Location = New System.Drawing.Point(516, 183)
+        Me.txtCSPrimaryR.MaxLength = 32767
         Me.txtCSPrimaryR.MouseState = MaterialSkin.MouseState.HOVER
         Me.txtCSPrimaryR.Name = "txtCSPrimaryR"
         Me.txtCSPrimaryR.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
@@ -243,6 +254,7 @@ Partial Class frmCustomColour
         Me.txtCSPrimaryR.SelectionStart = 0
         Me.txtCSPrimaryR.Size = New System.Drawing.Size(55, 23)
         Me.txtCSPrimaryR.TabIndex = 12
+        Me.txtCSPrimaryR.TabStop = False
         Me.txtCSPrimaryR.UseSystemPasswordChar = False
         '
         'txtCSPrimaryG
@@ -250,6 +262,7 @@ Partial Class frmCustomColour
         Me.txtCSPrimaryG.Depth = 0
         Me.txtCSPrimaryG.Hint = ""
         Me.txtCSPrimaryG.Location = New System.Drawing.Point(577, 183)
+        Me.txtCSPrimaryG.MaxLength = 32767
         Me.txtCSPrimaryG.MouseState = MaterialSkin.MouseState.HOVER
         Me.txtCSPrimaryG.Name = "txtCSPrimaryG"
         Me.txtCSPrimaryG.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
@@ -258,6 +271,7 @@ Partial Class frmCustomColour
         Me.txtCSPrimaryG.SelectionStart = 0
         Me.txtCSPrimaryG.Size = New System.Drawing.Size(55, 23)
         Me.txtCSPrimaryG.TabIndex = 13
+        Me.txtCSPrimaryG.TabStop = False
         Me.txtCSPrimaryG.UseSystemPasswordChar = False
         '
         'txtCSPrimaryB
@@ -265,6 +279,7 @@ Partial Class frmCustomColour
         Me.txtCSPrimaryB.Depth = 0
         Me.txtCSPrimaryB.Hint = ""
         Me.txtCSPrimaryB.Location = New System.Drawing.Point(638, 183)
+        Me.txtCSPrimaryB.MaxLength = 32767
         Me.txtCSPrimaryB.MouseState = MaterialSkin.MouseState.HOVER
         Me.txtCSPrimaryB.Name = "txtCSPrimaryB"
         Me.txtCSPrimaryB.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
@@ -273,16 +288,20 @@ Partial Class frmCustomColour
         Me.txtCSPrimaryB.SelectionStart = 0
         Me.txtCSPrimaryB.Size = New System.Drawing.Size(55, 23)
         Me.txtCSPrimaryB.TabIndex = 14
+        Me.txtCSPrimaryB.TabStop = False
         Me.txtCSPrimaryB.UseSystemPasswordChar = False
         '
         'btnCSPrimaryCint
         '
+        Me.btnCSPrimaryCint.AutoSize = True
+        Me.btnCSPrimaryCint.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.btnCSPrimaryCint.Depth = 0
+        Me.btnCSPrimaryCint.Icon = Nothing
         Me.btnCSPrimaryCint.Location = New System.Drawing.Point(333, 184)
         Me.btnCSPrimaryCint.MouseState = MaterialSkin.MouseState.HOVER
         Me.btnCSPrimaryCint.Name = "btnCSPrimaryCint"
         Me.btnCSPrimaryCint.Primary = True
-        Me.btnCSPrimaryCint.Size = New System.Drawing.Size(177, 23)
+        Me.btnCSPrimaryCint.Size = New System.Drawing.Size(179, 36)
         Me.btnCSPrimaryCint.TabIndex = 15
         Me.btnCSPrimaryCint.Text = "<-- Convert RGB to Int"
         Me.btnCSPrimaryCint.UseVisualStyleBackColor = True
@@ -292,6 +311,7 @@ Partial Class frmCustomColour
         Me.txtCSDarkPrimaryB.Depth = 0
         Me.txtCSDarkPrimaryB.Hint = ""
         Me.txtCSDarkPrimaryB.Location = New System.Drawing.Point(638, 212)
+        Me.txtCSDarkPrimaryB.MaxLength = 32767
         Me.txtCSDarkPrimaryB.MouseState = MaterialSkin.MouseState.HOVER
         Me.txtCSDarkPrimaryB.Name = "txtCSDarkPrimaryB"
         Me.txtCSDarkPrimaryB.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
@@ -300,6 +320,7 @@ Partial Class frmCustomColour
         Me.txtCSDarkPrimaryB.SelectionStart = 0
         Me.txtCSDarkPrimaryB.Size = New System.Drawing.Size(55, 23)
         Me.txtCSDarkPrimaryB.TabIndex = 18
+        Me.txtCSDarkPrimaryB.TabStop = False
         Me.txtCSDarkPrimaryB.UseSystemPasswordChar = False
         '
         'txtCSDarkPrimaryG
@@ -307,6 +328,7 @@ Partial Class frmCustomColour
         Me.txtCSDarkPrimaryG.Depth = 0
         Me.txtCSDarkPrimaryG.Hint = ""
         Me.txtCSDarkPrimaryG.Location = New System.Drawing.Point(577, 212)
+        Me.txtCSDarkPrimaryG.MaxLength = 32767
         Me.txtCSDarkPrimaryG.MouseState = MaterialSkin.MouseState.HOVER
         Me.txtCSDarkPrimaryG.Name = "txtCSDarkPrimaryG"
         Me.txtCSDarkPrimaryG.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
@@ -315,6 +337,7 @@ Partial Class frmCustomColour
         Me.txtCSDarkPrimaryG.SelectionStart = 0
         Me.txtCSDarkPrimaryG.Size = New System.Drawing.Size(55, 23)
         Me.txtCSDarkPrimaryG.TabIndex = 17
+        Me.txtCSDarkPrimaryG.TabStop = False
         Me.txtCSDarkPrimaryG.UseSystemPasswordChar = False
         '
         'txtCSDarkPrimaryR
@@ -322,6 +345,7 @@ Partial Class frmCustomColour
         Me.txtCSDarkPrimaryR.Depth = 0
         Me.txtCSDarkPrimaryR.Hint = ""
         Me.txtCSDarkPrimaryR.Location = New System.Drawing.Point(516, 212)
+        Me.txtCSDarkPrimaryR.MaxLength = 32767
         Me.txtCSDarkPrimaryR.MouseState = MaterialSkin.MouseState.HOVER
         Me.txtCSDarkPrimaryR.Name = "txtCSDarkPrimaryR"
         Me.txtCSDarkPrimaryR.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
@@ -330,6 +354,7 @@ Partial Class frmCustomColour
         Me.txtCSDarkPrimaryR.SelectionStart = 0
         Me.txtCSDarkPrimaryR.Size = New System.Drawing.Size(55, 23)
         Me.txtCSDarkPrimaryR.TabIndex = 16
+        Me.txtCSDarkPrimaryR.TabStop = False
         Me.txtCSDarkPrimaryR.UseSystemPasswordChar = False
         '
         'txtCSLightPrimaryB
@@ -337,6 +362,7 @@ Partial Class frmCustomColour
         Me.txtCSLightPrimaryB.Depth = 0
         Me.txtCSLightPrimaryB.Hint = ""
         Me.txtCSLightPrimaryB.Location = New System.Drawing.Point(638, 241)
+        Me.txtCSLightPrimaryB.MaxLength = 32767
         Me.txtCSLightPrimaryB.MouseState = MaterialSkin.MouseState.HOVER
         Me.txtCSLightPrimaryB.Name = "txtCSLightPrimaryB"
         Me.txtCSLightPrimaryB.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
@@ -345,6 +371,7 @@ Partial Class frmCustomColour
         Me.txtCSLightPrimaryB.SelectionStart = 0
         Me.txtCSLightPrimaryB.Size = New System.Drawing.Size(55, 23)
         Me.txtCSLightPrimaryB.TabIndex = 21
+        Me.txtCSLightPrimaryB.TabStop = False
         Me.txtCSLightPrimaryB.UseSystemPasswordChar = False
         '
         'txtCSLightPrimaryG
@@ -352,6 +379,7 @@ Partial Class frmCustomColour
         Me.txtCSLightPrimaryG.Depth = 0
         Me.txtCSLightPrimaryG.Hint = ""
         Me.txtCSLightPrimaryG.Location = New System.Drawing.Point(577, 241)
+        Me.txtCSLightPrimaryG.MaxLength = 32767
         Me.txtCSLightPrimaryG.MouseState = MaterialSkin.MouseState.HOVER
         Me.txtCSLightPrimaryG.Name = "txtCSLightPrimaryG"
         Me.txtCSLightPrimaryG.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
@@ -360,6 +388,7 @@ Partial Class frmCustomColour
         Me.txtCSLightPrimaryG.SelectionStart = 0
         Me.txtCSLightPrimaryG.Size = New System.Drawing.Size(55, 23)
         Me.txtCSLightPrimaryG.TabIndex = 20
+        Me.txtCSLightPrimaryG.TabStop = False
         Me.txtCSLightPrimaryG.UseSystemPasswordChar = False
         '
         'txtCSLightPrimaryR
@@ -367,6 +396,7 @@ Partial Class frmCustomColour
         Me.txtCSLightPrimaryR.Depth = 0
         Me.txtCSLightPrimaryR.Hint = ""
         Me.txtCSLightPrimaryR.Location = New System.Drawing.Point(516, 241)
+        Me.txtCSLightPrimaryR.MaxLength = 32767
         Me.txtCSLightPrimaryR.MouseState = MaterialSkin.MouseState.HOVER
         Me.txtCSLightPrimaryR.Name = "txtCSLightPrimaryR"
         Me.txtCSLightPrimaryR.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
@@ -375,6 +405,7 @@ Partial Class frmCustomColour
         Me.txtCSLightPrimaryR.SelectionStart = 0
         Me.txtCSLightPrimaryR.Size = New System.Drawing.Size(55, 23)
         Me.txtCSLightPrimaryR.TabIndex = 19
+        Me.txtCSLightPrimaryR.TabStop = False
         Me.txtCSLightPrimaryR.UseSystemPasswordChar = False
         '
         'txtCSAccentB
@@ -382,6 +413,7 @@ Partial Class frmCustomColour
         Me.txtCSAccentB.Depth = 0
         Me.txtCSAccentB.Hint = ""
         Me.txtCSAccentB.Location = New System.Drawing.Point(638, 270)
+        Me.txtCSAccentB.MaxLength = 32767
         Me.txtCSAccentB.MouseState = MaterialSkin.MouseState.HOVER
         Me.txtCSAccentB.Name = "txtCSAccentB"
         Me.txtCSAccentB.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
@@ -390,6 +422,7 @@ Partial Class frmCustomColour
         Me.txtCSAccentB.SelectionStart = 0
         Me.txtCSAccentB.Size = New System.Drawing.Size(55, 23)
         Me.txtCSAccentB.TabIndex = 24
+        Me.txtCSAccentB.TabStop = False
         Me.txtCSAccentB.UseSystemPasswordChar = False
         '
         'txtCSAccentG
@@ -397,6 +430,7 @@ Partial Class frmCustomColour
         Me.txtCSAccentG.Depth = 0
         Me.txtCSAccentG.Hint = ""
         Me.txtCSAccentG.Location = New System.Drawing.Point(577, 270)
+        Me.txtCSAccentG.MaxLength = 32767
         Me.txtCSAccentG.MouseState = MaterialSkin.MouseState.HOVER
         Me.txtCSAccentG.Name = "txtCSAccentG"
         Me.txtCSAccentG.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
@@ -405,6 +439,7 @@ Partial Class frmCustomColour
         Me.txtCSAccentG.SelectionStart = 0
         Me.txtCSAccentG.Size = New System.Drawing.Size(55, 23)
         Me.txtCSAccentG.TabIndex = 23
+        Me.txtCSAccentG.TabStop = False
         Me.txtCSAccentG.UseSystemPasswordChar = False
         '
         'txtCSAccentR
@@ -412,6 +447,7 @@ Partial Class frmCustomColour
         Me.txtCSAccentR.Depth = 0
         Me.txtCSAccentR.Hint = ""
         Me.txtCSAccentR.Location = New System.Drawing.Point(516, 270)
+        Me.txtCSAccentR.MaxLength = 32767
         Me.txtCSAccentR.MouseState = MaterialSkin.MouseState.HOVER
         Me.txtCSAccentR.Name = "txtCSAccentR"
         Me.txtCSAccentR.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
@@ -420,6 +456,7 @@ Partial Class frmCustomColour
         Me.txtCSAccentR.SelectionStart = 0
         Me.txtCSAccentR.Size = New System.Drawing.Size(55, 23)
         Me.txtCSAccentR.TabIndex = 22
+        Me.txtCSAccentR.TabStop = False
         Me.txtCSAccentR.UseSystemPasswordChar = False
         '
         'txtCSTextShadeB
@@ -427,6 +464,7 @@ Partial Class frmCustomColour
         Me.txtCSTextShadeB.Depth = 0
         Me.txtCSTextShadeB.Hint = ""
         Me.txtCSTextShadeB.Location = New System.Drawing.Point(638, 299)
+        Me.txtCSTextShadeB.MaxLength = 32767
         Me.txtCSTextShadeB.MouseState = MaterialSkin.MouseState.HOVER
         Me.txtCSTextShadeB.Name = "txtCSTextShadeB"
         Me.txtCSTextShadeB.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
@@ -435,6 +473,7 @@ Partial Class frmCustomColour
         Me.txtCSTextShadeB.SelectionStart = 0
         Me.txtCSTextShadeB.Size = New System.Drawing.Size(55, 23)
         Me.txtCSTextShadeB.TabIndex = 27
+        Me.txtCSTextShadeB.TabStop = False
         Me.txtCSTextShadeB.UseSystemPasswordChar = False
         '
         'txtCSTextShadeG
@@ -442,6 +481,7 @@ Partial Class frmCustomColour
         Me.txtCSTextShadeG.Depth = 0
         Me.txtCSTextShadeG.Hint = ""
         Me.txtCSTextShadeG.Location = New System.Drawing.Point(577, 299)
+        Me.txtCSTextShadeG.MaxLength = 32767
         Me.txtCSTextShadeG.MouseState = MaterialSkin.MouseState.HOVER
         Me.txtCSTextShadeG.Name = "txtCSTextShadeG"
         Me.txtCSTextShadeG.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
@@ -450,6 +490,7 @@ Partial Class frmCustomColour
         Me.txtCSTextShadeG.SelectionStart = 0
         Me.txtCSTextShadeG.Size = New System.Drawing.Size(55, 23)
         Me.txtCSTextShadeG.TabIndex = 26
+        Me.txtCSTextShadeG.TabStop = False
         Me.txtCSTextShadeG.UseSystemPasswordChar = False
         '
         'txtCSTextShadeR
@@ -457,6 +498,7 @@ Partial Class frmCustomColour
         Me.txtCSTextShadeR.Depth = 0
         Me.txtCSTextShadeR.Hint = ""
         Me.txtCSTextShadeR.Location = New System.Drawing.Point(516, 299)
+        Me.txtCSTextShadeR.MaxLength = 32767
         Me.txtCSTextShadeR.MouseState = MaterialSkin.MouseState.HOVER
         Me.txtCSTextShadeR.Name = "txtCSTextShadeR"
         Me.txtCSTextShadeR.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
@@ -465,52 +507,65 @@ Partial Class frmCustomColour
         Me.txtCSTextShadeR.SelectionStart = 0
         Me.txtCSTextShadeR.Size = New System.Drawing.Size(55, 23)
         Me.txtCSTextShadeR.TabIndex = 25
+        Me.txtCSTextShadeR.TabStop = False
         Me.txtCSTextShadeR.UseSystemPasswordChar = False
         '
         'btnCSDarkPrimaryCint
         '
+        Me.btnCSDarkPrimaryCint.AutoSize = True
+        Me.btnCSDarkPrimaryCint.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.btnCSDarkPrimaryCint.Depth = 0
+        Me.btnCSDarkPrimaryCint.Icon = Nothing
         Me.btnCSDarkPrimaryCint.Location = New System.Drawing.Point(333, 213)
         Me.btnCSDarkPrimaryCint.MouseState = MaterialSkin.MouseState.HOVER
         Me.btnCSDarkPrimaryCint.Name = "btnCSDarkPrimaryCint"
         Me.btnCSDarkPrimaryCint.Primary = True
-        Me.btnCSDarkPrimaryCint.Size = New System.Drawing.Size(177, 23)
+        Me.btnCSDarkPrimaryCint.Size = New System.Drawing.Size(179, 36)
         Me.btnCSDarkPrimaryCint.TabIndex = 28
         Me.btnCSDarkPrimaryCint.Text = "<-- Convert RGB to Int"
         Me.btnCSDarkPrimaryCint.UseVisualStyleBackColor = True
         '
         'btnCSLightPrimaryCint
         '
+        Me.btnCSLightPrimaryCint.AutoSize = True
+        Me.btnCSLightPrimaryCint.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.btnCSLightPrimaryCint.Depth = 0
+        Me.btnCSLightPrimaryCint.Icon = Nothing
         Me.btnCSLightPrimaryCint.Location = New System.Drawing.Point(333, 241)
         Me.btnCSLightPrimaryCint.MouseState = MaterialSkin.MouseState.HOVER
         Me.btnCSLightPrimaryCint.Name = "btnCSLightPrimaryCint"
         Me.btnCSLightPrimaryCint.Primary = True
-        Me.btnCSLightPrimaryCint.Size = New System.Drawing.Size(177, 23)
+        Me.btnCSLightPrimaryCint.Size = New System.Drawing.Size(179, 36)
         Me.btnCSLightPrimaryCint.TabIndex = 29
         Me.btnCSLightPrimaryCint.Text = "<-- Convert RGB to Int"
         Me.btnCSLightPrimaryCint.UseVisualStyleBackColor = True
         '
         'btnCSAccentCint
         '
+        Me.btnCSAccentCint.AutoSize = True
+        Me.btnCSAccentCint.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.btnCSAccentCint.Depth = 0
+        Me.btnCSAccentCint.Icon = Nothing
         Me.btnCSAccentCint.Location = New System.Drawing.Point(333, 270)
         Me.btnCSAccentCint.MouseState = MaterialSkin.MouseState.HOVER
         Me.btnCSAccentCint.Name = "btnCSAccentCint"
         Me.btnCSAccentCint.Primary = True
-        Me.btnCSAccentCint.Size = New System.Drawing.Size(177, 23)
+        Me.btnCSAccentCint.Size = New System.Drawing.Size(179, 36)
         Me.btnCSAccentCint.TabIndex = 30
         Me.btnCSAccentCint.Text = "<-- Convert RGB to Int"
         Me.btnCSAccentCint.UseVisualStyleBackColor = True
         '
         'btnCSTextShadeCint
         '
+        Me.btnCSTextShadeCint.AutoSize = True
+        Me.btnCSTextShadeCint.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.btnCSTextShadeCint.Depth = 0
+        Me.btnCSTextShadeCint.Icon = Nothing
         Me.btnCSTextShadeCint.Location = New System.Drawing.Point(333, 299)
         Me.btnCSTextShadeCint.MouseState = MaterialSkin.MouseState.HOVER
         Me.btnCSTextShadeCint.Name = "btnCSTextShadeCint"
         Me.btnCSTextShadeCint.Primary = True
-        Me.btnCSTextShadeCint.Size = New System.Drawing.Size(177, 23)
+        Me.btnCSTextShadeCint.Size = New System.Drawing.Size(179, 36)
         Me.btnCSTextShadeCint.TabIndex = 31
         Me.btnCSTextShadeCint.Text = "<-- Convert RGB to Int"
         Me.btnCSTextShadeCint.UseVisualStyleBackColor = True
@@ -569,24 +624,31 @@ Partial Class frmCustomColour
         '
         'btnCSSave
         '
+        Me.btnCSSave.AutoSize = True
+        Me.btnCSSave.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.btnCSSave.Depth = 0
+        Me.btnCSSave.Icon = Nothing
         Me.btnCSSave.Location = New System.Drawing.Point(148, 352)
         Me.btnCSSave.MouseState = MaterialSkin.MouseState.HOVER
         Me.btnCSSave.Name = "btnCSSave"
         Me.btnCSSave.Primary = True
-        Me.btnCSSave.Size = New System.Drawing.Size(230, 23)
+        Me.btnCSSave.Size = New System.Drawing.Size(203, 36)
         Me.btnCSSave.TabIndex = 36
         Me.btnCSSave.Text = "Save this Colour Scheme"
         Me.btnCSSave.UseVisualStyleBackColor = True
         '
         'btnCSSubmit
         '
+        Me.btnCSSubmit.AutoSize = True
+        Me.btnCSSubmit.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.btnCSSubmit.Depth = 0
+        Me.btnCSSubmit.Enabled = False
+        Me.btnCSSubmit.Icon = Nothing
         Me.btnCSSubmit.Location = New System.Drawing.Point(384, 352)
         Me.btnCSSubmit.MouseState = MaterialSkin.MouseState.HOVER
         Me.btnCSSubmit.Name = "btnCSSubmit"
         Me.btnCSSubmit.Primary = True
-        Me.btnCSSubmit.Size = New System.Drawing.Size(230, 23)
+        Me.btnCSSubmit.Size = New System.Drawing.Size(219, 36)
         Me.btnCSSubmit.TabIndex = 37
         Me.btnCSSubmit.Text = "Submit this Colour Scheme"
         Me.btnCSSubmit.UseVisualStyleBackColor = True
@@ -637,6 +699,7 @@ Partial Class frmCustomColour
         Me.Name = "frmCustomColour"
         Me.Text = "Custom Colour Scheme"
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
 
