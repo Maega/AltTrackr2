@@ -50,6 +50,11 @@ Public Class frmHomeMulti
         txtC2Holdings.Text = My.Computer.Registry.GetValue(My.Settings.RegLocation, "AppHoldings", Nothing).Split(",")(1)
         txtC3Holdings.Text = My.Computer.Registry.GetValue(My.Settings.RegLocation, "AppHoldings", Nothing).Split(",")(2)
         txtC4Holdings.Text = My.Computer.Registry.GetValue(My.Settings.RegLocation, "AppHoldings", Nothing).Split(",")(3)
+
+        txtC1Initial.Text = My.Computer.Registry.GetValue(My.Settings.RegLocation, "InitialInvestment", Nothing).Split(",")(0)
+        txtC2Initial.Text = My.Computer.Registry.GetValue(My.Settings.RegLocation, "InitialInvestment", Nothing).Split(",")(1)
+        txtC3Initial.Text = My.Computer.Registry.GetValue(My.Settings.RegLocation, "InitialInvestment", Nothing).Split(",")(2)
+        txtC4Initial.Text = My.Computer.Registry.GetValue(My.Settings.RegLocation, "InitialInvestment", Nothing).Split(",")(3)
     End Sub
 
     Private Sub AetherButton2_Click(sender As Object, e As EventArgs) Handles AetherButton2.Click
@@ -64,11 +69,11 @@ Public Class frmHomeMulti
         ElseIf radStyle3.Checked Then
             SkinManager.ColorScheme = New ColorScheme(-13354941, -12960183, 6323595, 4244735, 16777215) 'Third and Fourth need to be updated to current theme.
         End If
-        pnlUnsaved.Show()
         ShowChangeAlert()
     End Sub
 
     Private Sub ShowChangeAlert()
+        pnlUnsaved.Show()
         'pnlApplySettings.Top = 462
         'pnlApplySettings.Show()
         'pnlApplySettings.BringToFront()
@@ -185,6 +190,27 @@ Public Class frmHomeMulti
             lblC3DChange.Text = lblC3DChange.Text.Replace("+-", "-")
             lblC4DChange.Text = "+" + serverResponse.SelectToken("DISPLAY").SelectToken(coinCodeArray(3)).SelectToken(fiatMain).SelectToken("CHANGEPCT24HOUR").ToString + "%"
             lblC4DChange.Text = lblC4DChange.Text.Replace("+-", "-")
+
+            'Set "prefs" coin group box names
+            grpC1Pref.Text = coinNameArray(0) + " (" + coinCodeArray(0) + ")"
+            grpC2Pref.Text = coinNameArray(1) + " (" + coinCodeArray(1) + ")"
+            grpC3Pref.Text = coinNameArray(2) + " (" + coinCodeArray(2) + ")"
+            grpC4Pref.Text = coinNameArray(3) + " (" + coinCodeArray(3) + ")"
+
+            lblC1Goal.Text = "Goal (" + fiatMain + ")"
+            lblC2Goal.Text = "Goal (" + fiatMain + ")"
+            lblC3Goal.Text = "Goal (" + fiatMain + ")"
+            lblC4Goal.Text = "Goal (" + fiatMain + ")"
+
+            lblC1Initial.Text = "Initial Invest (" + fiatMain + ")"
+            lblC2Initial.Text = "Initial Invest (" + fiatMain + ")"
+            lblC3Initial.Text = "Initial Invest (" + fiatMain + ")"
+            lblC4Initial.Text = "Initial Invest (" + fiatMain + ")"
+
+            lblPrefC1Holdings.Text = "Holdings (" + coinCodeArray(0) + ")"
+            lblPrefC2Holdings.Text = "Holdings (" + coinCodeArray(1) + ")"
+            lblPrefC3Holdings.Text = "Holdings (" + coinCodeArray(2) + ")"
+            lblPrefC4Holdings.Text = "Holdings (" + coinCodeArray(3) + ")"
 
             'Set goal ring parameters
             If coinGoals.Count - 0 > 0 Then prgC1.Max = coinGoals(0) : prgC1.Text = "Goal: " + coinGoals(0) + " " + fiatMain Else prgC1.Max = 1
@@ -384,12 +410,6 @@ Public Class frmHomeMulti
         Process.Start("https://my.maega.com.au/dashboard")
     End Sub
 
-    Private Sub AetherButton1_Click(sender As Object, e As EventArgs) Handles AetherButton1.Click
-        My.Computer.Registry.SetValue(My.Settings.RegLocation, "AppGoals", txtC1Goal.Text + "," + txtC2Goal.Text + "," + txtC3Goal.Text + "," + txtC4Goal.Text)
-        coinGoals = My.Computer.Registry.GetValue(My.Settings.RegLocation, "AppGoals", Nothing).Split(",")
-        GetPrices()
-    End Sub
-
     Dim _colour As Color
     Private Sub AetherButton7_Click(sender As Object, e As EventArgs) Handles btnNotifAdd.Click
         Dim notifType As String = String.Empty
@@ -493,9 +513,16 @@ Public Class frmHomeMulti
         tabContent.SelectedTab = tpPrefs
     End Sub
 
-    Private Sub btnSaveHoldings_Click(sender As Object, e As EventArgs) Handles btnSaveHoldings.Click
+    Private Sub btnConfirmSave_Click(sender As Object, e As EventArgs) Handles btnConfirmSave.Click
+        My.Computer.Registry.SetValue(My.Settings.RegLocation, "AppGoals", txtC1Goal.Text + "," + txtC2Goal.Text + "," + txtC3Goal.Text + "," + txtC4Goal.Text)
+        coinGoals = My.Computer.Registry.GetValue(My.Settings.RegLocation, "AppGoals", Nothing).Split(",")
+
+        My.Computer.Registry.SetValue(My.Settings.RegLocation, "InitialInvestment", txtC1Initial.Text + "," + txtC2Initial.Text + "," + txtC3Initial.Text + "," + txtC4Initial.Text)
+        initialInvestment = My.Computer.Registry.GetValue(My.Settings.RegLocation, "InitialInvestment", Nothing).Split(",")
+
         My.Computer.Registry.SetValue(My.Settings.RegLocation, "AppHoldings", txtC1Holdings.Text + "," + txtC2Holdings.Text + "," + txtC3Holdings.Text + "," + txtC4Holdings.Text)
         totalHoldings = My.Computer.Registry.GetValue(My.Settings.RegLocation, "AppHoldings", Nothing).Split(",")
+
         GetPrices()
     End Sub
 End Class
