@@ -7,6 +7,7 @@ Imports Notification
 
 Public Class frmHomeMulti
     Dim serverResponse As JObject
+    Dim coinData As JObject
     Dim totalHoldings() As String = My.Computer.Registry.GetValue(My.Settings.RegLocation, "AppHoldings", Nothing).Split(",")
     Dim coinCodes As String = My.Computer.Registry.GetValue(My.Settings.RegLocation, "AppCoins", Nothing)
     Dim coinCodeArray() As String = My.Computer.Registry.GetValue(My.Settings.RegLocation, "AppCoins", Nothing).Split(",")
@@ -38,6 +39,7 @@ Public Class frmHomeMulti
         tabContent.SelectedTab = tpHome
         'tabContent.Size = New Point(1022, 490)
         GetPrices()
+        bkgGetOnlineMeta.RunWorkerAsync()
         Me.CenterToParent()
         tagCurrentVer.Text = "v" + UpdateAPI.CurrentVer.ToString("0.0.0")
 
@@ -130,6 +132,42 @@ Public Class frmHomeMulti
         End Try
     End Sub
 
+    Dim C1imageBytes() As Byte, C2imageBytes() As Byte, C3imageBytes() As Byte, C4imageBytes() As Byte
+    Private Sub bkgGetOnlineMeta_DoWork(sender As Object, e As DoWorkEventArgs) Handles bkgGetOnlineMeta.DoWork
+        Try
+            coinData = ParseJSON("https://www.cryptocompare.com/api/data/coinlist/")
+            Dim imageDownloadClient As New System.Net.WebClient
+
+            Dim C1imageurl As String = coinData.SelectToken("BaseImageUrl").ToString + coinData.SelectToken("Data").SelectToken(coinCodeArray(0)).SelectToken("ImageUrl").ToString
+            C1imageBytes = imageDownloadClient.DownloadData(C1imageurl)
+
+            Dim C2imageurl As String = coinData.SelectToken("BaseImageUrl").ToString + coinData.SelectToken("Data").SelectToken(coinCodeArray(1)).SelectToken("ImageUrl").ToString
+            C2imageBytes = imageDownloadClient.DownloadData(C2imageurl)
+
+            Dim C3imageurl As String = coinData.SelectToken("BaseImageUrl").ToString + coinData.SelectToken("Data").SelectToken(coinCodeArray(2)).SelectToken("ImageUrl").ToString
+            C3imageBytes = imageDownloadClient.DownloadData(C3imageurl)
+
+            Dim C4imageurl As String = coinData.SelectToken("BaseImageUrl").ToString + coinData.SelectToken("Data").SelectToken(coinCodeArray(3)).SelectToken("ImageUrl").ToString
+            C4imageBytes = imageDownloadClient.DownloadData(C4imageurl)
+        Catch ex As Exception
+            bkgGetOnlineMeta.CancelAsync()
+        End Try
+    End Sub
+
+    Private Sub bkgGetOnlineMeta_RunWorkerCompleted(sender As Object, e As RunWorkerCompletedEventArgs) Handles bkgGetOnlineMeta.RunWorkerCompleted
+        Dim C1imageStream As New IO.MemoryStream(C1imageBytes)
+        picC1Logo.Image = New Bitmap(C1imageStream)
+
+        Dim C2imageStream As New IO.MemoryStream(C2imageBytes)
+        picC2Logo.Image = New Bitmap(C2imageStream)
+
+        Dim C3imageStream As New IO.MemoryStream(C3imageBytes)
+        picC3Logo.Image = New Bitmap(C3imageStream)
+
+        Dim C4imageStream As New IO.MemoryStream(C4imageBytes)
+        picC4Logo.Image = New Bitmap(C4imageStream)
+    End Sub
+
     Dim justLaunched As Boolean = True
     Private Sub bkgGetPrices_RunWorkerCompleted(sender As Object, e As RunWorkerCompletedEventArgs) Handles bkgGetPrices.RunWorkerCompleted
         If bkgGetPrices.CancellationPending Then
@@ -197,20 +235,91 @@ Public Class frmHomeMulti
             grpC3Pref.Text = coinNameArray(2) + " (" + coinCodeArray(2) + ")"
             grpC4Pref.Text = coinNameArray(3) + " (" + coinCodeArray(3) + ")"
 
+            'Set "prefs" goal descriptors
             lblC1Goal.Text = "Goal (" + fiatMain + ")"
             lblC2Goal.Text = "Goal (" + fiatMain + ")"
             lblC3Goal.Text = "Goal (" + fiatMain + ")"
             lblC4Goal.Text = "Goal (" + fiatMain + ")"
 
+            'Set "prefs" initial investment descriptors
             lblC1Initial.Text = "Initial Invest (" + fiatMain + ")"
             lblC2Initial.Text = "Initial Invest (" + fiatMain + ")"
             lblC3Initial.Text = "Initial Invest (" + fiatMain + ")"
             lblC4Initial.Text = "Initial Invest (" + fiatMain + ")"
 
+            'Set "prefs" holdings descriptors
             lblPrefC1Holdings.Text = "Holdings (" + coinCodeArray(0) + ")"
             lblPrefC2Holdings.Text = "Holdings (" + coinCodeArray(1) + ")"
             lblPrefC3Holdings.Text = "Holdings (" + coinCodeArray(2) + ")"
             lblPrefC4Holdings.Text = "Holdings (" + coinCodeArray(3) + ")"
+
+            'Set Coin 1 Price & Holdings Stats
+            lblC1PricesDetailed.Text = coinCodeArray(0) + " Prices - "
+            lblC1HoldingsDetailed.Text = coinCodeArray(0) + " Holdings - "
+            For Each fiatCode As String In fiatArray
+                If CDec(serverResponse.SelectToken("RAW").SelectToken(coinCodeArray(0)).SelectToken(fiatCode).SelectToken("PRICE")) >= 1.0 Then 'If the price is more than one fiat in value, round to two decimal places
+                    lblC1PricesDetailed.Text += fiatCode + ": " + CDec(serverResponse.SelectToken("RAW").SelectToken(coinCodeArray(0)).SelectToken(fiatCode).SelectToken("PRICE")).ToString("n2") + " | "
+                    lblC1HoldingsDetailed.Text += fiatCode + ": " + (totalHoldings(Array.IndexOf(coinCodeArray, coinCodeArray(0))) * CDec(serverResponse.SelectToken("RAW").SelectToken(coinCodeArray(0)).SelectToken(fiatCode).SelectToken("PRICE"))).ToString("n2") + " | "
+                Else 'If the price is less than one fiat, round to four decimal places for less valuable coins
+                    lblC1PricesDetailed.Text += fiatCode + ": " + CDec(serverResponse.SelectToken("RAW").SelectToken(coinCodeArray(0)).SelectToken(fiatCode).SelectToken("PRICE")).ToString("n4") + " | "
+                    lblC1HoldingsDetailed.Text += fiatCode + ": " + (totalHoldings(Array.IndexOf(coinCodeArray, coinCodeArray(0))) * CDec(serverResponse.SelectToken("RAW").SelectToken(coinCodeArray(0)).SelectToken(fiatCode).SelectToken("PRICE"))).ToString("n4") + " | "
+                End If
+            Next
+            lblC1PricesDetailed.Text = lblC1PricesDetailed.Text.TrimEnd(" ")
+            lblC1PricesDetailed.Text = lblC1PricesDetailed.Text.TrimEnd("|")
+            lblC1HoldingsDetailed.Text = lblC1HoldingsDetailed.Text.TrimEnd(" ")
+            lblC1HoldingsDetailed.Text = lblC1HoldingsDetailed.Text.TrimEnd("|")
+
+            'Set Coin 2 Price & Holdings Stats
+            lblC2PricesDetailed.Text = coinCodeArray(1) + " Prices - "
+            lblC2HoldingsDetailed.Text = coinCodeArray(1) + " Holdings - "
+            For Each fiatCode As String In fiatArray
+                If CDec(serverResponse.SelectToken("RAW").SelectToken(coinCodeArray(1)).SelectToken(fiatCode).SelectToken("PRICE")) >= 1.0 Then 'If the price is more than one fiat in value, round to two decimal places
+                    lblC2PricesDetailed.Text += fiatCode + ": " + CDec(serverResponse.SelectToken("RAW").SelectToken(coinCodeArray(1)).SelectToken(fiatCode).SelectToken("PRICE")).ToString("n2") + " | "
+                    lblC2HoldingsDetailed.Text += fiatCode + ": " + (totalHoldings(Array.IndexOf(coinCodeArray, coinCodeArray(1))) * CDec(serverResponse.SelectToken("RAW").SelectToken(coinCodeArray(1)).SelectToken(fiatCode).SelectToken("PRICE"))).ToString("n2") + " | "
+                Else 'If the price is less than one fiat, round to four decimal places for less valuable coins
+                    lblC2PricesDetailed.Text += fiatCode + ": " + CDec(serverResponse.SelectToken("RAW").SelectToken(coinCodeArray(1)).SelectToken(fiatCode).SelectToken("PRICE")).ToString("n4") + " | "
+                    lblC2HoldingsDetailed.Text += fiatCode + ": " + (totalHoldings(Array.IndexOf(coinCodeArray, coinCodeArray(1))) * CDec(serverResponse.SelectToken("RAW").SelectToken(coinCodeArray(1)).SelectToken(fiatCode).SelectToken("PRICE"))).ToString("n4") + " | "
+                End If
+            Next
+            lblC2PricesDetailed.Text = lblC2PricesDetailed.Text.TrimEnd(" ")
+            lblC2PricesDetailed.Text = lblC2PricesDetailed.Text.TrimEnd("|")
+            lblC2HoldingsDetailed.Text = lblC2HoldingsDetailed.Text.TrimEnd(" ")
+            lblC2HoldingsDetailed.Text = lblC2HoldingsDetailed.Text.TrimEnd("|")
+
+            'Set Coin 3 Price & Holdings Stats
+            lblC3PricesDetailed.Text = coinCodeArray(2) + " Prices - "
+            lblC3HoldingsDetailed.Text = coinCodeArray(2) + " Holdings - "
+            For Each fiatCode As String In fiatArray
+                If CDec(serverResponse.SelectToken("RAW").SelectToken(coinCodeArray(2)).SelectToken(fiatCode).SelectToken("PRICE")) >= 1.0 Then 'If the price is more than one fiat in value, round to two decimal places
+                    lblC3PricesDetailed.Text += fiatCode + ": " + CDec(serverResponse.SelectToken("RAW").SelectToken(coinCodeArray(2)).SelectToken(fiatCode).SelectToken("PRICE")).ToString("n2") + " | "
+                    lblC3HoldingsDetailed.Text += fiatCode + ": " + (totalHoldings(Array.IndexOf(coinCodeArray, coinCodeArray(2))) * CDec(serverResponse.SelectToken("RAW").SelectToken(coinCodeArray(2)).SelectToken(fiatCode).SelectToken("PRICE"))).ToString("n2") + " | "
+                Else 'If the price is less than one fiat, round to four decimal places for less valuable coins
+                    lblC3PricesDetailed.Text += fiatCode + ": " + CDec(serverResponse.SelectToken("RAW").SelectToken(coinCodeArray(2)).SelectToken(fiatCode).SelectToken("PRICE")).ToString("n4") + " | "
+                    lblC3HoldingsDetailed.Text += fiatCode + ": " + (totalHoldings(Array.IndexOf(coinCodeArray, coinCodeArray(2))) * CDec(serverResponse.SelectToken("RAW").SelectToken(coinCodeArray(2)).SelectToken(fiatCode).SelectToken("PRICE"))).ToString("n4") + " | "
+                End If
+            Next
+            lblC3PricesDetailed.Text = lblC3PricesDetailed.Text.TrimEnd(" ")
+            lblC3PricesDetailed.Text = lblC3PricesDetailed.Text.TrimEnd("|")
+            lblC3HoldingsDetailed.Text = lblC3HoldingsDetailed.Text.TrimEnd(" ")
+            lblC3HoldingsDetailed.Text = lblC3HoldingsDetailed.Text.TrimEnd("|")
+
+            'Set Coin 4 Price & Holdings Stats
+            lblC4PricesDetailed.Text = coinCodeArray(3) + " Prices - "
+            lblC4HoldingsDetailed.Text = coinCodeArray(3) + " Holdings - "
+            For Each fiatCode As String In fiatArray
+                If CDec(serverResponse.SelectToken("RAW").SelectToken(coinCodeArray(3)).SelectToken(fiatCode).SelectToken("PRICE")) >= 1.0 Then 'If the price is more than one fiat in value, round to two decimal places
+                    lblC4PricesDetailed.Text += fiatCode + ": " + CDec(serverResponse.SelectToken("RAW").SelectToken(coinCodeArray(3)).SelectToken(fiatCode).SelectToken("PRICE")).ToString("n2") + " | "
+                    lblC4HoldingsDetailed.Text += fiatCode + ": " + (totalHoldings(Array.IndexOf(coinCodeArray, coinCodeArray(3))) * CDec(serverResponse.SelectToken("RAW").SelectToken(coinCodeArray(3)).SelectToken(fiatCode).SelectToken("PRICE"))).ToString("n2") + " | "
+                Else 'If the price is less than one fiat, round to four decimal places for less valuable coins
+                    lblC4PricesDetailed.Text += fiatCode + ": " + CDec(serverResponse.SelectToken("RAW").SelectToken(coinCodeArray(3)).SelectToken(fiatCode).SelectToken("PRICE")).ToString("n4") + " | "
+                    lblC4HoldingsDetailed.Text += fiatCode + ": " + (totalHoldings(Array.IndexOf(coinCodeArray, coinCodeArray(3))) * CDec(serverResponse.SelectToken("RAW").SelectToken(coinCodeArray(3)).SelectToken(fiatCode).SelectToken("PRICE"))).ToString("n4") + " | "
+                End If
+            Next
+            lblC4PricesDetailed.Text = lblC4PricesDetailed.Text.TrimEnd(" ")
+            lblC4PricesDetailed.Text = lblC4PricesDetailed.Text.TrimEnd("|")
+            lblC4HoldingsDetailed.Text = lblC4HoldingsDetailed.Text.TrimEnd(" ")
+            lblC4HoldingsDetailed.Text = lblC4HoldingsDetailed.Text.TrimEnd("|")
 
             'Set goal ring parameters
             If coinGoals.Count - 0 > 0 Then prgC1.Max = coinGoals(0) : prgC1.Text = "Goal: " + coinGoals(0) + " " + fiatMain Else prgC1.Max = 1

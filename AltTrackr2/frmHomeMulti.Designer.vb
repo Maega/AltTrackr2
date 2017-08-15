@@ -29,6 +29,7 @@ Partial Class frmHomeMulti
         Me.tmrRefresh = New System.Windows.Forms.Timer(Me.components)
         Me.pnlUnsaved = New System.Windows.Forms.Panel()
         Me.pnlPipe = New System.Windows.Forms.Panel()
+        Me.AetherTag2 = New AltTrackr2.AetherTag()
         Me.btnConfirmCancel = New MaterialSkin.Controls.MaterialRaisedButton()
         Me.btnConfirmSave = New MaterialSkin.Controls.MaterialRaisedButton()
         Me.lblUnsaved = New System.Windows.Forms.Label()
@@ -38,7 +39,7 @@ Partial Class frmHomeMulti
         Me.Label1 = New System.Windows.Forms.Label()
         Me.prgTitleLoad = New MRG.Controls.UI.LoadingCircle()
         Me.ilsImg = New System.Windows.Forms.ImageList(Me.components)
-        Me.AetherTag2 = New AltTrackr2.AetherTag()
+        Me.bkgGetOnlineMeta = New System.ComponentModel.BackgroundWorker()
         Me.tabContent = New AltTrackr2.AetherTabControl()
         Me.tpLogin = New System.Windows.Forms.TabPage()
         Me.pnlLAccount = New System.Windows.Forms.Panel()
@@ -107,33 +108,33 @@ Partial Class frmHomeMulti
         Me.lblC1Price = New System.Windows.Forms.Label()
         Me.picC1Logo = New System.Windows.Forms.PictureBox()
         Me.AetherGroupBox3 = New AltTrackr2.AetherGroupBox()
-        Me.lblC1Prices = New MaterialSkin.Controls.MaterialLabel()
+        Me.lblC1PricesDetailed = New MaterialSkin.Controls.MaterialLabel()
         Me.lblC1Friendly = New MaterialSkin.Controls.MaterialLabel()
-        Me.lblC1Holdings = New MaterialSkin.Controls.MaterialLabel()
+        Me.lblC1HoldingsDetailed = New MaterialSkin.Controls.MaterialLabel()
         Me.tpCoin2 = New System.Windows.Forms.TabPage()
         Me.lblC2Name = New System.Windows.Forms.Label()
         Me.lblC2Price = New System.Windows.Forms.Label()
         Me.picC2Logo = New System.Windows.Forms.PictureBox()
         Me.AetherGroupBox4 = New AltTrackr2.AetherGroupBox()
-        Me.MaterialLabel4 = New MaterialSkin.Controls.MaterialLabel()
+        Me.lblC2PricesDetailed = New MaterialSkin.Controls.MaterialLabel()
         Me.lblC2Friendly = New MaterialSkin.Controls.MaterialLabel()
-        Me.MaterialLabel6 = New MaterialSkin.Controls.MaterialLabel()
+        Me.lblC2HoldingsDetailed = New MaterialSkin.Controls.MaterialLabel()
         Me.tpCoin3 = New System.Windows.Forms.TabPage()
         Me.lblC3Price = New System.Windows.Forms.Label()
         Me.lblC3Name = New System.Windows.Forms.Label()
         Me.picC3Logo = New System.Windows.Forms.PictureBox()
         Me.AetherGroupBox5 = New AltTrackr2.AetherGroupBox()
-        Me.MaterialLabel7 = New MaterialSkin.Controls.MaterialLabel()
+        Me.lblC3PricesDetailed = New MaterialSkin.Controls.MaterialLabel()
         Me.lblC3Friendly = New MaterialSkin.Controls.MaterialLabel()
-        Me.MaterialLabel9 = New MaterialSkin.Controls.MaterialLabel()
+        Me.lblC3HoldingsDetailed = New MaterialSkin.Controls.MaterialLabel()
         Me.tpCoin4 = New System.Windows.Forms.TabPage()
         Me.lblC4Price = New System.Windows.Forms.Label()
         Me.lblC4Name = New System.Windows.Forms.Label()
-        Me.lblC4Logo = New System.Windows.Forms.PictureBox()
+        Me.picC4Logo = New System.Windows.Forms.PictureBox()
         Me.AetherGroupBox14 = New AltTrackr2.AetherGroupBox()
-        Me.MaterialLabel1 = New MaterialSkin.Controls.MaterialLabel()
+        Me.lblC4PricesDetailed = New MaterialSkin.Controls.MaterialLabel()
         Me.lblC4Friendly = New MaterialSkin.Controls.MaterialLabel()
-        Me.MaterialLabel3 = New MaterialSkin.Controls.MaterialLabel()
+        Me.lblC4HoldingsDetailed = New MaterialSkin.Controls.MaterialLabel()
         Me.tpSpacer2 = New System.Windows.Forms.TabPage()
         Me.tpPrefs = New System.Windows.Forms.TabPage()
         Me.grpC4Pref = New AltTrackr2.AetherGroupBox()
@@ -245,7 +246,7 @@ Partial Class frmHomeMulti
         CType(Me.picC3Logo, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.AetherGroupBox5.SuspendLayout()
         Me.tpCoin4.SuspendLayout()
-        CType(Me.lblC4Logo, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.picC4Logo, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.AetherGroupBox14.SuspendLayout()
         Me.tpPrefs.SuspendLayout()
         Me.grpC4Pref.SuspendLayout()
@@ -325,6 +326,17 @@ Partial Class frmHomeMulti
         Me.pnlPipe.Name = "pnlPipe"
         Me.pnlPipe.Size = New System.Drawing.Size(1, 15)
         Me.pnlPipe.TabIndex = 20
+        '
+        'AetherTag2
+        '
+        Me.AetherTag2.Background = System.Drawing.Color.Red
+        Me.AetherTag2.Border = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(53, Byte), Integer), CType(CType(65, Byte), Integer))
+        Me.AetherTag2.Location = New System.Drawing.Point(23, 189)
+        Me.AetherTag2.Name = "AetherTag2"
+        Me.AetherTag2.Size = New System.Drawing.Size(148, 15)
+        Me.AetherTag2.TabIndex = 19
+        Me.AetherTag2.Text = "You have unsaved changes"
+        Me.AetherTag2.TextColor = System.Drawing.Color.White
         '
         'btnConfirmCancel
         '
@@ -444,16 +456,10 @@ Partial Class frmHomeMulti
         Me.ilsImg.Images.SetKeyName(4, "Plus.png")
         Me.ilsImg.Images.SetKeyName(5, "Remove.png")
         '
-        'AetherTag2
+        'bkgGetOnlineMeta
         '
-        Me.AetherTag2.Background = System.Drawing.Color.Red
-        Me.AetherTag2.Border = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(53, Byte), Integer), CType(CType(65, Byte), Integer))
-        Me.AetherTag2.Location = New System.Drawing.Point(23, 189)
-        Me.AetherTag2.Name = "AetherTag2"
-        Me.AetherTag2.Size = New System.Drawing.Size(148, 15)
-        Me.AetherTag2.TabIndex = 19
-        Me.AetherTag2.Text = "You have unsaved changes"
-        Me.AetherTag2.TextColor = System.Drawing.Color.White
+        Me.bkgGetOnlineMeta.WorkerReportsProgress = True
+        Me.bkgGetOnlineMeta.WorkerSupportsCancellation = True
         '
         'tabContent
         '
@@ -1242,7 +1248,7 @@ Partial Class frmHomeMulti
         Me.tpCoin1.Name = "tpCoin1"
         Me.tpCoin1.Size = New System.Drawing.Size(824, 482)
         Me.tpCoin1.TabIndex = 2
-        Me.tpCoin1.Tag = "$2587"
+        Me.tpCoin1.Tag = "$2587.86"
         Me.tpCoin1.Text = "Coin One"
         '
         'lblC1Name
@@ -1278,9 +1284,9 @@ Partial Class frmHomeMulti
         '
         'AetherGroupBox3
         '
-        Me.AetherGroupBox3.Controls.Add(Me.lblC1Prices)
+        Me.AetherGroupBox3.Controls.Add(Me.lblC1PricesDetailed)
         Me.AetherGroupBox3.Controls.Add(Me.lblC1Friendly)
-        Me.AetherGroupBox3.Controls.Add(Me.lblC1Holdings)
+        Me.AetherGroupBox3.Controls.Add(Me.lblC1HoldingsDetailed)
         Me.AetherGroupBox3.Footer = False
         Me.AetherGroupBox3.FooterText = Nothing
         Me.AetherGroupBox3.Location = New System.Drawing.Point(6, 294)
@@ -1289,20 +1295,20 @@ Partial Class frmHomeMulti
         Me.AetherGroupBox3.TabIndex = 2
         Me.AetherGroupBox3.Text = "Holdings Summary"
         '
-        'lblC1Prices
+        'lblC1PricesDetailed
         '
-        Me.lblC1Prices.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.lblC1Prices.BackColor = System.Drawing.Color.Transparent
-        Me.lblC1Prices.Depth = 0
-        Me.lblC1Prices.Font = New System.Drawing.Font("Roboto", 11.0!)
-        Me.lblC1Prices.ForeColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.lblC1Prices.Location = New System.Drawing.Point(3, 46)
-        Me.lblC1Prices.MouseState = MaterialSkin.MouseState.HOVER
-        Me.lblC1Prices.Name = "lblC1Prices"
-        Me.lblC1Prices.Size = New System.Drawing.Size(804, 28)
-        Me.lblC1Prices.TabIndex = 15
-        Me.lblC1Prices.Text = "BTC Prices - USD: 00.00 | AUD: 00.00 | GBP: 00.00"
-        Me.lblC1Prices.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.lblC1PricesDetailed.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.lblC1PricesDetailed.BackColor = System.Drawing.Color.Transparent
+        Me.lblC1PricesDetailed.Depth = 0
+        Me.lblC1PricesDetailed.Font = New System.Drawing.Font("Roboto", 11.0!)
+        Me.lblC1PricesDetailed.ForeColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.lblC1PricesDetailed.Location = New System.Drawing.Point(3, 46)
+        Me.lblC1PricesDetailed.MouseState = MaterialSkin.MouseState.HOVER
+        Me.lblC1PricesDetailed.Name = "lblC1PricesDetailed"
+        Me.lblC1PricesDetailed.Size = New System.Drawing.Size(804, 28)
+        Me.lblC1PricesDetailed.TabIndex = 15
+        Me.lblC1PricesDetailed.Text = "BTC Prices - USD: 00.00 | AUD: 00.00 | GBP: 00.00"
+        Me.lblC1PricesDetailed.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'lblC1Friendly
         '
@@ -1320,20 +1326,20 @@ Partial Class frmHomeMulti
     "g profits of 00.00 AUD so far"
         Me.lblC1Friendly.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
-        'lblC1Holdings
+        'lblC1HoldingsDetailed
         '
-        Me.lblC1Holdings.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.lblC1Holdings.BackColor = System.Drawing.Color.Transparent
-        Me.lblC1Holdings.Depth = 0
-        Me.lblC1Holdings.Font = New System.Drawing.Font("Roboto", 11.0!)
-        Me.lblC1Holdings.ForeColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.lblC1Holdings.Location = New System.Drawing.Point(3, 74)
-        Me.lblC1Holdings.MouseState = MaterialSkin.MouseState.HOVER
-        Me.lblC1Holdings.Name = "lblC1Holdings"
-        Me.lblC1Holdings.Size = New System.Drawing.Size(804, 28)
-        Me.lblC1Holdings.TabIndex = 16
-        Me.lblC1Holdings.Text = "BTC Holdings - USD: 00.00 | AUD: 00.00 | GBP: 00.00"
-        Me.lblC1Holdings.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.lblC1HoldingsDetailed.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.lblC1HoldingsDetailed.BackColor = System.Drawing.Color.Transparent
+        Me.lblC1HoldingsDetailed.Depth = 0
+        Me.lblC1HoldingsDetailed.Font = New System.Drawing.Font("Roboto", 11.0!)
+        Me.lblC1HoldingsDetailed.ForeColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.lblC1HoldingsDetailed.Location = New System.Drawing.Point(3, 74)
+        Me.lblC1HoldingsDetailed.MouseState = MaterialSkin.MouseState.HOVER
+        Me.lblC1HoldingsDetailed.Name = "lblC1HoldingsDetailed"
+        Me.lblC1HoldingsDetailed.Size = New System.Drawing.Size(804, 28)
+        Me.lblC1HoldingsDetailed.TabIndex = 16
+        Me.lblC1HoldingsDetailed.Text = "BTC Holdings - USD: 00.00 | AUD: 00.00 | GBP: 00.00"
+        Me.lblC1HoldingsDetailed.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'tpCoin2
         '
@@ -1349,7 +1355,7 @@ Partial Class frmHomeMulti
         Me.tpCoin2.Name = "tpCoin2"
         Me.tpCoin2.Size = New System.Drawing.Size(824, 482)
         Me.tpCoin2.TabIndex = 3
-        Me.tpCoin2.Tag = "$192"
+        Me.tpCoin2.Tag = "$192.12"
         Me.tpCoin2.Text = "Coin Two"
         '
         'lblC2Name
@@ -1385,9 +1391,9 @@ Partial Class frmHomeMulti
         '
         'AetherGroupBox4
         '
-        Me.AetherGroupBox4.Controls.Add(Me.MaterialLabel4)
+        Me.AetherGroupBox4.Controls.Add(Me.lblC2PricesDetailed)
         Me.AetherGroupBox4.Controls.Add(Me.lblC2Friendly)
-        Me.AetherGroupBox4.Controls.Add(Me.MaterialLabel6)
+        Me.AetherGroupBox4.Controls.Add(Me.lblC2HoldingsDetailed)
         Me.AetherGroupBox4.Footer = False
         Me.AetherGroupBox4.FooterText = Nothing
         Me.AetherGroupBox4.Location = New System.Drawing.Point(6, 294)
@@ -1396,20 +1402,20 @@ Partial Class frmHomeMulti
         Me.AetherGroupBox4.TabIndex = 3
         Me.AetherGroupBox4.Text = "Holdings Summary"
         '
-        'MaterialLabel4
+        'lblC2PricesDetailed
         '
-        Me.MaterialLabel4.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.MaterialLabel4.BackColor = System.Drawing.Color.Transparent
-        Me.MaterialLabel4.Depth = 0
-        Me.MaterialLabel4.Font = New System.Drawing.Font("Roboto", 11.0!)
-        Me.MaterialLabel4.ForeColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.MaterialLabel4.Location = New System.Drawing.Point(3, 46)
-        Me.MaterialLabel4.MouseState = MaterialSkin.MouseState.HOVER
-        Me.MaterialLabel4.Name = "MaterialLabel4"
-        Me.MaterialLabel4.Size = New System.Drawing.Size(804, 28)
-        Me.MaterialLabel4.TabIndex = 15
-        Me.MaterialLabel4.Text = "ETH Prices - USD: 00.00 | AUD: 00.00 | GBP: 00.00"
-        Me.MaterialLabel4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.lblC2PricesDetailed.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.lblC2PricesDetailed.BackColor = System.Drawing.Color.Transparent
+        Me.lblC2PricesDetailed.Depth = 0
+        Me.lblC2PricesDetailed.Font = New System.Drawing.Font("Roboto", 11.0!)
+        Me.lblC2PricesDetailed.ForeColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.lblC2PricesDetailed.Location = New System.Drawing.Point(3, 46)
+        Me.lblC2PricesDetailed.MouseState = MaterialSkin.MouseState.HOVER
+        Me.lblC2PricesDetailed.Name = "lblC2PricesDetailed"
+        Me.lblC2PricesDetailed.Size = New System.Drawing.Size(804, 28)
+        Me.lblC2PricesDetailed.TabIndex = 15
+        Me.lblC2PricesDetailed.Text = "ETH Prices - USD: 00.00 | AUD: 00.00 | GBP: 00.00"
+        Me.lblC2PricesDetailed.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'lblC2Friendly
         '
@@ -1427,20 +1433,20 @@ Partial Class frmHomeMulti
     "g profits of 00.00 AUD so far"
         Me.lblC2Friendly.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
-        'MaterialLabel6
+        'lblC2HoldingsDetailed
         '
-        Me.MaterialLabel6.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.MaterialLabel6.BackColor = System.Drawing.Color.Transparent
-        Me.MaterialLabel6.Depth = 0
-        Me.MaterialLabel6.Font = New System.Drawing.Font("Roboto", 11.0!)
-        Me.MaterialLabel6.ForeColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.MaterialLabel6.Location = New System.Drawing.Point(3, 74)
-        Me.MaterialLabel6.MouseState = MaterialSkin.MouseState.HOVER
-        Me.MaterialLabel6.Name = "MaterialLabel6"
-        Me.MaterialLabel6.Size = New System.Drawing.Size(804, 28)
-        Me.MaterialLabel6.TabIndex = 16
-        Me.MaterialLabel6.Text = "ETH Holdings - USD: 00.00 | AUD: 00.00 | GBP: 00.00"
-        Me.MaterialLabel6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.lblC2HoldingsDetailed.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.lblC2HoldingsDetailed.BackColor = System.Drawing.Color.Transparent
+        Me.lblC2HoldingsDetailed.Depth = 0
+        Me.lblC2HoldingsDetailed.Font = New System.Drawing.Font("Roboto", 11.0!)
+        Me.lblC2HoldingsDetailed.ForeColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.lblC2HoldingsDetailed.Location = New System.Drawing.Point(3, 74)
+        Me.lblC2HoldingsDetailed.MouseState = MaterialSkin.MouseState.HOVER
+        Me.lblC2HoldingsDetailed.Name = "lblC2HoldingsDetailed"
+        Me.lblC2HoldingsDetailed.Size = New System.Drawing.Size(804, 28)
+        Me.lblC2HoldingsDetailed.TabIndex = 16
+        Me.lblC2HoldingsDetailed.Text = "ETH Holdings - USD: 00.00 | AUD: 00.00 | GBP: 00.00"
+        Me.lblC2HoldingsDetailed.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'tpCoin3
         '
@@ -1456,13 +1462,13 @@ Partial Class frmHomeMulti
         Me.tpCoin3.Name = "tpCoin3"
         Me.tpCoin3.Size = New System.Drawing.Size(824, 482)
         Me.tpCoin3.TabIndex = 4
-        Me.tpCoin3.Tag = "$47"
+        Me.tpCoin3.Tag = "$47.98"
         Me.tpCoin3.Text = "Coin Three"
         '
         'lblC3Price
         '
         Me.lblC3Price.Font = New System.Drawing.Font("Segoe UI Semibold", 15.0!)
-        Me.lblC3Price.Location = New System.Drawing.Point(400, 73)
+        Me.lblC3Price.Location = New System.Drawing.Point(397, 73)
         Me.lblC3Price.Name = "lblC3Price"
         Me.lblC3Price.Size = New System.Drawing.Size(211, 30)
         Me.lblC3Price.TabIndex = 9
@@ -1473,7 +1479,7 @@ Partial Class frmHomeMulti
         '
         Me.lblC3Name.AutoSize = True
         Me.lblC3Name.Font = New System.Drawing.Font("Segoe UI Semibold", 30.0!)
-        Me.lblC3Name.Location = New System.Drawing.Point(394, 26)
+        Me.lblC3Name.Location = New System.Drawing.Point(391, 26)
         Me.lblC3Name.Name = "lblC3Name"
         Me.lblC3Name.Size = New System.Drawing.Size(153, 54)
         Me.lblC3Name.TabIndex = 8
@@ -1492,9 +1498,9 @@ Partial Class frmHomeMulti
         '
         'AetherGroupBox5
         '
-        Me.AetherGroupBox5.Controls.Add(Me.MaterialLabel7)
+        Me.AetherGroupBox5.Controls.Add(Me.lblC3PricesDetailed)
         Me.AetherGroupBox5.Controls.Add(Me.lblC3Friendly)
-        Me.AetherGroupBox5.Controls.Add(Me.MaterialLabel9)
+        Me.AetherGroupBox5.Controls.Add(Me.lblC3HoldingsDetailed)
         Me.AetherGroupBox5.Footer = False
         Me.AetherGroupBox5.FooterText = Nothing
         Me.AetherGroupBox5.Location = New System.Drawing.Point(6, 294)
@@ -1503,20 +1509,20 @@ Partial Class frmHomeMulti
         Me.AetherGroupBox5.TabIndex = 3
         Me.AetherGroupBox5.Text = "Holdings Summary"
         '
-        'MaterialLabel7
+        'lblC3PricesDetailed
         '
-        Me.MaterialLabel7.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.MaterialLabel7.BackColor = System.Drawing.Color.Transparent
-        Me.MaterialLabel7.Depth = 0
-        Me.MaterialLabel7.Font = New System.Drawing.Font("Roboto", 11.0!)
-        Me.MaterialLabel7.ForeColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.MaterialLabel7.Location = New System.Drawing.Point(3, 46)
-        Me.MaterialLabel7.MouseState = MaterialSkin.MouseState.HOVER
-        Me.MaterialLabel7.Name = "MaterialLabel7"
-        Me.MaterialLabel7.Size = New System.Drawing.Size(804, 28)
-        Me.MaterialLabel7.TabIndex = 15
-        Me.MaterialLabel7.Text = "XMR Prices - USD: 00.00 | AUD: 00.00 | GBP: 00.00"
-        Me.MaterialLabel7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.lblC3PricesDetailed.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.lblC3PricesDetailed.BackColor = System.Drawing.Color.Transparent
+        Me.lblC3PricesDetailed.Depth = 0
+        Me.lblC3PricesDetailed.Font = New System.Drawing.Font("Roboto", 11.0!)
+        Me.lblC3PricesDetailed.ForeColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.lblC3PricesDetailed.Location = New System.Drawing.Point(3, 46)
+        Me.lblC3PricesDetailed.MouseState = MaterialSkin.MouseState.HOVER
+        Me.lblC3PricesDetailed.Name = "lblC3PricesDetailed"
+        Me.lblC3PricesDetailed.Size = New System.Drawing.Size(804, 28)
+        Me.lblC3PricesDetailed.TabIndex = 15
+        Me.lblC3PricesDetailed.Text = "XMR Prices - USD: 00.00 | AUD: 00.00 | GBP: 00.00"
+        Me.lblC3PricesDetailed.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'lblC3Friendly
         '
@@ -1534,27 +1540,27 @@ Partial Class frmHomeMulti
     "g profits of 00.00 AUD so far"
         Me.lblC3Friendly.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
-        'MaterialLabel9
+        'lblC3HoldingsDetailed
         '
-        Me.MaterialLabel9.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.MaterialLabel9.BackColor = System.Drawing.Color.Transparent
-        Me.MaterialLabel9.Depth = 0
-        Me.MaterialLabel9.Font = New System.Drawing.Font("Roboto", 11.0!)
-        Me.MaterialLabel9.ForeColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.MaterialLabel9.Location = New System.Drawing.Point(3, 74)
-        Me.MaterialLabel9.MouseState = MaterialSkin.MouseState.HOVER
-        Me.MaterialLabel9.Name = "MaterialLabel9"
-        Me.MaterialLabel9.Size = New System.Drawing.Size(804, 28)
-        Me.MaterialLabel9.TabIndex = 16
-        Me.MaterialLabel9.Text = "XMR Holdings - USD: 00.00 | AUD: 00.00 | GBP: 00.00"
-        Me.MaterialLabel9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.lblC3HoldingsDetailed.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.lblC3HoldingsDetailed.BackColor = System.Drawing.Color.Transparent
+        Me.lblC3HoldingsDetailed.Depth = 0
+        Me.lblC3HoldingsDetailed.Font = New System.Drawing.Font("Roboto", 11.0!)
+        Me.lblC3HoldingsDetailed.ForeColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.lblC3HoldingsDetailed.Location = New System.Drawing.Point(3, 74)
+        Me.lblC3HoldingsDetailed.MouseState = MaterialSkin.MouseState.HOVER
+        Me.lblC3HoldingsDetailed.Name = "lblC3HoldingsDetailed"
+        Me.lblC3HoldingsDetailed.Size = New System.Drawing.Size(804, 28)
+        Me.lblC3HoldingsDetailed.TabIndex = 16
+        Me.lblC3HoldingsDetailed.Text = "XMR Holdings - USD: 00.00 | AUD: 00.00 | GBP: 00.00"
+        Me.lblC3HoldingsDetailed.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'tpCoin4
         '
         Me.tpCoin4.BackColor = System.Drawing.Color.White
         Me.tpCoin4.Controls.Add(Me.lblC4Price)
         Me.tpCoin4.Controls.Add(Me.lblC4Name)
-        Me.tpCoin4.Controls.Add(Me.lblC4Logo)
+        Me.tpCoin4.Controls.Add(Me.picC4Logo)
         Me.tpCoin4.Controls.Add(Me.AetherGroupBox14)
         Me.tpCoin4.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.tpCoin4.ForeColor = System.Drawing.Color.FromArgb(CType(CType(52, Byte), Integer), CType(CType(56, Byte), Integer), CType(CType(67, Byte), Integer))
@@ -1569,7 +1575,7 @@ Partial Class frmHomeMulti
         'lblC4Price
         '
         Me.lblC4Price.Font = New System.Drawing.Font("Segoe UI Semibold", 15.0!)
-        Me.lblC4Price.Location = New System.Drawing.Point(400, 73)
+        Me.lblC4Price.Location = New System.Drawing.Point(397, 73)
         Me.lblC4Price.Name = "lblC4Price"
         Me.lblC4Price.Size = New System.Drawing.Size(211, 30)
         Me.lblC4Price.TabIndex = 13
@@ -1580,28 +1586,28 @@ Partial Class frmHomeMulti
         '
         Me.lblC4Name.AutoSize = True
         Me.lblC4Name.Font = New System.Drawing.Font("Segoe UI Semibold", 30.0!)
-        Me.lblC4Name.Location = New System.Drawing.Point(394, 26)
+        Me.lblC4Name.Location = New System.Drawing.Point(391, 26)
         Me.lblC4Name.Name = "lblC4Name"
         Me.lblC4Name.Size = New System.Drawing.Size(154, 54)
         Me.lblC4Name.TabIndex = 12
         Me.lblC4Name.Text = "COIN 4"
         Me.lblC4Name.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
-        'lblC4Logo
+        'picC4Logo
         '
-        Me.lblC4Logo.Image = Global.AltTrackr2.My.Resources.Resources._004_money
-        Me.lblC4Logo.Location = New System.Drawing.Point(214, 26)
-        Me.lblC4Logo.Name = "lblC4Logo"
-        Me.lblC4Logo.Size = New System.Drawing.Size(169, 163)
-        Me.lblC4Logo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.lblC4Logo.TabIndex = 11
-        Me.lblC4Logo.TabStop = False
+        Me.picC4Logo.Image = Global.AltTrackr2.My.Resources.Resources._004_money
+        Me.picC4Logo.Location = New System.Drawing.Point(214, 26)
+        Me.picC4Logo.Name = "picC4Logo"
+        Me.picC4Logo.Size = New System.Drawing.Size(169, 163)
+        Me.picC4Logo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.picC4Logo.TabIndex = 11
+        Me.picC4Logo.TabStop = False
         '
         'AetherGroupBox14
         '
-        Me.AetherGroupBox14.Controls.Add(Me.MaterialLabel1)
+        Me.AetherGroupBox14.Controls.Add(Me.lblC4PricesDetailed)
         Me.AetherGroupBox14.Controls.Add(Me.lblC4Friendly)
-        Me.AetherGroupBox14.Controls.Add(Me.MaterialLabel3)
+        Me.AetherGroupBox14.Controls.Add(Me.lblC4HoldingsDetailed)
         Me.AetherGroupBox14.Footer = False
         Me.AetherGroupBox14.FooterText = Nothing
         Me.AetherGroupBox14.Location = New System.Drawing.Point(6, 294)
@@ -1610,20 +1616,20 @@ Partial Class frmHomeMulti
         Me.AetherGroupBox14.TabIndex = 10
         Me.AetherGroupBox14.Text = "Holdings Summary"
         '
-        'MaterialLabel1
+        'lblC4PricesDetailed
         '
-        Me.MaterialLabel1.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.MaterialLabel1.BackColor = System.Drawing.Color.Transparent
-        Me.MaterialLabel1.Depth = 0
-        Me.MaterialLabel1.Font = New System.Drawing.Font("Roboto", 11.0!)
-        Me.MaterialLabel1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.MaterialLabel1.Location = New System.Drawing.Point(3, 46)
-        Me.MaterialLabel1.MouseState = MaterialSkin.MouseState.HOVER
-        Me.MaterialLabel1.Name = "MaterialLabel1"
-        Me.MaterialLabel1.Size = New System.Drawing.Size(804, 28)
-        Me.MaterialLabel1.TabIndex = 15
-        Me.MaterialLabel1.Text = "SC Prices - USD: 00.00 | AUD: 00.00 | GBP: 00.00"
-        Me.MaterialLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.lblC4PricesDetailed.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.lblC4PricesDetailed.BackColor = System.Drawing.Color.Transparent
+        Me.lblC4PricesDetailed.Depth = 0
+        Me.lblC4PricesDetailed.Font = New System.Drawing.Font("Roboto", 11.0!)
+        Me.lblC4PricesDetailed.ForeColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.lblC4PricesDetailed.Location = New System.Drawing.Point(3, 46)
+        Me.lblC4PricesDetailed.MouseState = MaterialSkin.MouseState.HOVER
+        Me.lblC4PricesDetailed.Name = "lblC4PricesDetailed"
+        Me.lblC4PricesDetailed.Size = New System.Drawing.Size(804, 28)
+        Me.lblC4PricesDetailed.TabIndex = 15
+        Me.lblC4PricesDetailed.Text = "SC Prices - USD: 00.00 | AUD: 00.00 | GBP: 00.00"
+        Me.lblC4PricesDetailed.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'lblC4Friendly
         '
@@ -1641,20 +1647,20 @@ Partial Class frmHomeMulti
     "g profits of 00.00 AUD so far"
         Me.lblC4Friendly.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
-        'MaterialLabel3
+        'lblC4HoldingsDetailed
         '
-        Me.MaterialLabel3.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.MaterialLabel3.BackColor = System.Drawing.Color.Transparent
-        Me.MaterialLabel3.Depth = 0
-        Me.MaterialLabel3.Font = New System.Drawing.Font("Roboto", 11.0!)
-        Me.MaterialLabel3.ForeColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.MaterialLabel3.Location = New System.Drawing.Point(3, 74)
-        Me.MaterialLabel3.MouseState = MaterialSkin.MouseState.HOVER
-        Me.MaterialLabel3.Name = "MaterialLabel3"
-        Me.MaterialLabel3.Size = New System.Drawing.Size(804, 28)
-        Me.MaterialLabel3.TabIndex = 16
-        Me.MaterialLabel3.Text = "SC Holdings - USD: 00.00 | AUD: 00.00 | GBP: 00.00"
-        Me.MaterialLabel3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.lblC4HoldingsDetailed.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.lblC4HoldingsDetailed.BackColor = System.Drawing.Color.Transparent
+        Me.lblC4HoldingsDetailed.Depth = 0
+        Me.lblC4HoldingsDetailed.Font = New System.Drawing.Font("Roboto", 11.0!)
+        Me.lblC4HoldingsDetailed.ForeColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.lblC4HoldingsDetailed.Location = New System.Drawing.Point(3, 74)
+        Me.lblC4HoldingsDetailed.MouseState = MaterialSkin.MouseState.HOVER
+        Me.lblC4HoldingsDetailed.Name = "lblC4HoldingsDetailed"
+        Me.lblC4HoldingsDetailed.Size = New System.Drawing.Size(804, 28)
+        Me.lblC4HoldingsDetailed.TabIndex = 16
+        Me.lblC4HoldingsDetailed.Text = "SC Holdings - USD: 00.00 | AUD: 00.00 | GBP: 00.00"
+        Me.lblC4HoldingsDetailed.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'tpSpacer2
         '
@@ -2763,7 +2769,7 @@ Partial Class frmHomeMulti
         Me.AetherGroupBox5.ResumeLayout(False)
         Me.tpCoin4.ResumeLayout(False)
         Me.tpCoin4.PerformLayout()
-        CType(Me.lblC4Logo, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.picC4Logo, System.ComponentModel.ISupportInitialize).EndInit()
         Me.AetherGroupBox14.ResumeLayout(False)
         Me.tpPrefs.ResumeLayout(False)
         Me.grpC4Pref.ResumeLayout(False)
@@ -2816,15 +2822,15 @@ Partial Class frmHomeMulti
     Friend WithEvents AetherGroupBox2 As AetherGroupBox
     Friend WithEvents AetherGroupBox3 As AetherGroupBox
     Friend WithEvents lblC1Friendly As MaterialSkin.Controls.MaterialLabel
-    Friend WithEvents lblC1Holdings As MaterialSkin.Controls.MaterialLabel
+    Friend WithEvents lblC1HoldingsDetailed As MaterialSkin.Controls.MaterialLabel
     Friend WithEvents AetherGroupBox4 As AetherGroupBox
-    Friend WithEvents MaterialLabel4 As MaterialSkin.Controls.MaterialLabel
+    Friend WithEvents lblC2PricesDetailed As MaterialSkin.Controls.MaterialLabel
     Friend WithEvents lblC2Friendly As MaterialSkin.Controls.MaterialLabel
-    Friend WithEvents MaterialLabel6 As MaterialSkin.Controls.MaterialLabel
+    Friend WithEvents lblC2HoldingsDetailed As MaterialSkin.Controls.MaterialLabel
     Friend WithEvents AetherGroupBox5 As AetherGroupBox
-    Friend WithEvents MaterialLabel7 As MaterialSkin.Controls.MaterialLabel
+    Friend WithEvents lblC3PricesDetailed As MaterialSkin.Controls.MaterialLabel
     Friend WithEvents lblC3Friendly As MaterialSkin.Controls.MaterialLabel
-    Friend WithEvents MaterialLabel9 As MaterialSkin.Controls.MaterialLabel
+    Friend WithEvents lblC3HoldingsDetailed As MaterialSkin.Controls.MaterialLabel
     Friend WithEvents picC1Logo As PictureBox
     Friend WithEvents lblC1Name As Label
     Friend WithEvents lblC2Name As Label
@@ -2905,11 +2911,11 @@ Partial Class frmHomeMulti
     Friend WithEvents btnNotifAdd As AetherButton
     Friend WithEvents lblC4Price As Label
     Friend WithEvents lblC4Name As Label
-    Friend WithEvents lblC4Logo As PictureBox
+    Friend WithEvents picC4Logo As PictureBox
     Friend WithEvents AetherGroupBox14 As AetherGroupBox
-    Friend WithEvents MaterialLabel1 As MaterialSkin.Controls.MaterialLabel
+    Friend WithEvents lblC4PricesDetailed As MaterialSkin.Controls.MaterialLabel
     Friend WithEvents lblC4Friendly As MaterialSkin.Controls.MaterialLabel
-    Friend WithEvents MaterialLabel3 As MaterialSkin.Controls.MaterialLabel
+    Friend WithEvents lblC4HoldingsDetailed As MaterialSkin.Controls.MaterialLabel
     Friend WithEvents tagCurrentVer As AetherTag
     Friend WithEvents btnLUpdateNow As AetherButton
     Friend WithEvents btnLCheckUpdates As AetherButton
@@ -2925,7 +2931,7 @@ Partial Class frmHomeMulti
     Friend WithEvents chkLUpdateNotifier As AetherCheckBox
     Friend WithEvents prgUpdate As Ambiance.Ambiance_ProgressBar
     Friend WithEvents lblLUpdateStatus As Label
-    Friend WithEvents lblC1Prices As MaterialSkin.Controls.MaterialLabel
+    Friend WithEvents lblC1PricesDetailed As MaterialSkin.Controls.MaterialLabel
     Friend WithEvents grpC1Pref As AetherGroupBox
     Friend WithEvents grpC2Pref As AetherGroupBox
     Friend WithEvents txtC1Holdings As AetherTextbox
@@ -2970,4 +2976,5 @@ Partial Class frmHomeMulti
     Friend WithEvents Label3 As Label
     Friend WithEvents Label6 As Label
     Friend WithEvents Label8 As Label
+    Friend WithEvents bkgGetOnlineMeta As System.ComponentModel.BackgroundWorker
 End Class
