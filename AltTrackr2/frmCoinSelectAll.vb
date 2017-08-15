@@ -15,10 +15,10 @@ Public Class frmCoinSelectAll
         SkinManager.AddFormToManage(Me)
         SkinManager.Theme = MaterialSkinManager.Themes.DARK
 
-        If Not coinArray(0) = String.Empty Then
-            chkC1.Text = "Slot 1: " + coinArray(0)
-            chkC1.Checked = True
-        End If
+        If Not coinArray(0) = String.Empty Then chkC1.Text = "Slot 1: " + coinArray(0) : chkC1.Checked = True
+        If Not coinArray(1) = String.Empty Then chkC2.Text = "Slot 2: " + coinArray(1) : chkC2.Checked = True
+        If Not coinArray(2) = String.Empty Then chkC3.Text = "Slot 3: " + coinArray(2) : chkC3.Checked = True
+        If Not coinArray(3) = String.Empty Then chkC4.Text = "Slot 4: " + coinArray(3) : chkC4.Checked = True
         ' MsgBox(results.ToString)
     End Sub
 

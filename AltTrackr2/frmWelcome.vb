@@ -19,6 +19,12 @@ Public Class frmWelcome
             frmHomeMulti.Show()
             Me.Close()
         Else
+            'Set some initial registry values to prevent crash at launch for unset variables
+            My.Computer.Registry.SetValue(My.Settings.RegLocation, "InitialInvestment", "0,0,0,0")
+            My.Computer.Registry.SetValue(My.Settings.RegLocation, "AppHoldings", "0,0,0,0")
+            My.Computer.Registry.SetValue(My.Settings.RegLocation, "AppGoals", "0,0,0,0")
+            My.Computer.Registry.SetValue(My.Settings.RegLocation, "InvestDate", "10/10/2010,10/10/2010,10/10/2010,10/10/2010")
+
             frmWelcomeControls.Show()
             frmWelcomeControls.TopMost = True
             Dim SkinManager As MaterialSkinManager = MaterialSkinManager.Instance

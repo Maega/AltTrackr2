@@ -38,10 +38,7 @@ Public Class frmFiatSelect
         'Set default registry values for settings that aren't user-configurable in setup
         My.Computer.Registry.SetValue(My.Settings.RegLocation, "RefreshInterval", "60000") 'Default Coin Check Update Interval: 1 minute, 60000ms
         My.Computer.Registry.SetValue(My.Settings.RegLocation, "ColourScheme", "-13354941,-13354941,6323595,4244735,16777215") 'Default Colour Scheme
-        My.Computer.Registry.SetValue(My.Settings.RegLocation, "InitialInvestment", "0,0,0,0")
-        My.Computer.Registry.SetValue(My.Settings.RegLocation, "AppHoldings", "0,0,0,0")
-        My.Computer.Registry.SetValue(My.Settings.RegLocation, "AppGoals", "0,0,0,0")
-        My.Computer.Registry.SetValue(My.Settings.RegLocation, "InvestDate", "10/10/2010,10/10/2010,10/10/2010,10/10/2010")
+
         My.Computer.Registry.SetValue(My.Settings.RegLocation, "AppConfigured", "1")
 
         cTiming.transitionForms(Me, frmHomeMulti)

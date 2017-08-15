@@ -84,20 +84,20 @@ Partial Class frmHomeMulti
         Me.Label13 = New System.Windows.Forms.Label()
         Me.lblC1DChange = New System.Windows.Forms.Label()
         Me.AetherGroupBox7 = New AltTrackr2.AetherGroupBox()
-        Me.AetherButton6 = New AltTrackr2.AetherButton()
+        Me.btnEditHoldings = New AltTrackr2.AetherButton()
         Me.lblAltHoldings = New System.Windows.Forms.Label()
         Me.AetherGroupBox6 = New AltTrackr2.AetherGroupBox()
         Me.lblGoalC4 = New System.Windows.Forms.Label()
         Me.lblGoalC3 = New System.Windows.Forms.Label()
         Me.lblGoalC2 = New System.Windows.Forms.Label()
         Me.lblGoalC1 = New System.Windows.Forms.Label()
-        Me.AetherButton4 = New AltTrackr2.AetherButton()
+        Me.btnEditGoals = New AltTrackr2.AetherButton()
         Me.prgC4 = New AltTrackr2.AetherCircular()
         Me.prgC3 = New AltTrackr2.AetherCircular()
         Me.prgC2 = New AltTrackr2.AetherCircular()
         Me.prgC1 = New AltTrackr2.AetherCircular()
         Me.AetherGroupBox1 = New AltTrackr2.AetherGroupBox()
-        Me.AetherButton5 = New AltTrackr2.AetherButton()
+        Me.btnEditPrices = New AltTrackr2.AetherButton()
         Me.lblAltPrices = New System.Windows.Forms.Label()
         Me.tpHistory = New System.Windows.Forms.TabPage()
         Me.lblLastPriceUpdate = New MaterialSkin.Controls.MaterialLabel()
@@ -639,7 +639,7 @@ Partial Class frmHomeMulti
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(211, 30)
         Me.Label7.TabIndex = 20
-        Me.Label7.Text = "Administrator"
+        Me.Label7.Text = "Early Access User"
         Me.Label7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'lblLUser
@@ -827,7 +827,7 @@ Partial Class frmHomeMulti
         Me.Label15.Name = "Label15"
         Me.Label15.Size = New System.Drawing.Size(90, 26)
         Me.Label15.TabIndex = 3
-        Me.Label15.Text = "+6.73%"
+        Me.Label15.Text = "+n/a%"
         Me.Label15.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'lblC2DChange
@@ -859,7 +859,7 @@ Partial Class frmHomeMulti
         Me.Label17.Name = "Label17"
         Me.Label17.Size = New System.Drawing.Size(90, 26)
         Me.Label17.TabIndex = 5
-        Me.Label17.Text = "+6.73%"
+        Me.Label17.Text = "+n/a%"
         Me.Label17.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'lblC3DChange
@@ -891,7 +891,7 @@ Partial Class frmHomeMulti
         Me.Label18.Name = "Label18"
         Me.Label18.Size = New System.Drawing.Size(90, 26)
         Me.Label18.TabIndex = 7
-        Me.Label18.Text = "+6.73%"
+        Me.Label18.Text = "+n/a%"
         Me.Label18.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'lblC4DChange
@@ -923,7 +923,7 @@ Partial Class frmHomeMulti
         Me.Label13.Name = "Label13"
         Me.Label13.Size = New System.Drawing.Size(90, 26)
         Me.Label13.TabIndex = 1
-        Me.Label13.Text = "+6.73%"
+        Me.Label13.Text = "+n/a%"
         Me.Label13.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'lblC1DChange
@@ -938,7 +938,7 @@ Partial Class frmHomeMulti
         '
         'AetherGroupBox7
         '
-        Me.AetherGroupBox7.Controls.Add(Me.AetherButton6)
+        Me.AetherGroupBox7.Controls.Add(Me.btnEditHoldings)
         Me.AetherGroupBox7.Controls.Add(Me.lblAltHoldings)
         Me.AetherGroupBox7.Footer = False
         Me.AetherGroupBox7.FooterText = Nothing
@@ -948,15 +948,15 @@ Partial Class frmHomeMulti
         Me.AetherGroupBox7.TabIndex = 17
         Me.AetherGroupBox7.Text = "Holdings"
         '
-        'AetherButton6
+        'btnEditHoldings
         '
-        Me.AetherButton6.EnabledCalc = True
-        Me.AetherButton6.Font = New System.Drawing.Font("Segoe UI Semibold", 12.0!)
-        Me.AetherButton6.Location = New System.Drawing.Point(344, 8)
-        Me.AetherButton6.Name = "AetherButton6"
-        Me.AetherButton6.Size = New System.Drawing.Size(52, 23)
-        Me.AetherButton6.TabIndex = 5
-        Me.AetherButton6.Text = "EDIT"
+        Me.btnEditHoldings.EnabledCalc = True
+        Me.btnEditHoldings.Font = New System.Drawing.Font("Segoe UI Semibold", 12.0!)
+        Me.btnEditHoldings.Location = New System.Drawing.Point(344, 8)
+        Me.btnEditHoldings.Name = "btnEditHoldings"
+        Me.btnEditHoldings.Size = New System.Drawing.Size(52, 23)
+        Me.btnEditHoldings.TabIndex = 5
+        Me.btnEditHoldings.Text = "EDIT"
         '
         'lblAltHoldings
         '
@@ -974,7 +974,7 @@ Partial Class frmHomeMulti
         Me.AetherGroupBox6.Controls.Add(Me.lblGoalC3)
         Me.AetherGroupBox6.Controls.Add(Me.lblGoalC2)
         Me.AetherGroupBox6.Controls.Add(Me.lblGoalC1)
-        Me.AetherGroupBox6.Controls.Add(Me.AetherButton4)
+        Me.AetherGroupBox6.Controls.Add(Me.btnEditGoals)
         Me.AetherGroupBox6.Controls.Add(Me.prgC4)
         Me.AetherGroupBox6.Controls.Add(Me.prgC3)
         Me.AetherGroupBox6.Controls.Add(Me.prgC2)
@@ -1027,15 +1027,15 @@ Partial Class frmHomeMulti
         Me.lblGoalC1.Text = "Coin #1"
         Me.lblGoalC1.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         '
-        'AetherButton4
+        'btnEditGoals
         '
-        Me.AetherButton4.EnabledCalc = True
-        Me.AetherButton4.Font = New System.Drawing.Font("Segoe UI Semibold", 12.0!)
-        Me.AetherButton4.Location = New System.Drawing.Point(752, 8)
-        Me.AetherButton4.Name = "AetherButton4"
-        Me.AetherButton4.Size = New System.Drawing.Size(52, 23)
-        Me.AetherButton4.TabIndex = 4
-        Me.AetherButton4.Text = "EDIT"
+        Me.btnEditGoals.EnabledCalc = True
+        Me.btnEditGoals.Font = New System.Drawing.Font("Segoe UI Semibold", 12.0!)
+        Me.btnEditGoals.Location = New System.Drawing.Point(752, 8)
+        Me.btnEditGoals.Name = "btnEditGoals"
+        Me.btnEditGoals.Size = New System.Drawing.Size(52, 23)
+        Me.btnEditGoals.TabIndex = 4
+        Me.btnEditGoals.Text = "EDIT"
         '
         'prgC4
         '
@@ -1115,7 +1115,7 @@ Partial Class frmHomeMulti
         '
         'AetherGroupBox1
         '
-        Me.AetherGroupBox1.Controls.Add(Me.AetherButton5)
+        Me.AetherGroupBox1.Controls.Add(Me.btnEditPrices)
         Me.AetherGroupBox1.Controls.Add(Me.lblAltPrices)
         Me.AetherGroupBox1.Footer = False
         Me.AetherGroupBox1.FooterText = Nothing
@@ -1125,15 +1125,15 @@ Partial Class frmHomeMulti
         Me.AetherGroupBox1.TabIndex = 1
         Me.AetherGroupBox1.Text = "Prices"
         '
-        'AetherButton5
+        'btnEditPrices
         '
-        Me.AetherButton5.EnabledCalc = True
-        Me.AetherButton5.Font = New System.Drawing.Font("Segoe UI Semibold", 12.0!)
-        Me.AetherButton5.Location = New System.Drawing.Point(343, 8)
-        Me.AetherButton5.Name = "AetherButton5"
-        Me.AetherButton5.Size = New System.Drawing.Size(52, 23)
-        Me.AetherButton5.TabIndex = 5
-        Me.AetherButton5.Text = "EDIT"
+        Me.btnEditPrices.EnabledCalc = True
+        Me.btnEditPrices.Font = New System.Drawing.Font("Segoe UI Semibold", 12.0!)
+        Me.btnEditPrices.Location = New System.Drawing.Point(343, 8)
+        Me.btnEditPrices.Name = "btnEditPrices"
+        Me.btnEditPrices.Size = New System.Drawing.Size(52, 23)
+        Me.btnEditPrices.TabIndex = 5
+        Me.btnEditPrices.Text = "EDIT"
         '
         'lblAltPrices
         '
@@ -2231,10 +2231,10 @@ Partial Class frmHomeMulti
     Friend WithEvents txtC3Goal As AetherTextbox
     Friend WithEvents txtC2Goal As AetherTextbox
     Friend WithEvents txtC1Goal As AetherTextbox
-    Friend WithEvents AetherButton4 As AetherButton
-    Friend WithEvents AetherButton5 As AetherButton
+    Friend WithEvents btnEditGoals As AetherButton
+    Friend WithEvents btnEditPrices As AetherButton
     Friend WithEvents AetherGroupBox7 As AetherGroupBox
-    Friend WithEvents AetherButton6 As AetherButton
+    Friend WithEvents btnEditHoldings As AetherButton
     Friend WithEvents grpC1Change As AetherGroupBox
     Friend WithEvents grpC2Change As AetherGroupBox
     Friend WithEvents Label15 As Label
