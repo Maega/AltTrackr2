@@ -144,13 +144,13 @@ Public Class frmHomeMulti
                 lblAltHoldings.Text += coinCode + " - "
                 For Each fiatCode As String In fiatArray
                     If CDec(serverResponse.SelectToken("RAW").SelectToken(coinCode).SelectToken(fiatCode).SelectToken("PRICE")) >= 1.0 Then 'If the price is more than one fiat in value, round to two decimal places
-                        lblAltPrices.Text += fiatCode + " " + CDec(serverResponse.SelectToken("RAW").SelectToken(coinCode).SelectToken(fiatCode).SelectToken("PRICE")).ToString("n2") + " | "
+                        lblAltPrices.Text += fiatCode + ": " + CDec(serverResponse.SelectToken("RAW").SelectToken(coinCode).SelectToken(fiatCode).SelectToken("PRICE")).ToString("n2") + " | "
 
                         'MsgBox(Array.IndexOf(coinCodeArray, coinCode))
-                        lblAltHoldings.Text += fiatCode + " " + (totalHoldings(Array.IndexOf(coinCodeArray, coinCode)) * CDec(serverResponse.SelectToken("RAW").SelectToken(coinCode).SelectToken(fiatCode).SelectToken("PRICE"))).ToString("n2") + " | "
+                        lblAltHoldings.Text += fiatCode + ": " + (totalHoldings(Array.IndexOf(coinCodeArray, coinCode)) * CDec(serverResponse.SelectToken("RAW").SelectToken(coinCode).SelectToken(fiatCode).SelectToken("PRICE"))).ToString("n2") + " | "
                     Else 'If the price is less than one fiat, round to four decimal places for less valuable coins
-                        lblAltPrices.Text += fiatCode + " " + CDec(serverResponse.SelectToken("RAW").SelectToken(coinCode).SelectToken(fiatCode).SelectToken("PRICE")).ToString("n4") + " | "
-                        lblAltHoldings.Text += fiatCode + " " + (totalHoldings(Array.IndexOf(coinCodeArray, coinCode)) * CDec(serverResponse.SelectToken("RAW").SelectToken(coinCode).SelectToken(fiatCode).SelectToken("PRICE"))).ToString("n4") + " | "
+                        lblAltPrices.Text += fiatCode + ": " + CDec(serverResponse.SelectToken("RAW").SelectToken(coinCode).SelectToken(fiatCode).SelectToken("PRICE")).ToString("n4") + " | "
+                        lblAltHoldings.Text += fiatCode + ": " + (totalHoldings(Array.IndexOf(coinCodeArray, coinCode)) * CDec(serverResponse.SelectToken("RAW").SelectToken(coinCode).SelectToken(fiatCode).SelectToken("PRICE"))).ToString("n4") + " | "
                     End If
                 Next
                 lblAltPrices.Text = lblAltPrices.Text.TrimEnd(" ")

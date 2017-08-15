@@ -29,7 +29,6 @@ Partial Class frmHomeMulti
         Me.tmrRefresh = New System.Windows.Forms.Timer(Me.components)
         Me.pnlUnsaved = New System.Windows.Forms.Panel()
         Me.pnlPipe = New System.Windows.Forms.Panel()
-        Me.AetherTag2 = New AltTrackr2.AetherTag()
         Me.btnConfirmCancel = New MaterialSkin.Controls.MaterialRaisedButton()
         Me.btnConfirmSave = New MaterialSkin.Controls.MaterialRaisedButton()
         Me.lblUnsaved = New System.Windows.Forms.Label()
@@ -39,6 +38,7 @@ Partial Class frmHomeMulti
         Me.Label1 = New System.Windows.Forms.Label()
         Me.prgTitleLoad = New MRG.Controls.UI.LoadingCircle()
         Me.ilsImg = New System.Windows.Forms.ImageList(Me.components)
+        Me.AetherTag2 = New AltTrackr2.AetherTag()
         Me.tabContent = New AltTrackr2.AetherTabControl()
         Me.tpLogin = New System.Windows.Forms.TabPage()
         Me.pnlLAccount = New System.Windows.Forms.Panel()
@@ -326,17 +326,6 @@ Partial Class frmHomeMulti
         Me.pnlPipe.Size = New System.Drawing.Size(1, 15)
         Me.pnlPipe.TabIndex = 20
         '
-        'AetherTag2
-        '
-        Me.AetherTag2.Background = System.Drawing.Color.Red
-        Me.AetherTag2.Border = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(53, Byte), Integer), CType(CType(65, Byte), Integer))
-        Me.AetherTag2.Location = New System.Drawing.Point(23, 189)
-        Me.AetherTag2.Name = "AetherTag2"
-        Me.AetherTag2.Size = New System.Drawing.Size(148, 15)
-        Me.AetherTag2.TabIndex = 19
-        Me.AetherTag2.Text = "You have unsaved changes"
-        Me.AetherTag2.TextColor = System.Drawing.Color.White
-        '
         'btnConfirmCancel
         '
         Me.btnConfirmCancel.AutoSize = True
@@ -454,6 +443,17 @@ Partial Class frmHomeMulti
         Me.ilsImg.Images.SetKeyName(3, "On.png")
         Me.ilsImg.Images.SetKeyName(4, "Plus.png")
         Me.ilsImg.Images.SetKeyName(5, "Remove.png")
+        '
+        'AetherTag2
+        '
+        Me.AetherTag2.Background = System.Drawing.Color.Red
+        Me.AetherTag2.Border = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(53, Byte), Integer), CType(CType(65, Byte), Integer))
+        Me.AetherTag2.Location = New System.Drawing.Point(23, 189)
+        Me.AetherTag2.Name = "AetherTag2"
+        Me.AetherTag2.Size = New System.Drawing.Size(148, 15)
+        Me.AetherTag2.TabIndex = 19
+        Me.AetherTag2.Text = "You have unsaved changes"
+        Me.AetherTag2.TextColor = System.Drawing.Color.White
         '
         'tabContent
         '
@@ -2711,7 +2711,7 @@ Partial Class frmHomeMulti
         Me.tpFeedback.Name = "tpFeedback"
         Me.tpFeedback.Size = New System.Drawing.Size(824, 482)
         Me.tpFeedback.TabIndex = 9
-        Me.tpFeedback.Tag = "Beta 1"
+        Me.tpFeedback.Tag = "150817"
         Me.tpFeedback.Text = "Feedback"
         '
         'frmHomeMulti
