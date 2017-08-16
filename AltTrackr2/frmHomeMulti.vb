@@ -339,10 +339,38 @@ Public Class frmHomeMulti
             If coinCodeArray.Count - 3 > 0 Then prgC4.Progress = CDec(serverResponse.SelectToken("RAW").SelectToken(coinCodeArray(3)).SelectToken(fiatMain).SelectToken("PRICE")).ToString("n2") : prgC4.PostText = " " + fiatMain Else prgC4.Progress = 0 : prgC4.PostText = " N/A" : prgC4.Text = "CONFIGURE"
 
             'Unlike n(x), 0.(x) doesn't format with CultureInfo - meaning no commas
-            If coinCodeArray.Count - 0 > 0 Then tpCoin1.Tag = "$" + CDec(serverResponse.SelectToken("RAW").SelectToken(coinCodeArray(0)).SelectToken(fiatMain).SelectToken("PRICE")).ToString("0.00").ToString : lblC1Price.Text = "$" + CDec(serverResponse.SelectToken("RAW").SelectToken(coinCodeArray(0)).SelectToken(fiatMain).SelectToken("PRICE")).ToString("0.00").ToString
-            If coinCodeArray.Count - 1 > 0 Then tpCoin2.Tag = "$" + CDec(serverResponse.SelectToken("RAW").SelectToken(coinCodeArray(1)).SelectToken(fiatMain).SelectToken("PRICE")).ToString("0.00").ToString : lblC2Price.Text = "$" + CDec(serverResponse.SelectToken("RAW").SelectToken(coinCodeArray(1)).SelectToken(fiatMain).SelectToken("PRICE")).ToString("0.00").ToString
-            If coinCodeArray.Count - 2 > 0 Then tpCoin3.Tag = "$" + CDec(serverResponse.SelectToken("RAW").SelectToken(coinCodeArray(2)).SelectToken(fiatMain).SelectToken("PRICE")).ToString("0.00").ToString : lblC3Price.Text = "$" + CDec(serverResponse.SelectToken("RAW").SelectToken(coinCodeArray(2)).SelectToken(fiatMain).SelectToken("PRICE")).ToString("0.00").ToString
-            If coinCodeArray.Count - 3 > 0 Then tpCoin4.Tag = "$" + CDec(serverResponse.SelectToken("RAW").SelectToken(coinCodeArray(3)).SelectToken(fiatMain).SelectToken("PRICE")).ToString("0.00").ToString : lblC4Price.Text = "$" + CDec(serverResponse.SelectToken("RAW").SelectToken(coinCodeArray(3)).SelectToken(fiatMain).SelectToken("PRICE")).ToString("0.00").ToString
+            Dim arrayPlaces() As Integer = {0, 1, 2, 3}
+            For Each arrayPlace In arrayPlaces
+                Dim currentCoinTag As Control
+                Dim currentCoinLabel As Control
+                Select Case arrayPlace
+                    Case 0
+                        currentCoinTag = tpCoin1
+                        currentCoinLabel = lblC1Price
+                    Case 1
+                        currentCoinTag = tpCoin2
+                        currentCoinLabel = lblC2Price
+                    Case 2
+                        currentCoinTag = tpCoin3
+                        currentCoinLabel = lblC3Price
+                    Case 3
+                        currentCoinTag = tpCoin4
+                        currentCoinLabel = lblC4Price
+                End Select
+                If CDec(serverResponse.SelectToken("RAW").SelectToken(coinCodeArray(arrayPlace)).SelectToken(fiatMain).SelectToken("PRICE")) < 0.1 Then
+                    'MsgBox("Condition 1 - " + coinCodeArray(arrayPlace) + " Less Than 0.1" + vbNewLine + "Editing: " + currentCoinTag.ToString + " - " + currentCoinLabel.ToString)
+                    If coinCodeArray.Count - arrayPlace > 0 Then currentCoinTag.Tag = "$" + CDec(serverResponse.SelectToken("RAW").SelectToken(coinCodeArray(arrayPlace)).SelectToken(fiatMain).SelectToken("PRICE")).ToString("0.0000") : currentCoinLabel.Text = "$" + CDec(serverResponse.SelectToken("RAW").SelectToken(coinCodeArray(arrayPlace)).SelectToken(fiatMain).SelectToken("PRICE")).ToString("0.0000")
+                Else
+                    'MsgBox("Condition 2 - " + coinCodeArray(arrayPlace) + " Greater Than 0.1" + vbNewLine + "Editing: " + currentCoinTag.ToString + " - " + currentCoinLabel.ToString)
+                    If coinCodeArray.Count - arrayPlace > 0 Then currentCoinTag.Tag = "$" + CDec(serverResponse.SelectToken("RAW").SelectToken(coinCodeArray(arrayPlace)).SelectToken(fiatMain).SelectToken("PRICE")).ToString("0.00") : currentCoinLabel.Text = "$" + CDec(serverResponse.SelectToken("RAW").SelectToken(coinCodeArray(arrayPlace)).SelectToken(fiatMain).SelectToken("PRICE")).ToString("0.00")
+                End If
+                Invalidate()
+            Next
+
+
+            'If coinCodeArray.Count - 1 > 0 Then tpCoin2.Tag = "$" + CDec(serverResponse.SelectToken("RAW").SelectToken(coinCodeArray(1)).SelectToken(fiatMain).SelectToken("PRICE")).ToString("0.00").ToString : lblC2Price.Text = "$" + CDec(serverResponse.SelectToken("RAW").SelectToken(coinCodeArray(1)).SelectToken(fiatMain).SelectToken("PRICE")).ToString("0.00")
+            'If coinCodeArray.Count - 2 > 0 Then tpCoin3.Tag = "$" + CDec(serverResponse.SelectToken("RAW").SelectToken(coinCodeArray(2)).SelectToken(fiatMain).SelectToken("PRICE")).ToString("0.00").ToString : lblC3Price.Text = "$" + CDec(serverResponse.SelectToken("RAW").SelectToken(coinCodeArray(2)).SelectToken(fiatMain).SelectToken("PRICE")).ToString("0.00")
+            'If coinCodeArray.Count - 3 > 0 Then tpCoin4.Tag = "$" + CDec(serverResponse.SelectToken("RAW").SelectToken(coinCodeArray(3)).SelectToken(fiatMain).SelectToken("PRICE")).ToString("0.00").ToString : lblC4Price.Text = "$" + CDec(serverResponse.SelectToken("RAW").SelectToken(coinCodeArray(3)).SelectToken(fiatMain).SelectToken("PRICE")).ToString("0.00")
 
             'Set coin names according to array position
             lblC1Name.Text = coinNameArray(0).ToUpper
