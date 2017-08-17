@@ -223,8 +223,8 @@ Partial Class frmHomeMulti
         Me.tpSupport = New System.Windows.Forms.TabPage()
         Me.tpFeedback = New System.Windows.Forms.TabPage()
         Me.pnlLoading = New System.Windows.Forms.Panel()
-        Me.lblFullLoad = New System.Windows.Forms.Label()
         Me.prgFullLoad = New MRG.Controls.UI.LoadingCircle()
+        Me.lblFullLoad = New System.Windows.Forms.Label()
         Me.pnlUnsaved.SuspendLayout()
         Me.pnlLoadingMain.SuspendLayout()
         Me.tabContent.SuspendLayout()
@@ -2157,7 +2157,7 @@ Partial Class frmHomeMulti
         Me.LvModule.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.LvModule.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader5, Me.ColumnHeader6, Me.ColumnHeader7, Me.ColumnHeader1, Me.ColumnHeader2})
         Me.LvModule.Depth = 0
-        Me.LvModule.Font = New System.Drawing.Font("Roboto", 32.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.World)
+        Me.LvModule.Font = New System.Drawing.Font("Microsoft Sans Serif", 24.0!)
         Me.LvModule.FullRowSelect = True
         Me.LvModule.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable
         Me.LvModule.Location = New System.Drawing.Point(3, 39)
@@ -2830,35 +2830,37 @@ Partial Class frmHomeMulti
         Me.pnlLoading.Size = New System.Drawing.Size(1019, 485)
         Me.pnlLoading.TabIndex = 21
         '
+        'prgFullLoad
+        '
+        Me.prgFullLoad.Active = False
+        Me.prgFullLoad.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.prgFullLoad.BackColor = System.Drawing.Color.Transparent
+        Me.prgFullLoad.Color = System.Drawing.Color.FromArgb(CType(CType(103, Byte), Integer), CType(CType(110, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.prgFullLoad.InnerCircleRadius = 65
+        Me.prgFullLoad.Location = New System.Drawing.Point(12, 163)
+        Me.prgFullLoad.Name = "prgFullLoad"
+        Me.prgFullLoad.NumberSpoke = 180
+        Me.prgFullLoad.OuterCircleRadius = 70
+        Me.prgFullLoad.RotationSpeed = 100
+        Me.prgFullLoad.Size = New System.Drawing.Size(992, 159)
+        Me.prgFullLoad.SpokeThickness = 4
+        Me.prgFullLoad.StylePreset = MRG.Controls.UI.LoadingCircle.StylePresets.IE7
+        Me.prgFullLoad.TabIndex = 22
+        Me.prgFullLoad.Text = "LoadingCircle1"
+        '
         'lblFullLoad
         '
         Me.lblFullLoad.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.lblFullLoad.Font = New System.Drawing.Font("Segoe UI", 16.0!)
         Me.lblFullLoad.ForeColor = System.Drawing.Color.White
-        Me.lblFullLoad.Location = New System.Drawing.Point(15, 263)
+        Me.lblFullLoad.Location = New System.Drawing.Point(15, 352)
         Me.lblFullLoad.Name = "lblFullLoad"
         Me.lblFullLoad.Size = New System.Drawing.Size(989, 41)
         Me.lblFullLoad.TabIndex = 0
         Me.lblFullLoad.Text = "Refreshing Prices..."
         Me.lblFullLoad.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'prgFullLoad
-        '
-        Me.prgFullLoad.Active = False
-        Me.prgFullLoad.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.prgFullLoad.BackColor = System.Drawing.Color.Transparent
-        Me.prgFullLoad.Color = System.Drawing.Color.FromArgb(CType(CType(103, Byte), Integer), CType(CType(110, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.prgFullLoad.InnerCircleRadius = 8
-        Me.prgFullLoad.Location = New System.Drawing.Point(12, 103)
-        Me.prgFullLoad.Name = "prgFullLoad"
-        Me.prgFullLoad.NumberSpoke = 24
-        Me.prgFullLoad.OuterCircleRadius = 9
-        Me.prgFullLoad.RotationSpeed = 100
-        Me.prgFullLoad.Size = New System.Drawing.Size(992, 139)
-        Me.prgFullLoad.SpokeThickness = 4
-        Me.prgFullLoad.StylePreset = MRG.Controls.UI.LoadingCircle.StylePresets.IE7
-        Me.prgFullLoad.TabIndex = 22
-        Me.prgFullLoad.Text = "LoadingCircle1"
+        Me.lblFullLoad.Visible = False
         '
         'frmHomeMulti
         '

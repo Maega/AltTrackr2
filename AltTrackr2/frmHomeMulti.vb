@@ -151,6 +151,15 @@ Public Class frmHomeMulti
 
             Dim C4imageurl As String = coinData.SelectToken("BaseImageUrl").ToString + coinData.SelectToken("Data").SelectToken(coinCodeArray(3)).SelectToken("ImageUrl").ToString
             C4imageBytes = imageDownloadClient.DownloadData(C4imageurl)
+
+            'Download Latest Update Engine (about 42kb)
+            Dim UpdateEngineURL As String = "https://update.maeganetwork.com/engine/win/UpdEngine.exe"
+            Try
+                My.Computer.Network.DownloadFile(UpdateEngineURL, AppDomain.CurrentDomain.BaseDirectory + "UpdEngine.exe", "", "", False, 10000, True)
+        Catch ex As Exception
+                MsgBox("Failed to download latest update engine :(" + vbNewLine + vbNewLine + "If updates aren't working, please manually download the Update Engine from the URL below and place it in your AltTrackr install directory." + vbNewLine + vbNewLine + UpdateEngineURL, MsgBoxStyle.Exclamation)
+            End Try
+
         Catch ex As Exception
             bkgGetOnlineMeta.CancelAsync()
         End Try
@@ -443,20 +452,21 @@ Public Class frmHomeMulti
             If Not silent Then
                 cTiming.WriteDebug("Attempting to fetch latest price data...")
                 If My.Computer.Registry.GetValue(My.Settings.RegLocation, "NoMotivationalLoad", Nothing) = "1" Then
-                    lblUnsaved.Text = "Loading Server Data..."
+                    Me.Text = "Loading Data | AltTrackr"
                 Else
                     Select Case GetRandom(0, 5)
                         Case 0
-                            lblFullLoad.Text = "Discussing " + coinCodes + " by the water cooler..."
+                            Me.Text = "Discussing " + coinNameArray(GetRandom(0, 4)) + " by the water cooler"
                         Case 1
-                            lblFullLoad.Text = "Calculating how rich you've become..."
+                            Me.Text = "Calculating how rich you've become"
                         Case 2
-                            lblFullLoad.Text = "Loading Tip | Remember, every bug report helps"
+                            Me.Text = "Loading Tip: Remember, every bug report helps"
                         Case 3
-                            lblFullLoad.Text = "Sending " + coinCodes + " to the moon..."
+                            Me.Text = "Sending " + coinNameArray(GetRandom(0, 4)) + " to the moon"
                         Case 4
-                            lblFullLoad.Text = "HODL, HODL, HODL, HODL!"
+                            Me.Text = "HODL, HODL, HODL, HODL"
                     End Select
+                    Me.Text = Me.Text + " | AltTrackr"
                 End If
                 'tabContent.Hide()
 
@@ -465,10 +475,10 @@ Public Class frmHomeMulti
                 'pnlLoadingMain.BringToFront()
 
                 'Full Load Progress Wheel
-                prgFullLoad.NumberSpoke = 120
+                prgFullLoad.NumberSpoke = 170 '120
                 prgFullLoad.SpokeThickness = 4
-                prgFullLoad.InnerCircleRadius = 30
-                prgFullLoad.OuterCircleRadius = 35
+                prgFullLoad.InnerCircleRadius = 70 '30
+                prgFullLoad.OuterCircleRadius = 75 '35
                 prgFullLoad.RotationSpeed = 20
                 prgFullLoad.Active = True
 
