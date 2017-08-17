@@ -222,6 +222,9 @@ Partial Class frmHomeMulti
         Me.lblPrefC2Holdings = New System.Windows.Forms.Label()
         Me.tpSupport = New System.Windows.Forms.TabPage()
         Me.tpFeedback = New System.Windows.Forms.TabPage()
+        Me.pnlLoading = New System.Windows.Forms.Panel()
+        Me.lblFullLoad = New System.Windows.Forms.Label()
+        Me.prgFullLoad = New MRG.Controls.UI.LoadingCircle()
         Me.pnlUnsaved.SuspendLayout()
         Me.pnlLoadingMain.SuspendLayout()
         Me.tabContent.SuspendLayout()
@@ -262,6 +265,7 @@ Partial Class frmHomeMulti
         Me.grpC4Pref.SuspendLayout()
         Me.grpC3Pref.SuspendLayout()
         Me.grpC2Pref.SuspendLayout()
+        Me.pnlLoading.SuspendLayout()
         Me.SuspendLayout()
         '
         'ilsIcon
@@ -439,7 +443,7 @@ Partial Class frmHomeMulti
         Me.prgTitleLoad.BackColor = System.Drawing.Color.Transparent
         Me.prgTitleLoad.Color = System.Drawing.Color.FromArgb(CType(CType(103, Byte), Integer), CType(CType(110, Byte), Integer), CType(CType(138, Byte), Integer))
         Me.prgTitleLoad.InnerCircleRadius = 8
-        Me.prgTitleLoad.Location = New System.Drawing.Point(119, 28)
+        Me.prgTitleLoad.Location = New System.Drawing.Point(980, 28)
         Me.prgTitleLoad.Name = "prgTitleLoad"
         Me.prgTitleLoad.NumberSpoke = 24
         Me.prgTitleLoad.OuterCircleRadius = 9
@@ -449,6 +453,7 @@ Partial Class frmHomeMulti
         Me.prgTitleLoad.StylePreset = MRG.Controls.UI.LoadingCircle.StylePresets.IE7
         Me.prgTitleLoad.TabIndex = 20
         Me.prgTitleLoad.Text = "LoadingCircle1"
+        Me.prgTitleLoad.Visible = False
         '
         'ilsImg
         '
@@ -2815,11 +2820,52 @@ Partial Class frmHomeMulti
         Me.tpFeedback.Tag = "150817"
         Me.tpFeedback.Text = "Feedback"
         '
+        'pnlLoading
+        '
+        Me.pnlLoading.BackColor = System.Drawing.Color.FromArgb(CType(CType(52, Byte), Integer), CType(CType(56, Byte), Integer), CType(CType(67, Byte), Integer))
+        Me.pnlLoading.Controls.Add(Me.prgFullLoad)
+        Me.pnlLoading.Controls.Add(Me.lblFullLoad)
+        Me.pnlLoading.Location = New System.Drawing.Point(0, 66)
+        Me.pnlLoading.Name = "pnlLoading"
+        Me.pnlLoading.Size = New System.Drawing.Size(1019, 485)
+        Me.pnlLoading.TabIndex = 21
+        '
+        'lblFullLoad
+        '
+        Me.lblFullLoad.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.lblFullLoad.Font = New System.Drawing.Font("Segoe UI", 16.0!)
+        Me.lblFullLoad.ForeColor = System.Drawing.Color.White
+        Me.lblFullLoad.Location = New System.Drawing.Point(15, 263)
+        Me.lblFullLoad.Name = "lblFullLoad"
+        Me.lblFullLoad.Size = New System.Drawing.Size(989, 41)
+        Me.lblFullLoad.TabIndex = 0
+        Me.lblFullLoad.Text = "Refreshing Prices..."
+        Me.lblFullLoad.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'prgFullLoad
+        '
+        Me.prgFullLoad.Active = False
+        Me.prgFullLoad.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.prgFullLoad.BackColor = System.Drawing.Color.Transparent
+        Me.prgFullLoad.Color = System.Drawing.Color.FromArgb(CType(CType(103, Byte), Integer), CType(CType(110, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.prgFullLoad.InnerCircleRadius = 8
+        Me.prgFullLoad.Location = New System.Drawing.Point(12, 103)
+        Me.prgFullLoad.Name = "prgFullLoad"
+        Me.prgFullLoad.NumberSpoke = 24
+        Me.prgFullLoad.OuterCircleRadius = 9
+        Me.prgFullLoad.RotationSpeed = 100
+        Me.prgFullLoad.Size = New System.Drawing.Size(992, 139)
+        Me.prgFullLoad.SpokeThickness = 4
+        Me.prgFullLoad.StylePreset = MRG.Controls.UI.LoadingCircle.StylePresets.IE7
+        Me.prgFullLoad.TabIndex = 22
+        Me.prgFullLoad.Text = "LoadingCircle1"
+        '
         'frmHomeMulti
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1022, 554)
+        Me.Controls.Add(Me.pnlLoading)
         Me.Controls.Add(Me.prgTitleLoad)
         Me.Controls.Add(Me.pnlUnsaved)
         Me.Controls.Add(Me.tabContent)
@@ -2876,6 +2922,7 @@ Partial Class frmHomeMulti
         Me.grpC4Pref.ResumeLayout(False)
         Me.grpC3Pref.ResumeLayout(False)
         Me.grpC2Pref.ResumeLayout(False)
+        Me.pnlLoading.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
@@ -3078,4 +3125,7 @@ Partial Class frmHomeMulti
     Friend WithEvents radC2Edit As MaterialSkin.Controls.MaterialRadioButton
     Friend WithEvents radC1Edit As MaterialSkin.Controls.MaterialRadioButton
     Friend WithEvents Ambiance_Button_21 As Ambiance.Ambiance_Button_2
+    Friend WithEvents pnlLoading As Panel
+    Friend WithEvents prgFullLoad As MRG.Controls.UI.LoadingCircle
+    Friend WithEvents lblFullLoad As Label
 End Class

@@ -41,7 +41,7 @@ Public Class frmHomeMulti
         GetPrices()
         bkgGetOnlineMeta.RunWorkerAsync()
         Me.CenterToParent()
-        tagCurrentVer.Text = "v" + UpdateAPI.CurrentVer.ToString("0.0.0")
+        tagCurrentVer.Text = "v" + UpdateAPI.CurrentVer.ToString("0.00")
 
         txtC1Goal.Text = My.Computer.Registry.GetValue(My.Settings.RegLocation, "AppGoals", Nothing).Split(",")(0)
         txtC2Goal.Text = My.Computer.Registry.GetValue(My.Settings.RegLocation, "AppGoals", Nothing).Split(",")(1)
@@ -110,12 +110,14 @@ Public Class frmHomeMulti
     End Sub
 
     Sub HideLoadingPanel()
-        Do Until pnlLoadingMain.Top >= 554
-            pnlLoadingMain.Top += 15
+        Do Until pnlLoading.Height <= 0
+            pnlLoading.Height -= 15
             cTiming.pause(10)
         Loop
-        pnlLoadingMain.Hide()
-        pnlLoadingMain.Top = 68
+        pnlLoading.Hide()
+        'pnlLoading.Top = 68
+        pnlLoading.Height = 485
+        pnlLoading.Location = New Point(0, 66)
     End Sub
 
     Private Function ParseJSON(APIURL As String)
@@ -443,31 +445,42 @@ Public Class frmHomeMulti
                 If My.Computer.Registry.GetValue(My.Settings.RegLocation, "NoMotivationalLoad", Nothing) = "1" Then
                     lblUnsaved.Text = "Loading Server Data..."
                 Else
-                    'Select Case GetRandom(0, 5)
-                    'Case 0
-                    'lblLoading.Text = "Discussing " + coinCodes + " by the water cooler..."
-                    'Case 1
-                    'lblLoading.Text = "Calculating how rich you've become..."
-                    'Case 2
-                    'lblLoading.Text = "Loading Tip | Remember, every bug report helps"
-                    'Case 3
-                    'lblLoading.Text = "Sending " + coinCodes + " to the moon..."
-                    'Case 4
-                    'lblLoading.Text = "HODL, HODL, HODL, HODL!"
-                    'End Select
+                    Select Case GetRandom(0, 5)
+                        Case 0
+                            lblFullLoad.Text = "Discussing " + coinCodes + " by the water cooler..."
+                        Case 1
+                            lblFullLoad.Text = "Calculating how rich you've become..."
+                        Case 2
+                            lblFullLoad.Text = "Loading Tip | Remember, every bug report helps"
+                        Case 3
+                            lblFullLoad.Text = "Sending " + coinCodes + " to the moon..."
+                        Case 4
+                            lblFullLoad.Text = "HODL, HODL, HODL, HODL!"
+                    End Select
                 End If
                 'tabContent.Hide()
-                pnlLoadingMain.Show()
-                pnlLoadingMain.BringToFront()
 
-                'prgLoading.NumberSpoke = 120
-                'prgLoading.SpokeThickness = 4
-                'prgLoading.InnerCircleRadius = 30
-                'prgLoading.OuterCircleRadius = 35
-                'prgLoading.RotationSpeed = 20
-                'prgLoading.Active = True
+                'Old Loading Animation (now disabled)
+                'pnlLoadingMain.Show()
+                'pnlLoadingMain.BringToFront()
 
-                Me.Text = "Loading Data"
+                'Full Load Progress Wheel
+                prgFullLoad.NumberSpoke = 120
+                prgFullLoad.SpokeThickness = 4
+                prgFullLoad.InnerCircleRadius = 30
+                prgFullLoad.OuterCircleRadius = 35
+                prgFullLoad.RotationSpeed = 20
+                prgFullLoad.Active = True
+
+                pnlLoading.Show()
+                pnlLoading.BringToFront()
+                pnlLoading.Location = New Point(0, 66)
+
+                'pnlLoading.Show()
+                'pnlLoading.BringToFront()
+            Else
+                'Title Load Progress Wheel
+                'Me.Text = "Loading Data"
                 Invalidate()
                 prgTitleLoad.NumberSpoke = 120
                 prgTitleLoad.SpokeThickness = 4
@@ -476,9 +489,6 @@ Public Class frmHomeMulti
                 prgTitleLoad.RotationSpeed = 20
                 prgTitleLoad.Active = True
                 prgTitleLoad.Visible = True
-
-                'pnlLoading.Show()
-                'pnlLoading.BringToFront()
             End If
             bkgGetPrices.RunWorkerAsync()
         Else

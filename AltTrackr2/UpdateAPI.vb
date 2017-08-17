@@ -7,7 +7,7 @@
     'Organisation: Maega
 
     Public Const AppID As String = "6"
-    Public Const CurrentVer As Decimal = 2.0
+    Public Const CurrentVer As Decimal = 1.01
     Public Const AppName As String = "Maega AltTrackr"
 
     Public Const RegLoc As String = "HKEY_CURRENT_USER\Software\Maega\" + AppID + "\"
