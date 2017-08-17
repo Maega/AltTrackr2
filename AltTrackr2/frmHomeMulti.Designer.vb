@@ -29,7 +29,6 @@ Partial Class frmHomeMulti
         Me.tmrRefresh = New System.Windows.Forms.Timer(Me.components)
         Me.pnlUnsaved = New System.Windows.Forms.Panel()
         Me.pnlPipe = New System.Windows.Forms.Panel()
-        Me.AetherTag2 = New AltTrackr2.AetherTag()
         Me.btnConfirmCancel = New MaterialSkin.Controls.MaterialRaisedButton()
         Me.btnConfirmSave = New MaterialSkin.Controls.MaterialRaisedButton()
         Me.lblUnsaved = New System.Windows.Forms.Label()
@@ -40,6 +39,10 @@ Partial Class frmHomeMulti
         Me.prgTitleLoad = New MRG.Controls.UI.LoadingCircle()
         Me.ilsImg = New System.Windows.Forms.ImageList(Me.components)
         Me.bkgGetOnlineMeta = New System.ComponentModel.BackgroundWorker()
+        Me.pnlLoading = New System.Windows.Forms.Panel()
+        Me.prgFullLoad = New MRG.Controls.UI.LoadingCircle()
+        Me.lblFullLoad = New System.Windows.Forms.Label()
+        Me.AetherTag2 = New AltTrackr2.AetherTag()
         Me.tabContent = New AltTrackr2.AetherTabControl()
         Me.tpLogin = New System.Windows.Forms.TabPage()
         Me.pnlLAccount = New System.Windows.Forms.Panel()
@@ -222,11 +225,9 @@ Partial Class frmHomeMulti
         Me.lblPrefC2Holdings = New System.Windows.Forms.Label()
         Me.tpSupport = New System.Windows.Forms.TabPage()
         Me.tpFeedback = New System.Windows.Forms.TabPage()
-        Me.pnlLoading = New System.Windows.Forms.Panel()
-        Me.prgFullLoad = New MRG.Controls.UI.LoadingCircle()
-        Me.lblFullLoad = New System.Windows.Forms.Label()
         Me.pnlUnsaved.SuspendLayout()
         Me.pnlLoadingMain.SuspendLayout()
+        Me.pnlLoading.SuspendLayout()
         Me.tabContent.SuspendLayout()
         Me.tpLogin.SuspendLayout()
         Me.pnlLAccount.SuspendLayout()
@@ -265,14 +266,13 @@ Partial Class frmHomeMulti
         Me.grpC4Pref.SuspendLayout()
         Me.grpC3Pref.SuspendLayout()
         Me.grpC2Pref.SuspendLayout()
-        Me.pnlLoading.SuspendLayout()
         Me.SuspendLayout()
         '
         'ilsIcon
         '
         Me.ilsIcon.ImageStream = CType(resources.GetObject("ilsIcon.ImageStream"), System.Windows.Forms.ImageListStreamer)
         Me.ilsIcon.TransparentColor = System.Drawing.Color.Transparent
-        Me.ilsIcon.Images.SetKeyName(0, "home_icon.png")
+        Me.ilsIcon.Images.SetKeyName(0, "025-home.png")
         Me.ilsIcon.Images.SetKeyName(1, "logoETH.png")
         Me.ilsIcon.Images.SetKeyName(2, "logoBTC.png")
         Me.ilsIcon.Images.SetKeyName(3, "logoDoge.png")
@@ -296,11 +296,19 @@ Partial Class frmHomeMulti
         Me.ilsIcon.Images.SetKeyName(21, "025-home.png")
         Me.ilsIcon.Images.SetKeyName(22, "027-monero.png")
         Me.ilsIcon.Images.SetKeyName(23, "028-ethereum.png")
-        Me.ilsIcon.Images.SetKeyName(24, "")
-        Me.ilsIcon.Images.SetKeyName(25, "")
-        Me.ilsIcon.Images.SetKeyName(26, "")
-        Me.ilsIcon.Images.SetKeyName(27, "")
-        Me.ilsIcon.Images.SetKeyName(28, "")
+        Me.ilsIcon.Images.SetKeyName(24, "001-account.png")
+        Me.ilsIcon.Images.SetKeyName(25, "002-arrows.png")
+        Me.ilsIcon.Images.SetKeyName(26, "003-multimedia.png")
+        Me.ilsIcon.Images.SetKeyName(27, "006-businessman-1.png")
+        Me.ilsIcon.Images.SetKeyName(28, "026-businessman.png")
+        Me.ilsIcon.Images.SetKeyName(29, "009-exchange.png")
+        Me.ilsIcon.Images.SetKeyName(30, "010-cloud.png")
+        Me.ilsIcon.Images.SetKeyName(31, "011-alert.png")
+        Me.ilsIcon.Images.SetKeyName(32, "012-server-1.png")
+        Me.ilsIcon.Images.SetKeyName(33, "013-server.png")
+        Me.ilsIcon.Images.SetKeyName(34, "015-calculator.png")
+        Me.ilsIcon.Images.SetKeyName(35, "016-trash-can.png")
+        Me.ilsIcon.Images.SetKeyName(36, "024-monitor.png")
         '
         'bkgGetPrices
         '
@@ -335,17 +343,6 @@ Partial Class frmHomeMulti
         Me.pnlPipe.Name = "pnlPipe"
         Me.pnlPipe.Size = New System.Drawing.Size(1, 15)
         Me.pnlPipe.TabIndex = 20
-        '
-        'AetherTag2
-        '
-        Me.AetherTag2.Background = System.Drawing.Color.Red
-        Me.AetherTag2.Border = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(53, Byte), Integer), CType(CType(65, Byte), Integer))
-        Me.AetherTag2.Location = New System.Drawing.Point(23, 189)
-        Me.AetherTag2.Name = "AetherTag2"
-        Me.AetherTag2.Size = New System.Drawing.Size(148, 15)
-        Me.AetherTag2.TabIndex = 19
-        Me.AetherTag2.Text = "You have unsaved changes"
-        Me.AetherTag2.TextColor = System.Drawing.Color.White
         '
         'btnConfirmCancel
         '
@@ -470,6 +467,60 @@ Partial Class frmHomeMulti
         '
         Me.bkgGetOnlineMeta.WorkerReportsProgress = True
         Me.bkgGetOnlineMeta.WorkerSupportsCancellation = True
+        '
+        'pnlLoading
+        '
+        Me.pnlLoading.BackColor = System.Drawing.Color.FromArgb(CType(CType(52, Byte), Integer), CType(CType(56, Byte), Integer), CType(CType(67, Byte), Integer))
+        Me.pnlLoading.Controls.Add(Me.prgFullLoad)
+        Me.pnlLoading.Controls.Add(Me.lblFullLoad)
+        Me.pnlLoading.Location = New System.Drawing.Point(0, 66)
+        Me.pnlLoading.Name = "pnlLoading"
+        Me.pnlLoading.Size = New System.Drawing.Size(1019, 485)
+        Me.pnlLoading.TabIndex = 21
+        Me.pnlLoading.Visible = False
+        '
+        'prgFullLoad
+        '
+        Me.prgFullLoad.Active = False
+        Me.prgFullLoad.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.prgFullLoad.BackColor = System.Drawing.Color.Transparent
+        Me.prgFullLoad.Color = System.Drawing.Color.FromArgb(CType(CType(103, Byte), Integer), CType(CType(110, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.prgFullLoad.InnerCircleRadius = 8
+        Me.prgFullLoad.Location = New System.Drawing.Point(12, 163)
+        Me.prgFullLoad.Name = "prgFullLoad"
+        Me.prgFullLoad.NumberSpoke = 24
+        Me.prgFullLoad.OuterCircleRadius = 9
+        Me.prgFullLoad.RotationSpeed = 100
+        Me.prgFullLoad.Size = New System.Drawing.Size(992, 159)
+        Me.prgFullLoad.SpokeThickness = 4
+        Me.prgFullLoad.StylePreset = MRG.Controls.UI.LoadingCircle.StylePresets.IE7
+        Me.prgFullLoad.TabIndex = 22
+        Me.prgFullLoad.Text = "LoadingCircle1"
+        '
+        'lblFullLoad
+        '
+        Me.lblFullLoad.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.lblFullLoad.Font = New System.Drawing.Font("Segoe UI", 16.0!)
+        Me.lblFullLoad.ForeColor = System.Drawing.Color.White
+        Me.lblFullLoad.Location = New System.Drawing.Point(15, 352)
+        Me.lblFullLoad.Name = "lblFullLoad"
+        Me.lblFullLoad.Size = New System.Drawing.Size(989, 41)
+        Me.lblFullLoad.TabIndex = 0
+        Me.lblFullLoad.Text = "Refreshing Prices..."
+        Me.lblFullLoad.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.lblFullLoad.Visible = False
+        '
+        'AetherTag2
+        '
+        Me.AetherTag2.Background = System.Drawing.Color.Red
+        Me.AetherTag2.Border = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(53, Byte), Integer), CType(CType(65, Byte), Integer))
+        Me.AetherTag2.Location = New System.Drawing.Point(23, 189)
+        Me.AetherTag2.Name = "AetherTag2"
+        Me.AetherTag2.Size = New System.Drawing.Size(148, 15)
+        Me.AetherTag2.TabIndex = 19
+        Me.AetherTag2.Text = "You have unsaved changes"
+        Me.AetherTag2.TextColor = System.Drawing.Color.White
         '
         'tabContent
         '
@@ -2820,58 +2871,16 @@ Partial Class frmHomeMulti
         Me.tpFeedback.Tag = "150817"
         Me.tpFeedback.Text = "Feedback"
         '
-        'pnlLoading
-        '
-        Me.pnlLoading.BackColor = System.Drawing.Color.FromArgb(CType(CType(52, Byte), Integer), CType(CType(56, Byte), Integer), CType(CType(67, Byte), Integer))
-        Me.pnlLoading.Controls.Add(Me.prgFullLoad)
-        Me.pnlLoading.Controls.Add(Me.lblFullLoad)
-        Me.pnlLoading.Location = New System.Drawing.Point(0, 66)
-        Me.pnlLoading.Name = "pnlLoading"
-        Me.pnlLoading.Size = New System.Drawing.Size(1019, 485)
-        Me.pnlLoading.TabIndex = 21
-        '
-        'prgFullLoad
-        '
-        Me.prgFullLoad.Active = False
-        Me.prgFullLoad.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.prgFullLoad.BackColor = System.Drawing.Color.Transparent
-        Me.prgFullLoad.Color = System.Drawing.Color.FromArgb(CType(CType(103, Byte), Integer), CType(CType(110, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.prgFullLoad.InnerCircleRadius = 65
-        Me.prgFullLoad.Location = New System.Drawing.Point(12, 163)
-        Me.prgFullLoad.Name = "prgFullLoad"
-        Me.prgFullLoad.NumberSpoke = 180
-        Me.prgFullLoad.OuterCircleRadius = 70
-        Me.prgFullLoad.RotationSpeed = 100
-        Me.prgFullLoad.Size = New System.Drawing.Size(992, 159)
-        Me.prgFullLoad.SpokeThickness = 4
-        Me.prgFullLoad.StylePreset = MRG.Controls.UI.LoadingCircle.StylePresets.IE7
-        Me.prgFullLoad.TabIndex = 22
-        Me.prgFullLoad.Text = "LoadingCircle1"
-        '
-        'lblFullLoad
-        '
-        Me.lblFullLoad.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.lblFullLoad.Font = New System.Drawing.Font("Segoe UI", 16.0!)
-        Me.lblFullLoad.ForeColor = System.Drawing.Color.White
-        Me.lblFullLoad.Location = New System.Drawing.Point(15, 352)
-        Me.lblFullLoad.Name = "lblFullLoad"
-        Me.lblFullLoad.Size = New System.Drawing.Size(989, 41)
-        Me.lblFullLoad.TabIndex = 0
-        Me.lblFullLoad.Text = "Refreshing Prices..."
-        Me.lblFullLoad.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        Me.lblFullLoad.Visible = False
-        '
         'frmHomeMulti
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1022, 554)
-        Me.Controls.Add(Me.pnlLoading)
         Me.Controls.Add(Me.prgTitleLoad)
         Me.Controls.Add(Me.pnlUnsaved)
         Me.Controls.Add(Me.tabContent)
         Me.Controls.Add(Me.pnlLoadingMain)
+        Me.Controls.Add(Me.pnlLoading)
         Me.Name = "frmHomeMulti"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Loading Data"
@@ -2879,6 +2888,7 @@ Partial Class frmHomeMulti
         Me.pnlUnsaved.ResumeLayout(False)
         Me.pnlUnsaved.PerformLayout()
         Me.pnlLoadingMain.ResumeLayout(False)
+        Me.pnlLoading.ResumeLayout(False)
         Me.tabContent.ResumeLayout(False)
         Me.tpLogin.ResumeLayout(False)
         Me.pnlLAccount.ResumeLayout(False)
@@ -2924,7 +2934,6 @@ Partial Class frmHomeMulti
         Me.grpC4Pref.ResumeLayout(False)
         Me.grpC3Pref.ResumeLayout(False)
         Me.grpC2Pref.ResumeLayout(False)
-        Me.pnlLoading.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
