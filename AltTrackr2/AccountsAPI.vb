@@ -65,6 +65,7 @@ Module AccountsAPI
                     Case 1 'resStatus 1 means Authenticated.
                         'MsgBox(apiresponse.ToString)
                         frmHomeMulti.lblAuthRequest.Text = "RESP EPOCH APPROVED! DATA RESPONSE: " + apiresponse.ToString
+                        UpdateAPI.AppShortName = "AltTrackr Pro"
                         Return 1 'Return 1 for OK - Login successful, all variables have been set.
                     Case Else
                         Return 2 'Return 2 for Error - Something went wrong with the request.
@@ -104,6 +105,7 @@ Module AccountsAPI
         Try
             Dim apiresponse As String = New System.Net.WebClient().DownloadString(apiserver + apiquery)
             If apiresponse.Contains("LoginOK") Then
+                UpdateAPI.AppShortName = "AltTrackr Pro"
                 Return True
             Else
                 Return False

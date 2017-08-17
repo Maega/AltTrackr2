@@ -7,8 +7,9 @@
     'Organisation: Maega
 
     Public Const AppID As String = "6"
-    Public Const CurrentVer As Decimal = 1.01
+    Public Const CurrentVer As Decimal = 1.02
     Public Const AppName As String = "Maega AltTrackr"
+    Public AppShortName As String = "AltTrackr"
 
     Public Const RegLoc As String = "HKEY_CURRENT_USER\Software\Maega\" + AppID + "\"
     Public Const MIHLoc As String = "HKEY_CURRENT_USER\Software\Maega\2\" '2 is the ID of MIH

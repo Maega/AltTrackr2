@@ -25,7 +25,7 @@ Public Class frmHomeMulti
     End Sub
 
     Private Sub tabContent_Selected(sender As Object, e As TabControlEventArgs) Handles tabContent.Selected
-        Me.Text = tabContent.SelectedTab.Text + " | AltTrackr"
+        Me.Text = tabContent.SelectedTab.Text + " | " + UpdateAPI.AppShortName
         Invalidate()
     End Sub
 
@@ -156,7 +156,7 @@ Public Class frmHomeMulti
             Dim UpdateEngineURL As String = "https://update.maeganetwork.com/engine/win/UpdEngine.exe"
             Try
                 My.Computer.Network.DownloadFile(UpdateEngineURL, AppDomain.CurrentDomain.BaseDirectory + "UpdEngine.exe", "", "", False, 10000, True)
-        Catch ex As Exception
+            Catch ex As Exception
                 MsgBox("Failed to download latest update engine :(" + vbNewLine + vbNewLine + "If updates aren't working, please manually download the Update Engine from the URL below and place it in your AltTrackr install directory." + vbNewLine + vbNewLine + UpdateEngineURL, MsgBoxStyle.Exclamation)
             End Try
 
@@ -431,13 +431,13 @@ Public Class frmHomeMulti
             'tsHoldingsValue.Text = coinCodes + " Holdings Value: " + fiatMain + " " + (totalHoldings * CDec(serverResponse.SelectToken("RAW").SelectToken(fiatMain).SelectToken("PRICE"))).ToString("n2")
             'tabContent.Show()
             prgTitleLoad.Hide()
-            Me.Text = tabContent.SelectedTab.Text + " | AltTrackr"
+            Me.Text = tabContent.SelectedTab.Text + " | " + UpdateAPI.AppShortName
             Invalidate()
             HideLoadingPanel()
             'Dim d1 As DateTime = DateTime.Today
             'Dim d2 As DateTime = Convert.ToDateTime(My.Computer.Registry.GetValue(My.Settings.RegLocation, "InvestDate", Nothing))
             'Dim months As String = CStr(DateDiff(DateInterval.Month, d2, d1))
-            'lblFriendlyPrice.Text = "Today, you hold " + totalHoldings.ToString + " " + coinCodes + " which is valued at " + (totalHoldings * CDec(serverResponse.SelectToken("RAW").SelectToken(fiatMain).SelectToken("PRICE"))).ToString("n2") + " " + fiatMain + " at a coin price of " + CDec(serverResponse.SelectToken("RAW").SelectToken(fiatMain).SelectToken("PRICE")).ToString("n2") + " " + fiatMain + vbNewLine + "Your initial investment was " + initialInvestment + " " + fiatMain + " and has matured over " + months + " months, yielding profits of " + ((totalHoldings * CDec(serverResponse.SelectToken("RAW").SelectToken(fiatMain).SelectToken("PRICE"))) - CDec(initialInvestment)).ToString("n2") + " " + fiatMain + " so far"
+            'lblFriendlyPrice.Text = "Today, you hold " + totalHoldings.ToString + " " + coinCodes + " which is valued at " + (totalHoldings * CDec(serverResponse.SelectToken("RAW").SelectToken(fiatMain).SelectToken("PRICE"))).ToString("n2") + " " + fiatMain + " at a coin price Of " + CDec(serverResponse.SelectToken("RAW").SelectToken(fiatMain).SelectToken("PRICE")).ToString("n2") + " " + fiatMain + vbNewLine + "Your initial investment was " + initialInvestment + " " + fiatMain + " And has matured over " + months + " months, yielding profits Of " + ((totalHoldings * CDec(serverResponse.SelectToken("RAW").SelectToken(fiatMain).SelectToken("PRICE"))) - CDec(initialInvestment)).ToString("n2") + " " + fiatMain + " so far"
             lblLastPriceUpdate.Text = "Last Updated: " + DateTime.Now
         End If
         tmrRefresh.Interval = My.Computer.Registry.GetValue(My.Settings.RegLocation, "RefreshInterval", Nothing)
@@ -452,7 +452,7 @@ Public Class frmHomeMulti
             If Not silent Then
                 cTiming.WriteDebug("Attempting to fetch latest price data...")
                 If My.Computer.Registry.GetValue(My.Settings.RegLocation, "NoMotivationalLoad", Nothing) = "1" Then
-                    Me.Text = "Loading Data | AltTrackr"
+                    Me.Text = "Loading Data | " + UpdateAPI.AppShortName
                 Else
                     Select Case GetRandom(0, 5)
                         Case 0
@@ -466,7 +466,7 @@ Public Class frmHomeMulti
                         Case 4
                             Me.Text = "HODL, HODL, HODL, HODL"
                     End Select
-                    Me.Text = Me.Text + " | AltTrackr"
+                    Me.Text = Me.Text + " | " + UpdateAPI.AppShortName
                 End If
                 'tabContent.Hide()
 
@@ -532,7 +532,7 @@ Public Class frmHomeMulti
             tpLogin.Text = txtLUsername.Text
             tpLogin.ImageIndex = 28
             lblLUser.Text = sessionUser
-            Me.Text = sessionUser + " | AltTrackr"
+            Me.Text = sessionUser + " | " + UpdateAPI.AppShortName
             Invalidate()
         ElseIf loginResponse = 0 Then 'Incorrect Credentials
             pnlLIncorrect.Show()
@@ -546,7 +546,7 @@ Public Class frmHomeMulti
         ElseIf loginResponse = 2 Then 'Error
             'Do Nothing, user has already been notified of the failed login attempt
         Else
-            MsgBox("An error has occurred. The server response is invalid." + vbNewLine + vbNewLine + "Please check for product updates and try again. If the problem persists, please submit a report or get in touch with support.", MsgBoxStyle.Critical)
+            MsgBox("An error has occurred. The server response is invalid." + vbNewLine + vbNewLine + "Please check For product updates And Try again. If the problem persists, please submit a report Or Get In touch With support.", MsgBoxStyle.Critical)
         End If
         loginResponse = String.Empty
     End Sub
@@ -557,7 +557,7 @@ Public Class frmHomeMulti
         sessionUser = String.Empty
         tpLogin.Text = "Login"
         tpLogin.ImageIndex = 25
-        Me.Text = "Login | AltTrackr"
+        Me.Text = "Login | " + UpdateAPI.AppShortName
         Invalidate()
     End Sub
 
