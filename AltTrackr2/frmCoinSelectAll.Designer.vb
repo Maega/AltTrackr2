@@ -46,6 +46,7 @@ Partial Class frmCoinSelectAll
         Me.chkC3 = New MaterialSkin.Controls.MaterialCheckBox()
         Me.chkC4 = New MaterialSkin.Controls.MaterialCheckBox()
         Me.MaterialRaisedButton1 = New MaterialSkin.Controls.MaterialRaisedButton()
+        Me.Label1 = New System.Windows.Forms.Label()
         CType(Me.picCoinLogo, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.cxtItem.SuspendLayout()
         Me.SuspendLayout()
@@ -148,6 +149,7 @@ Partial Class frmCoinSelectAll
         '
         'ViewInfoToolStripMenuItem
         '
+        Me.ViewInfoToolStripMenuItem.Enabled = False
         Me.ViewInfoToolStripMenuItem.Name = "ViewInfoToolStripMenuItem"
         Me.ViewInfoToolStripMenuItem.Size = New System.Drawing.Size(155, 22)
         Me.ViewInfoToolStripMenuItem.Text = "View Info"
@@ -159,6 +161,7 @@ Partial Class frmCoinSelectAll
         '
         'ReloadAllToolStripMenuItem
         '
+        Me.ReloadAllToolStripMenuItem.Enabled = False
         Me.ReloadAllToolStripMenuItem.Name = "ReloadAllToolStripMenuItem"
         Me.ReloadAllToolStripMenuItem.Size = New System.Drawing.Size(155, 22)
         Me.ReloadAllToolStripMenuItem.Text = "Reload All"
@@ -279,24 +282,38 @@ Partial Class frmCoinSelectAll
         '
         'MaterialRaisedButton1
         '
-        Me.MaterialRaisedButton1.AutoSize = True
         Me.MaterialRaisedButton1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.MaterialRaisedButton1.BackColor = System.Drawing.Color.Black
         Me.MaterialRaisedButton1.Depth = 0
         Me.MaterialRaisedButton1.Icon = Nothing
-        Me.MaterialRaisedButton1.Location = New System.Drawing.Point(811, 26)
+        Me.MaterialRaisedButton1.Location = New System.Drawing.Point(805, 34)
         Me.MaterialRaisedButton1.MouseState = MaterialSkin.MouseState.HOVER
         Me.MaterialRaisedButton1.Name = "MaterialRaisedButton1"
         Me.MaterialRaisedButton1.Primary = True
-        Me.MaterialRaisedButton1.Size = New System.Drawing.Size(88, 36)
+        Me.MaterialRaisedButton1.Size = New System.Drawing.Size(88, 19)
         Me.MaterialRaisedButton1.TabIndex = 26
         Me.MaterialRaisedButton1.Text = "Continue"
-        Me.MaterialRaisedButton1.UseVisualStyleBackColor = True
+        Me.MaterialRaisedButton1.UseVisualStyleBackColor = False
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.BackColor = System.Drawing.Color.Transparent
+        Me.Label1.Font = New System.Drawing.Font("Segoe UI Semibold", 8.0!)
+        Me.Label1.ForeColor = System.Drawing.Color.White
+        Me.Label1.Location = New System.Drawing.Point(12, 5)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(264, 13)
+        Me.Label1.TabIndex = 27
+        Me.Label1.Tag = ""
+        Me.Label1.Text = "RIGHT CLICK A COIN TO ASSIGN IT TO A COIN SLOT"
         '
         'frmCoinSelectAll
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(900, 462)
+        Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.MaterialRaisedButton1)
         Me.Controls.Add(Me.chkC4)
         Me.Controls.Add(Me.chkC3)
@@ -339,4 +356,5 @@ Partial Class frmCoinSelectAll
     Friend WithEvents MaterialRaisedButton1 As MaterialSkin.Controls.MaterialRaisedButton
     Friend WithEvents tsiCoinName As ToolStripMenuItem
     Friend WithEvents ToolStripSeparator3 As ToolStripSeparator
+    Friend WithEvents Label1 As Label
 End Class
