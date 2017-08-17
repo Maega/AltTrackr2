@@ -2157,7 +2157,7 @@ Partial Class frmHomeMulti
         Me.LvModule.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.LvModule.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader5, Me.ColumnHeader6, Me.ColumnHeader7, Me.ColumnHeader1, Me.ColumnHeader2})
         Me.LvModule.Depth = 0
-        Me.LvModule.Font = New System.Drawing.Font("Microsoft Sans Serif", 24.0!)
+        Me.LvModule.Font = New System.Drawing.Font("Roboto", 32.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.World)
         Me.LvModule.FullRowSelect = True
         Me.LvModule.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable
         Me.LvModule.Location = New System.Drawing.Point(3, 39)
