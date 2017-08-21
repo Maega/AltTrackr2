@@ -29,6 +29,7 @@ Partial Class frmHomeMulti
         Me.tmrRefresh = New System.Windows.Forms.Timer(Me.components)
         Me.pnlUnsaved = New System.Windows.Forms.Panel()
         Me.pnlPipe = New System.Windows.Forms.Panel()
+        Me.AetherTag2 = New AltTrackr2.AetherTag()
         Me.btnConfirmCancel = New MaterialSkin.Controls.MaterialRaisedButton()
         Me.btnConfirmSave = New MaterialSkin.Controls.MaterialRaisedButton()
         Me.lblUnsaved = New System.Windows.Forms.Label()
@@ -42,7 +43,6 @@ Partial Class frmHomeMulti
         Me.pnlLoading = New System.Windows.Forms.Panel()
         Me.prgFullLoad = New MRG.Controls.UI.LoadingCircle()
         Me.lblFullLoad = New System.Windows.Forms.Label()
-        Me.AetherTag2 = New AltTrackr2.AetherTag()
         Me.tabContent = New AltTrackr2.AetherTabControl()
         Me.tpLogin = New System.Windows.Forms.TabPage()
         Me.pnlLAccount = New System.Windows.Forms.Panel()
@@ -225,6 +225,7 @@ Partial Class frmHomeMulti
         Me.lblPrefC2Holdings = New System.Windows.Forms.Label()
         Me.tpSupport = New System.Windows.Forms.TabPage()
         Me.tpFeedback = New System.Windows.Forms.TabPage()
+        Me.ttpGeneral = New System.Windows.Forms.ToolTip(Me.components)
         Me.pnlUnsaved.SuspendLayout()
         Me.pnlLoadingMain.SuspendLayout()
         Me.pnlLoading.SuspendLayout()
@@ -343,6 +344,17 @@ Partial Class frmHomeMulti
         Me.pnlPipe.Name = "pnlPipe"
         Me.pnlPipe.Size = New System.Drawing.Size(1, 15)
         Me.pnlPipe.TabIndex = 20
+        '
+        'AetherTag2
+        '
+        Me.AetherTag2.Background = System.Drawing.Color.Red
+        Me.AetherTag2.Border = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(53, Byte), Integer), CType(CType(65, Byte), Integer))
+        Me.AetherTag2.Location = New System.Drawing.Point(23, 189)
+        Me.AetherTag2.Name = "AetherTag2"
+        Me.AetherTag2.Size = New System.Drawing.Size(148, 15)
+        Me.AetherTag2.TabIndex = 19
+        Me.AetherTag2.Text = "You have unsaved changes"
+        Me.AetherTag2.TextColor = System.Drawing.Color.White
         '
         'btnConfirmCancel
         '
@@ -510,17 +522,6 @@ Partial Class frmHomeMulti
         Me.lblFullLoad.Text = "Refreshing Prices..."
         Me.lblFullLoad.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         Me.lblFullLoad.Visible = False
-        '
-        'AetherTag2
-        '
-        Me.AetherTag2.Background = System.Drawing.Color.Red
-        Me.AetherTag2.Border = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(53, Byte), Integer), CType(CType(65, Byte), Integer))
-        Me.AetherTag2.Location = New System.Drawing.Point(23, 189)
-        Me.AetherTag2.Name = "AetherTag2"
-        Me.AetherTag2.Size = New System.Drawing.Size(148, 15)
-        Me.AetherTag2.TabIndex = 19
-        Me.AetherTag2.Text = "You have unsaved changes"
-        Me.AetherTag2.TextColor = System.Drawing.Color.White
         '
         'tabContent
         '
@@ -2208,7 +2209,7 @@ Partial Class frmHomeMulti
         Me.LvModule.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.LvModule.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader5, Me.ColumnHeader6, Me.ColumnHeader7, Me.ColumnHeader1, Me.ColumnHeader2})
         Me.LvModule.Depth = 0
-        Me.LvModule.Font = New System.Drawing.Font("Microsoft Sans Serif", 24.0!)
+        Me.LvModule.Font = New System.Drawing.Font("Roboto", 32.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.World)
         Me.LvModule.FullRowSelect = True
         Me.LvModule.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable
         Me.LvModule.Location = New System.Drawing.Point(3, 39)
@@ -2871,6 +2872,10 @@ Partial Class frmHomeMulti
         Me.tpFeedback.Tag = "150817"
         Me.tpFeedback.Text = "Feedback"
         '
+        'ttpGeneral
+        '
+        Me.ttpGeneral.UseFading = False
+        '
         'frmHomeMulti
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -3139,4 +3144,5 @@ Partial Class frmHomeMulti
     Friend WithEvents pnlLoading As Panel
     Friend WithEvents prgFullLoad As MRG.Controls.UI.LoadingCircle
     Friend WithEvents lblFullLoad As Label
+    Friend WithEvents ttpGeneral As ToolTip
 End Class
