@@ -610,9 +610,16 @@ Public Class frmHomeMulti
         notifArray.Add(notifName + ";" + notifType + ";" + notifTime + ";" + notifCoin + ";")
         My.Computer.Registry.SetValue(My.Settings.RegLocation, "AppNotifs", String.Join(",", notifArray.ToArray()))
 
-        'Sample Notification using notifArray item 0
+        'Sample alert using notifArray item 0
         MsgBox(notifArray(0))
-        cTiming.ShowAlert(notifArray(0).Split(";")(0), notifArray(0).Split(";")(1), False, "14.55", "$5679", "$57.85")
+        Dim isUp As Boolean
+        If lblC1DChange.Text.Contains("+") Then isUp = True Else isUp = False
+        Dim strippedChangePercent As String = lblC1DChange.Text
+        strippedChangePercent = strippedChangePercent.Replace("+", String.Empty)
+        strippedChangePercent = strippedChangePercent.Replace("-", String.Empty)
+        strippedChangePercent = strippedChangePercent.Replace("%", String.Empty)
+        Dim coinPrice As String = CDec(serverResponse.SelectToken("RAW").SelectToken(coinCodeArray(0)).SelectToken(fiatMain).SelectToken("PRICE")).ToString("n2")
+        cTiming.ShowAlert(notifArray(0).Split(";")(0), notifArray(0).Split(";")(1), isUp, lblC1DChange.Text, "$" + (CDec(totalHoldings(0)) * CDec(coinPrice)).ToString("n2"), "$" + coinPrice)
     End Sub
 
     Private Sub btnLCheckUpdates_Click(sender As Object, e As EventArgs) Handles btnLCheckUpdates.Click
