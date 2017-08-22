@@ -711,8 +711,7 @@ Public Class frmHomeMulti
     End Sub
 
     Private Sub btnViewChangelog_Click(sender As Object, e As EventArgs) Handles btnViewChangelog.Click
-        frmChangelog.Show()
-        Me.Hide()
+        cTiming.transitionForms(Me, frmChangelog, True, True)
     End Sub
 
     Private Sub btnFeedbackFacebook_Click(sender As Object, e As EventArgs) Handles btnFeedbackFacebook.Click

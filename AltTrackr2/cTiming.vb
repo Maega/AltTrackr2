@@ -9,13 +9,14 @@
         fromForm.Opacity = 1
         toForm.Show()
         If synclocation Then toForm.Location = fromForm.Location
+        Dim originalTopMost As Boolean = fromForm.TopMost
         fromForm.TopMost = True
         pause(20)
         Do Until fromForm.Opacity <= 0
             fromForm.Opacity -= opacityStepping
             pause(1)
         Loop
-        fromForm.TopMost = False
+        fromForm.TopMost = originalTopMost
         If hideOnly Then fromForm.Hide() Else fromForm.Close()
     End Sub
 
