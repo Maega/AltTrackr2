@@ -578,7 +578,6 @@ Public Class frmHomeMulti
         Process.Start("https://my.maega.com.au/dashboard")
     End Sub
 
-    Dim _colour As Color
     Private Sub AetherButton7_Click(sender As Object, e As EventArgs) Handles btnNotifAdd.Click
         Dim notifType As String = String.Empty
         If radNotifFD.Checked Then
@@ -613,32 +612,7 @@ Public Class frmHomeMulti
 
         'Sample Notification using notifArray item 0
         MsgBox(notifArray(0))
-        ShowNotification(notifArray(0).Split(";")(0), notifArray(0).Split(";")(1), False, "14.55", "$5679", "$57.85")
-    End Sub
-
-    Private Sub ShowNotification(coinname As String, frequency As String, priceup As Boolean, changepercent As String, holdingsvalue As String, coinprice As String)
-        Select Case frequency.ToUpper
-            Case "D"
-                frequency = "Daily"
-            Case "W"
-                frequency = "Weekly"
-            Case "M"
-                frequency = "Monthly"
-        End Select
-
-        Dim friendlyAlert As String
-        Dim img As Image
-        If priceup Then
-            friendlyAlert = "Good news! " + coinname + " is up " + changepercent + "% in the last 24 hours."
-            img = ilsImg.Images.Item(4)
-        Else
-            friendlyAlert = "Bad news! " + coinname + " is down " + changepercent + "% in the last 24 hours."
-            img = ilsImg.Images.Item(1)
-        End If
-
-        Dim notif As New Notification(img, coinname + " " + frequency + " Price Update", friendlyAlert + vbNewLine + "Holdings Value: " + holdingsvalue + vbNewLine + "Coin Price: " + coinprice, _colour)
-        notif.Seconds = 10
-        notif.Show()
+        cTiming.ShowAlert(notifArray(0).Split(";")(0), notifArray(0).Split(";")(1), False, "14.55", "$5679", "$57.85")
     End Sub
 
     Private Sub btnLCheckUpdates_Click(sender As Object, e As EventArgs) Handles btnLCheckUpdates.Click
@@ -716,6 +690,16 @@ Public Class frmHomeMulti
 
     Private Sub btnFeedbackFacebook_Click(sender As Object, e As EventArgs) Handles btnFeedbackFacebook.Click
         Process.Start("https://m.me/maeganetwork")
+    End Sub
+
+    Private Sub tmrAlerts_Tick(sender As Object, e As EventArgs) Handles tmrAlerts.Tick
+        'Check for pending alerts
+        'Check for updates every n runthroughs
+        'cTiming.ShowNotif("An update is available for AltTrackr. You can update to version 1.04 from your account page.", "AltTrackr Update Available") 'Sample notification
+    End Sub
+
+    Private Sub QuitToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles QuitToolStripMenuItem.Click
+        Environment.Exit(0)
     End Sub
 
     Private Sub btnEdit_Click(sender As Object, e As EventArgs) Handles btnEditHoldings.Click, btnEditGoals.Click

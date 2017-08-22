@@ -65,7 +65,7 @@
                 rmessage = apiresponse.Substring(appindex + 8, apiresponse.IndexOf(";", appindex + 1) - appindex - 8)
             End If
             appindex = apiresponse.IndexOf("VERIFY=")
-            'Convert the verification code to decimal and truncate to no decimal places
+            'Convert the verification code to decimal and truncate to zero decimal places
             rverify = Math.Truncate(CDec(apiresponse.Substring(appindex + 7, apiresponse.IndexOf(";", appindex + 1) - appindex - 7)))
             'Perform arithmetic verification operation
             rcalc = Math.Truncate(CDec(vericode) / verifyfactor)
@@ -97,9 +97,7 @@
                 Try
                     Dim p() As Process
                     p = Process.GetProcessesByName("InnovationHub")
-                    If Not p.Count > 0 Then
-                        Process.Start(My.Computer.Registry.GetValue(MIHLoc, "AppExe", Nothing))
-                    End If
+                    If Not p.Count > 0 Then Process.Start(My.Computer.Registry.GetValue(MIHLoc, "AppExe", Nothing))
                     End
                 Catch ex As Exception
                     MsgBox("Failed to launch MIH", MsgBoxStyle.Exclamation)

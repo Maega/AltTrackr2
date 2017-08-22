@@ -226,16 +226,17 @@ Partial Class frmHomeMulti
         Me.lblC2Initial = New System.Windows.Forms.Label()
         Me.lblPrefC2Holdings = New System.Windows.Forms.Label()
         Me.tpSupport = New System.Windows.Forms.TabPage()
+        Me.Label20 = New System.Windows.Forms.Label()
+        Me.btnViewChangelog = New AltTrackr2.AetherButton()
         Me.tpFeedback = New System.Windows.Forms.TabPage()
+        Me.Label21 = New System.Windows.Forms.Label()
+        Me.btnFeedbackFacebook = New AltTrackr2.AetherButton()
         Me.ttpGeneral = New System.Windows.Forms.ToolTip(Me.components)
         Me.ntfTray = New System.Windows.Forms.NotifyIcon(Me.components)
         Me.cxtTray = New MaterialSkin.Controls.MaterialContextMenuStrip()
         Me.ShowHideAltTrackrToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.QuitToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.btnViewChangelog = New AltTrackr2.AetherButton()
-        Me.Label20 = New System.Windows.Forms.Label()
-        Me.Label21 = New System.Windows.Forms.Label()
-        Me.btnFeedbackFacebook = New AltTrackr2.AetherButton()
+        Me.tmrAlerts = New System.Windows.Forms.Timer(Me.components)
         Me.pnlUnsaved.SuspendLayout()
         Me.pnlLoadingMain.SuspendLayout()
         Me.pnlLoading.SuspendLayout()
@@ -2059,7 +2060,6 @@ Partial Class frmHomeMulti
         Me.AetherGroupBox13.Controls.Add(Me.txtNotifTime)
         Me.AetherGroupBox13.Controls.Add(Me.txtNotifName)
         Me.AetherGroupBox13.Controls.Add(Me.btnNotifAdd)
-        Me.AetherGroupBox13.Enabled = False
         Me.AetherGroupBox13.Footer = False
         Me.AetherGroupBox13.FooterText = Nothing
         Me.AetherGroupBox13.Location = New System.Drawing.Point(578, 265)
@@ -2897,6 +2897,25 @@ Partial Class frmHomeMulti
         Me.tpSupport.TabIndex = 8
         Me.tpSupport.Text = "Help & Support"
         '
+        'Label20
+        '
+        Me.Label20.AutoSize = True
+        Me.Label20.Font = New System.Drawing.Font("Roboto Light", 20.0!)
+        Me.Label20.Location = New System.Drawing.Point(231, 174)
+        Me.Label20.Name = "Label20"
+        Me.Label20.Size = New System.Drawing.Size(363, 33)
+        Me.Label20.TabIndex = 1
+        Me.Label20.Text = "Help && Support Coming Soon"
+        '
+        'btnViewChangelog
+        '
+        Me.btnViewChangelog.EnabledCalc = True
+        Me.btnViewChangelog.Location = New System.Drawing.Point(330, 285)
+        Me.btnViewChangelog.Name = "btnViewChangelog"
+        Me.btnViewChangelog.Size = New System.Drawing.Size(164, 23)
+        Me.btnViewChangelog.TabIndex = 0
+        Me.btnViewChangelog.Text = "View Update Changelog"
+        '
         'tpFeedback
         '
         Me.tpFeedback.BackColor = System.Drawing.Color.White
@@ -2911,57 +2930,6 @@ Partial Class frmHomeMulti
         Me.tpFeedback.TabIndex = 9
         Me.tpFeedback.Tag = "150817"
         Me.tpFeedback.Text = "Feedback"
-        '
-        'ttpGeneral
-        '
-        Me.ttpGeneral.UseFading = False
-        '
-        'ntfTray
-        '
-        Me.ntfTray.ContextMenuStrip = Me.cxtTray
-        Me.ntfTray.Icon = CType(resources.GetObject("ntfTray.Icon"), System.Drawing.Icon)
-        Me.ntfTray.Text = "Maega AltTrackr"
-        Me.ntfTray.Visible = True
-        '
-        'cxtTray
-        '
-        Me.cxtTray.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.cxtTray.Depth = 0
-        Me.cxtTray.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ShowHideAltTrackrToolStripMenuItem, Me.QuitToolStripMenuItem})
-        Me.cxtTray.MouseState = MaterialSkin.MouseState.HOVER
-        Me.cxtTray.Name = "cxtTray"
-        Me.cxtTray.Size = New System.Drawing.Size(184, 48)
-        '
-        'ShowHideAltTrackrToolStripMenuItem
-        '
-        Me.ShowHideAltTrackrToolStripMenuItem.Name = "ShowHideAltTrackrToolStripMenuItem"
-        Me.ShowHideAltTrackrToolStripMenuItem.Size = New System.Drawing.Size(183, 22)
-        Me.ShowHideAltTrackrToolStripMenuItem.Text = "Show/Hide AltTrackr"
-        '
-        'QuitToolStripMenuItem
-        '
-        Me.QuitToolStripMenuItem.Name = "QuitToolStripMenuItem"
-        Me.QuitToolStripMenuItem.Size = New System.Drawing.Size(183, 22)
-        Me.QuitToolStripMenuItem.Text = "Quit"
-        '
-        'btnViewChangelog
-        '
-        Me.btnViewChangelog.EnabledCalc = True
-        Me.btnViewChangelog.Location = New System.Drawing.Point(330, 285)
-        Me.btnViewChangelog.Name = "btnViewChangelog"
-        Me.btnViewChangelog.Size = New System.Drawing.Size(164, 23)
-        Me.btnViewChangelog.TabIndex = 0
-        Me.btnViewChangelog.Text = "View Update Changelog"
-        '
-        'Label20
-        '
-        Me.Label20.AutoSize = True
-        Me.Label20.Font = New System.Drawing.Font("Roboto Light", 20.0!)
-        Me.Label20.Location = New System.Drawing.Point(231, 174)
-        Me.Label20.Name = "Label20"
-        Me.Label20.Size = New System.Drawing.Size(363, 33)
-        Me.Label20.TabIndex = 1
-        Me.Label20.Text = "Help && Support Coming Soon"
         '
         'Label21
         '
@@ -2981,6 +2949,43 @@ Partial Class frmHomeMulti
         Me.btnFeedbackFacebook.Size = New System.Drawing.Size(164, 23)
         Me.btnFeedbackFacebook.TabIndex = 2
         Me.btnFeedbackFacebook.Text = "Submit on Messenger"
+        '
+        'ttpGeneral
+        '
+        Me.ttpGeneral.UseFading = False
+        '
+        'ntfTray
+        '
+        Me.ntfTray.ContextMenuStrip = Me.cxtTray
+        Me.ntfTray.Icon = CType(resources.GetObject("ntfTray.Icon"), System.Drawing.Icon)
+        Me.ntfTray.Text = "Maega AltTrackr"
+        Me.ntfTray.Visible = True
+        '
+        'cxtTray
+        '
+        Me.cxtTray.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.cxtTray.Depth = 0
+        Me.cxtTray.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ShowHideAltTrackrToolStripMenuItem, Me.QuitToolStripMenuItem})
+        Me.cxtTray.MouseState = MaterialSkin.MouseState.HOVER
+        Me.cxtTray.Name = "cxtTray"
+        Me.cxtTray.Size = New System.Drawing.Size(184, 70)
+        '
+        'ShowHideAltTrackrToolStripMenuItem
+        '
+        Me.ShowHideAltTrackrToolStripMenuItem.Name = "ShowHideAltTrackrToolStripMenuItem"
+        Me.ShowHideAltTrackrToolStripMenuItem.Size = New System.Drawing.Size(183, 22)
+        Me.ShowHideAltTrackrToolStripMenuItem.Text = "Show/Hide AltTrackr"
+        '
+        'QuitToolStripMenuItem
+        '
+        Me.QuitToolStripMenuItem.Name = "QuitToolStripMenuItem"
+        Me.QuitToolStripMenuItem.Size = New System.Drawing.Size(183, 22)
+        Me.QuitToolStripMenuItem.Text = "Quit"
+        '
+        'tmrAlerts
+        '
+        Me.tmrAlerts.Enabled = True
+        Me.tmrAlerts.Interval = 30000
         '
         'frmHomeMulti
         '
@@ -3266,4 +3271,5 @@ Partial Class frmHomeMulti
     Friend WithEvents btnViewChangelog As AetherButton
     Friend WithEvents Label21 As Label
     Friend WithEvents btnFeedbackFacebook As AetherButton
+    Friend WithEvents tmrAlerts As Timer
 End Class
