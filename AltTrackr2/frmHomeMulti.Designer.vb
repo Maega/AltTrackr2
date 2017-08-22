@@ -365,31 +365,29 @@ Partial Class frmHomeMulti
         '
         'btnConfirmCancel
         '
-        Me.btnConfirmCancel.AutoSize = True
         Me.btnConfirmCancel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.btnConfirmCancel.BackColor = System.Drawing.Color.FromArgb(CType(CType(52, Byte), Integer), CType(CType(56, Byte), Integer), CType(CType(67, Byte), Integer))
         Me.btnConfirmCancel.Depth = 0
         Me.btnConfirmCancel.Icon = Nothing
-        Me.btnConfirmCancel.Location = New System.Drawing.Point(99, 247)
+        Me.btnConfirmCancel.Location = New System.Drawing.Point(96, 249)
         Me.btnConfirmCancel.MouseState = MaterialSkin.MouseState.HOVER
         Me.btnConfirmCancel.Name = "btnConfirmCancel"
         Me.btnConfirmCancel.Primary = True
-        Me.btnConfirmCancel.Size = New System.Drawing.Size(99, 36)
+        Me.btnConfirmCancel.Size = New System.Drawing.Size(99, 19)
         Me.btnConfirmCancel.TabIndex = 18
         Me.btnConfirmCancel.Text = "No, Cancel"
         Me.btnConfirmCancel.UseVisualStyleBackColor = False
         '
         'btnConfirmSave
         '
-        Me.btnConfirmSave.AutoSize = True
         Me.btnConfirmSave.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.btnConfirmSave.Depth = 0
         Me.btnConfirmSave.Icon = Nothing
-        Me.btnConfirmSave.Location = New System.Drawing.Point(9, 247)
+        Me.btnConfirmSave.Location = New System.Drawing.Point(6, 249)
         Me.btnConfirmSave.MouseState = MaterialSkin.MouseState.HOVER
         Me.btnConfirmSave.Name = "btnConfirmSave"
         Me.btnConfirmSave.Primary = True
-        Me.btnConfirmSave.Size = New System.Drawing.Size(86, 36)
+        Me.btnConfirmSave.Size = New System.Drawing.Size(86, 19)
         Me.btnConfirmSave.TabIndex = 17
         Me.btnConfirmSave.Text = "YES, SAVE"
         Me.btnConfirmSave.UseVisualStyleBackColor = True
@@ -2952,7 +2950,6 @@ Partial Class frmHomeMulti
         Me.Text = "Loading Data"
         Me.TransparencyKey = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
         Me.pnlUnsaved.ResumeLayout(False)
-        Me.pnlUnsaved.PerformLayout()
         Me.pnlLoadingMain.ResumeLayout(False)
         Me.pnlLoading.ResumeLayout(False)
         Me.tabContent.ResumeLayout(False)
