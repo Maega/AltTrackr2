@@ -591,6 +591,7 @@ Public Class frmHomeMulti
         Dim notifName As String = String.Empty
         Dim notifCoin As String = String.Empty
         Dim notifTime As String = String.Empty
+        Dim notifFiat As String = String.Empty
 
         If radNotifC1.Checked Then
             notifCoin = coinCodeArray(0)
@@ -606,8 +607,11 @@ Public Class frmHomeMulti
             notifName = coinNameArray(3)
         End If
 
+        'Make this a choice. Add some rads like are present for the other options above.
+        notifFiat = fiatMain
+
         'Add a check to ensure no fields have a semicolon, since that's the string delimiter for array subitems
-        notifArray.Add(notifName + ";" + notifType + ";" + notifTime + ";" + notifCoin + ";")
+        notifArray.Add(notifName + ";" + notifType + ";" + notifTime + ";" + notifCoin + ";" + notifFiat + ";")
         My.Computer.Registry.SetValue(My.Settings.RegLocation, "AppNotifs", String.Join(",", notifArray.ToArray()))
 
         'Sample alert using notifArray item 0
