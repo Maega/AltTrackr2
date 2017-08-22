@@ -117,4 +117,14 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Label8.Text" xml:space="preserve">
+    <value>VERSION 1.03
+
+- Added the option to launch on Windows startup (preparation for alert system)
+- AltTrackr now has a tray icon and menu
+- Some graphical bugs fixed
+- Local changelog implemented
+- Improved some animations
+- Various minor bug fixes</value>
+  </data>
 </root>

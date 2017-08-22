@@ -22,6 +22,7 @@ Partial Class frmChangelog
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmChangelog))
         Me.MaterialRaisedButton1 = New MaterialSkin.Controls.MaterialRaisedButton()
         Me.prgChangelog = New AltTrackr2.Ambiance.Ambiance_ProgressBar()
         Me.MaterialDivider1 = New MaterialSkin.Controls.MaterialDivider()
@@ -203,12 +204,11 @@ Partial Class frmChangelog
         '
         Me.Label8.BackColor = System.Drawing.SystemColors.Window
         Me.Label8.Font = New System.Drawing.Font("Roboto", 11.0!)
-        Me.Label8.Location = New System.Drawing.Point(12, 233)
+        Me.Label8.Location = New System.Drawing.Point(12, 183)
         Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(998, 135)
+        Me.Label8.Size = New System.Drawing.Size(998, 268)
         Me.Label8.TabIndex = 23
-        Me.Label8.Text = "VERSION 1.03" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "- AltTrackr can now be launched on Windows startup (preparation f" &
-    "or alert system)" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "- Some graphical bugs fixed" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "- Local changelog implemented"
+        Me.Label8.Text = resources.GetString("Label8.Text")
         Me.Label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'frmChangelog
