@@ -230,6 +230,8 @@ Partial Class frmHomeMulti
         Me.cxtTray = New MaterialSkin.Controls.MaterialContextMenuStrip()
         Me.ShowHideAltTrackrToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.QuitToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.AetherButton1 = New AltTrackr2.AetherButton()
+        Me.chkLaunchStartup = New AltTrackr2.AetherCheckBox()
         Me.pnlUnsaved.SuspendLayout()
         Me.pnlLoadingMain.SuspendLayout()
         Me.pnlLoading.SuspendLayout()
@@ -1742,6 +1744,7 @@ Partial Class frmHomeMulti
         'tpPrefs
         '
         Me.tpPrefs.BackColor = System.Drawing.Color.White
+        Me.tpPrefs.Controls.Add(Me.chkLaunchStartup)
         Me.tpPrefs.Controls.Add(Me.Ambiance_Button_21)
         Me.tpPrefs.Controls.Add(Me.AetherButton3)
         Me.tpPrefs.Controls.Add(Me.radC4Edit)
@@ -2040,6 +2043,7 @@ Partial Class frmHomeMulti
         Me.AetherGroupBox13.Controls.Add(Me.txtNotifTime)
         Me.AetherGroupBox13.Controls.Add(Me.txtNotifName)
         Me.AetherGroupBox13.Controls.Add(Me.btnNotifAdd)
+        Me.AetherGroupBox13.Enabled = False
         Me.AetherGroupBox13.Footer = False
         Me.AetherGroupBox13.FooterText = Nothing
         Me.AetherGroupBox13.Location = New System.Drawing.Point(578, 265)
@@ -2199,6 +2203,7 @@ Partial Class frmHomeMulti
         '
         'AetherGroupBox12
         '
+        Me.AetherGroupBox12.Controls.Add(Me.AetherButton1)
         Me.AetherGroupBox12.Controls.Add(Me.LvModule)
         Me.AetherGroupBox12.Footer = False
         Me.AetherGroupBox12.FooterText = Nothing
@@ -2909,6 +2914,28 @@ Partial Class frmHomeMulti
         Me.QuitToolStripMenuItem.Size = New System.Drawing.Size(183, 22)
         Me.QuitToolStripMenuItem.Text = "Quit"
         '
+        'AetherButton1
+        '
+        Me.AetherButton1.Enabled = False
+        Me.AetherButton1.EnabledCalc = False
+        Me.AetherButton1.Location = New System.Drawing.Point(444, 7)
+        Me.AetherButton1.Name = "AetherButton1"
+        Me.AetherButton1.Size = New System.Drawing.Size(120, 23)
+        Me.AetherButton1.TabIndex = 22
+        Me.AetherButton1.Text = "Create Alert..."
+        '
+        'chkLaunchStartup
+        '
+        Me.chkLaunchStartup.Checked = False
+        Me.chkLaunchStartup.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.chkLaunchStartup.EnabledCalc = True
+        Me.chkLaunchStartup.HatchBrush = False
+        Me.chkLaunchStartup.Location = New System.Drawing.Point(614, 99)
+        Me.chkLaunchStartup.Name = "chkLaunchStartup"
+        Me.chkLaunchStartup.Size = New System.Drawing.Size(177, 19)
+        Me.chkLaunchStartup.TabIndex = 17
+        Me.chkLaunchStartup.Text = "Launch AltTrackr at Startup"
+        '
         'frmHomeMulti
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -3184,4 +3211,6 @@ Partial Class frmHomeMulti
     Friend WithEvents cxtTray As MaterialSkin.Controls.MaterialContextMenuStrip
     Friend WithEvents ShowHideAltTrackrToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents QuitToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents AetherButton1 As AetherButton
+    Friend WithEvents chkLaunchStartup As AetherCheckBox
 End Class

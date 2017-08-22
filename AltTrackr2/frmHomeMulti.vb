@@ -44,6 +44,8 @@ Public Class frmHomeMulti
         Me.CenterToParent()
         tagCurrentVer.Text = "v" + UpdateAPI.CurrentVer.ToString("0.00")
 
+        If Not My.Computer.Registry.CurrentUser.OpenSubKey("SOFTWARE\Microsoft\Windows\CurrentVersion\Run", True).GetValue(Application.ProductName) = Nothing Then chkLaunchStartup.Checked = True
+
         txtC1Goal.Text = My.Computer.Registry.GetValue(My.Settings.RegLocation, "AppGoals", Nothing).Split(",")(0)
         txtC2Goal.Text = My.Computer.Registry.GetValue(My.Settings.RegLocation, "AppGoals", Nothing).Split(",")(1)
         txtC3Goal.Text = My.Computer.Registry.GetValue(My.Settings.RegLocation, "AppGoals", Nothing).Split(",")(2)
@@ -212,6 +214,8 @@ Public Class frmHomeMulti
             Next
             lblAltPrices.Text = lblAltPrices.Text.Remove(lblAltPrices.Text.LastIndexOf(Environment.NewLine))
             lblAltHoldings.Text = lblAltHoldings.Text.Remove(lblAltHoldings.Text.LastIndexOf(Environment.NewLine))
+
+            'Plans to use System.Reflection in future to dramatically slim down all this code and make unlimited coin slots a possibility are in place.
 
             'Set goal coin names
             lblGoalC1.Text = coinNameArray(0)
@@ -697,6 +701,15 @@ Public Class frmHomeMulti
         If Me.Visible Then Me.Hide() Else Me.Show()
     End Sub
 
+    Private Sub chkLaunchStartup_CheckedChanged(sender As Object, e As EventArgs) Handles chkLaunchStartup.CheckedChanged
+        If chkLaunchStartup.Checked = False Then
+            Dim result As Integer = MessageBox.Show("Preventing AltTrackr from launching on system startup will hinder your ability to receive price notifications." + vbNewLine + vbNewLine + "Are you sure that you would like to disable AltTrackr from starting with Windows?", "Whoa There!", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation)
+            If result = DialogResult.No Then
+                chkLaunchStartup.Checked = True
+            End If
+        End If
+    End Sub
+
     Private Sub btnEdit_Click(sender As Object, e As EventArgs) Handles btnEditHoldings.Click, btnEditGoals.Click
         tabContent.SelectedTab = tpPrefs
     End Sub
@@ -710,6 +723,14 @@ Public Class frmHomeMulti
 
         My.Computer.Registry.SetValue(My.Settings.RegLocation, "AppHoldings", txtC1Holdings.Text + "," + txtC2Holdings.Text + "," + txtC3Holdings.Text + "," + txtC4Holdings.Text)
         totalHoldings = My.Computer.Registry.GetValue(My.Settings.RegLocation, "AppHoldings", Nothing).Split(",")
+
+        If chkLaunchStartup.Checked Then
+            'Add to Startup
+            My.Computer.Registry.CurrentUser.OpenSubKey("SOFTWARE\Microsoft\Windows\CurrentVersion\Run", True).SetValue(Application.ProductName, """" + Application.ExecutablePath + """ silent")
+        Else
+            'Remove from Startup
+            My.Computer.Registry.CurrentUser.OpenSubKey("SOFTWARE\Microsoft\Windows\CurrentVersion\Run", True).DeleteValue(Application.ProductName)
+        End If
 
         HideChangeAlert()
         GetPrices()
