@@ -3,7 +3,7 @@
     Public Const appVer As Decimal = UpdateAPI.CurrentVer
     Public Shared CredentialArray() As String
 
-    Public Shared Sub transitionForms(fromForm As Form, toForm As Form, Optional synclocation As Boolean = True)
+    Public Shared Sub transitionForms(fromForm As Form, toForm As Form, Optional synclocation As Boolean = True, Optional hideOnly As Boolean = False)
         Dim opacityStepping As Double = 0.1
         toForm.Opacity = 1
         fromForm.Opacity = 1
@@ -16,7 +16,7 @@
             pause(1)
         Loop
         fromForm.TopMost = False
-        fromForm.Close()
+        If hideOnly Then fromForm.Hide() Else fromForm.Close()
     End Sub
 
     Declare Function GetTickCount Lib "kernel32" Alias "GetTickCount" () As Long

@@ -710,6 +710,15 @@ Public Class frmHomeMulti
         End If
     End Sub
 
+    Private Sub btnViewChangelog_Click(sender As Object, e As EventArgs) Handles btnViewChangelog.Click
+        frmChangelog.Show()
+        Me.Hide()
+    End Sub
+
+    Private Sub btnFeedbackFacebook_Click(sender As Object, e As EventArgs) Handles btnFeedbackFacebook.Click
+        Process.Start("https://m.me/maeganetwork")
+    End Sub
+
     Private Sub btnEdit_Click(sender As Object, e As EventArgs) Handles btnEditHoldings.Click, btnEditGoals.Click
         tabContent.SelectedTab = tpPrefs
     End Sub

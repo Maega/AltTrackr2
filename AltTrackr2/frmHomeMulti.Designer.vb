@@ -140,6 +140,7 @@ Partial Class frmHomeMulti
         Me.lblC4HoldingsDetailed = New MaterialSkin.Controls.MaterialLabel()
         Me.tpSpacer2 = New System.Windows.Forms.TabPage()
         Me.tpPrefs = New System.Windows.Forms.TabPage()
+        Me.chkLaunchStartup = New AltTrackr2.AetherCheckBox()
         Me.Ambiance_Button_21 = New AltTrackr2.Ambiance.Ambiance_Button_2()
         Me.AetherButton3 = New AltTrackr2.AetherButton()
         Me.radC4Edit = New MaterialSkin.Controls.MaterialRadioButton()
@@ -173,6 +174,7 @@ Partial Class frmHomeMulti
         Me.txtNotifName = New AltTrackr2.AetherTextbox()
         Me.btnNotifAdd = New AltTrackr2.AetherButton()
         Me.AetherGroupBox12 = New AltTrackr2.AetherGroupBox()
+        Me.AetherButton1 = New AltTrackr2.AetherButton()
         Me.LvModule = New MaterialSkin.Controls.MaterialListView()
         Me.ColumnHeader5 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader6 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
@@ -230,8 +232,10 @@ Partial Class frmHomeMulti
         Me.cxtTray = New MaterialSkin.Controls.MaterialContextMenuStrip()
         Me.ShowHideAltTrackrToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.QuitToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.AetherButton1 = New AltTrackr2.AetherButton()
-        Me.chkLaunchStartup = New AltTrackr2.AetherCheckBox()
+        Me.btnViewChangelog = New AltTrackr2.AetherButton()
+        Me.Label20 = New System.Windows.Forms.Label()
+        Me.Label21 = New System.Windows.Forms.Label()
+        Me.btnFeedbackFacebook = New AltTrackr2.AetherButton()
         Me.pnlUnsaved.SuspendLayout()
         Me.pnlLoadingMain.SuspendLayout()
         Me.pnlLoading.SuspendLayout()
@@ -273,6 +277,8 @@ Partial Class frmHomeMulti
         Me.grpC4Pref.SuspendLayout()
         Me.grpC3Pref.SuspendLayout()
         Me.grpC2Pref.SuspendLayout()
+        Me.tpSupport.SuspendLayout()
+        Me.tpFeedback.SuspendLayout()
         Me.cxtTray.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -1765,6 +1771,18 @@ Partial Class frmHomeMulti
         Me.tpPrefs.TabIndex = 7
         Me.tpPrefs.Text = "User Preferences"
         '
+        'chkLaunchStartup
+        '
+        Me.chkLaunchStartup.Checked = False
+        Me.chkLaunchStartup.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.chkLaunchStartup.EnabledCalc = True
+        Me.chkLaunchStartup.HatchBrush = False
+        Me.chkLaunchStartup.Location = New System.Drawing.Point(614, 99)
+        Me.chkLaunchStartup.Name = "chkLaunchStartup"
+        Me.chkLaunchStartup.Size = New System.Drawing.Size(177, 19)
+        Me.chkLaunchStartup.TabIndex = 17
+        Me.chkLaunchStartup.Text = "Launch AltTrackr at Startup"
+        '
         'Ambiance_Button_21
         '
         Me.Ambiance_Button_21.BackColor = System.Drawing.Color.Transparent
@@ -2210,6 +2228,16 @@ Partial Class frmHomeMulti
         Me.AetherGroupBox12.Size = New System.Drawing.Size(570, 210)
         Me.AetherGroupBox12.TabIndex = 19
         Me.AetherGroupBox12.Text = "Alerts"
+        '
+        'AetherButton1
+        '
+        Me.AetherButton1.Enabled = False
+        Me.AetherButton1.EnabledCalc = False
+        Me.AetherButton1.Location = New System.Drawing.Point(444, 7)
+        Me.AetherButton1.Name = "AetherButton1"
+        Me.AetherButton1.Size = New System.Drawing.Size(120, 23)
+        Me.AetherButton1.TabIndex = 22
+        Me.AetherButton1.Text = "Create Alert..."
         '
         'LvModule
         '
@@ -2858,6 +2886,8 @@ Partial Class frmHomeMulti
         'tpSupport
         '
         Me.tpSupport.BackColor = System.Drawing.Color.White
+        Me.tpSupport.Controls.Add(Me.Label20)
+        Me.tpSupport.Controls.Add(Me.btnViewChangelog)
         Me.tpSupport.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.tpSupport.ForeColor = System.Drawing.Color.FromArgb(CType(CType(52, Byte), Integer), CType(CType(56, Byte), Integer), CType(CType(67, Byte), Integer))
         Me.tpSupport.ImageIndex = 8
@@ -2870,6 +2900,8 @@ Partial Class frmHomeMulti
         'tpFeedback
         '
         Me.tpFeedback.BackColor = System.Drawing.Color.White
+        Me.tpFeedback.Controls.Add(Me.Label21)
+        Me.tpFeedback.Controls.Add(Me.btnFeedbackFacebook)
         Me.tpFeedback.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.tpFeedback.ForeColor = System.Drawing.Color.FromArgb(CType(CType(52, Byte), Integer), CType(CType(56, Byte), Integer), CType(CType(67, Byte), Integer))
         Me.tpFeedback.ImageIndex = 6
@@ -2912,27 +2944,43 @@ Partial Class frmHomeMulti
         Me.QuitToolStripMenuItem.Size = New System.Drawing.Size(183, 22)
         Me.QuitToolStripMenuItem.Text = "Quit"
         '
-        'AetherButton1
+        'btnViewChangelog
         '
-        Me.AetherButton1.Enabled = False
-        Me.AetherButton1.EnabledCalc = False
-        Me.AetherButton1.Location = New System.Drawing.Point(444, 7)
-        Me.AetherButton1.Name = "AetherButton1"
-        Me.AetherButton1.Size = New System.Drawing.Size(120, 23)
-        Me.AetherButton1.TabIndex = 22
-        Me.AetherButton1.Text = "Create Alert..."
+        Me.btnViewChangelog.EnabledCalc = True
+        Me.btnViewChangelog.Location = New System.Drawing.Point(330, 285)
+        Me.btnViewChangelog.Name = "btnViewChangelog"
+        Me.btnViewChangelog.Size = New System.Drawing.Size(164, 23)
+        Me.btnViewChangelog.TabIndex = 0
+        Me.btnViewChangelog.Text = "View Update Changelog"
         '
-        'chkLaunchStartup
+        'Label20
         '
-        Me.chkLaunchStartup.Checked = False
-        Me.chkLaunchStartup.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.chkLaunchStartup.EnabledCalc = True
-        Me.chkLaunchStartup.HatchBrush = False
-        Me.chkLaunchStartup.Location = New System.Drawing.Point(614, 99)
-        Me.chkLaunchStartup.Name = "chkLaunchStartup"
-        Me.chkLaunchStartup.Size = New System.Drawing.Size(177, 19)
-        Me.chkLaunchStartup.TabIndex = 17
-        Me.chkLaunchStartup.Text = "Launch AltTrackr at Startup"
+        Me.Label20.AutoSize = True
+        Me.Label20.Font = New System.Drawing.Font("Roboto Light", 20.0!)
+        Me.Label20.Location = New System.Drawing.Point(231, 174)
+        Me.Label20.Name = "Label20"
+        Me.Label20.Size = New System.Drawing.Size(363, 33)
+        Me.Label20.TabIndex = 1
+        Me.Label20.Text = "Help && Support Coming Soon"
+        '
+        'Label21
+        '
+        Me.Label21.AutoSize = True
+        Me.Label21.Font = New System.Drawing.Font("Roboto Light", 20.0!)
+        Me.Label21.Location = New System.Drawing.Point(162, 174)
+        Me.Label21.Name = "Label21"
+        Me.Label21.Size = New System.Drawing.Size(500, 33)
+        Me.Label21.TabIndex = 3
+        Me.Label21.Text = "Feedback Submission Hub Coming Soon"
+        '
+        'btnFeedbackFacebook
+        '
+        Me.btnFeedbackFacebook.EnabledCalc = True
+        Me.btnFeedbackFacebook.Location = New System.Drawing.Point(330, 285)
+        Me.btnFeedbackFacebook.Name = "btnFeedbackFacebook"
+        Me.btnFeedbackFacebook.Size = New System.Drawing.Size(164, 23)
+        Me.btnFeedbackFacebook.TabIndex = 2
+        Me.btnFeedbackFacebook.Text = "Submit on Messenger"
         '
         'frmHomeMulti
         '
@@ -2997,6 +3045,10 @@ Partial Class frmHomeMulti
         Me.grpC4Pref.ResumeLayout(False)
         Me.grpC3Pref.ResumeLayout(False)
         Me.grpC2Pref.ResumeLayout(False)
+        Me.tpSupport.ResumeLayout(False)
+        Me.tpSupport.PerformLayout()
+        Me.tpFeedback.ResumeLayout(False)
+        Me.tpFeedback.PerformLayout()
         Me.cxtTray.ResumeLayout(False)
         Me.ResumeLayout(False)
 
@@ -3210,4 +3262,8 @@ Partial Class frmHomeMulti
     Friend WithEvents QuitToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents AetherButton1 As AetherButton
     Friend WithEvents chkLaunchStartup As AetherCheckBox
+    Friend WithEvents Label20 As Label
+    Friend WithEvents btnViewChangelog As AetherButton
+    Friend WithEvents Label21 As Label
+    Friend WithEvents btnFeedbackFacebook As AetherButton
 End Class

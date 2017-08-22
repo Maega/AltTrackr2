@@ -89,6 +89,12 @@
   <ItemGroup>
     <Compile Include="AccountsAPI.vb" />
     <Compile Include="cTiming.vb" />
+    <Compile Include="frmChangelog.Designer.vb">
+      <DependentUpon>frmChangelog.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmChangelog.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frmCoinSelect.vb">
       <SubType>Form</SubType>
     </Compile>
@@ -187,6 +193,9 @@
     <Compile Include="UpdateAPI.vb" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="frmChangelog.resx">
+      <DependentUpon>frmChangelog.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmCoinSelect.resx">
       <DependentUpon>frmCoinSelect.vb</DependentUpon>
     </EmbeddedResource>

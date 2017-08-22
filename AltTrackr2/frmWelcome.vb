@@ -23,7 +23,7 @@ Public Class frmWelcome
                 SkinManager.Theme = MaterialSkinManager.Themes.DARK
             End If
             frmWelcomeControls.tmrTransition.Stop()
-            frmHomeMulti.Show()
+            If My.Computer.Registry.GetValue(My.Settings.RegLocation, "JustUpdated", Nothing) = "1" Then frmChangelog.Show() Else frmHomeMulti.Show()
             Me.Hide()
         Else
             'Set some initial registry values to prevent crash at launch for unset variables

@@ -7,7 +7,7 @@
     'Organisation: Maega
 
     Public Const AppID As String = "6"
-    Public Const CurrentVer As Decimal = 1.02
+    Public Const CurrentVer As Decimal = 1.03
     Public Const AppName As String = "Maega AltTrackr"
     Public AppShortName As String = "AltTrackr"
 
