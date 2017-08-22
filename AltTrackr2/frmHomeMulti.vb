@@ -38,6 +38,7 @@ Public Class frmHomeMulti
         tabContent.Location = New Point(0, 64)
         tabContent.SelectedTab = tpHome
         'tabContent.Size = New Point(1022, 490)
+
         GetPrices()
         bkgGetOnlineMeta.RunWorkerAsync()
         Me.CenterToParent()
@@ -692,6 +693,10 @@ Public Class frmHomeMulti
         Me.Close()
     End Sub
 
+    Private Sub ShowHideAltTrackr_Click(sender As Object, e As EventArgs) Handles ShowHideAltTrackrToolStripMenuItem.Click, ntfTray.MouseDoubleClick
+        If Me.Visible Then Me.Hide() Else Me.Show()
+    End Sub
+
     Private Sub btnEdit_Click(sender As Object, e As EventArgs) Handles btnEditHoldings.Click, btnEditGoals.Click
         tabContent.SelectedTab = tpPrefs
     End Sub
@@ -708,5 +713,10 @@ Public Class frmHomeMulti
 
         HideChangeAlert()
         GetPrices()
+    End Sub
+
+    Private Sub frmHomeMulti_Shown(sender As Object, e As EventArgs) Handles Me.Shown
+        If frmWelcome.launchSilent = True Then Me.Hide()
+        frmWelcome.Close()
     End Sub
 End Class

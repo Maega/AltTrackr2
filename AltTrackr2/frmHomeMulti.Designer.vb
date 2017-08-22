@@ -226,6 +226,10 @@ Partial Class frmHomeMulti
         Me.tpSupport = New System.Windows.Forms.TabPage()
         Me.tpFeedback = New System.Windows.Forms.TabPage()
         Me.ttpGeneral = New System.Windows.Forms.ToolTip(Me.components)
+        Me.ntfTray = New System.Windows.Forms.NotifyIcon(Me.components)
+        Me.cxtTray = New MaterialSkin.Controls.MaterialContextMenuStrip()
+        Me.ShowHideAltTrackrToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.QuitToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.pnlUnsaved.SuspendLayout()
         Me.pnlLoadingMain.SuspendLayout()
         Me.pnlLoading.SuspendLayout()
@@ -267,6 +271,7 @@ Partial Class frmHomeMulti
         Me.grpC4Pref.SuspendLayout()
         Me.grpC3Pref.SuspendLayout()
         Me.grpC2Pref.SuspendLayout()
+        Me.cxtTray.SuspendLayout()
         Me.SuspendLayout()
         '
         'ilsIcon
@@ -2876,6 +2881,34 @@ Partial Class frmHomeMulti
         '
         Me.ttpGeneral.UseFading = False
         '
+        'ntfTray
+        '
+        Me.ntfTray.ContextMenuStrip = Me.cxtTray
+        Me.ntfTray.Icon = CType(resources.GetObject("ntfTray.Icon"), System.Drawing.Icon)
+        Me.ntfTray.Text = "Maega AltTrackr"
+        Me.ntfTray.Visible = True
+        '
+        'cxtTray
+        '
+        Me.cxtTray.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.cxtTray.Depth = 0
+        Me.cxtTray.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ShowHideAltTrackrToolStripMenuItem, Me.QuitToolStripMenuItem})
+        Me.cxtTray.MouseState = MaterialSkin.MouseState.HOVER
+        Me.cxtTray.Name = "cxtTray"
+        Me.cxtTray.Size = New System.Drawing.Size(184, 48)
+        '
+        'ShowHideAltTrackrToolStripMenuItem
+        '
+        Me.ShowHideAltTrackrToolStripMenuItem.Name = "ShowHideAltTrackrToolStripMenuItem"
+        Me.ShowHideAltTrackrToolStripMenuItem.Size = New System.Drawing.Size(183, 22)
+        Me.ShowHideAltTrackrToolStripMenuItem.Text = "Show/Hide AltTrackr"
+        '
+        'QuitToolStripMenuItem
+        '
+        Me.QuitToolStripMenuItem.Name = "QuitToolStripMenuItem"
+        Me.QuitToolStripMenuItem.Size = New System.Drawing.Size(183, 22)
+        Me.QuitToolStripMenuItem.Text = "Quit"
+        '
         'frmHomeMulti
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -2886,6 +2919,7 @@ Partial Class frmHomeMulti
         Me.Controls.Add(Me.tabContent)
         Me.Controls.Add(Me.pnlLoadingMain)
         Me.Controls.Add(Me.pnlLoading)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "frmHomeMulti"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Loading Data"
@@ -2939,6 +2973,7 @@ Partial Class frmHomeMulti
         Me.grpC4Pref.ResumeLayout(False)
         Me.grpC3Pref.ResumeLayout(False)
         Me.grpC2Pref.ResumeLayout(False)
+        Me.cxtTray.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
@@ -3145,4 +3180,8 @@ Partial Class frmHomeMulti
     Friend WithEvents prgFullLoad As MRG.Controls.UI.LoadingCircle
     Friend WithEvents lblFullLoad As Label
     Friend WithEvents ttpGeneral As ToolTip
+    Friend WithEvents ntfTray As NotifyIcon
+    Friend WithEvents cxtTray As MaterialSkin.Controls.MaterialContextMenuStrip
+    Friend WithEvents ShowHideAltTrackrToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents QuitToolStripMenuItem As ToolStripMenuItem
 End Class

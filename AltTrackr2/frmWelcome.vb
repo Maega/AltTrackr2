@@ -2,6 +2,8 @@
 Imports MaterialSkin
 
 Public Class frmWelcome
+    Public args As String() = Environment.GetCommandLineArgs()
+    Public launchSilent As Boolean = False
 
     Private Sub frmWelcome_LocationChanged(sender As Object, e As EventArgs) Handles Me.LocationChanged
         frmWelcomeControls.Location = Me.Location
@@ -9,6 +11,11 @@ Public Class frmWelcome
     End Sub
 
     Private Sub frmWelcome_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Select Case True
+            Case args.Contains("silent")
+                launchSilent = True
+        End Select
+
         If My.Computer.Registry.GetValue(My.Settings.RegLocation, "AppConfigured", Nothing) Then
             If My.Computer.Registry.GetValue(My.Settings.RegLocation, "Theme", Nothing) = "LIGHT" Then
                 SkinManager.Theme = MaterialSkinManager.Themes.LIGHT
@@ -17,7 +24,7 @@ Public Class frmWelcome
             End If
             frmWelcomeControls.tmrTransition.Stop()
             frmHomeMulti.Show()
-            Me.Close()
+            Me.Hide()
         Else
             'Set some initial registry values to prevent crash at launch for unset variables
             My.Computer.Registry.SetValue(My.Settings.RegLocation, "InitialInvestment", "0,0,0,0")
