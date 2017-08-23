@@ -275,14 +275,14 @@ Public Class AetherCircular
         Set(value As Single)
             Select Case value
                 Case Is > Max
-                    value = Max
-                    ExceedingSign = "+"
+                    Max = value
+                    'ExceedingSign = "+"
                     ExceedingLimits = True
                     Invalidate()
 
                 Case Is < Min
-                    value = Min
-                    ExceedingSign = "-"
+                    Min = value
+                    'ExceedingSign = "-"
                     ExceedingLimits = True
                     Invalidate()
             End Select
