@@ -237,6 +237,7 @@ Partial Class frmHomeMulti
         Me.ShowHideAltTrackrToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.QuitToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.tmrAlerts = New System.Windows.Forms.Timer(Me.components)
+        Me.AetherButton4 = New AltTrackr2.AetherButton()
         Me.pnlUnsaved.SuspendLayout()
         Me.pnlLoadingMain.SuspendLayout()
         Me.pnlLoading.SuspendLayout()
@@ -1273,6 +1274,7 @@ Partial Class frmHomeMulti
         'tpHistory
         '
         Me.tpHistory.BackColor = System.Drawing.Color.White
+        Me.tpHistory.Controls.Add(Me.AetherButton4)
         Me.tpHistory.Controls.Add(Me.lblLastPriceUpdate)
         Me.tpHistory.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.tpHistory.ForeColor = System.Drawing.Color.FromArgb(CType(CType(52, Byte), Integer), CType(CType(56, Byte), Integer), CType(CType(67, Byte), Integer))
@@ -1290,10 +1292,10 @@ Partial Class frmHomeMulti
         Me.lblLastPriceUpdate.Depth = 0
         Me.lblLastPriceUpdate.Font = New System.Drawing.Font("Roboto", 11.0!)
         Me.lblLastPriceUpdate.ForeColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.lblLastPriceUpdate.Location = New System.Drawing.Point(241, 229)
+        Me.lblLastPriceUpdate.Location = New System.Drawing.Point(16, 443)
         Me.lblLastPriceUpdate.MouseState = MaterialSkin.MouseState.HOVER
         Me.lblLastPriceUpdate.Name = "lblLastPriceUpdate"
-        Me.lblLastPriceUpdate.Size = New System.Drawing.Size(343, 25)
+        Me.lblLastPriceUpdate.Size = New System.Drawing.Size(794, 25)
         Me.lblLastPriceUpdate.TabIndex = 15
         Me.lblLastPriceUpdate.Text = "Last Updated:"
         Me.lblLastPriceUpdate.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -2968,7 +2970,7 @@ Partial Class frmHomeMulti
         Me.cxtTray.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ShowHideAltTrackrToolStripMenuItem, Me.QuitToolStripMenuItem})
         Me.cxtTray.MouseState = MaterialSkin.MouseState.HOVER
         Me.cxtTray.Name = "cxtTray"
-        Me.cxtTray.Size = New System.Drawing.Size(184, 70)
+        Me.cxtTray.Size = New System.Drawing.Size(184, 48)
         '
         'ShowHideAltTrackrToolStripMenuItem
         '
@@ -2986,6 +2988,15 @@ Partial Class frmHomeMulti
         '
         Me.tmrAlerts.Enabled = True
         Me.tmrAlerts.Interval = 30000
+        '
+        'AetherButton4
+        '
+        Me.AetherButton4.EnabledCalc = True
+        Me.AetherButton4.Location = New System.Drawing.Point(330, 230)
+        Me.AetherButton4.Name = "AetherButton4"
+        Me.AetherButton4.Size = New System.Drawing.Size(164, 23)
+        Me.AetherButton4.TabIndex = 16
+        Me.AetherButton4.Text = "Launch Chart Debugger"
         '
         'frmHomeMulti
         '
@@ -3272,4 +3283,5 @@ Partial Class frmHomeMulti
     Friend WithEvents Label21 As Label
     Friend WithEvents btnFeedbackFacebook As AetherButton
     Friend WithEvents tmrAlerts As Timer
+    Friend WithEvents AetherButton4 As AetherButton
 End Class

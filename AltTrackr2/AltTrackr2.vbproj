@@ -48,6 +48,15 @@
     <OptionInfer>On</OptionInfer>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="LiveCharts, Version=0.9.7.0, Culture=neutral, PublicKeyToken=0bc1f845d1ebb8df, processorArchitecture=MSIL">
+      <HintPath>..\packages\LiveCharts.0.9.7\lib\net45\LiveCharts.dll</HintPath>
+    </Reference>
+    <Reference Include="LiveCharts.WinForms, Version=0.9.7.1, Culture=neutral, PublicKeyToken=0bc1f845d1ebb8df, processorArchitecture=MSIL">
+      <HintPath>..\packages\LiveCharts.WinForms.0.9.7.1\lib\net45\LiveCharts.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="LiveCharts.Wpf, Version=0.9.7.0, Culture=neutral, PublicKeyToken=0bc1f845d1ebb8df, processorArchitecture=MSIL">
+      <HintPath>..\packages\LiveCharts.Wpf.0.9.7\lib\net45\LiveCharts.Wpf.dll</HintPath>
+    </Reference>
     <Reference Include="MaterialSkin">
       <HintPath>bin\Debug\MaterialSkin.dll</HintPath>
     </Reference>
@@ -61,17 +70,22 @@
     <Reference Include="Notification">
       <HintPath>..\..\..\..\..\Desktop\Notification-master\Notification\bin\Debug\Notification.dll</HintPath>
     </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Deployment" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Management" />
     <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xaml" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Net.Http" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="WindowsFormsIntegration" />
   </ItemGroup>
   <ItemGroup>
     <Import Include="Microsoft.VisualBasic" />
@@ -93,6 +107,12 @@
       <DependentUpon>frmChangelog.vb</DependentUpon>
     </Compile>
     <Compile Include="frmChangelog.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCharts.Designer.vb">
+      <DependentUpon>frmCharts.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmCharts.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmCoinSelect.vb">
@@ -156,6 +176,7 @@
     <Compile Include="frmThemeSelect.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="MeasureModel.vb" />
     <Compile Include="UpdateEngine.vb" />
     <Compile Include="frmWelcome.Designer.vb">
       <DependentUpon>frmWelcome.vb</DependentUpon>
@@ -195,6 +216,9 @@
   <ItemGroup>
     <EmbeddedResource Include="frmChangelog.resx">
       <DependentUpon>frmChangelog.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmCharts.resx">
+      <DependentUpon>frmCharts.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmCoinSelect.resx">
       <DependentUpon>frmCoinSelect.vb</DependentUpon>

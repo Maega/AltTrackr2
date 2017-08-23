@@ -713,6 +713,10 @@ Public Class frmHomeMulti
         Environment.Exit(0)
     End Sub
 
+    Private Sub AetherButton4_Click_1(sender As Object, e As EventArgs) Handles AetherButton4.Click
+        frmCharts.Show()
+    End Sub
+
     Private Sub btnEdit_Click(sender As Object, e As EventArgs) Handles btnEditHoldings.Click, btnEditGoals.Click
         tabContent.SelectedTab = tpPrefs
     End Sub
