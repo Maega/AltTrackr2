@@ -130,16 +130,16 @@ Public Class AetherTabControl
         SetStyle(ControlStyles.UserPaint, True)
     End Sub
 
-    Protected Overrides Sub OnControlAdded(e As ControlEventArgs)
-        'MyBase.OnControlAdded(e)
-        'e.Control.BackColor = Color.White
-        'e.Control.ForeColor = ColorFromHex("#343843")
+    'Protected Overrides Sub OnControlAdded(e As ControlEventArgs)
+    'MyBase.OnControlAdded(e)
+    'e.Control.BackColor = Color.White
+    'e.Control.ForeColor = ColorFromHex("#343843")
 
-        'Using F1 As New Font("Segoe UI", 9)
-        'e.Control.Font = F1
-        'End Using
+    'Using F1 As New Font("Segoe UI", 9)
+    'e.Control.Font = F1
+    'End Using
 
-    End Sub
+    'End Sub
 
     Protected Overrides ReadOnly Property CreateParams() As CreateParams
         Get

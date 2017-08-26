@@ -238,6 +238,10 @@ Partial Class frmHomeMulti
         Me.QuitToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.tmrAlerts = New System.Windows.Forms.Timer(Me.components)
         Me.AetherButton4 = New AltTrackr2.AetherButton()
+        Me.MaterialTabControl1 = New MaterialSkin.Controls.MaterialTabControl()
+        Me.TabPage1 = New System.Windows.Forms.TabPage()
+        Me.TabPage2 = New System.Windows.Forms.TabPage()
+        Me.MaterialTabSelector1 = New MaterialSkin.Controls.MaterialTabSelector()
         Me.pnlUnsaved.SuspendLayout()
         Me.pnlLoadingMain.SuspendLayout()
         Me.pnlLoading.SuspendLayout()
@@ -282,6 +286,7 @@ Partial Class frmHomeMulti
         Me.tpSupport.SuspendLayout()
         Me.tpFeedback.SuspendLayout()
         Me.cxtTray.SuspendLayout()
+        Me.MaterialTabControl1.SuspendLayout()
         Me.SuspendLayout()
         '
         'ilsIcon
@@ -1274,6 +1279,8 @@ Partial Class frmHomeMulti
         'tpHistory
         '
         Me.tpHistory.BackColor = System.Drawing.Color.White
+        Me.tpHistory.Controls.Add(Me.MaterialTabSelector1)
+        Me.tpHistory.Controls.Add(Me.MaterialTabControl1)
         Me.tpHistory.Controls.Add(Me.AetherButton4)
         Me.tpHistory.Controls.Add(Me.lblLastPriceUpdate)
         Me.tpHistory.Font = New System.Drawing.Font("Segoe UI", 9.0!)
@@ -2992,11 +2999,53 @@ Partial Class frmHomeMulti
         'AetherButton4
         '
         Me.AetherButton4.EnabledCalc = True
-        Me.AetherButton4.Location = New System.Drawing.Point(330, 230)
+        Me.AetherButton4.Location = New System.Drawing.Point(588, 404)
         Me.AetherButton4.Name = "AetherButton4"
         Me.AetherButton4.Size = New System.Drawing.Size(164, 23)
         Me.AetherButton4.TabIndex = 16
         Me.AetherButton4.Text = "Launch Chart Debugger"
+        '
+        'MaterialTabControl1
+        '
+        Me.MaterialTabControl1.Controls.Add(Me.TabPage1)
+        Me.MaterialTabControl1.Controls.Add(Me.TabPage2)
+        Me.MaterialTabControl1.Depth = 0
+        Me.MaterialTabControl1.Location = New System.Drawing.Point(6, 39)
+        Me.MaterialTabControl1.MouseState = MaterialSkin.MouseState.HOVER
+        Me.MaterialTabControl1.Name = "MaterialTabControl1"
+        Me.MaterialTabControl1.SelectedIndex = 0
+        Me.MaterialTabControl1.Size = New System.Drawing.Size(524, 281)
+        Me.MaterialTabControl1.TabIndex = 17
+        '
+        'TabPage1
+        '
+        Me.TabPage1.Location = New System.Drawing.Point(4, 24)
+        Me.TabPage1.Name = "TabPage1"
+        Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
+        Me.TabPage1.Size = New System.Drawing.Size(516, 253)
+        Me.TabPage1.TabIndex = 0
+        Me.TabPage1.Text = "TabPage1"
+        Me.TabPage1.UseVisualStyleBackColor = True
+        '
+        'TabPage2
+        '
+        Me.TabPage2.Location = New System.Drawing.Point(4, 24)
+        Me.TabPage2.Name = "TabPage2"
+        Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
+        Me.TabPage2.Size = New System.Drawing.Size(516, 253)
+        Me.TabPage2.TabIndex = 1
+        Me.TabPage2.Text = "TabPage2"
+        Me.TabPage2.UseVisualStyleBackColor = True
+        '
+        'MaterialTabSelector1
+        '
+        Me.MaterialTabSelector1.BaseTabControl = Nothing
+        Me.MaterialTabSelector1.Depth = 0
+        Me.MaterialTabSelector1.Location = New System.Drawing.Point(0, 0)
+        Me.MaterialTabSelector1.MouseState = MaterialSkin.MouseState.HOVER
+        Me.MaterialTabSelector1.Name = "MaterialTabSelector1"
+        Me.MaterialTabSelector1.Size = New System.Drawing.Size(824, 33)
+        Me.MaterialTabSelector1.TabIndex = 0
         '
         'frmHomeMulti
         '
@@ -3066,6 +3115,7 @@ Partial Class frmHomeMulti
         Me.tpFeedback.ResumeLayout(False)
         Me.tpFeedback.PerformLayout()
         Me.cxtTray.ResumeLayout(False)
+        Me.MaterialTabControl1.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
@@ -3284,4 +3334,8 @@ Partial Class frmHomeMulti
     Friend WithEvents btnFeedbackFacebook As AetherButton
     Friend WithEvents tmrAlerts As Timer
     Friend WithEvents AetherButton4 As AetherButton
+    Friend WithEvents MaterialTabSelector1 As MaterialSkin.Controls.MaterialTabSelector
+    Friend WithEvents MaterialTabControl1 As MaterialSkin.Controls.MaterialTabControl
+    Friend WithEvents TabPage1 As TabPage
+    Friend WithEvents TabPage2 As TabPage
 End Class
