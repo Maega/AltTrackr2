@@ -104,7 +104,18 @@ Partial Class frmHomeMulti
         Me.btnEditPrices = New AltTrackr2.AetherButton()
         Me.lblAltPrices = New System.Windows.Forms.Label()
         Me.tpHistory = New System.Windows.Forms.TabPage()
-        Me.lblLastPriceUpdate = New MaterialSkin.Controls.MaterialLabel()
+        Me.MaterialTabSelector1 = New MaterialSkin.Controls.MaterialTabSelector()
+        Me.tabControlHistory = New MaterialSkin.Controls.MaterialTabControl()
+        Me.htpSummary = New System.Windows.Forms.TabPage()
+        Me.CartesianChart3 = New LiveCharts.WinForms.CartesianChart()
+        Me.CartesianChart1 = New LiveCharts.WinForms.CartesianChart()
+        Me.AetherButton5 = New AltTrackr2.AetherButton()
+        Me.CartesianChart2 = New LiveCharts.WinForms.CartesianChart()
+        Me.AetherButton4 = New AltTrackr2.AetherButton()
+        Me.htpC1 = New System.Windows.Forms.TabPage()
+        Me.htpC2 = New System.Windows.Forms.TabPage()
+        Me.htpC3 = New System.Windows.Forms.TabPage()
+        Me.htpC4 = New System.Windows.Forms.TabPage()
         Me.tpSpacer1 = New System.Windows.Forms.TabPage()
         Me.tpCoin1 = New System.Windows.Forms.TabPage()
         Me.lblC1Name = New System.Windows.Forms.Label()
@@ -237,11 +248,9 @@ Partial Class frmHomeMulti
         Me.ShowHideAltTrackrToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.QuitToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.tmrAlerts = New System.Windows.Forms.Timer(Me.components)
-        Me.AetherButton4 = New AltTrackr2.AetherButton()
-        Me.MaterialTabControl1 = New MaterialSkin.Controls.MaterialTabControl()
-        Me.TabPage1 = New System.Windows.Forms.TabPage()
-        Me.TabPage2 = New System.Windows.Forms.TabPage()
-        Me.MaterialTabSelector1 = New MaterialSkin.Controls.MaterialTabSelector()
+        Me.tmrInvalidateCharts = New System.Windows.Forms.Timer(Me.components)
+        Me.lblLastPriceUpdate = New System.Windows.Forms.Label()
+        Me.pnlLastUpdated = New System.Windows.Forms.Panel()
         Me.pnlUnsaved.SuspendLayout()
         Me.pnlLoadingMain.SuspendLayout()
         Me.pnlLoading.SuspendLayout()
@@ -262,6 +271,8 @@ Partial Class frmHomeMulti
         Me.AetherGroupBox6.SuspendLayout()
         Me.AetherGroupBox1.SuspendLayout()
         Me.tpHistory.SuspendLayout()
+        Me.tabControlHistory.SuspendLayout()
+        Me.htpSummary.SuspendLayout()
         Me.tpCoin1.SuspendLayout()
         CType(Me.picC1Logo, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.AetherGroupBox3.SuspendLayout()
@@ -286,7 +297,6 @@ Partial Class frmHomeMulti
         Me.tpSupport.SuspendLayout()
         Me.tpFeedback.SuspendLayout()
         Me.cxtTray.SuspendLayout()
-        Me.MaterialTabControl1.SuspendLayout()
         Me.SuspendLayout()
         '
         'ilsIcon
@@ -1280,9 +1290,7 @@ Partial Class frmHomeMulti
         '
         Me.tpHistory.BackColor = System.Drawing.Color.White
         Me.tpHistory.Controls.Add(Me.MaterialTabSelector1)
-        Me.tpHistory.Controls.Add(Me.MaterialTabControl1)
-        Me.tpHistory.Controls.Add(Me.AetherButton4)
-        Me.tpHistory.Controls.Add(Me.lblLastPriceUpdate)
+        Me.tpHistory.Controls.Add(Me.tabControlHistory)
         Me.tpHistory.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.tpHistory.ForeColor = System.Drawing.Color.FromArgb(CType(CType(52, Byte), Integer), CType(CType(56, Byte), Integer), CType(CType(67, Byte), Integer))
         Me.tpHistory.ImageIndex = 10
@@ -1293,19 +1301,133 @@ Partial Class frmHomeMulti
         Me.tpHistory.TabIndex = 1
         Me.tpHistory.Text = "History"
         '
-        'lblLastPriceUpdate
+        'MaterialTabSelector1
         '
-        Me.lblLastPriceUpdate.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.lblLastPriceUpdate.Depth = 0
-        Me.lblLastPriceUpdate.Font = New System.Drawing.Font("Roboto", 11.0!)
-        Me.lblLastPriceUpdate.ForeColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.lblLastPriceUpdate.Location = New System.Drawing.Point(16, 443)
-        Me.lblLastPriceUpdate.MouseState = MaterialSkin.MouseState.HOVER
-        Me.lblLastPriceUpdate.Name = "lblLastPriceUpdate"
-        Me.lblLastPriceUpdate.Size = New System.Drawing.Size(794, 25)
-        Me.lblLastPriceUpdate.TabIndex = 15
-        Me.lblLastPriceUpdate.Text = "Last Updated:"
-        Me.lblLastPriceUpdate.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.MaterialTabSelector1.BaseTabControl = Me.tabControlHistory
+        Me.MaterialTabSelector1.Depth = 0
+        Me.MaterialTabSelector1.Location = New System.Drawing.Point(0, 0)
+        Me.MaterialTabSelector1.MouseState = MaterialSkin.MouseState.HOVER
+        Me.MaterialTabSelector1.Name = "MaterialTabSelector1"
+        Me.MaterialTabSelector1.Size = New System.Drawing.Size(824, 33)
+        Me.MaterialTabSelector1.TabIndex = 0
+        '
+        'tabControlHistory
+        '
+        Me.tabControlHistory.Controls.Add(Me.htpSummary)
+        Me.tabControlHistory.Controls.Add(Me.htpC1)
+        Me.tabControlHistory.Controls.Add(Me.htpC2)
+        Me.tabControlHistory.Controls.Add(Me.htpC3)
+        Me.tabControlHistory.Controls.Add(Me.htpC4)
+        Me.tabControlHistory.Depth = 0
+        Me.tabControlHistory.Location = New System.Drawing.Point(6, 34)
+        Me.tabControlHistory.MouseState = MaterialSkin.MouseState.HOVER
+        Me.tabControlHistory.Name = "tabControlHistory"
+        Me.tabControlHistory.SelectedIndex = 0
+        Me.tabControlHistory.Size = New System.Drawing.Size(810, 446)
+        Me.tabControlHistory.TabIndex = 17
+        '
+        'htpSummary
+        '
+        Me.htpSummary.Controls.Add(Me.CartesianChart3)
+        Me.htpSummary.Controls.Add(Me.CartesianChart1)
+        Me.htpSummary.Controls.Add(Me.AetherButton5)
+        Me.htpSummary.Controls.Add(Me.CartesianChart2)
+        Me.htpSummary.Controls.Add(Me.AetherButton4)
+        Me.htpSummary.Location = New System.Drawing.Point(4, 24)
+        Me.htpSummary.Name = "htpSummary"
+        Me.htpSummary.Padding = New System.Windows.Forms.Padding(3)
+        Me.htpSummary.Size = New System.Drawing.Size(802, 418)
+        Me.htpSummary.TabIndex = 0
+        Me.htpSummary.Text = "Summary"
+        Me.htpSummary.UseVisualStyleBackColor = True
+        '
+        'CartesianChart3
+        '
+        Me.CartesianChart3.BackColor = System.Drawing.SystemColors.Control
+        Me.CartesianChart3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
+        Me.CartesianChart3.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.CartesianChart3.Location = New System.Drawing.Point(404, 213)
+        Me.CartesianChart3.Name = "CartesianChart3"
+        Me.CartesianChart3.Size = New System.Drawing.Size(390, 222)
+        Me.CartesianChart3.TabIndex = 26
+        Me.CartesianChart3.Text = "CartesianChart3"
+        '
+        'CartesianChart1
+        '
+        Me.CartesianChart1.BackColor = System.Drawing.SystemColors.Control
+        Me.CartesianChart1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
+        Me.CartesianChart1.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.CartesianChart1.Location = New System.Drawing.Point(8, 214)
+        Me.CartesianChart1.Name = "CartesianChart1"
+        Me.CartesianChart1.Size = New System.Drawing.Size(390, 222)
+        Me.CartesianChart1.TabIndex = 24
+        Me.CartesianChart1.Text = "CartesianChart1"
+        '
+        'AetherButton5
+        '
+        Me.AetherButton5.EnabledCalc = True
+        Me.AetherButton5.Location = New System.Drawing.Point(512, 98)
+        Me.AetherButton5.Name = "AetherButton5"
+        Me.AetherButton5.Size = New System.Drawing.Size(167, 23)
+        Me.AetherButton5.TabIndex = 23
+        Me.AetherButton5.Text = "Add Random Point"
+        '
+        'CartesianChart2
+        '
+        Me.CartesianChart2.BackColor = System.Drawing.SystemColors.Control
+        Me.CartesianChart2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
+        Me.CartesianChart2.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.CartesianChart2.Location = New System.Drawing.Point(7, 6)
+        Me.CartesianChart2.Name = "CartesianChart2"
+        Me.CartesianChart2.Size = New System.Drawing.Size(390, 222)
+        Me.CartesianChart2.TabIndex = 22
+        Me.CartesianChart2.Text = "CartesianChart2"
+        '
+        'AetherButton4
+        '
+        Me.AetherButton4.EnabledCalc = True
+        Me.AetherButton4.Location = New System.Drawing.Point(512, 127)
+        Me.AetherButton4.Name = "AetherButton4"
+        Me.AetherButton4.Size = New System.Drawing.Size(167, 23)
+        Me.AetherButton4.TabIndex = 16
+        Me.AetherButton4.Text = "Launch Chart Debugger"
+        '
+        'htpC1
+        '
+        Me.htpC1.Location = New System.Drawing.Point(4, 24)
+        Me.htpC1.Name = "htpC1"
+        Me.htpC1.Padding = New System.Windows.Forms.Padding(3)
+        Me.htpC1.Size = New System.Drawing.Size(802, 418)
+        Me.htpC1.TabIndex = 1
+        Me.htpC1.Text = "Coin One"
+        Me.htpC1.UseVisualStyleBackColor = True
+        '
+        'htpC2
+        '
+        Me.htpC2.Location = New System.Drawing.Point(4, 24)
+        Me.htpC2.Name = "htpC2"
+        Me.htpC2.Size = New System.Drawing.Size(802, 418)
+        Me.htpC2.TabIndex = 2
+        Me.htpC2.Text = "Coin Two"
+        Me.htpC2.UseVisualStyleBackColor = True
+        '
+        'htpC3
+        '
+        Me.htpC3.Location = New System.Drawing.Point(4, 24)
+        Me.htpC3.Name = "htpC3"
+        Me.htpC3.Size = New System.Drawing.Size(802, 418)
+        Me.htpC3.TabIndex = 3
+        Me.htpC3.Text = "Coin Three"
+        Me.htpC3.UseVisualStyleBackColor = True
+        '
+        'htpC4
+        '
+        Me.htpC4.Location = New System.Drawing.Point(4, 24)
+        Me.htpC4.Name = "htpC4"
+        Me.htpC4.Size = New System.Drawing.Size(802, 418)
+        Me.htpC4.TabIndex = 4
+        Me.htpC4.Text = "Coin Four"
+        Me.htpC4.UseVisualStyleBackColor = True
         '
         'tpSpacer1
         '
@@ -2996,62 +3118,38 @@ Partial Class frmHomeMulti
         Me.tmrAlerts.Enabled = True
         Me.tmrAlerts.Interval = 30000
         '
-        'AetherButton4
+        'tmrInvalidateCharts
         '
-        Me.AetherButton4.EnabledCalc = True
-        Me.AetherButton4.Location = New System.Drawing.Point(588, 404)
-        Me.AetherButton4.Name = "AetherButton4"
-        Me.AetherButton4.Size = New System.Drawing.Size(164, 23)
-        Me.AetherButton4.TabIndex = 16
-        Me.AetherButton4.Text = "Launch Chart Debugger"
+        Me.tmrInvalidateCharts.Interval = 10
         '
-        'MaterialTabControl1
+        'lblLastPriceUpdate
         '
-        Me.MaterialTabControl1.Controls.Add(Me.TabPage1)
-        Me.MaterialTabControl1.Controls.Add(Me.TabPage2)
-        Me.MaterialTabControl1.Depth = 0
-        Me.MaterialTabControl1.Location = New System.Drawing.Point(6, 39)
-        Me.MaterialTabControl1.MouseState = MaterialSkin.MouseState.HOVER
-        Me.MaterialTabControl1.Name = "MaterialTabControl1"
-        Me.MaterialTabControl1.SelectedIndex = 0
-        Me.MaterialTabControl1.Size = New System.Drawing.Size(524, 281)
-        Me.MaterialTabControl1.TabIndex = 17
+        Me.lblLastPriceUpdate.BackColor = System.Drawing.Color.Transparent
+        Me.lblLastPriceUpdate.Font = New System.Drawing.Font("Roboto", 9.0!)
+        Me.lblLastPriceUpdate.ForeColor = System.Drawing.Color.White
+        Me.lblLastPriceUpdate.Location = New System.Drawing.Point(13, 8)
+        Me.lblLastPriceUpdate.Name = "lblLastPriceUpdate"
+        Me.lblLastPriceUpdate.Size = New System.Drawing.Size(328, 15)
+        Me.lblLastPriceUpdate.TabIndex = 22
+        Me.lblLastPriceUpdate.Text = "Last Updated:"
+        Me.lblLastPriceUpdate.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.lblLastPriceUpdate.Visible = False
         '
-        'TabPage1
+        'pnlLastUpdated
         '
-        Me.TabPage1.Location = New System.Drawing.Point(4, 24)
-        Me.TabPage1.Name = "TabPage1"
-        Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage1.Size = New System.Drawing.Size(516, 253)
-        Me.TabPage1.TabIndex = 0
-        Me.TabPage1.Text = "TabPage1"
-        Me.TabPage1.UseVisualStyleBackColor = True
-        '
-        'TabPage2
-        '
-        Me.TabPage2.Location = New System.Drawing.Point(4, 24)
-        Me.TabPage2.Name = "TabPage2"
-        Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage2.Size = New System.Drawing.Size(516, 253)
-        Me.TabPage2.TabIndex = 1
-        Me.TabPage2.Text = "TabPage2"
-        Me.TabPage2.UseVisualStyleBackColor = True
-        '
-        'MaterialTabSelector1
-        '
-        Me.MaterialTabSelector1.BaseTabControl = Nothing
-        Me.MaterialTabSelector1.Depth = 0
-        Me.MaterialTabSelector1.Location = New System.Drawing.Point(0, 0)
-        Me.MaterialTabSelector1.MouseState = MaterialSkin.MouseState.HOVER
-        Me.MaterialTabSelector1.Name = "MaterialTabSelector1"
-        Me.MaterialTabSelector1.Size = New System.Drawing.Size(824, 33)
-        Me.MaterialTabSelector1.TabIndex = 0
+        Me.pnlLastUpdated.BackColor = System.Drawing.Color.Transparent
+        Me.pnlLastUpdated.Location = New System.Drawing.Point(12, 28)
+        Me.pnlLastUpdated.Name = "pnlLastUpdated"
+        Me.pnlLastUpdated.Size = New System.Drawing.Size(179, 30)
+        Me.pnlLastUpdated.TabIndex = 23
         '
         'frmHomeMulti
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1022, 554)
+        Me.Controls.Add(Me.lblLastPriceUpdate)
+        Me.Controls.Add(Me.pnlLastUpdated)
         Me.Controls.Add(Me.prgTitleLoad)
         Me.Controls.Add(Me.pnlUnsaved)
         Me.Controls.Add(Me.tabContent)
@@ -3084,6 +3182,8 @@ Partial Class frmHomeMulti
         Me.AetherGroupBox6.ResumeLayout(False)
         Me.AetherGroupBox1.ResumeLayout(False)
         Me.tpHistory.ResumeLayout(False)
+        Me.tabControlHistory.ResumeLayout(False)
+        Me.htpSummary.ResumeLayout(False)
         Me.tpCoin1.ResumeLayout(False)
         Me.tpCoin1.PerformLayout()
         CType(Me.picC1Logo, System.ComponentModel.ISupportInitialize).EndInit()
@@ -3115,7 +3215,6 @@ Partial Class frmHomeMulti
         Me.tpFeedback.ResumeLayout(False)
         Me.tpFeedback.PerformLayout()
         Me.cxtTray.ResumeLayout(False)
-        Me.MaterialTabControl1.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
@@ -3140,7 +3239,6 @@ Partial Class frmHomeMulti
     Friend WithEvents radStyle2 As AetherRadioButton
     Friend WithEvents radStyle1 As AetherRadioButton
     Friend WithEvents bkgGetPrices As System.ComponentModel.BackgroundWorker
-    Friend WithEvents lblLastPriceUpdate As MaterialSkin.Controls.MaterialLabel
     Friend WithEvents tmrRefresh As Timer
     Friend WithEvents pnlUnsaved As Panel
     Friend WithEvents lblUnsaved As Label
@@ -3335,7 +3433,17 @@ Partial Class frmHomeMulti
     Friend WithEvents tmrAlerts As Timer
     Friend WithEvents AetherButton4 As AetherButton
     Friend WithEvents MaterialTabSelector1 As MaterialSkin.Controls.MaterialTabSelector
-    Friend WithEvents MaterialTabControl1 As MaterialSkin.Controls.MaterialTabControl
-    Friend WithEvents TabPage1 As TabPage
-    Friend WithEvents TabPage2 As TabPage
+    Friend WithEvents tabControlHistory As MaterialSkin.Controls.MaterialTabControl
+    Friend WithEvents htpSummary As TabPage
+    Friend WithEvents htpC1 As TabPage
+    Friend WithEvents CartesianChart2 As LiveCharts.WinForms.CartesianChart
+    Friend WithEvents AetherButton5 As AetherButton
+    Friend WithEvents tmrInvalidateCharts As Timer
+    Friend WithEvents CartesianChart1 As LiveCharts.WinForms.CartesianChart
+    Friend WithEvents CartesianChart3 As LiveCharts.WinForms.CartesianChart
+    Friend WithEvents htpC2 As TabPage
+    Friend WithEvents htpC3 As TabPage
+    Friend WithEvents htpC4 As TabPage
+    Friend WithEvents lblLastPriceUpdate As Label
+    Friend WithEvents pnlLastUpdated As Panel
 End Class

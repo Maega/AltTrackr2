@@ -4,6 +4,7 @@ Imports LiveCharts.WinForms
 Imports LiveCharts.Defaults
 
 Public Class frmCharts
+    Dim maxPoints As Integer = 6
     Private Sub frmCharts_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'Values = New ChartValues(Of Double)() From {3, 4, 6, 3, 2, 6}
 
@@ -82,6 +83,15 @@ Public Class frmCharts
         Dim r As New Random
 
         Values.Add(New ObservableValue(r.Next(0, 10))) 'Add new point
-        If Values.Count > 6 Then Values.RemoveAt(0) 'Remove earliest point if there are more than six
+        If Values.Count > maxPoints Then Values.RemoveAt(0) 'Remove earliest point if there are more than six
+    End Sub
+
+    Private Sub AetherButton2_Click(sender As Object, e As EventArgs) Handles AetherButton2.Click
+        Values.RemoveAt(NumericUpDown2.Value)
+    End Sub
+
+    Private Sub NumericUpDown1_ValueChanged(sender As Object, e As EventArgs) Handles NumericUpDown1.ValueChanged
+        maxPoints = NumericUpDown1.Value
+        NumericUpDown2.Maximum = maxPoints
     End Sub
 End Class

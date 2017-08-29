@@ -4,6 +4,10 @@ Imports System.Net
 Imports Newtonsoft.Json
 Imports Newtonsoft.Json.Linq
 Imports Notification
+Imports LiveCharts.Wpf
+Imports LiveCharts
+Imports LiveCharts.WinForms
+Imports LiveCharts.Defaults
 
 Public Class frmHomeMulti
     Dim serverResponse As JObject
@@ -60,6 +64,81 @@ Public Class frmHomeMulti
         txtC2Initial.Text = My.Computer.Registry.GetValue(My.Settings.RegLocation, "InitialInvestment", Nothing).Split(",")(1)
         txtC3Initial.Text = My.Computer.Registry.GetValue(My.Settings.RegLocation, "InitialInvestment", Nothing).Split(",")(2)
         txtC4Initial.Text = My.Computer.Registry.GetValue(My.Settings.RegLocation, "InitialInvestment", Nothing).Split(",")(3)
+
+        'The following CartesianChart initialisation is temporary. It will be cleaned and moved to the new ChartingEngine soon.
+        For Each cachart As LiveCharts.WinForms.CartesianChart In {CartesianChart1, CartesianChart2, CartesianChart3}
+            With cachart
+                .BackColor = Color.FromKnownColor(KnownColor.White)
+                .ForeColor = Color.FromKnownColor(KnownColor.ControlText)
+                .Font = New Drawing.Font("Microsoft Sans Serif", 8.25)
+
+                Values = New ChartValues(Of ObservableValue)() From {New ObservableValue(134), New ObservableValue(142), New ObservableValue(147), New ObservableValue(137), New ObservableValue(135), New ObservableValue(154)}
+
+                Dim lineSeries1 As New LineSeries()
+                With lineSeries1
+                    .Values = Values
+                    .StrokeThickness = 4
+                    '.StrokeDashArray = New System.Windows.Media.DoubleCollection(New Double() {2})
+                    '.Stroke = New System.Windows.Media.SolidColorBrush(System.Windows.Media.Color.FromRgb(107, 185, 69))
+                    '.Fill = System.Windows.Media.Brushes.Transparent
+                    .LineSmoothness = 0
+                    .PointGeometrySize = 18
+                    .Title = "XMR - High"
+                End With
+
+                Dim AxisX As New Axis
+                Dim SeparatorX As New Separator
+                Dim AxisY As New Axis
+                Dim SeparatorY As New Separator
+
+                With SeparatorX
+                    '.Step = TimeSpan.FromSeconds(1).Ticks
+                    .StrokeThickness = 0
+                    .Stroke = New System.Windows.Media.SolidColorBrush(System.Windows.Media.Color.FromRgb(64, 79, 86))
+                End With
+
+                With SeparatorY
+                    .StrokeThickness = 0
+                    '.StrokeDashArray = New System.Windows.Media.DoubleCollection(New Double() {4})
+                    .Stroke = New System.Windows.Media.SolidColorBrush(System.Windows.Media.Color.FromRgb(64, 79, 86))
+                End With
+
+                AxisX.DisableAnimations = True
+                'AxisX.IsMerged = True
+                AxisX.LabelFormatter = Function(value) New System.DateTime(CLng(value)).ToString("mm:ss")
+                AxisX.Separator = SeparatorX
+
+                'AxisY.IsMerged = True
+                AxisY.Separator = SeparatorY
+
+                .Series.Add(lineSeries1)
+                '.Series.Add(lineSeries2)
+                '.Background = New System.Windows.Media.SolidColorBrush(System.Windows.Media.Color.FromRgb(34, 46, 49))
+                .AxisX.Add(AxisX)
+                .AxisY.Add(AxisY)
+            End With
+        Next
+
+        tpHistory.Invalidate()
+    End Sub
+
+    Public Property Values() As ChartValues(Of ObservableValue)
+        Get
+            Return m_Values
+        End Get
+        Set
+            m_Values = Value
+        End Set
+    End Property
+    Private m_Values As ChartValues(Of ObservableValue)
+
+    Private Sub AetherButton5_Click_1(sender As Object, e As EventArgs) Handles AetherButton5.Click
+        Dim r As New Random
+
+        ICticker = 0
+        tmrInvalidateCharts.Start()
+        Values.Add(New ObservableValue(r.Next(130, 170))) 'Add new point
+        If Values.Count > 6 Then Values.RemoveAt(0) 'Remove earliest point if there are more than six
     End Sub
 
     Private Sub AetherButton2_Click(sender As Object, e As EventArgs) Handles AetherButton2.Click
@@ -688,7 +767,7 @@ Public Class frmHomeMulti
 
     Private Sub chkLaunchStartup_CheckedChanged(sender As Object, e As EventArgs) Handles chkLaunchStartup.CheckedChanged
         If chkLaunchStartup.Checked = False Then
-            Dim result As Integer = MessageBox.Show("Preventing AltTrackr from launching on system startup will hinder your ability to receive price notifications." + vbNewLine + vbNewLine + "Are you sure that you would like to disable AltTrackr from starting with Windows?", "Whoa There!", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation)
+            Dim result As Integer = MessageBox.Show("Preventing AltTrackr from launching on system startup will hinder your ability to receive price notifications." + vbNewLine + vbNewLine + "Are you sure that you would like to prevent AltTrackr from starting with Windows?", "Whoa There!", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation)
             If result = DialogResult.No Then
                 chkLaunchStartup.Checked = True
             End If
@@ -715,6 +794,17 @@ Public Class frmHomeMulti
 
     Private Sub AetherButton4_Click_1(sender As Object, e As EventArgs) Handles AetherButton4.Click
         frmCharts.Show()
+    End Sub
+
+    Dim ICticker As Integer = 0
+    Private Sub tmrInvalidate_Tick(sender As Object, e As EventArgs) Handles tmrInvalidateCharts.Tick
+        ICticker += 1
+        If ICticker < 100 Then
+            tpHistory.Invalidate()
+        Else
+            ICticker = 0
+            tmrInvalidateCharts.Stop()
+        End If
     End Sub
 
     Private Sub btnEdit_Click(sender As Object, e As EventArgs) Handles btnEditHoldings.Click, btnEditGoals.Click
@@ -746,5 +836,13 @@ Public Class frmHomeMulti
     Private Sub frmHomeMulti_Shown(sender As Object, e As EventArgs) Handles Me.Shown
         If frmWelcome.launchSilent = True Then Me.Hide()
         frmWelcome.Close()
+    End Sub
+
+    Private Sub pnlLastUpdated_MouseEnter(sender As Object, e As EventArgs) Handles pnlLastUpdated.MouseEnter
+        lblLastPriceUpdate.Show()
+    End Sub
+
+    Private Sub pnlLastUpdated_MouseLeave(sender As Object, e As EventArgs) Handles pnlLastUpdated.MouseLeave
+        lblLastPriceUpdate.Hide()
     End Sub
 End Class
