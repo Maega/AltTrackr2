@@ -5,11 +5,11 @@ Module AccountsAPI
 
     'Software: Maega Innovation Hub
     'Module: UpdateAPI.vb
-    'Description: Accounts Backend for Maega Products
+    'Description: Accounts Backend for Maega Products (v2)
     'Organisation: Maega
 
-    'This code uses wildly insecure methods of handling login. It'll be fine for the early betas, but by production we'll be sending POST requests to the server with a unique ID bound to the user's IP address instead of a B64'd password.
-    'Currently we're using similar local password storage methods to FileZilla.
+    'THIS CLIENT IS COMPATIBLE WITH SERVERSIDE ACCOUNTSAPI v2 ONLY
+    'API v1 doesn't support token authentication
 
     Dim rlicense As String, appindex As Integer
     Dim apiserver As String = "https://api.maeganetwork.com/accounts.php?api=v2" 'This should point to the API backend on the accounts server
@@ -50,9 +50,9 @@ Module AccountsAPI
                 Dim responseArray() As String = apiresponse.Split(";")
                 resStatus = responseArray(0)
                 sessionHWID = responseArray(1)
-                resApprovedHWID = responseArray(2).Split(",")
-                sessionToken = responseArray(3)
-                resLicenses = responseArray(4)
+                'resApprovedHWID = responseArray(2).Split(",")
+                sessionToken = responseArray(2)
+                resLicenses = responseArray(3)
             Catch ex As Exception
                 'Reached end of array
                 cTiming.WriteDebug("The apiresponse array ended prematurely. This is normal behaviour.")
@@ -64,18 +64,17 @@ Module AccountsAPI
                 'User has not signed in on this PC before
             End If
 
-            My.Computer.Registry.SetValue(My.Settings.RegLocation, "AuthUser", uname)
-            My.Computer.Registry.SetValue(My.Settings.RegLocation, "AuthToken", sessionToken)
-
             If sessionHWID = GetHWID.ToString Then
                 Select Case resStatus
                     Case 0 'resStatus 0 means Incorrect Login.
                         Return 0 'Return 0 for Incorrect Login.
                     Case 1 'resStatus 1 means Authenticated.
                         'MsgBox(apiresponse.ToString)
-
+                        My.Computer.Registry.SetValue(My.Settings.RegLocation, "AuthUser", uname)
+                        If sessionToken = Nothing Then sessionToken = String.Empty 'Prevents exception when assigning reg value as null. Assign it as an empty string instead.
+                        My.Computer.Registry.SetValue(My.Settings.RegLocation, "AuthToken", sessionToken)
                         'frmHomeMulti.lblAuthRequest.Text = "RESP EPOCH APPROVED! DATA RESPONSE: " + apiresponse.ToString
-                        UpdateAPI.AppShortName = "AltTrackr Pro"
+                        'UpdateAPI.AppShortName = "AltTrackr Pro"
                         Return 1 'Return 1 for OK - Login successful, all variables have been set.
                     Case Else
                         Return 2 'Return 2 for Error - Something went wrong with the request.
@@ -104,12 +103,12 @@ Module AccountsAPI
             Dim responseArray() As String = apiresponse.Split(";")
             resStatus = responseArray(0)
             sessionHWID = responseArray(1)
-            resApprovedHWID = responseArray(2).Split(",")
-            sessionToken = responseArray(3)
-            resLicenses = responseArray(4)
+            'resApprovedHWID = responseArray(2).Split(",")
+            sessionToken = responseArray(2)
+            resLicenses = responseArray(3)
 
             If resStatus = 1 Then
-                UpdateAPI.AppShortName = "AltTrackr Pro"
+                'UpdateAPI.AppShortName = "AltTrackr Pro"
                 Return True
             Else
                 Return False

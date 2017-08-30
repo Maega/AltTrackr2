@@ -107,6 +107,7 @@ Partial Class frmHomeMulti
         Me.MaterialTabSelector1 = New MaterialSkin.Controls.MaterialTabSelector()
         Me.tabControlHistory = New MaterialSkin.Controls.MaterialTabControl()
         Me.htpSummary = New System.Windows.Forms.TabPage()
+        Me.Label22 = New System.Windows.Forms.Label()
         Me.CartesianChart3 = New LiveCharts.WinForms.CartesianChart()
         Me.CartesianChart1 = New LiveCharts.WinForms.CartesianChart()
         Me.AetherButton5 = New AltTrackr2.AetherButton()
@@ -1306,6 +1307,7 @@ Partial Class frmHomeMulti
         '
         Me.MaterialTabSelector1.BaseTabControl = Me.tabControlHistory
         Me.MaterialTabSelector1.Depth = 0
+        Me.MaterialTabSelector1.Enabled = False
         Me.MaterialTabSelector1.Location = New System.Drawing.Point(0, 0)
         Me.MaterialTabSelector1.MouseState = MaterialSkin.MouseState.HOVER
         Me.MaterialTabSelector1.Name = "MaterialTabSelector1"
@@ -1329,6 +1331,7 @@ Partial Class frmHomeMulti
         '
         'htpSummary
         '
+        Me.htpSummary.Controls.Add(Me.Label22)
         Me.htpSummary.Controls.Add(Me.CartesianChart3)
         Me.htpSummary.Controls.Add(Me.CartesianChart1)
         Me.htpSummary.Controls.Add(Me.AetherButton5)
@@ -1341,6 +1344,18 @@ Partial Class frmHomeMulti
         Me.htpSummary.TabIndex = 0
         Me.htpSummary.Text = "Summary"
         Me.htpSummary.UseVisualStyleBackColor = True
+        '
+        'Label22
+        '
+        Me.Label22.BackColor = System.Drawing.Color.Transparent
+        Me.Label22.Font = New System.Drawing.Font("Roboto", 12.0!)
+        Me.Label22.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.Label22.Location = New System.Drawing.Point(471, 54)
+        Me.Label22.Name = "Label22"
+        Me.Label22.Size = New System.Drawing.Size(255, 46)
+        Me.Label22.TabIndex = 24
+        Me.Label22.Text = "Under Development" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Does not represent final product"
+        Me.Label22.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'CartesianChart3
         '
@@ -1367,7 +1382,7 @@ Partial Class frmHomeMulti
         'AetherButton5
         '
         Me.AetherButton5.EnabledCalc = True
-        Me.AetherButton5.Location = New System.Drawing.Point(512, 98)
+        Me.AetherButton5.Location = New System.Drawing.Point(512, 108)
         Me.AetherButton5.Name = "AetherButton5"
         Me.AetherButton5.Size = New System.Drawing.Size(167, 23)
         Me.AetherButton5.TabIndex = 23
@@ -1387,7 +1402,7 @@ Partial Class frmHomeMulti
         'AetherButton4
         '
         Me.AetherButton4.EnabledCalc = True
-        Me.AetherButton4.Location = New System.Drawing.Point(512, 127)
+        Me.AetherButton4.Location = New System.Drawing.Point(512, 137)
         Me.AetherButton4.Name = "AetherButton4"
         Me.AetherButton4.Size = New System.Drawing.Size(167, 23)
         Me.AetherButton4.TabIndex = 16
@@ -3060,7 +3075,7 @@ Partial Class frmHomeMulti
         Me.tpFeedback.Name = "tpFeedback"
         Me.tpFeedback.Size = New System.Drawing.Size(824, 482)
         Me.tpFeedback.TabIndex = 9
-        Me.tpFeedback.Tag = "150817"
+        Me.tpFeedback.Tag = "300817"
         Me.tpFeedback.Text = "Feedback"
         '
         'Label21
@@ -3451,4 +3466,5 @@ Partial Class frmHomeMulti
     Friend WithEvents lblLastPriceUpdate As Label
     Friend WithEvents pnlLastUpdated As Panel
     Friend WithEvents bkgLogin As System.ComponentModel.BackgroundWorker
+    Friend WithEvents Label22 As Label
 End Class

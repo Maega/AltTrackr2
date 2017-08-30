@@ -48,6 +48,8 @@ Public Class frmHomeMulti
         Me.CenterToParent()
         tagCurrentVer.Text = "v" + UpdateAPI.CurrentVer.ToString("0.00")
 
+        If Not My.Computer.Registry.GetValue(My.Settings.RegLocation, "AuthUser", Nothing) = Nothing And Not My.Computer.Registry.GetValue(My.Settings.RegLocation, "AuthToken", Nothing) = Nothing Then bkgLogin.RunWorkerAsync(True)
+
         If Not My.Computer.Registry.CurrentUser.OpenSubKey("SOFTWARE\Microsoft\Windows\CurrentVersion\Run", True).GetValue(Application.ProductName) = Nothing Then chkLaunchStartup.Checked = True
 
         txtC1Goal.Text = My.Computer.Registry.GetValue(My.Settings.RegLocation, "AppGoals", Nothing).Split(",")(0)
@@ -295,6 +297,7 @@ Public Class frmHomeMulti
             lblAltHoldings.Text = lblAltHoldings.Text.Remove(lblAltHoldings.Text.LastIndexOf(Environment.NewLine))
 
             'Plans to use System.Reflection in future to dramatically slim down all this code and make unlimited coin slots a possibility are in place.
+            'This code is wildly inefficient.
 
             'Set goal coin names
             lblGoalC1.Text = coinNameArray(0)
@@ -353,6 +356,12 @@ Public Class frmHomeMulti
             radC2Edit.Text = coinNameArray(1) + " (" + coinCodeArray(1) + ")"
             radC3Edit.Text = coinNameArray(2) + " (" + coinCodeArray(2) + ")"
             radC4Edit.Text = coinNameArray(3) + " (" + coinCodeArray(3) + ")"
+
+            'Set "history" coin tabs
+            htpC1.Text = coinNameArray(0)
+            htpC2.Text = coinNameArray(1)
+            htpC3.Text = coinNameArray(2)
+            htpC4.Text = coinNameArray(3)
 
             'Set Coin 1 Price & Holdings Stats
             lblC1PricesDetailed.Text = coinCodeArray(0) + " Prices - "
@@ -605,10 +614,12 @@ Public Class frmHomeMulti
 
     Dim sessionUser As String = String.Empty
     Private Sub btnLLogin_Click(sender As Object, e As EventArgs) Handles btnLLogin.Click
+        pnlLLogin.Enabled = False
         bkgLogin.RunWorkerAsync(False)
     End Sub
 
     Private Sub PostAuthentication(status As Integer)
+        pnlLLogin.Enabled = True
         Select Case status
             Case 1
                 tagIncorrect1.Left = -86
@@ -616,8 +627,8 @@ Public Class frmHomeMulti
                 pnlLIncorrect.Hide()
                 pnlLLogin.Hide()
                 pnlLAccount.Show()
-                sessionUser = txtLUsername.Text
-                tpLogin.Text = txtLUsername.Text
+                sessionUser = My.Computer.Registry.GetValue(My.Settings.RegLocation, "AuthUser", Nothing)
+                tpLogin.Text = My.Computer.Registry.GetValue(My.Settings.RegLocation, "AuthUser", Nothing)
                 tpLogin.ImageIndex = 28
                 lblLUser.Text = sessionUser
                 Me.Text = sessionUser + " | " + UpdateAPI.AppShortName
@@ -643,6 +654,8 @@ Public Class frmHomeMulti
         tpLogin.Text = "Login"
         tpLogin.ImageIndex = 25
         Me.Text = "Login | " + UpdateAPI.AppShortName
+        My.Computer.Registry.SetValue(My.Settings.RegLocation, "AuthUser", String.Empty)
+        My.Computer.Registry.SetValue(My.Settings.RegLocation, "AuthToken", String.Empty)
         Invalidate()
     End Sub
 

@@ -118,13 +118,13 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Label8.Text" xml:space="preserve">
-    <value>VERSION 1.03
+    <value>VERSION 1.04
 
-- Added the option to launch on Windows startup (preparation for alert system)
-- AltTrackr now has a tray icon and menu
-- Some graphical bugs fixed
-- Local changelog implemented
-- Improved some animations
+- Token authentication implemented to dramatically improve login security
+- Auto login implemented (will be functioning when serverside token work is done)
+- Login is now performed in a background thread (doesn't lock up the UI)
+- Hover over title bar name to show last price update date/time
+- Early charting engine implemented (tech demo)
 - Various minor bug fixes</value>
   </data>
 </root>
