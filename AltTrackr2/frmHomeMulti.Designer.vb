@@ -53,6 +53,8 @@ Partial Class frmHomeMulti
         Me.Label4 = New System.Windows.Forms.Label()
         Me.chkLAutoUpdate = New AltTrackr2.AetherCheckBox()
         Me.btnLCheckUpdates = New AltTrackr2.AetherButton()
+        Me.cxtUpdateCheck = New MaterialSkin.Controls.MaterialContextMenuStrip()
+        Me.tsiForceEnableUpdate = New System.Windows.Forms.ToolStripMenuItem()
         Me.chkLUpdateNotifier = New AltTrackr2.AetherCheckBox()
         Me.btnLUpdateNow = New AltTrackr2.AetherButton()
         Me.tagCurrentVer = New AltTrackr2.AetherTag()
@@ -261,6 +263,7 @@ Partial Class frmHomeMulti
         Me.pnlLAccount.SuspendLayout()
         Me.AetherGroupBox16.SuspendLayout()
         Me.AetherGroupBox15.SuspendLayout()
+        Me.cxtUpdateCheck.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.pnlLLogin.SuspendLayout()
         Me.pnlLIncorrect.SuspendLayout()
@@ -686,12 +689,28 @@ Partial Class frmHomeMulti
         '
         'btnLCheckUpdates
         '
+        Me.btnLCheckUpdates.ContextMenuStrip = Me.cxtUpdateCheck
         Me.btnLCheckUpdates.EnabledCalc = True
         Me.btnLCheckUpdates.Location = New System.Drawing.Point(85, 61)
         Me.btnLCheckUpdates.Name = "btnLCheckUpdates"
         Me.btnLCheckUpdates.Size = New System.Drawing.Size(156, 23)
         Me.btnLCheckUpdates.TabIndex = 10
         Me.btnLCheckUpdates.Text = "Check for Updates"
+        '
+        'cxtUpdateCheck
+        '
+        Me.cxtUpdateCheck.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.cxtUpdateCheck.Depth = 0
+        Me.cxtUpdateCheck.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.tsiForceEnableUpdate})
+        Me.cxtUpdateCheck.MouseState = MaterialSkin.MouseState.HOVER
+        Me.cxtUpdateCheck.Name = "cxtTray"
+        Me.cxtUpdateCheck.Size = New System.Drawing.Size(145, 26)
+        '
+        'tsiForceEnableUpdate
+        '
+        Me.tsiForceEnableUpdate.Name = "tsiForceEnableUpdate"
+        Me.tsiForceEnableUpdate.Size = New System.Drawing.Size(144, 22)
+        Me.tsiForceEnableUpdate.Text = "Force Update"
         '
         'chkLUpdateNotifier
         '
@@ -3188,6 +3207,7 @@ Partial Class frmHomeMulti
         Me.pnlLAccount.PerformLayout()
         Me.AetherGroupBox16.ResumeLayout(False)
         Me.AetherGroupBox15.ResumeLayout(False)
+        Me.cxtUpdateCheck.ResumeLayout(False)
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.pnlLLogin.ResumeLayout(False)
         Me.pnlLLogin.PerformLayout()
@@ -3467,4 +3487,6 @@ Partial Class frmHomeMulti
     Friend WithEvents pnlLastUpdated As Panel
     Friend WithEvents bkgLogin As System.ComponentModel.BackgroundWorker
     Friend WithEvents Label22 As Label
+    Friend WithEvents cxtUpdateCheck As MaterialSkin.Controls.MaterialContextMenuStrip
+    Friend WithEvents tsiForceEnableUpdate As ToolStripMenuItem
 End Class

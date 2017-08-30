@@ -870,6 +870,10 @@ Public Class frmHomeMulti
         loginResponse = Nothing
     End Sub
 
+    Private Sub tsiForceEnableUpdate_Click(sender As Object, e As EventArgs) Handles tsiForceEnableUpdate.Click
+        btnLUpdateNow.Enabled = True
+    End Sub
+
     Private Sub frmHomeMulti_Shown(sender As Object, e As EventArgs) Handles Me.Shown
         frmWelcome.Close()
     End Sub
