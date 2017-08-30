@@ -73,7 +73,8 @@ Module AccountsAPI
                         Return 0 'Return 0 for Incorrect Login.
                     Case 1 'resStatus 1 means Authenticated.
                         'MsgBox(apiresponse.ToString)
-                        frmHomeMulti.lblAuthRequest.Text = "RESP EPOCH APPROVED! DATA RESPONSE: " + apiresponse.ToString
+
+                        'frmHomeMulti.lblAuthRequest.Text = "RESP EPOCH APPROVED! DATA RESPONSE: " + apiresponse.ToString
                         UpdateAPI.AppShortName = "AltTrackr Pro"
                         Return 1 'Return 1 for OK - Login successful, all variables have been set.
                     Case Else
@@ -102,6 +103,10 @@ Module AccountsAPI
 
             Dim responseArray() As String = apiresponse.Split(";")
             resStatus = responseArray(0)
+            sessionHWID = responseArray(1)
+            resApprovedHWID = responseArray(2).Split(",")
+            sessionToken = responseArray(3)
+            resLicenses = responseArray(4)
 
             If resStatus = 1 Then
                 UpdateAPI.AppShortName = "AltTrackr Pro"

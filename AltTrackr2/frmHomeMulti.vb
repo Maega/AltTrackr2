@@ -605,17 +605,7 @@ Public Class frmHomeMulti
 
     Dim sessionUser As String = String.Empty
     Private Sub btnLLogin_Click(sender As Object, e As EventArgs) Handles btnLLogin.Click
-        Dim loginResponse As Integer = AccountsAPI.PerformCheck(txtLUsername.Text, txtLPassword.Text)
-        If loginResponse = 1 Then 'Authenticated
-            PostAuthentication(1)
-        ElseIf loginResponse = 0 Then 'Incorrect Credentials
-            PostAuthentication(0)
-        ElseIf loginResponse = 2 Then 'Error
-            'Do Nothing, user has already been notified of the failed login attempt
-        Else
-            MsgBox("An error has occurred. The server response is invalid." + vbNewLine + vbNewLine + "Please check for product updates and try again. If the problem persists, please submit a report or get in touch with support.", MsgBoxStyle.Critical)
-        End If
-        loginResponse = Nothing
+        bkgLogin.RunWorkerAsync(False)
     End Sub
 
     Private Sub PostAuthentication(status As Integer)
@@ -844,12 +834,30 @@ Public Class frmHomeMulti
         GetPrices()
     End Sub
 
+    Dim loginResponse As Integer
     Private Sub bkgLogin_DoWork(sender As Object, e As DoWorkEventArgs) Handles bkgLogin.DoWork
+        Dim isTokenAuth As Boolean = CBool(e.Argument)
+        If isTokenAuth Then
+            If AccountsAPI.TokenAuth Then loginResponse = 1 Else loginResponse = 0
+        Else
+            loginResponse = AccountsAPI.PerformCheck(txtLUsername.Text, txtLPassword.Text)
+        End If
+    End Sub
 
+    Private Sub bkgLogin_RunWorkerCompleted(sender As Object, e As RunWorkerCompletedEventArgs) Handles bkgLogin.RunWorkerCompleted
+        If loginResponse = 1 Then 'Authenticated
+            PostAuthentication(1)
+        ElseIf loginResponse = 0 Then 'Incorrect Credentials
+            PostAuthentication(0)
+        ElseIf loginResponse = 2 Then 'Error
+            'Do Nothing, user has already been notified of the failed login attempt
+        Else
+            MsgBox("An error has occurred. The server response is invalid." + vbNewLine + vbNewLine + "Please check for product updates and try again. If the problem persists, please submit a report or get in touch with support.", MsgBoxStyle.Critical)
+        End If
+        loginResponse = Nothing
     End Sub
 
     Private Sub frmHomeMulti_Shown(sender As Object, e As EventArgs) Handles Me.Shown
-        If frmWelcome.launchSilent = True Then Me.Hide()
         frmWelcome.Close()
     End Sub
 
