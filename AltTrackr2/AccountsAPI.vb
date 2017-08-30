@@ -16,7 +16,7 @@ Module AccountsAPI
     Dim WebLoginPath As String = "https://my.maega.com.au/autologin" 'This should point to the autologin script on the accounts server
 
     Dim resStatus As Integer = Nothing
-    Dim resApprovedHWID As String = String.Empty
+    Dim resApprovedHWID() As String = {String.Empty}
     Dim resLicenses As String = String.Empty
 
     Dim sessionHWID As String = String.Empty
@@ -37,7 +37,7 @@ Module AccountsAPI
             'Check API response for errors
             If apiresponse.Contains("MISSINGPARAMETER") Then
                 'This should never happen - it means the API query is missing the ?app value
-                MsgBox("A parameter code is missing. Something has gone very wrong. Please contact support.", MsgBoxStyle.Critical)
+                MsgBox("A parameter code is missing. Something serious has gone wrong. Please contact support.", MsgBoxStyle.Critical)
                 Return 2
             End If
 
@@ -50,13 +50,22 @@ Module AccountsAPI
                 Dim responseArray() As String = apiresponse.Split(";")
                 resStatus = responseArray(0)
                 sessionHWID = responseArray(1)
-                resApprovedHWID = responseArray(2)
+                resApprovedHWID = responseArray(2).Split(",")
                 sessionToken = responseArray(3)
                 resLicenses = responseArray(4)
             Catch ex As Exception
                 'Reached end of array
                 cTiming.WriteDebug("The apiresponse array ended prematurely. This is normal behaviour.")
             End Try
+
+            If resApprovedHWID.Contains(sessionHWID) Then
+                'User has signed in on this PC before
+            Else
+                'User has not signed in on this PC before
+            End If
+
+            My.Computer.Registry.SetValue(My.Settings.RegLocation, "AuthUser", uname)
+            My.Computer.Registry.SetValue(My.Settings.RegLocation, "AuthToken", sessionToken)
 
             If sessionHWID = GetHWID.ToString Then
                 Select Case resStatus
@@ -77,6 +86,32 @@ Module AccountsAPI
         Catch ex As Exception
             MsgBox("We weren't able to connect to the authentication servers. Please check your connection and try again later." + vbNewLine + ex.ToString, MsgBoxStyle.Critical)
             Return 2
+        End Try
+    End Function
+
+    Function TokenAuth()
+        Dim apiquery As String = "&uname=" + My.Computer.Registry.GetValue(My.Settings.RegLocation, "AuthUser", Nothing) + "&token=" + My.Computer.Registry.GetValue(My.Settings.RegLocation, "AuthToken", Nothing) + "&hwid=" + GetHWID.ToString + "&pcname=" + Environment.MachineName
+        Try
+            Dim apiresponse As String = New System.Net.WebClient().DownloadString(apiserver + apiquery)
+
+            If apiresponse.Contains("MISSINGPARAMETER") Then
+                'This should never happen - it means the API query is missing a value. This could be caused by an API update that breaks compatibility with older clients.
+                MsgBox("A parameter code is missing. Something serious has gone wrong. Please contact support.", MsgBoxStyle.Critical)
+                Return False
+            End If
+
+            Dim responseArray() As String = apiresponse.Split(";")
+            resStatus = responseArray(0)
+
+            If resStatus = 1 Then
+                UpdateAPI.AppShortName = "AltTrackr Pro"
+                Return True
+            Else
+                Return False
+            End If
+
+        Catch ex As Exception
+            Return False
         End Try
     End Function
 

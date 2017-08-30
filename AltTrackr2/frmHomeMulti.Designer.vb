@@ -251,6 +251,7 @@ Partial Class frmHomeMulti
         Me.tmrInvalidateCharts = New System.Windows.Forms.Timer(Me.components)
         Me.lblLastPriceUpdate = New System.Windows.Forms.Label()
         Me.pnlLastUpdated = New System.Windows.Forms.Panel()
+        Me.bkgLogin = New System.ComponentModel.BackgroundWorker()
         Me.pnlUnsaved.SuspendLayout()
         Me.pnlLoadingMain.SuspendLayout()
         Me.pnlLoading.SuspendLayout()
@@ -722,7 +723,7 @@ Partial Class frmHomeMulti
         Me.tagCurrentVer.Name = "tagCurrentVer"
         Me.tagCurrentVer.Size = New System.Drawing.Size(44, 15)
         Me.tagCurrentVer.TabIndex = 14
-        Me.tagCurrentVer.Text = "v1.0.0"
+        Me.tagCurrentVer.Text = "v1.00"
         Me.tagCurrentVer.TextColor = System.Drawing.Color.LightGray
         '
         'tagLatestVer
@@ -3143,6 +3144,9 @@ Partial Class frmHomeMulti
         Me.pnlLastUpdated.Size = New System.Drawing.Size(179, 30)
         Me.pnlLastUpdated.TabIndex = 23
         '
+        'bkgLogin
+        '
+        '
         'frmHomeMulti
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -3446,4 +3450,5 @@ Partial Class frmHomeMulti
     Friend WithEvents htpC4 As TabPage
     Friend WithEvents lblLastPriceUpdate As Label
     Friend WithEvents pnlLastUpdated As Panel
+    Friend WithEvents bkgLogin As System.ComponentModel.BackgroundWorker
 End Class

@@ -605,34 +605,45 @@ Public Class frmHomeMulti
 
     Dim sessionUser As String = String.Empty
     Private Sub btnLLogin_Click(sender As Object, e As EventArgs) Handles btnLLogin.Click
-        Dim loginResponse As String = AccountsAPI.PerformCheck(txtLUsername.Text, txtLPassword.Text)
+        Dim loginResponse As Integer = AccountsAPI.PerformCheck(txtLUsername.Text, txtLPassword.Text)
         If loginResponse = 1 Then 'Authenticated
-            tagIncorrect1.Left = -86
-            tagIncorrect2.Left = -86
-            pnlLIncorrect.Hide()
-            pnlLLogin.Hide()
-            pnlLAccount.Show()
-            sessionUser = txtLUsername.Text
-            tpLogin.Text = txtLUsername.Text
-            tpLogin.ImageIndex = 28
-            lblLUser.Text = sessionUser
-            Me.Text = sessionUser + " | " + UpdateAPI.AppShortName
-            Invalidate()
+            PostAuthentication(1)
         ElseIf loginResponse = 0 Then 'Incorrect Credentials
-            pnlLIncorrect.Show()
-            Do Until tagIncorrect1.Left >= 3
-                tagIncorrect1.Left += 8
-                tagIncorrect2.Left += 8
-                cTiming.pause(10)
-            Loop
-            tagIncorrect1.Left = 3
-            tagIncorrect2.Left = 3
+            PostAuthentication(0)
         ElseIf loginResponse = 2 Then 'Error
             'Do Nothing, user has already been notified of the failed login attempt
         Else
-            MsgBox("An error has occurred. The server response is invalid." + vbNewLine + vbNewLine + "Please check For product updates And Try again. If the problem persists, please submit a report Or Get In touch With support.", MsgBoxStyle.Critical)
+            MsgBox("An error has occurred. The server response is invalid." + vbNewLine + vbNewLine + "Please check for product updates and try again. If the problem persists, please submit a report or get in touch with support.", MsgBoxStyle.Critical)
         End If
-        loginResponse = String.Empty
+        loginResponse = Nothing
+    End Sub
+
+    Private Sub PostAuthentication(status As Integer)
+        Select Case status
+            Case 1
+                tagIncorrect1.Left = -86
+                tagIncorrect2.Left = -86
+                pnlLIncorrect.Hide()
+                pnlLLogin.Hide()
+                pnlLAccount.Show()
+                sessionUser = txtLUsername.Text
+                tpLogin.Text = txtLUsername.Text
+                tpLogin.ImageIndex = 28
+                lblLUser.Text = sessionUser
+                Me.Text = sessionUser + " | " + UpdateAPI.AppShortName
+                Invalidate()
+            Case 0
+                pnlLIncorrect.Show()
+                Do Until tagIncorrect1.Left >= 3
+                    tagIncorrect1.Left += 8
+                    tagIncorrect2.Left += 8
+                    cTiming.pause(10)
+                Loop
+                tagIncorrect1.Left = 3
+                tagIncorrect2.Left = 3
+            Case Else
+                cTiming.WriteDebug("Incorrect status passed to PostAuthentication")
+        End Select
     End Sub
 
     Private Sub btnLLogout_Click(sender As Object, e As EventArgs) Handles btnLLogout.Click
@@ -831,6 +842,10 @@ Public Class frmHomeMulti
 
         HideChangeAlert()
         GetPrices()
+    End Sub
+
+    Private Sub bkgLogin_DoWork(sender As Object, e As DoWorkEventArgs) Handles bkgLogin.DoWork
+
     End Sub
 
     Private Sub frmHomeMulti_Shown(sender As Object, e As EventArgs) Handles Me.Shown
