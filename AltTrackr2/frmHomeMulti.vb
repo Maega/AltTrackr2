@@ -568,30 +568,32 @@ Public Class frmHomeMulti
                 'pnlLoadingMain.BringToFront()
 
                 'Full Load Progress Wheel
-                prgFullLoad.NumberSpoke = 170 '120
-                prgFullLoad.SpokeThickness = 4
-                prgFullLoad.InnerCircleRadius = 70 '30
-                prgFullLoad.OuterCircleRadius = 75 '35
-                prgFullLoad.RotationSpeed = 20
-                prgFullLoad.Active = True
+                With prgFullLoad
+                    .NumberSpoke = 170 '120
+                    .SpokeThickness = 4
+                    .InnerCircleRadius = 70 '30
+                    .OuterCircleRadius = 75 '35
+                    .RotationSpeed = 20
+                    .Active = True
+                End With
 
                 pnlLoading.Show()
                 pnlLoading.BringToFront()
                 pnlLoading.Location = New Point(0, 66)
 
-                'pnlLoading.Show()
-                'pnlLoading.BringToFront()
             Else
                 'Title Load Progress Wheel
                 'Me.Text = "Loading Data"
                 Invalidate()
-                prgTitleLoad.NumberSpoke = 120
-                prgTitleLoad.SpokeThickness = 4
-                prgTitleLoad.InnerCircleRadius = 8
-                prgTitleLoad.OuterCircleRadius = 9
-                prgTitleLoad.RotationSpeed = 20
-                prgTitleLoad.Active = True
-                prgTitleLoad.Visible = True
+                With prgTitleLoad
+                    .NumberSpoke = 120
+                    .SpokeThickness = 4
+                    .InnerCircleRadius = 8
+                    .OuterCircleRadius = 9
+                    .RotationSpeed = 20
+                    .Active = True
+                    .Visible = True
+                End With
             End If
             bkgGetPrices.RunWorkerAsync()
         Else
