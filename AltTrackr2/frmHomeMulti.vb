@@ -296,8 +296,8 @@ Public Class frmHomeMulti
             lblAltPrices.Text = lblAltPrices.Text.Remove(lblAltPrices.Text.LastIndexOf(Environment.NewLine))
             lblAltHoldings.Text = lblAltHoldings.Text.Remove(lblAltHoldings.Text.LastIndexOf(Environment.NewLine))
 
-            'Plans to use System.Reflection in future to dramatically slim down all this code and make unlimited coin slots a possibility are in place.
-            'This code is wildly inefficient.
+            'Plans are to use System.Reflection in future to dramatically slim down all this code and make unlimited coin slots (and less than four) a possibility
+            'This routine is wildly inefficient.
 
             'Set goal coin names
             lblGoalC1.Text = coinNameArray(0)
@@ -542,8 +542,8 @@ Public Class frmHomeMulti
 
     Private Sub GetPrices(Optional silent As Boolean = False)
         If Not bkgGetPrices.IsBusy Then
+            cTiming.WriteDebug("Attempting to fetch latest price data...")
             If Not silent Then
-                cTiming.WriteDebug("Attempting to fetch latest price data...")
                 If My.Computer.Registry.GetValue(My.Settings.RegLocation, "NoMotivationalLoad", Nothing) = "1" Then
                     Me.Text = "Loading Data | " + UpdateAPI.AppShortName
                 Else
