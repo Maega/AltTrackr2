@@ -733,6 +733,8 @@ Public Class frmHomeMulti
                 'Launch Update
                 LaunchUpdate()
             End If
+        Else
+            MsgBox("You already have the latest version of AltTrackr.", MsgBoxStyle.Information)
         End If
     End Sub
 
@@ -798,10 +800,23 @@ Public Class frmHomeMulti
         Process.Start("https://m.me/maeganetwork")
     End Sub
 
+    Dim uCheckFrequency As Integer = 480 'Default - 8 hour update checks
+    Dim uCheckCounter As Integer = 480 'Causes an initial update check after the first minute of frmHomeMulti's load
     Private Sub tmrAlerts_Tick(sender As Object, e As EventArgs) Handles tmrAlerts.Tick
         'Check for pending alerts
         'Check for updates every n runthroughs
         'cTiming.ShowNotif("An update is available for AltTrackr. You can update to version 1.04 from your account page.", "AltTrackr Update Available") 'Sample notification
+
+        'An excruciatingly simple update check routine.
+        If uCheckCounter >= uCheckFrequency Then
+            uCheckCounter = 0
+            If UpdateAPI.UpdateAvailable Then
+                cTiming.ShowNotif("An update is available for AltTrackr, you can update from your account tab.", "An update is available for AltTrackr!", 15)
+                uCheckFrequency = 1440 'If an update is found and the user doesn't proceed straight away, keep remininding once every 24 hours for the rest of the session instead of every 8 hours.
+            End If
+        Else
+                uCheckCounter += 1
+        End If
     End Sub
 
     Private Sub QuitToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles QuitToolStripMenuItem.Click

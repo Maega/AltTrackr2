@@ -714,8 +714,9 @@ Partial Class frmHomeMulti
         '
         'chkLUpdateNotifier
         '
-        Me.chkLUpdateNotifier.Checked = False
+        Me.chkLUpdateNotifier.Checked = True
         Me.chkLUpdateNotifier.Cursor = System.Windows.Forms.Cursors.Default
+        Me.chkLUpdateNotifier.Enabled = False
         Me.chkLUpdateNotifier.EnabledCalc = False
         Me.chkLUpdateNotifier.HatchBrush = False
         Me.chkLUpdateNotifier.Location = New System.Drawing.Point(34, 105)
@@ -2476,9 +2477,8 @@ Partial Class frmHomeMulti
         'radStyle1
         '
         Me.radStyle1.Checked = False
-        Me.radStyle1.Cursor = System.Windows.Forms.Cursors.Default
-        Me.radStyle1.Enabled = False
-        Me.radStyle1.EnabledCalc = False
+        Me.radStyle1.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.radStyle1.EnabledCalc = True
         Me.radStyle1.HatchBrush = False
         Me.radStyle1.Location = New System.Drawing.Point(248, 10)
         Me.radStyle1.Name = "radStyle1"
@@ -2489,9 +2489,8 @@ Partial Class frmHomeMulti
         'radStyle3
         '
         Me.radStyle3.Checked = False
-        Me.radStyle3.Cursor = System.Windows.Forms.Cursors.Default
-        Me.radStyle3.Enabled = False
-        Me.radStyle3.EnabledCalc = False
+        Me.radStyle3.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.radStyle3.EnabledCalc = True
         Me.radStyle3.HatchBrush = False
         Me.radStyle3.Location = New System.Drawing.Point(472, 10)
         Me.radStyle3.Name = "radStyle3"
@@ -2502,9 +2501,8 @@ Partial Class frmHomeMulti
         'radStyle2
         '
         Me.radStyle2.Checked = False
-        Me.radStyle2.Cursor = System.Windows.Forms.Cursors.Default
-        Me.radStyle2.Enabled = False
-        Me.radStyle2.EnabledCalc = False
+        Me.radStyle2.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.radStyle2.EnabledCalc = True
         Me.radStyle2.HatchBrush = False
         Me.radStyle2.Location = New System.Drawing.Point(360, 10)
         Me.radStyle2.Name = "radStyle2"
@@ -3151,7 +3149,7 @@ Partial Class frmHomeMulti
         'tmrAlerts
         '
         Me.tmrAlerts.Enabled = True
-        Me.tmrAlerts.Interval = 30000
+        Me.tmrAlerts.Interval = 60000
         '
         'tmrInvalidateCharts
         '
