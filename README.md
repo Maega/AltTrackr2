@@ -1,7 +1,7 @@
 # AltTrackr2
 ### A better, smaller cryptocurrency portfolio tracker
 
-This project is being developed open source from start to finish and is licensed under MIT. <br />
+This project is being developed open source from start to finish and is licensed under GPL-2.0. <br />
 AltTrackr2 uses the CryptoCompare API to fetch live price data on coins and fiat. <br />
 
 ##### AltTrackr2 can...
@@ -14,3 +14,8 @@ AltTrackr2 uses the CryptoCompare API to fetch live price data on coins and fiat
 * Track your current mining performance and profits through the Awesome Miner API
 * Track your mining rig(s), including down GPUs or ASICs and current temperatures
 * Probably some other stuff I haven't thought of yet...
+
+##### Initial Support:
+* 1000+ cryptocurrencies
+* 3 Wallets (BTC, DOGE, LTC. More assets planned for future support.)
+* Send/Receive 70+ cryptocurrencies
