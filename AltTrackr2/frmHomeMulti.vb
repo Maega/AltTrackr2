@@ -88,37 +88,35 @@ Public Class frmHomeMulti
                     .Title = "XMR - High"
                 End With
 
-                Dim AxisX As New Axis
-                Dim SeparatorX As New Separator
-                Dim AxisY As New Axis
-                Dim SeparatorY As New Separator
+                Dim AxisX, AxisY As New Axis
+                Dim SeparatorX, SeparatorY As New Separator
 
                 With SeparatorX
-                    '.Step = TimeSpan.FromSeconds(1).Ticks
-                    .StrokeThickness = 0
-                    .Stroke = New System.Windows.Media.SolidColorBrush(System.Windows.Media.Color.FromRgb(64, 79, 86))
-                End With
+                        '.Step = TimeSpan.FromSeconds(1).Ticks
+                        .StrokeThickness = 0
+                        .Stroke = New System.Windows.Media.SolidColorBrush(System.Windows.Media.Color.FromRgb(64, 79, 86))
+                    End With
 
-                With SeparatorY
-                    .StrokeThickness = 0
-                    '.StrokeDashArray = New System.Windows.Media.DoubleCollection(New Double() {4})
-                    .Stroke = New System.Windows.Media.SolidColorBrush(System.Windows.Media.Color.FromRgb(64, 79, 86))
-                End With
+                    With SeparatorY
+                        .StrokeThickness = 0
+                        '.StrokeDashArray = New System.Windows.Media.DoubleCollection(New Double() {4})
+                        .Stroke = New System.Windows.Media.SolidColorBrush(System.Windows.Media.Color.FromRgb(64, 79, 86))
+                    End With
 
-                AxisX.DisableAnimations = True
+                    AxisX.DisableAnimations = True
                 'AxisX.IsMerged = True
                 AxisX.LabelFormatter = Function(value) New System.DateTime(CLng(value)).ToString("mm:ss")
                 AxisX.Separator = SeparatorX
 
-                'AxisY.IsMerged = True
-                AxisY.Separator = SeparatorY
+                    'AxisY.IsMerged = True
+                    AxisY.Separator = SeparatorY
 
-                .Series.Add(lineSeries1)
-                '.Series.Add(lineSeries2)
-                '.Background = New System.Windows.Media.SolidColorBrush(System.Windows.Media.Color.FromRgb(34, 46, 49))
-                .AxisX.Add(AxisX)
-                .AxisY.Add(AxisY)
-            End With
+                    .Series.Add(lineSeries1)
+                    '.Series.Add(lineSeries2)
+                    '.Background = New System.Windows.Media.SolidColorBrush(System.Windows.Media.Color.FromRgb(34, 46, 49))
+                    .AxisX.Add(AxisX)
+                    .AxisY.Add(AxisY)
+                End With
         Next
 
         tpHistory.Invalidate()
