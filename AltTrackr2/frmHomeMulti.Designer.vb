@@ -119,6 +119,9 @@ Partial Class frmHomeMulti
         Me.htpC2 = New System.Windows.Forms.TabPage()
         Me.htpC3 = New System.Windows.Forms.TabPage()
         Me.htpC4 = New System.Windows.Forms.TabPage()
+        Me.tpWallet = New System.Windows.Forms.TabPage()
+        Me.PictureBox2 = New System.Windows.Forms.PictureBox()
+        Me.Label26 = New System.Windows.Forms.Label()
         Me.tpSpacer1 = New System.Windows.Forms.TabPage()
         Me.tpCoin1 = New System.Windows.Forms.TabPage()
         Me.lblC1Name = New System.Windows.Forms.Label()
@@ -240,11 +243,10 @@ Partial Class frmHomeMulti
         Me.lblC2Initial = New System.Windows.Forms.Label()
         Me.lblPrefC2Holdings = New System.Windows.Forms.Label()
         Me.tpSupport = New System.Windows.Forms.TabPage()
-        Me.Label20 = New System.Windows.Forms.Label()
-        Me.btnViewChangelog = New AltTrackr2.AetherButton()
-        Me.tpFeedback = New System.Windows.Forms.TabPage()
         Me.Label21 = New System.Windows.Forms.Label()
         Me.btnFeedbackFacebook = New AltTrackr2.AetherButton()
+        Me.Label20 = New System.Windows.Forms.Label()
+        Me.btnViewChangelog = New AltTrackr2.AetherButton()
         Me.ttpGeneral = New System.Windows.Forms.ToolTip(Me.components)
         Me.ntfTray = New System.Windows.Forms.NotifyIcon(Me.components)
         Me.cxtTray = New MaterialSkin.Controls.MaterialContextMenuStrip()
@@ -278,6 +280,8 @@ Partial Class frmHomeMulti
         Me.tpHistory.SuspendLayout()
         Me.tabControlHistory.SuspendLayout()
         Me.htpSummary.SuspendLayout()
+        Me.tpWallet.SuspendLayout()
+        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.tpCoin1.SuspendLayout()
         CType(Me.picC1Logo, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.AetherGroupBox3.SuspendLayout()
@@ -300,7 +304,6 @@ Partial Class frmHomeMulti
         Me.grpC3Pref.SuspendLayout()
         Me.grpC2Pref.SuspendLayout()
         Me.tpSupport.SuspendLayout()
-        Me.tpFeedback.SuspendLayout()
         Me.cxtTray.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -345,6 +348,7 @@ Partial Class frmHomeMulti
         Me.ilsIcon.Images.SetKeyName(34, "015-calculator.png")
         Me.ilsIcon.Images.SetKeyName(35, "016-trash-can.png")
         Me.ilsIcon.Images.SetKeyName(36, "024-monitor.png")
+        Me.ilsIcon.Images.SetKeyName(37, "028-wallet.png")
         '
         'bkgGetPrices
         '
@@ -565,6 +569,7 @@ Partial Class frmHomeMulti
         Me.tabContent.Controls.Add(Me.tpLogin)
         Me.tabContent.Controls.Add(Me.tpHome)
         Me.tabContent.Controls.Add(Me.tpHistory)
+        Me.tabContent.Controls.Add(Me.tpWallet)
         Me.tabContent.Controls.Add(Me.tpSpacer1)
         Me.tabContent.Controls.Add(Me.tpCoin1)
         Me.tabContent.Controls.Add(Me.tpCoin2)
@@ -573,7 +578,6 @@ Partial Class frmHomeMulti
         Me.tabContent.Controls.Add(Me.tpSpacer2)
         Me.tabContent.Controls.Add(Me.tpPrefs)
         Me.tabContent.Controls.Add(Me.tpSupport)
-        Me.tabContent.Controls.Add(Me.tpFeedback)
         Me.tabContent.ImageList = Me.ilsIcon
         Me.tabContent.ItemSize = New System.Drawing.Size(40, 190)
         Me.tabContent.Location = New System.Drawing.Point(0, 64)
@@ -1464,6 +1468,41 @@ Partial Class frmHomeMulti
         Me.htpC4.TabIndex = 4
         Me.htpC4.Text = "Coin Four"
         Me.htpC4.UseVisualStyleBackColor = True
+        '
+        'tpWallet
+        '
+        Me.tpWallet.BackColor = System.Drawing.Color.FromArgb(CType(CType(17, Byte), Integer), CType(CType(127, Byte), Integer), CType(CType(202, Byte), Integer))
+        Me.tpWallet.Controls.Add(Me.PictureBox2)
+        Me.tpWallet.Controls.Add(Me.Label26)
+        Me.tpWallet.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.tpWallet.ForeColor = System.Drawing.Color.FromArgb(CType(CType(52, Byte), Integer), CType(CType(56, Byte), Integer), CType(CType(67, Byte), Integer))
+        Me.tpWallet.ImageIndex = 37
+        Me.tpWallet.Location = New System.Drawing.Point(194, 4)
+        Me.tpWallet.Name = "tpWallet"
+        Me.tpWallet.Size = New System.Drawing.Size(824, 482)
+        Me.tpWallet.TabIndex = 9
+        Me.tpWallet.Tag = ""
+        Me.tpWallet.Text = "Wallets"
+        '
+        'PictureBox2
+        '
+        Me.PictureBox2.Image = Global.AltTrackr2.My.Resources.Resources.maegashapeshiftcolouredalt
+        Me.PictureBox2.Location = New System.Drawing.Point(161, 80)
+        Me.PictureBox2.Name = "PictureBox2"
+        Me.PictureBox2.Size = New System.Drawing.Size(502, 251)
+        Me.PictureBox2.TabIndex = 7
+        Me.PictureBox2.TabStop = False
+        '
+        'Label26
+        '
+        Me.Label26.Font = New System.Drawing.Font("Roboto Medium", 15.0!)
+        Me.Label26.ForeColor = System.Drawing.Color.White
+        Me.Label26.Location = New System.Drawing.Point(16, 355)
+        Me.Label26.Name = "Label26"
+        Me.Label26.Size = New System.Drawing.Size(794, 80)
+        Me.Label26.TabIndex = 6
+        Me.Label26.Text = "COMING SOON" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "190+ wallets with conversion to 70+ assets"
+        Me.Label26.TextAlign = System.Drawing.ContentAlignment.TopCenter
         '
         'tpSpacer1
         '
@@ -3050,6 +3089,8 @@ Partial Class frmHomeMulti
         'tpSupport
         '
         Me.tpSupport.BackColor = System.Drawing.Color.White
+        Me.tpSupport.Controls.Add(Me.Label21)
+        Me.tpSupport.Controls.Add(Me.btnFeedbackFacebook)
         Me.tpSupport.Controls.Add(Me.Label20)
         Me.tpSupport.Controls.Add(Me.btnViewChangelog)
         Me.tpSupport.Font = New System.Drawing.Font("Segoe UI", 9.0!)
@@ -3059,13 +3100,33 @@ Partial Class frmHomeMulti
         Me.tpSupport.Name = "tpSupport"
         Me.tpSupport.Size = New System.Drawing.Size(824, 482)
         Me.tpSupport.TabIndex = 8
+        Me.tpSupport.Tag = ""
         Me.tpSupport.Text = "Help & Support"
+        '
+        'Label21
+        '
+        Me.Label21.AutoSize = True
+        Me.Label21.Font = New System.Drawing.Font("Roboto Light", 20.0!)
+        Me.Label21.Location = New System.Drawing.Point(161, 310)
+        Me.Label21.Name = "Label21"
+        Me.Label21.Size = New System.Drawing.Size(500, 33)
+        Me.Label21.TabIndex = 5
+        Me.Label21.Text = "Feedback Submission Hub Coming Soon"
+        '
+        'btnFeedbackFacebook
+        '
+        Me.btnFeedbackFacebook.EnabledCalc = True
+        Me.btnFeedbackFacebook.Location = New System.Drawing.Point(329, 394)
+        Me.btnFeedbackFacebook.Name = "btnFeedbackFacebook"
+        Me.btnFeedbackFacebook.Size = New System.Drawing.Size(164, 23)
+        Me.btnFeedbackFacebook.TabIndex = 4
+        Me.btnFeedbackFacebook.Text = "Submit on Messenger"
         '
         'Label20
         '
         Me.Label20.AutoSize = True
         Me.Label20.Font = New System.Drawing.Font("Roboto Light", 20.0!)
-        Me.Label20.Location = New System.Drawing.Point(231, 174)
+        Me.Label20.Location = New System.Drawing.Point(230, 60)
         Me.Label20.Name = "Label20"
         Me.Label20.Size = New System.Drawing.Size(363, 33)
         Me.Label20.TabIndex = 1
@@ -3074,45 +3135,11 @@ Partial Class frmHomeMulti
         'btnViewChangelog
         '
         Me.btnViewChangelog.EnabledCalc = True
-        Me.btnViewChangelog.Location = New System.Drawing.Point(330, 285)
+        Me.btnViewChangelog.Location = New System.Drawing.Point(329, 132)
         Me.btnViewChangelog.Name = "btnViewChangelog"
         Me.btnViewChangelog.Size = New System.Drawing.Size(164, 23)
         Me.btnViewChangelog.TabIndex = 0
         Me.btnViewChangelog.Text = "View Update Changelog"
-        '
-        'tpFeedback
-        '
-        Me.tpFeedback.BackColor = System.Drawing.Color.White
-        Me.tpFeedback.Controls.Add(Me.Label21)
-        Me.tpFeedback.Controls.Add(Me.btnFeedbackFacebook)
-        Me.tpFeedback.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        Me.tpFeedback.ForeColor = System.Drawing.Color.FromArgb(CType(CType(52, Byte), Integer), CType(CType(56, Byte), Integer), CType(CType(67, Byte), Integer))
-        Me.tpFeedback.ImageIndex = 6
-        Me.tpFeedback.Location = New System.Drawing.Point(194, 4)
-        Me.tpFeedback.Name = "tpFeedback"
-        Me.tpFeedback.Size = New System.Drawing.Size(824, 482)
-        Me.tpFeedback.TabIndex = 9
-        Me.tpFeedback.Tag = "300817"
-        Me.tpFeedback.Text = "Feedback"
-        '
-        'Label21
-        '
-        Me.Label21.AutoSize = True
-        Me.Label21.Font = New System.Drawing.Font("Roboto Light", 20.0!)
-        Me.Label21.Location = New System.Drawing.Point(162, 174)
-        Me.Label21.Name = "Label21"
-        Me.Label21.Size = New System.Drawing.Size(500, 33)
-        Me.Label21.TabIndex = 3
-        Me.Label21.Text = "Feedback Submission Hub Coming Soon"
-        '
-        'btnFeedbackFacebook
-        '
-        Me.btnFeedbackFacebook.EnabledCalc = True
-        Me.btnFeedbackFacebook.Location = New System.Drawing.Point(330, 285)
-        Me.btnFeedbackFacebook.Name = "btnFeedbackFacebook"
-        Me.btnFeedbackFacebook.Size = New System.Drawing.Size(164, 23)
-        Me.btnFeedbackFacebook.TabIndex = 2
-        Me.btnFeedbackFacebook.Text = "Submit on Messenger"
         '
         'ttpGeneral
         '
@@ -3221,6 +3248,8 @@ Partial Class frmHomeMulti
         Me.tpHistory.ResumeLayout(False)
         Me.tabControlHistory.ResumeLayout(False)
         Me.htpSummary.ResumeLayout(False)
+        Me.tpWallet.ResumeLayout(False)
+        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.tpCoin1.ResumeLayout(False)
         Me.tpCoin1.PerformLayout()
         CType(Me.picC1Logo, System.ComponentModel.ISupportInitialize).EndInit()
@@ -3249,8 +3278,6 @@ Partial Class frmHomeMulti
         Me.grpC2Pref.ResumeLayout(False)
         Me.tpSupport.ResumeLayout(False)
         Me.tpSupport.PerformLayout()
-        Me.tpFeedback.ResumeLayout(False)
-        Me.tpFeedback.PerformLayout()
         Me.cxtTray.ResumeLayout(False)
         Me.ResumeLayout(False)
 
@@ -3267,7 +3294,7 @@ Partial Class frmHomeMulti
     Friend WithEvents tpSpacer2 As TabPage
     Friend WithEvents tpPrefs As TabPage
     Friend WithEvents tpSupport As TabPage
-    Friend WithEvents tpFeedback As TabPage
+    Friend WithEvents tpWallet As TabPage
     Friend WithEvents prgC1 As AetherCircular
     Friend WithEvents ilsIcon As ImageList
     Friend WithEvents tpCoin4 As TabPage
@@ -3465,8 +3492,6 @@ Partial Class frmHomeMulti
     Friend WithEvents chkLaunchStartup As AetherCheckBox
     Friend WithEvents Label20 As Label
     Friend WithEvents btnViewChangelog As AetherButton
-    Friend WithEvents Label21 As Label
-    Friend WithEvents btnFeedbackFacebook As AetherButton
     Friend WithEvents tmrAlerts As Timer
     Friend WithEvents AetherButton4 As AetherButton
     Friend WithEvents MaterialTabSelector1 As MaterialSkin.Controls.MaterialTabSelector
@@ -3487,4 +3512,8 @@ Partial Class frmHomeMulti
     Friend WithEvents Label22 As Label
     Friend WithEvents cxtUpdateCheck As MaterialSkin.Controls.MaterialContextMenuStrip
     Friend WithEvents tsiForceEnableUpdate As ToolStripMenuItem
+    Friend WithEvents Label21 As Label
+    Friend WithEvents btnFeedbackFacebook As AetherButton
+    Friend WithEvents Label26 As Label
+    Friend WithEvents PictureBox2 As PictureBox
 End Class

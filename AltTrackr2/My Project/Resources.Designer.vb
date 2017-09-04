@@ -113,9 +113,29 @@ Namespace My.Resources
         '''<summary>
         '''  Looks up a localized resource of type System.Drawing.Bitmap.
         '''</summary>
+        Friend ReadOnly Property dinner_shapeshift() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("dinner-shapeshift", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Drawing.Bitmap.
+        '''</summary>
         Friend ReadOnly Property DJ_Khaled_Snapchat() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("DJ-Khaled-Snapchat", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property logo() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("logo", resourceCulture)
                 Return CType(obj,System.Drawing.Bitmap)
             End Get
         End Property
@@ -166,6 +186,36 @@ Namespace My.Resources
         Friend ReadOnly Property logoXMR() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("logoXMR", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property maegashapeshiftcoloured() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("maegashapeshiftcoloured", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property maegashapeshiftcoloured1() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("maegashapeshiftcoloured1", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property maegashapeshiftcolouredalt() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("maegashapeshiftcolouredalt", resourceCulture)
                 Return CType(obj,System.Drawing.Bitmap)
             End Get
         End Property
