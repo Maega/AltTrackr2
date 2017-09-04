@@ -8,7 +8,7 @@ AltTrackr2 uses the CryptoCompare API to fetch live price data on coins and fiat
 * Give you the current price of your selected coin in any available fiat currency (AUD, USD, GBP, EUR and many more)
 * Track your portfolio, giving you the current value of your holdings in any available fiat currency
 * Transfer funds between several different blockchain coins (powered by ShapeShift)
-* Hold BTC, DOGE and LTC multisig wallets, and securely transfer funds between addresses from within AltTrackr (block.io)
+* Hold 190+ wallets, and securely transfer funds between addresses from within AltTrackr (powered by Bittrex)
 * Get you hyped by sending current price notifications at any chosen interval (daily, weekly .etc)
 * Notify you when your coin or holdings reach a certain value
 * Track your current mining performance and profits through the Awesome Miner API
@@ -17,5 +17,5 @@ AltTrackr2 uses the CryptoCompare API to fetch live price data on coins and fiat
 
 ##### Initial Support:
 * 1000+ cryptocurrencies
-* 3 Wallets (BTC, DOGE, LTC. More assets planned for future support.)
-* Send/Receive 70+ cryptocurrencies
+* 190+ Wallets
+* Conversion between 70+ cryptocurrencies
