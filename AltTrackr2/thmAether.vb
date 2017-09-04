@@ -149,6 +149,15 @@ Public Class AetherTabControl
         End Get
     End Property
 
+    Dim colorTabMain As String = "#343843"
+    Dim colorTabSelected As String = "#3A3E49"
+    Dim colorTabText As String = "#737A8A"
+    Dim colorTabTagMain As String = "#424452"
+    Dim colorTabTagBorder As String = "#323541"
+    Dim colorTabTagText As String = "#737A8A"
+    Dim colorTabSeparator1 As String = "#3B3D49"
+    Dim colorTabSeperator2 As String = "#2F323C"
+
     Protected Overrides Sub OnPaint(e As PaintEventArgs)
 
         G = e.Graphics
@@ -157,7 +166,7 @@ Public Class AetherTabControl
 
         MyBase.OnPaint(e)
 
-        G.Clear(ColorFromHex("#343843"))
+        G.Clear(ColorFromHex(colorTabMain)) 'Original: #343843
 
         For I As Integer = 0 To TabPages.Count - 1
 
@@ -165,13 +174,13 @@ Public Class AetherTabControl
 
             If SelectedIndex = I Then
 
-                Using B1 As New SolidBrush(ColorFromHex("#3A3E49"))
+                Using B1 As New SolidBrush(ColorFromHex(colorTabSelected)) 'Original: #3A3E49
                     G.FillRectangle(B1, New Rectangle(Rect.X - 4, Rect.Y + 1, Rect.Width + 6, Rect.Height))
                 End Using
 
             End If
 
-            Using B1 As New SolidBrush(ColorFromHex("#737A8A"))
+            Using B1 As New SolidBrush(ColorFromHex(colorTabText)) 'Original: #737A8A
 
                 If UpperText Then
 
@@ -209,7 +218,8 @@ Public Class AetherTabControl
                     MS2 = G.MeasureString(TabPages(I).Tag, F1)
                 End Using
 
-                Using B1 As New SolidBrush(ColorFromHex("#424452")), P1 As New Pen(ColorFromHex("#323541")), B2 As New SolidBrush(ColorFromHex("#737A8A"))
+                'Originals: #424452, #323541, #737A8A
+                Using B1 As New SolidBrush(ColorFromHex(colorTabTagMain)), P1 As New Pen(ColorFromHex(colorTabTagBorder)), B2 As New SolidBrush(ColorFromHex(colorTabTagText))
                     G.FillRectangle(B1, New Rectangle(Rect.X + MS1.Width + 72, Rect.Y + 13, MS2.Width + 5, 15))
                     DrawRoundRect(G, New Rectangle(Rect.X + MS1.Width + 72, Rect.Y + 13, MS2.Width + 5, 15), 3, P1)
 
@@ -233,7 +243,8 @@ Public Class AetherTabControl
 
             If Not I = 0 Then
 
-                Using P1 As New Pen(ColorFromHex("#3B3D49")), P2 As New Pen(ColorFromHex("#2F323C"))
+                'Originals: #3B3D49, #2F323C
+                Using P1 As New Pen(ColorFromHex(colorTabSeparator1)), P2 As New Pen(ColorFromHex(colorTabSeperator2))
                     G.DrawLine(P1, New Point(Rect.X - 4, Rect.Y + 1), New Point(Rect.Width + 4, Rect.Y + 1))
                     G.DrawLine(P2, New Point(Rect.X - 4, Rect.Y + 2), New Point(Rect.Width + 4, Rect.Y + 2))
                 End Using

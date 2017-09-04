@@ -67,6 +67,15 @@ Public Class frmCustomColour
         frmFeedback.Show()
     End Sub
 
+    Private Sub AetherButton1_Click(sender As Object, e As EventArgs) Handles btnPicker.Click
+        Dim cDialog As New ColorDialog()
+        cDialog.AnyColor = True
+        If (cDialog.ShowDialog() = DialogResult.OK) Then
+            'Label1.BackColor = cDialog.Color ' update with user selected color.
+            Dim strColorHex As String = Hex(Convert.ToInt32(cDialog.Color.ToArgb()))
+        End If
+    End Sub
+
     Private Sub btnCSTextShadeCint_Click(sender As Object, e As EventArgs) Handles btnCSTextShadeCint.Click
         Try
             Dim red As Integer = CInt(txtCSTextShadeR.Text.ToString)
