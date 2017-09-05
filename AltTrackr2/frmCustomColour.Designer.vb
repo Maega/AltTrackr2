@@ -62,14 +62,22 @@ Partial Class frmCustomColour
         Me.btnCSSubmit = New MaterialSkin.Controls.MaterialRaisedButton()
         Me.btnPicker = New AltTrackr2.AetherButton()
         Me.txtTabMain = New AltTrackr2.AetherTextbox()
-        Me.AetherTextbox1 = New AltTrackr2.AetherTextbox()
-        Me.AetherTextbox2 = New AltTrackr2.AetherTextbox()
-        Me.AetherTextbox3 = New AltTrackr2.AetherTextbox()
-        Me.AetherTextbox4 = New AltTrackr2.AetherTextbox()
-        Me.AetherTextbox5 = New AltTrackr2.AetherTextbox()
-        Me.AetherTextbox6 = New AltTrackr2.AetherTextbox()
-        Me.AetherTextbox7 = New AltTrackr2.AetherTextbox()
+        Me.txtTabSelected = New AltTrackr2.AetherTextbox()
+        Me.txtTabText = New AltTrackr2.AetherTextbox()
+        Me.txtTabTagMain = New AltTrackr2.AetherTextbox()
+        Me.txtTabTagBorder = New AltTrackr2.AetherTextbox()
+        Me.txtTabTagText = New AltTrackr2.AetherTextbox()
+        Me.txtTabSeparator1 = New AltTrackr2.AetherTextbox()
+        Me.txtTabSeparator2 = New AltTrackr2.AetherTextbox()
         Me.Label1 = New System.Windows.Forms.Label()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.Label7 = New System.Windows.Forms.Label()
+        Me.Label8 = New System.Windows.Forms.Label()
+        Me.Label9 = New System.Windows.Forms.Label()
         Me.SuspendLayout()
         '
         'txtCSPrimary
@@ -659,18 +667,18 @@ Partial Class frmCustomColour
         'btnPicker
         '
         Me.btnPicker.EnabledCalc = True
-        Me.btnPicker.Location = New System.Drawing.Point(861, 396)
+        Me.btnPicker.Location = New System.Drawing.Point(960, 390)
         Me.btnPicker.Name = "btnPicker"
         Me.btnPicker.Size = New System.Drawing.Size(143, 23)
         Me.btnPicker.TabIndex = 38
-        Me.btnPicker.Text = "Invoke Picker"
+        Me.btnPicker.Text = "Toggle Picker: ON"
         '
         'txtTabMain
         '
         Me.txtTabMain.EnabledCalc = True
         Me.txtTabMain.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.txtTabMain.ForeColor = System.Drawing.Color.FromArgb(CType(CType(52, Byte), Integer), CType(CType(56, Byte), Integer), CType(CType(67, Byte), Integer))
-        Me.txtTabMain.Location = New System.Drawing.Point(861, 116)
+        Me.txtTabMain.Location = New System.Drawing.Point(960, 110)
         Me.txtTabMain.MaxLength = 32767
         Me.txtTabMain.MultiLine = False
         Me.txtTabMain.Name = "txtTabMain"
@@ -681,141 +689,229 @@ Partial Class frmCustomColour
         Me.txtTabMain.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
         Me.txtTabMain.UseSystemPasswordChar = False
         '
-        'AetherTextbox1
+        'txtTabSelected
         '
-        Me.AetherTextbox1.EnabledCalc = True
-        Me.AetherTextbox1.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        Me.AetherTextbox1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(52, Byte), Integer), CType(CType(56, Byte), Integer), CType(CType(67, Byte), Integer))
-        Me.AetherTextbox1.Location = New System.Drawing.Point(861, 151)
-        Me.AetherTextbox1.MaxLength = 32767
-        Me.AetherTextbox1.MultiLine = False
-        Me.AetherTextbox1.Name = "AetherTextbox1"
-        Me.AetherTextbox1.ReadOnly = False
-        Me.AetherTextbox1.Size = New System.Drawing.Size(143, 29)
-        Me.AetherTextbox1.TabIndex = 40
-        Me.AetherTextbox1.Text = "Tab Selected"
-        Me.AetherTextbox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
-        Me.AetherTextbox1.UseSystemPasswordChar = False
+        Me.txtTabSelected.EnabledCalc = True
+        Me.txtTabSelected.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.txtTabSelected.ForeColor = System.Drawing.Color.FromArgb(CType(CType(52, Byte), Integer), CType(CType(56, Byte), Integer), CType(CType(67, Byte), Integer))
+        Me.txtTabSelected.Location = New System.Drawing.Point(960, 145)
+        Me.txtTabSelected.MaxLength = 32767
+        Me.txtTabSelected.MultiLine = False
+        Me.txtTabSelected.Name = "txtTabSelected"
+        Me.txtTabSelected.ReadOnly = False
+        Me.txtTabSelected.Size = New System.Drawing.Size(143, 29)
+        Me.txtTabSelected.TabIndex = 40
+        Me.txtTabSelected.Text = "Tab Selected"
+        Me.txtTabSelected.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
+        Me.txtTabSelected.UseSystemPasswordChar = False
         '
-        'AetherTextbox2
+        'txtTabText
         '
-        Me.AetherTextbox2.EnabledCalc = True
-        Me.AetherTextbox2.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        Me.AetherTextbox2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(52, Byte), Integer), CType(CType(56, Byte), Integer), CType(CType(67, Byte), Integer))
-        Me.AetherTextbox2.Location = New System.Drawing.Point(861, 186)
-        Me.AetherTextbox2.MaxLength = 32767
-        Me.AetherTextbox2.MultiLine = False
-        Me.AetherTextbox2.Name = "AetherTextbox2"
-        Me.AetherTextbox2.ReadOnly = False
-        Me.AetherTextbox2.Size = New System.Drawing.Size(143, 29)
-        Me.AetherTextbox2.TabIndex = 41
-        Me.AetherTextbox2.Text = "Tab Text"
-        Me.AetherTextbox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
-        Me.AetherTextbox2.UseSystemPasswordChar = False
+        Me.txtTabText.EnabledCalc = True
+        Me.txtTabText.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.txtTabText.ForeColor = System.Drawing.Color.FromArgb(CType(CType(52, Byte), Integer), CType(CType(56, Byte), Integer), CType(CType(67, Byte), Integer))
+        Me.txtTabText.Location = New System.Drawing.Point(960, 180)
+        Me.txtTabText.MaxLength = 32767
+        Me.txtTabText.MultiLine = False
+        Me.txtTabText.Name = "txtTabText"
+        Me.txtTabText.ReadOnly = False
+        Me.txtTabText.Size = New System.Drawing.Size(143, 29)
+        Me.txtTabText.TabIndex = 41
+        Me.txtTabText.Text = "Tab Text"
+        Me.txtTabText.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
+        Me.txtTabText.UseSystemPasswordChar = False
         '
-        'AetherTextbox3
+        'txtTabTagMain
         '
-        Me.AetherTextbox3.EnabledCalc = True
-        Me.AetherTextbox3.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        Me.AetherTextbox3.ForeColor = System.Drawing.Color.FromArgb(CType(CType(52, Byte), Integer), CType(CType(56, Byte), Integer), CType(CType(67, Byte), Integer))
-        Me.AetherTextbox3.Location = New System.Drawing.Point(861, 221)
-        Me.AetherTextbox3.MaxLength = 32767
-        Me.AetherTextbox3.MultiLine = False
-        Me.AetherTextbox3.Name = "AetherTextbox3"
-        Me.AetherTextbox3.ReadOnly = False
-        Me.AetherTextbox3.Size = New System.Drawing.Size(143, 29)
-        Me.AetherTextbox3.TabIndex = 42
-        Me.AetherTextbox3.Text = "Tab Tag Main"
-        Me.AetherTextbox3.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
-        Me.AetherTextbox3.UseSystemPasswordChar = False
+        Me.txtTabTagMain.EnabledCalc = True
+        Me.txtTabTagMain.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.txtTabTagMain.ForeColor = System.Drawing.Color.FromArgb(CType(CType(52, Byte), Integer), CType(CType(56, Byte), Integer), CType(CType(67, Byte), Integer))
+        Me.txtTabTagMain.Location = New System.Drawing.Point(960, 215)
+        Me.txtTabTagMain.MaxLength = 32767
+        Me.txtTabTagMain.MultiLine = False
+        Me.txtTabTagMain.Name = "txtTabTagMain"
+        Me.txtTabTagMain.ReadOnly = False
+        Me.txtTabTagMain.Size = New System.Drawing.Size(143, 29)
+        Me.txtTabTagMain.TabIndex = 42
+        Me.txtTabTagMain.Text = "Tab Tag Main"
+        Me.txtTabTagMain.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
+        Me.txtTabTagMain.UseSystemPasswordChar = False
         '
-        'AetherTextbox4
+        'txtTabTagBorder
         '
-        Me.AetherTextbox4.EnabledCalc = True
-        Me.AetherTextbox4.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        Me.AetherTextbox4.ForeColor = System.Drawing.Color.FromArgb(CType(CType(52, Byte), Integer), CType(CType(56, Byte), Integer), CType(CType(67, Byte), Integer))
-        Me.AetherTextbox4.Location = New System.Drawing.Point(861, 256)
-        Me.AetherTextbox4.MaxLength = 32767
-        Me.AetherTextbox4.MultiLine = False
-        Me.AetherTextbox4.Name = "AetherTextbox4"
-        Me.AetherTextbox4.ReadOnly = False
-        Me.AetherTextbox4.Size = New System.Drawing.Size(143, 29)
-        Me.AetherTextbox4.TabIndex = 43
-        Me.AetherTextbox4.Text = "Tab Tag Border"
-        Me.AetherTextbox4.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
-        Me.AetherTextbox4.UseSystemPasswordChar = False
+        Me.txtTabTagBorder.EnabledCalc = True
+        Me.txtTabTagBorder.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.txtTabTagBorder.ForeColor = System.Drawing.Color.FromArgb(CType(CType(52, Byte), Integer), CType(CType(56, Byte), Integer), CType(CType(67, Byte), Integer))
+        Me.txtTabTagBorder.Location = New System.Drawing.Point(960, 250)
+        Me.txtTabTagBorder.MaxLength = 32767
+        Me.txtTabTagBorder.MultiLine = False
+        Me.txtTabTagBorder.Name = "txtTabTagBorder"
+        Me.txtTabTagBorder.ReadOnly = False
+        Me.txtTabTagBorder.Size = New System.Drawing.Size(143, 29)
+        Me.txtTabTagBorder.TabIndex = 43
+        Me.txtTabTagBorder.Text = "Tab Tag Border"
+        Me.txtTabTagBorder.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
+        Me.txtTabTagBorder.UseSystemPasswordChar = False
         '
-        'AetherTextbox5
+        'txtTabTagText
         '
-        Me.AetherTextbox5.EnabledCalc = True
-        Me.AetherTextbox5.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        Me.AetherTextbox5.ForeColor = System.Drawing.Color.FromArgb(CType(CType(52, Byte), Integer), CType(CType(56, Byte), Integer), CType(CType(67, Byte), Integer))
-        Me.AetherTextbox5.Location = New System.Drawing.Point(861, 291)
-        Me.AetherTextbox5.MaxLength = 32767
-        Me.AetherTextbox5.MultiLine = False
-        Me.AetherTextbox5.Name = "AetherTextbox5"
-        Me.AetherTextbox5.ReadOnly = False
-        Me.AetherTextbox5.Size = New System.Drawing.Size(143, 29)
-        Me.AetherTextbox5.TabIndex = 44
-        Me.AetherTextbox5.Text = "Tab Tag Text"
-        Me.AetherTextbox5.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
-        Me.AetherTextbox5.UseSystemPasswordChar = False
+        Me.txtTabTagText.EnabledCalc = True
+        Me.txtTabTagText.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.txtTabTagText.ForeColor = System.Drawing.Color.FromArgb(CType(CType(52, Byte), Integer), CType(CType(56, Byte), Integer), CType(CType(67, Byte), Integer))
+        Me.txtTabTagText.Location = New System.Drawing.Point(960, 285)
+        Me.txtTabTagText.MaxLength = 32767
+        Me.txtTabTagText.MultiLine = False
+        Me.txtTabTagText.Name = "txtTabTagText"
+        Me.txtTabTagText.ReadOnly = False
+        Me.txtTabTagText.Size = New System.Drawing.Size(143, 29)
+        Me.txtTabTagText.TabIndex = 44
+        Me.txtTabTagText.Text = "Tab Tag Text"
+        Me.txtTabTagText.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
+        Me.txtTabTagText.UseSystemPasswordChar = False
         '
-        'AetherTextbox6
+        'txtTabSeparator1
         '
-        Me.AetherTextbox6.EnabledCalc = True
-        Me.AetherTextbox6.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        Me.AetherTextbox6.ForeColor = System.Drawing.Color.FromArgb(CType(CType(52, Byte), Integer), CType(CType(56, Byte), Integer), CType(CType(67, Byte), Integer))
-        Me.AetherTextbox6.Location = New System.Drawing.Point(861, 326)
-        Me.AetherTextbox6.MaxLength = 32767
-        Me.AetherTextbox6.MultiLine = False
-        Me.AetherTextbox6.Name = "AetherTextbox6"
-        Me.AetherTextbox6.ReadOnly = False
-        Me.AetherTextbox6.Size = New System.Drawing.Size(143, 29)
-        Me.AetherTextbox6.TabIndex = 45
-        Me.AetherTextbox6.Text = "Tab Separator 1"
-        Me.AetherTextbox6.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
-        Me.AetherTextbox6.UseSystemPasswordChar = False
+        Me.txtTabSeparator1.EnabledCalc = True
+        Me.txtTabSeparator1.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.txtTabSeparator1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(52, Byte), Integer), CType(CType(56, Byte), Integer), CType(CType(67, Byte), Integer))
+        Me.txtTabSeparator1.Location = New System.Drawing.Point(960, 320)
+        Me.txtTabSeparator1.MaxLength = 32767
+        Me.txtTabSeparator1.MultiLine = False
+        Me.txtTabSeparator1.Name = "txtTabSeparator1"
+        Me.txtTabSeparator1.ReadOnly = False
+        Me.txtTabSeparator1.Size = New System.Drawing.Size(143, 29)
+        Me.txtTabSeparator1.TabIndex = 45
+        Me.txtTabSeparator1.Text = "Tab Separator 1"
+        Me.txtTabSeparator1.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
+        Me.txtTabSeparator1.UseSystemPasswordChar = False
         '
-        'AetherTextbox7
+        'txtTabSeparator2
         '
-        Me.AetherTextbox7.EnabledCalc = True
-        Me.AetherTextbox7.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        Me.AetherTextbox7.ForeColor = System.Drawing.Color.FromArgb(CType(CType(52, Byte), Integer), CType(CType(56, Byte), Integer), CType(CType(67, Byte), Integer))
-        Me.AetherTextbox7.Location = New System.Drawing.Point(861, 361)
-        Me.AetherTextbox7.MaxLength = 32767
-        Me.AetherTextbox7.MultiLine = False
-        Me.AetherTextbox7.Name = "AetherTextbox7"
-        Me.AetherTextbox7.ReadOnly = False
-        Me.AetherTextbox7.Size = New System.Drawing.Size(143, 29)
-        Me.AetherTextbox7.TabIndex = 46
-        Me.AetherTextbox7.Text = "Tab Separator 2"
-        Me.AetherTextbox7.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
-        Me.AetherTextbox7.UseSystemPasswordChar = False
+        Me.txtTabSeparator2.EnabledCalc = True
+        Me.txtTabSeparator2.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.txtTabSeparator2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(52, Byte), Integer), CType(CType(56, Byte), Integer), CType(CType(67, Byte), Integer))
+        Me.txtTabSeparator2.Location = New System.Drawing.Point(960, 355)
+        Me.txtTabSeparator2.MaxLength = 32767
+        Me.txtTabSeparator2.MultiLine = False
+        Me.txtTabSeparator2.Name = "txtTabSeparator2"
+        Me.txtTabSeparator2.ReadOnly = False
+        Me.txtTabSeparator2.Size = New System.Drawing.Size(143, 29)
+        Me.txtTabSeparator2.TabIndex = 46
+        Me.txtTabSeparator2.Text = "Tab Separator 2"
+        Me.txtTabSeparator2.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
+        Me.txtTabSeparator2.UseSystemPasswordChar = False
         '
         'Label1
         '
-        Me.Label1.Location = New System.Drawing.Point(861, 91)
+        Me.Label1.Location = New System.Drawing.Point(960, 85)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(143, 18)
         Me.Label1.TabIndex = 47
         Me.Label1.Text = "Aether Tab Colours (HEX)"
         Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Font = New System.Drawing.Font("Segoe UI", 10.25!)
+        Me.Label2.Location = New System.Drawing.Point(885, 115)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(76, 19)
+        Me.Label2.TabIndex = 48
+        Me.Label2.Text = "Tab Main #"
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Font = New System.Drawing.Font("Segoe UI", 10.25!)
+        Me.Label3.Location = New System.Drawing.Point(866, 151)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(95, 19)
+        Me.Label3.TabIndex = 49
+        Me.Label3.Text = "Tab Selected #"
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Font = New System.Drawing.Font("Segoe UI", 10.25!)
+        Me.Label4.Location = New System.Drawing.Point(892, 185)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(69, 19)
+        Me.Label4.TabIndex = 50
+        Me.Label4.Text = "Tab Text #"
+        '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Font = New System.Drawing.Font("Segoe UI", 10.25!)
+        Me.Label5.Location = New System.Drawing.Point(861, 220)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(100, 19)
+        Me.Label5.TabIndex = 51
+        Me.Label5.Text = "Tab Tag Main #"
+        '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.Font = New System.Drawing.Font("Segoe UI", 10.25!)
+        Me.Label6.Location = New System.Drawing.Point(851, 256)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(110, 19)
+        Me.Label6.TabIndex = 52
+        Me.Label6.Text = "Tab Tag Border #"
+        '
+        'Label7
+        '
+        Me.Label7.AutoSize = True
+        Me.Label7.Font = New System.Drawing.Font("Segoe UI", 10.25!)
+        Me.Label7.Location = New System.Drawing.Point(868, 290)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(93, 19)
+        Me.Label7.TabIndex = 53
+        Me.Label7.Text = "Tab Tag Text #"
+        '
+        'Label8
+        '
+        Me.Label8.AutoSize = True
+        Me.Label8.Font = New System.Drawing.Font("Segoe UI", 10.25!)
+        Me.Label8.Location = New System.Drawing.Point(821, 325)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(140, 19)
+        Me.Label8.TabIndex = 54
+        Me.Label8.Text = "Tab Tag Separator 1 #"
+        '
+        'Label9
+        '
+        Me.Label9.AutoSize = True
+        Me.Label9.Font = New System.Drawing.Font("Segoe UI", 10.25!)
+        Me.Label9.Location = New System.Drawing.Point(821, 360)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(140, 19)
+        Me.Label9.TabIndex = 55
+        Me.Label9.Text = "Tab Tag Separator 2 #"
+        '
         'frmCustomColour
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1111, 550)
-        Me.Controls.Add(Me.Label1)
-        Me.Controls.Add(Me.AetherTextbox7)
-        Me.Controls.Add(Me.AetherTextbox6)
-        Me.Controls.Add(Me.AetherTextbox5)
-        Me.Controls.Add(Me.AetherTextbox4)
-        Me.Controls.Add(Me.AetherTextbox3)
-        Me.Controls.Add(Me.AetherTextbox2)
-        Me.Controls.Add(Me.AetherTextbox1)
+        Me.ClientSize = New System.Drawing.Size(1154, 436)
+        Me.Controls.Add(Me.txtTabSeparator2)
+        Me.Controls.Add(Me.txtTabSeparator1)
+        Me.Controls.Add(Me.txtTabTagText)
+        Me.Controls.Add(Me.txtTabTagBorder)
+        Me.Controls.Add(Me.txtTabTagMain)
+        Me.Controls.Add(Me.txtTabText)
+        Me.Controls.Add(Me.txtTabSelected)
         Me.Controls.Add(Me.txtTabMain)
+        Me.Controls.Add(Me.Label9)
+        Me.Controls.Add(Me.Label8)
+        Me.Controls.Add(Me.Label7)
+        Me.Controls.Add(Me.Label6)
+        Me.Controls.Add(Me.Label5)
+        Me.Controls.Add(Me.Label4)
+        Me.Controls.Add(Me.Label3)
+        Me.Controls.Add(Me.Label2)
+        Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.btnPicker)
         Me.Controls.Add(Me.btnCSSubmit)
         Me.Controls.Add(Me.btnCSSave)
@@ -858,6 +954,7 @@ Partial Class frmCustomColour
         Me.Name = "frmCustomColour"
         Me.Text = "Custom Colour Scheme"
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
 
@@ -901,12 +998,20 @@ Partial Class frmCustomColour
     Friend WithEvents btnCSSubmit As MaterialSkin.Controls.MaterialRaisedButton
     Friend WithEvents btnPicker As AetherButton
     Friend WithEvents txtTabMain As AetherTextbox
-    Friend WithEvents AetherTextbox1 As AetherTextbox
-    Friend WithEvents AetherTextbox2 As AetherTextbox
-    Friend WithEvents AetherTextbox3 As AetherTextbox
-    Friend WithEvents AetherTextbox4 As AetherTextbox
-    Friend WithEvents AetherTextbox5 As AetherTextbox
-    Friend WithEvents AetherTextbox6 As AetherTextbox
-    Friend WithEvents AetherTextbox7 As AetherTextbox
+    Friend WithEvents txtTabSelected As AetherTextbox
+    Friend WithEvents txtTabText As AetherTextbox
+    Friend WithEvents txtTabTagMain As AetherTextbox
+    Friend WithEvents txtTabTagBorder As AetherTextbox
+    Friend WithEvents txtTabTagText As AetherTextbox
+    Friend WithEvents txtTabSeparator1 As AetherTextbox
+    Friend WithEvents txtTabSeparator2 As AetherTextbox
     Friend WithEvents Label1 As Label
+    Friend WithEvents Label2 As Label
+    Friend WithEvents Label3 As Label
+    Friend WithEvents Label4 As Label
+    Friend WithEvents Label5 As Label
+    Friend WithEvents Label6 As Label
+    Friend WithEvents Label7 As Label
+    Friend WithEvents Label8 As Label
+    Friend WithEvents Label9 As Label
 End Class

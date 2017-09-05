@@ -327,5 +327,8 @@
   <ItemGroup>
     <None Include="Resources\maegashapeshiftcolouredalt.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\maegabrsscoloured.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

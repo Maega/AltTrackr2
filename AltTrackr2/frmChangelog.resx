@@ -117,4 +117,15 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Label8.Text" xml:space="preserve">
+    <value>VERSION 1.05
+
+- Added 'Wallets' tab
+- Moved 'Feedback' into 'Help &amp;&amp; Support'
+- You can now recolour tabs and other elements
+- Option to get notified when an update is available
+- It's now possible to force an AltTrackr update
+- Minor code cleanup and optimisation
+- Various minor bug fixes</value>
+  </data>
 </root>

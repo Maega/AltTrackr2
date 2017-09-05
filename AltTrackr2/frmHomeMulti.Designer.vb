@@ -64,7 +64,6 @@ Partial Class frmHomeMulti
         Me.lblLUpdateStatus = New System.Windows.Forms.Label()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.lblLUser = New System.Windows.Forms.Label()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.lblAuthRequest = New System.Windows.Forms.Label()
         Me.pnlLLogin = New System.Windows.Forms.Panel()
         Me.txtLUsername = New AltTrackr2.AetherTextbox()
@@ -120,13 +119,11 @@ Partial Class frmHomeMulti
         Me.htpC3 = New System.Windows.Forms.TabPage()
         Me.htpC4 = New System.Windows.Forms.TabPage()
         Me.tpWallet = New System.Windows.Forms.TabPage()
-        Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.Label26 = New System.Windows.Forms.Label()
         Me.tpSpacer1 = New System.Windows.Forms.TabPage()
         Me.tpCoin1 = New System.Windows.Forms.TabPage()
         Me.lblC1Name = New System.Windows.Forms.Label()
         Me.lblC1Price = New System.Windows.Forms.Label()
-        Me.picC1Logo = New System.Windows.Forms.PictureBox()
         Me.AetherGroupBox3 = New AltTrackr2.AetherGroupBox()
         Me.lblC1PricesDetailed = New MaterialSkin.Controls.MaterialLabel()
         Me.lblC1Friendly = New MaterialSkin.Controls.MaterialLabel()
@@ -134,7 +131,6 @@ Partial Class frmHomeMulti
         Me.tpCoin2 = New System.Windows.Forms.TabPage()
         Me.lblC2Name = New System.Windows.Forms.Label()
         Me.lblC2Price = New System.Windows.Forms.Label()
-        Me.picC2Logo = New System.Windows.Forms.PictureBox()
         Me.AetherGroupBox4 = New AltTrackr2.AetherGroupBox()
         Me.lblC2PricesDetailed = New MaterialSkin.Controls.MaterialLabel()
         Me.lblC2Friendly = New MaterialSkin.Controls.MaterialLabel()
@@ -142,7 +138,6 @@ Partial Class frmHomeMulti
         Me.tpCoin3 = New System.Windows.Forms.TabPage()
         Me.lblC3Price = New System.Windows.Forms.Label()
         Me.lblC3Name = New System.Windows.Forms.Label()
-        Me.picC3Logo = New System.Windows.Forms.PictureBox()
         Me.AetherGroupBox5 = New AltTrackr2.AetherGroupBox()
         Me.lblC3PricesDetailed = New MaterialSkin.Controls.MaterialLabel()
         Me.lblC3Friendly = New MaterialSkin.Controls.MaterialLabel()
@@ -150,7 +145,6 @@ Partial Class frmHomeMulti
         Me.tpCoin4 = New System.Windows.Forms.TabPage()
         Me.lblC4Price = New System.Windows.Forms.Label()
         Me.lblC4Name = New System.Windows.Forms.Label()
-        Me.picC4Logo = New System.Windows.Forms.PictureBox()
         Me.AetherGroupBox14 = New AltTrackr2.AetherGroupBox()
         Me.lblC4PricesDetailed = New MaterialSkin.Controls.MaterialLabel()
         Me.lblC4Friendly = New MaterialSkin.Controls.MaterialLabel()
@@ -257,6 +251,15 @@ Partial Class frmHomeMulti
         Me.lblLastPriceUpdate = New System.Windows.Forms.Label()
         Me.pnlLastUpdated = New System.Windows.Forms.Panel()
         Me.bkgLogin = New System.ComponentModel.BackgroundWorker()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.PictureBox2 = New System.Windows.Forms.PictureBox()
+        Me.picC1Logo = New System.Windows.Forms.PictureBox()
+        Me.picC2Logo = New System.Windows.Forms.PictureBox()
+        Me.picC3Logo = New System.Windows.Forms.PictureBox()
+        Me.picC4Logo = New System.Windows.Forms.PictureBox()
+        Me.Label27 = New System.Windows.Forms.Label()
+        Me.Label28 = New System.Windows.Forms.Label()
+        Me.Label29 = New System.Windows.Forms.Label()
         Me.pnlUnsaved.SuspendLayout()
         Me.pnlLoadingMain.SuspendLayout()
         Me.pnlLoading.SuspendLayout()
@@ -266,7 +269,6 @@ Partial Class frmHomeMulti
         Me.AetherGroupBox16.SuspendLayout()
         Me.AetherGroupBox15.SuspendLayout()
         Me.cxtUpdateCheck.SuspendLayout()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.pnlLLogin.SuspendLayout()
         Me.pnlLIncorrect.SuspendLayout()
         Me.tpHome.SuspendLayout()
@@ -281,18 +283,13 @@ Partial Class frmHomeMulti
         Me.tabControlHistory.SuspendLayout()
         Me.htpSummary.SuspendLayout()
         Me.tpWallet.SuspendLayout()
-        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.tpCoin1.SuspendLayout()
-        CType(Me.picC1Logo, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.AetherGroupBox3.SuspendLayout()
         Me.tpCoin2.SuspendLayout()
-        CType(Me.picC2Logo, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.AetherGroupBox4.SuspendLayout()
         Me.tpCoin3.SuspendLayout()
-        CType(Me.picC3Logo, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.AetherGroupBox5.SuspendLayout()
         Me.tpCoin4.SuspendLayout()
-        CType(Me.picC4Logo, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.AetherGroupBox14.SuspendLayout()
         Me.tpPrefs.SuspendLayout()
         Me.grpC1Pref.SuspendLayout()
@@ -305,6 +302,12 @@ Partial Class frmHomeMulti
         Me.grpC2Pref.SuspendLayout()
         Me.tpSupport.SuspendLayout()
         Me.cxtTray.SuspendLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.picC1Logo, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.picC2Logo, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.picC3Logo, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.picC4Logo, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'ilsIcon
@@ -819,16 +822,6 @@ Partial Class frmHomeMulti
         Me.lblLUser.TabIndex = 19
         Me.lblLUser.Text = "admin"
         Me.lblLUser.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        '
-        'PictureBox1
-        '
-        Me.PictureBox1.Image = Global.AltTrackr2.My.Resources.Resources._001_account
-        Me.PictureBox1.Location = New System.Drawing.Point(228, 21)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(169, 163)
-        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.PictureBox1.TabIndex = 18
-        Me.PictureBox1.TabStop = False
         '
         'lblAuthRequest
         '
@@ -1472,8 +1465,11 @@ Partial Class frmHomeMulti
         'tpWallet
         '
         Me.tpWallet.BackColor = System.Drawing.Color.FromArgb(CType(CType(17, Byte), Integer), CType(CType(127, Byte), Integer), CType(CType(202, Byte), Integer))
-        Me.tpWallet.Controls.Add(Me.PictureBox2)
+        Me.tpWallet.Controls.Add(Me.Label29)
+        Me.tpWallet.Controls.Add(Me.Label28)
+        Me.tpWallet.Controls.Add(Me.Label27)
         Me.tpWallet.Controls.Add(Me.Label26)
+        Me.tpWallet.Controls.Add(Me.PictureBox2)
         Me.tpWallet.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.tpWallet.ForeColor = System.Drawing.Color.FromArgb(CType(CType(52, Byte), Integer), CType(CType(56, Byte), Integer), CType(CType(67, Byte), Integer))
         Me.tpWallet.ImageIndex = 37
@@ -1484,24 +1480,16 @@ Partial Class frmHomeMulti
         Me.tpWallet.Tag = ""
         Me.tpWallet.Text = "Wallets"
         '
-        'PictureBox2
-        '
-        Me.PictureBox2.Image = Global.AltTrackr2.My.Resources.Resources.maegashapeshiftcolouredalt
-        Me.PictureBox2.Location = New System.Drawing.Point(161, 80)
-        Me.PictureBox2.Name = "PictureBox2"
-        Me.PictureBox2.Size = New System.Drawing.Size(502, 251)
-        Me.PictureBox2.TabIndex = 7
-        Me.PictureBox2.TabStop = False
-        '
         'Label26
         '
-        Me.Label26.Font = New System.Drawing.Font("Roboto Medium", 15.0!)
+        Me.Label26.BackColor = System.Drawing.Color.FromArgb(CType(CType(53, Byte), Integer), CType(CType(79, Byte), Integer), CType(CType(106, Byte), Integer))
+        Me.Label26.Font = New System.Drawing.Font("Roboto Light", 15.0!)
         Me.Label26.ForeColor = System.Drawing.Color.White
-        Me.Label26.Location = New System.Drawing.Point(16, 355)
+        Me.Label26.Location = New System.Drawing.Point(420, 320)
         Me.Label26.Name = "Label26"
-        Me.Label26.Size = New System.Drawing.Size(794, 80)
+        Me.Label26.Size = New System.Drawing.Size(132, 30)
         Me.Label26.TabIndex = 6
-        Me.Label26.Text = "COMING SOON" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "190+ wallets with conversion to 70+ assets"
+        Me.Label26.Text = "70+ Assets"
         Me.Label26.TextAlign = System.Drawing.ContentAlignment.TopCenter
         '
         'tpSpacer1
@@ -1519,8 +1507,8 @@ Partial Class frmHomeMulti
         Me.tpCoin1.BackColor = System.Drawing.Color.White
         Me.tpCoin1.Controls.Add(Me.lblC1Name)
         Me.tpCoin1.Controls.Add(Me.lblC1Price)
-        Me.tpCoin1.Controls.Add(Me.picC1Logo)
         Me.tpCoin1.Controls.Add(Me.AetherGroupBox3)
+        Me.tpCoin1.Controls.Add(Me.picC1Logo)
         Me.tpCoin1.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.tpCoin1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(52, Byte), Integer), CType(CType(56, Byte), Integer), CType(CType(67, Byte), Integer))
         Me.tpCoin1.ImageIndex = 9
@@ -1551,16 +1539,6 @@ Partial Class frmHomeMulti
         Me.lblC1Price.TabIndex = 5
         Me.lblC1Price.Text = "$n/a"
         Me.lblC1Price.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        '
-        'picC1Logo
-        '
-        Me.picC1Logo.Image = Global.AltTrackr2.My.Resources.Resources._004_money
-        Me.picC1Logo.Location = New System.Drawing.Point(217, 26)
-        Me.picC1Logo.Name = "picC1Logo"
-        Me.picC1Logo.Size = New System.Drawing.Size(163, 163)
-        Me.picC1Logo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.picC1Logo.TabIndex = 3
-        Me.picC1Logo.TabStop = False
         '
         'AetherGroupBox3
         '
@@ -1626,8 +1604,8 @@ Partial Class frmHomeMulti
         Me.tpCoin2.BackColor = System.Drawing.Color.White
         Me.tpCoin2.Controls.Add(Me.lblC2Name)
         Me.tpCoin2.Controls.Add(Me.lblC2Price)
-        Me.tpCoin2.Controls.Add(Me.picC2Logo)
         Me.tpCoin2.Controls.Add(Me.AetherGroupBox4)
+        Me.tpCoin2.Controls.Add(Me.picC2Logo)
         Me.tpCoin2.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.tpCoin2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(52, Byte), Integer), CType(CType(56, Byte), Integer), CType(CType(67, Byte), Integer))
         Me.tpCoin2.ImageIndex = 9
@@ -1658,16 +1636,6 @@ Partial Class frmHomeMulti
         Me.lblC2Price.TabIndex = 7
         Me.lblC2Price.Text = "$n/a"
         Me.lblC2Price.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        '
-        'picC2Logo
-        '
-        Me.picC2Logo.Image = Global.AltTrackr2.My.Resources.Resources._004_money
-        Me.picC2Logo.Location = New System.Drawing.Point(217, 26)
-        Me.picC2Logo.Name = "picC2Logo"
-        Me.picC2Logo.Size = New System.Drawing.Size(163, 163)
-        Me.picC2Logo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.picC2Logo.TabIndex = 5
-        Me.picC2Logo.TabStop = False
         '
         'AetherGroupBox4
         '
@@ -1733,8 +1701,8 @@ Partial Class frmHomeMulti
         Me.tpCoin3.BackColor = System.Drawing.Color.White
         Me.tpCoin3.Controls.Add(Me.lblC3Price)
         Me.tpCoin3.Controls.Add(Me.lblC3Name)
-        Me.tpCoin3.Controls.Add(Me.picC3Logo)
         Me.tpCoin3.Controls.Add(Me.AetherGroupBox5)
+        Me.tpCoin3.Controls.Add(Me.picC3Logo)
         Me.tpCoin3.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.tpCoin3.ForeColor = System.Drawing.Color.FromArgb(CType(CType(52, Byte), Integer), CType(CType(56, Byte), Integer), CType(CType(67, Byte), Integer))
         Me.tpCoin3.ImageIndex = 9
@@ -1765,16 +1733,6 @@ Partial Class frmHomeMulti
         Me.lblC3Name.TabIndex = 8
         Me.lblC3Name.Text = "COIN 3"
         Me.lblC3Name.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        '
-        'picC3Logo
-        '
-        Me.picC3Logo.Image = Global.AltTrackr2.My.Resources.Resources._004_money
-        Me.picC3Logo.Location = New System.Drawing.Point(214, 26)
-        Me.picC3Logo.Name = "picC3Logo"
-        Me.picC3Logo.Size = New System.Drawing.Size(169, 163)
-        Me.picC3Logo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.picC3Logo.TabIndex = 7
-        Me.picC3Logo.TabStop = False
         '
         'AetherGroupBox5
         '
@@ -1840,8 +1798,8 @@ Partial Class frmHomeMulti
         Me.tpCoin4.BackColor = System.Drawing.Color.White
         Me.tpCoin4.Controls.Add(Me.lblC4Price)
         Me.tpCoin4.Controls.Add(Me.lblC4Name)
-        Me.tpCoin4.Controls.Add(Me.picC4Logo)
         Me.tpCoin4.Controls.Add(Me.AetherGroupBox14)
+        Me.tpCoin4.Controls.Add(Me.picC4Logo)
         Me.tpCoin4.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.tpCoin4.ForeColor = System.Drawing.Color.FromArgb(CType(CType(52, Byte), Integer), CType(CType(56, Byte), Integer), CType(CType(67, Byte), Integer))
         Me.tpCoin4.ImageIndex = 9
@@ -1872,16 +1830,6 @@ Partial Class frmHomeMulti
         Me.lblC4Name.TabIndex = 12
         Me.lblC4Name.Text = "COIN 4"
         Me.lblC4Name.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        '
-        'picC4Logo
-        '
-        Me.picC4Logo.Image = Global.AltTrackr2.My.Resources.Resources._004_money
-        Me.picC4Logo.Location = New System.Drawing.Point(214, 26)
-        Me.picC4Logo.Name = "picC4Logo"
-        Me.picC4Logo.Size = New System.Drawing.Size(169, 163)
-        Me.picC4Logo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.picC4Logo.TabIndex = 11
-        Me.picC4Logo.TabStop = False
         '
         'AetherGroupBox14
         '
@@ -3206,6 +3154,101 @@ Partial Class frmHomeMulti
         'bkgLogin
         '
         '
+        'PictureBox1
+        '
+        Me.PictureBox1.Image = Global.AltTrackr2.My.Resources.Resources._001_account
+        Me.PictureBox1.Location = New System.Drawing.Point(228, 21)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(169, 163)
+        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.PictureBox1.TabIndex = 18
+        Me.PictureBox1.TabStop = False
+        '
+        'PictureBox2
+        '
+        Me.PictureBox2.Image = Global.AltTrackr2.My.Resources.Resources.maegabrsscoloured
+        Me.PictureBox2.Location = New System.Drawing.Point(0, 0)
+        Me.PictureBox2.Name = "PictureBox2"
+        Me.PictureBox2.Size = New System.Drawing.Size(824, 485)
+        Me.PictureBox2.TabIndex = 7
+        Me.PictureBox2.TabStop = False
+        '
+        'picC1Logo
+        '
+        Me.picC1Logo.Image = Global.AltTrackr2.My.Resources.Resources._004_money
+        Me.picC1Logo.Location = New System.Drawing.Point(217, 26)
+        Me.picC1Logo.Name = "picC1Logo"
+        Me.picC1Logo.Size = New System.Drawing.Size(163, 163)
+        Me.picC1Logo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.picC1Logo.TabIndex = 3
+        Me.picC1Logo.TabStop = False
+        '
+        'picC2Logo
+        '
+        Me.picC2Logo.Image = Global.AltTrackr2.My.Resources.Resources._004_money
+        Me.picC2Logo.Location = New System.Drawing.Point(217, 26)
+        Me.picC2Logo.Name = "picC2Logo"
+        Me.picC2Logo.Size = New System.Drawing.Size(163, 163)
+        Me.picC2Logo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.picC2Logo.TabIndex = 5
+        Me.picC2Logo.TabStop = False
+        '
+        'picC3Logo
+        '
+        Me.picC3Logo.Image = Global.AltTrackr2.My.Resources.Resources._004_money
+        Me.picC3Logo.Location = New System.Drawing.Point(214, 26)
+        Me.picC3Logo.Name = "picC3Logo"
+        Me.picC3Logo.Size = New System.Drawing.Size(169, 163)
+        Me.picC3Logo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.picC3Logo.TabIndex = 7
+        Me.picC3Logo.TabStop = False
+        '
+        'picC4Logo
+        '
+        Me.picC4Logo.Image = Global.AltTrackr2.My.Resources.Resources._004_money
+        Me.picC4Logo.Location = New System.Drawing.Point(214, 26)
+        Me.picC4Logo.Name = "picC4Logo"
+        Me.picC4Logo.Size = New System.Drawing.Size(169, 163)
+        Me.picC4Logo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.picC4Logo.TabIndex = 11
+        Me.picC4Logo.TabStop = False
+        '
+        'Label27
+        '
+        Me.Label27.BackColor = System.Drawing.Color.FromArgb(CType(CType(53, Byte), Integer), CType(CType(79, Byte), Integer), CType(CType(106, Byte), Integer))
+        Me.Label27.Font = New System.Drawing.Font("Roboto Light", 15.0!)
+        Me.Label27.ForeColor = System.Drawing.Color.White
+        Me.Label27.Location = New System.Drawing.Point(622, 320)
+        Me.Label27.Name = "Label27"
+        Me.Label27.Size = New System.Drawing.Size(132, 30)
+        Me.Label27.TabIndex = 8
+        Me.Label27.Text = "190+ Wallets"
+        Me.Label27.TextAlign = System.Drawing.ContentAlignment.TopCenter
+        '
+        'Label28
+        '
+        Me.Label28.BackColor = System.Drawing.Color.FromArgb(CType(CType(53, Byte), Integer), CType(CType(79, Byte), Integer), CType(CType(106, Byte), Integer))
+        Me.Label28.Font = New System.Drawing.Font("Roboto Light", 12.0!)
+        Me.Label28.ForeColor = System.Drawing.Color.White
+        Me.Label28.Location = New System.Drawing.Point(309, 419)
+        Me.Label28.Name = "Label28"
+        Me.Label28.Size = New System.Drawing.Size(501, 45)
+        Me.Label28.TabIndex = 9
+        Me.Label28.Text = "ShapeShift and Bittrex are bringing over 190 wallets to AltTrackr with conversion" &
+    " between more than 70 crypto assets"
+        Me.Label28.TextAlign = System.Drawing.ContentAlignment.TopCenter
+        '
+        'Label29
+        '
+        Me.Label29.BackColor = System.Drawing.Color.FromArgb(CType(CType(17, Byte), Integer), CType(CType(127, Byte), Integer), CType(CType(202, Byte), Integer))
+        Me.Label29.Font = New System.Drawing.Font("Roboto Light", 14.0!)
+        Me.Label29.ForeColor = System.Drawing.Color.White
+        Me.Label29.Location = New System.Drawing.Point(11, 14)
+        Me.Label29.Name = "Label29"
+        Me.Label29.Size = New System.Drawing.Size(170, 40)
+        Me.Label29.TabIndex = 10
+        Me.Label29.Text = "Release TBD"
+        '
         'frmHomeMulti
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -3233,7 +3276,6 @@ Partial Class frmHomeMulti
         Me.AetherGroupBox16.ResumeLayout(False)
         Me.AetherGroupBox15.ResumeLayout(False)
         Me.cxtUpdateCheck.ResumeLayout(False)
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.pnlLLogin.ResumeLayout(False)
         Me.pnlLLogin.PerformLayout()
         Me.pnlLIncorrect.ResumeLayout(False)
@@ -3249,22 +3291,17 @@ Partial Class frmHomeMulti
         Me.tabControlHistory.ResumeLayout(False)
         Me.htpSummary.ResumeLayout(False)
         Me.tpWallet.ResumeLayout(False)
-        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.tpCoin1.ResumeLayout(False)
         Me.tpCoin1.PerformLayout()
-        CType(Me.picC1Logo, System.ComponentModel.ISupportInitialize).EndInit()
         Me.AetherGroupBox3.ResumeLayout(False)
         Me.tpCoin2.ResumeLayout(False)
         Me.tpCoin2.PerformLayout()
-        CType(Me.picC2Logo, System.ComponentModel.ISupportInitialize).EndInit()
         Me.AetherGroupBox4.ResumeLayout(False)
         Me.tpCoin3.ResumeLayout(False)
         Me.tpCoin3.PerformLayout()
-        CType(Me.picC3Logo, System.ComponentModel.ISupportInitialize).EndInit()
         Me.AetherGroupBox5.ResumeLayout(False)
         Me.tpCoin4.ResumeLayout(False)
         Me.tpCoin4.PerformLayout()
-        CType(Me.picC4Logo, System.ComponentModel.ISupportInitialize).EndInit()
         Me.AetherGroupBox14.ResumeLayout(False)
         Me.tpPrefs.ResumeLayout(False)
         Me.tpPrefs.PerformLayout()
@@ -3279,6 +3316,12 @@ Partial Class frmHomeMulti
         Me.tpSupport.ResumeLayout(False)
         Me.tpSupport.PerformLayout()
         Me.cxtTray.ResumeLayout(False)
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.picC1Logo, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.picC2Logo, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.picC3Logo, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.picC4Logo, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -3516,4 +3559,7 @@ Partial Class frmHomeMulti
     Friend WithEvents btnFeedbackFacebook As AetherButton
     Friend WithEvents Label26 As Label
     Friend WithEvents PictureBox2 As PictureBox
+    Friend WithEvents Label29 As Label
+    Friend WithEvents Label28 As Label
+    Friend WithEvents Label27 As Label
 End Class

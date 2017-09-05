@@ -22,6 +22,7 @@ Partial Class frmChangelog
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmChangelog))
         Me.MaterialRaisedButton1 = New MaterialSkin.Controls.MaterialRaisedButton()
         Me.prgChangelog = New AltTrackr2.Ambiance.Ambiance_ProgressBar()
         Me.MaterialDivider1 = New MaterialSkin.Controls.MaterialDivider()
@@ -207,9 +208,7 @@ Partial Class frmChangelog
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(998, 268)
         Me.Label8.TabIndex = 23
-        Me.Label8.Text = "VERSION 1.05" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "- Something new" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "- Something else" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "- Various minor bug fixes (as " &
-    "always)" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "(If you're reading this it means I forgot to write the internal chang" &
-    "elog for this version. Oops.)"
+        Me.Label8.Text = resources.GetString("Label8.Text")
         Me.Label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'frmChangelog
