@@ -1,12 +1,14 @@
-﻿Imports MaterialSkin
+﻿Option Strict On
+Imports MaterialSkin
 
 Public Class frmCustomColour
+
     Dim readyForLive As Boolean = False
     Private Sub txtCS_TextChanged(sender As Object, e As EventArgs) Handles txtCSPrimary.TextChanged, txtCSDarkPrimary.TextChanged, txtCSLightPrimary.TextChanged, txtCSAccent.TextChanged, txtCSTextShade.TextChanged
         If readyForLive Then
             Try
-                SkinManager.ColorScheme = New ColorScheme(txtCSPrimary.Text, txtCSDarkPrimary.Text, txtCSLightPrimary.Text, txtCSAccent.Text, txtCSTextShade.Text)
-                ConvertRGB(txtCSPrimary.Text, txtCSDarkPrimary.Text, txtCSLightPrimary.Text, txtCSAccent.Text, txtCSTextShade.Text)
+                SkinManager.ColorScheme = New ColorScheme(CType(txtCSPrimary.Text, Primary), CType(txtCSDarkPrimary.Text, Primary), CType(txtCSLightPrimary.Text, Primary), CType(txtCSAccent.Text, Accent), CType(txtCSTextShade.Text, TextShade))
+                ConvertRGB(CType(txtCSPrimary.Text, Primary), CType(txtCSDarkPrimary.Text, Primary), CType(txtCSLightPrimary.Text, Primary), CType(txtCSAccent.Text, Accent), CType(txtCSTextShade.Text, TextShade))
                 ' lblChanges.Text = "Success. If you think this would make a good combo, let us know!"
                 lblChanges.Text = "RGB: " + PrimaryColor.R.ToString + " " + PrimaryColor.G.ToString + " " + PrimaryColor.B.ToString + " - ARGB: " + PrimaryColor.ToArgb.ToString
                 Dim newcolour As Color = Color.FromArgb(255, 255, 255)
@@ -20,7 +22,8 @@ Public Class frmCustomColour
     Private Sub frmCustomColour_Load(sender As Object, e As EventArgs) Handles Me.Shown
         Dim SkinManager As MaterialSkinManager = MaterialSkinManager.Instance
         SkinManager.AddFormToManage(Me)
-        Dim ColourArray() As String = My.Computer.Registry.GetValue(My.Settings.RegLocation, "ColourScheme", Nothing).Split(",")
+        Dim ColorRegVal As String = CType(My.Computer.Registry.GetValue(My.Settings.RegLocation, "ColourScheme", Nothing), String)
+        Dim ColourArray() As String = ColorRegVal.Split(CType(",", Char()))
         txtCSPrimary.Text = ColourArray(0)
         txtCSDarkPrimary.Text = ColourArray(1)
         txtCSLightPrimary.Text = ColourArray(2)
@@ -67,7 +70,7 @@ Public Class frmCustomColour
         frmFeedback.Show()
     End Sub
 
-    Private Sub AetherButton1_Click(sender As Object, e As EventArgs) Handles btnPicker.Click
+    Private Sub btnPicker_Click(sender As Object, e As EventArgs) Handles btnPicker.Click
         Dim cDialog As New ColorDialog()
         cDialog.AnyColor = True
         If (cDialog.ShowDialog() = DialogResult.OK) Then
@@ -119,6 +122,10 @@ Public Class frmCustomColour
         LightPrimaryColor = CInt(lightPrimary).ToColor()
         AccentColor = CInt(accent).ToColor()
         TextColor = CInt(textShade).ToColor()
+    End Sub
+
+    Private Sub txtTab_Click(sender As Object, e As EventArgs) Handles txtTabMain.Click, txtTabSelected.Click, txtTabSeparator1.Click, txtTabSeparator2.Click, txtTabTagBorder.Click, txtTabTagMain.Click, txtTabTagText.Click, txtTabText.Click
+
     End Sub
 End Class
 Public Class ColorExtension

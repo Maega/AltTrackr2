@@ -19,7 +19,7 @@
     Dim vericode As String
     Dim verifyfactor As Decimal = 7.38
     Dim apiserver As String = "https://api.maeganetwork.com/update.php" 'This should point to the API backend on the update server
-    Function LatestVer()
+    Function LatestVer() As Decimal
         PerformCheck(AppID)
         If verified = True Then
             Return CDec(rlver)
@@ -106,7 +106,7 @@
         End If
     End Sub
 
-    Function UpdateAvailable()
+    Function UpdateAvailable() As Boolean
         If LatestVer() > CurrentVer Then
             Return True
         Else

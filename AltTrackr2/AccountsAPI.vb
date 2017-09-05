@@ -23,7 +23,7 @@ Module AccountsAPI
     Dim sessionUser As String = String.Empty
     Dim sessionToken As String = String.Empty
 
-    Function PerformCheck(uname As String, upass As String, Optional b64 As Boolean = True)
+    Function PerformCheck(uname As String, upass As String, Optional b64 As Boolean = True) As Integer
         Console.WriteLine(DateTime.Now.ToString("yy/MM/dd HH:mm:ss") + " - " + "Info: Performing Login Check")
 
         'Create query and submit
@@ -89,7 +89,7 @@ Module AccountsAPI
         End Try
     End Function
 
-    Function TokenAuth()
+    Function TokenAuth() As Boolean
         Dim apiquery As String = "&uname=" + My.Computer.Registry.GetValue(My.Settings.RegLocation, "AuthUser", Nothing) + "&token=" + My.Computer.Registry.GetValue(My.Settings.RegLocation, "AuthToken", Nothing) + "&hwid=" + GetHWID.ToString + "&pcname=" + Environment.MachineName
         Try
             Dim apiresponse As String = New System.Net.WebClient().DownloadString(apiserver + apiquery)
