@@ -2,7 +2,6 @@
 Imports MaterialSkin
 
 Public Class frmCustomColour
-
     Dim readyForLive As Boolean = False
     Private Sub txtCS_TextChanged(sender As Object, e As EventArgs) Handles txtCSPrimary.TextChanged, txtCSDarkPrimary.TextChanged, txtCSLightPrimary.TextChanged, txtCSAccent.TextChanged, txtCSTextShade.TextChanged
         If readyForLive Then
@@ -71,12 +70,7 @@ Public Class frmCustomColour
     End Sub
 
     Private Sub btnPicker_Click(sender As Object, e As EventArgs) Handles btnPicker.Click
-        Dim cDialog As New ColorDialog()
-        cDialog.AnyColor = True
-        If (cDialog.ShowDialog() = DialogResult.OK) Then
-            'Label1.BackColor = cDialog.Color ' update with user selected color.
-            Dim strColorHex As String = Hex(Convert.ToInt32(cDialog.Color.ToArgb()))
-        End If
+        If pickerActive Then pickerActive = False : btnPicker.Text = "Toggle Picker: OFF" Else pickerActive = True : btnPicker.Text = "Toggle Picker: ON"
     End Sub
 
     Private Sub btnCSTextShadeCint_Click(sender As Object, e As EventArgs) Handles btnCSTextShadeCint.Click
@@ -103,6 +97,21 @@ Public Class frmCustomColour
         End Try
     End Sub
 
+    Private Sub AetherButton1_Click(sender As Object, e As EventArgs) Handles AetherButton1.Click
+        If AetherButton1.Text = "Preview" Then
+            txtTabMain.Text = txtTabMain.Text.Replace("#", "")
+            AetherTabControl.colorTabMain = "#" + txtTabMain.Text
+            AetherTabControl.colorTabSelected = "#" + txtTabSelected.Text
+            AetherTabControl.colorTabSeparator1 = "#" + txtTabSeparator1.Text
+            AetherTabControl.colorTabSeperator2 = "#" + txtTabSeparator2.Text
+            AetherTabControl.colorTabTagBorder = "#" + txtTabTagBorder.Text
+            AetherTabControl.colorTabTagMain = "#" + txtTabTagMain.Text
+            AetherTabControl.colorTabTagText = "#" + txtTabTagText.Text
+            AetherTabControl.colorTabText = "#" + txtTabText.Text
+            frmHomeMulti.tabContent.Invalidate()
+        End If
+    End Sub
+
     Private Sub btnCSDarkPrimaryCint_Click(sender As Object, e As EventArgs) Handles btnCSDarkPrimaryCint.Click
         Try
             Dim red As Integer = CInt(txtCSDarkPrimaryR.Text.ToString)
@@ -124,8 +133,18 @@ Public Class frmCustomColour
         TextColor = CInt(textShade).ToColor()
     End Sub
 
-    Private Sub txtTab_Click(sender As Object, e As EventArgs) Handles txtTabMain.Click, txtTabSelected.Click, txtTabSeparator1.Click, txtTabSeparator2.Click, txtTabTagBorder.Click, txtTabTagMain.Click, txtTabTagText.Click, txtTabText.Click
-
+    Dim pickerActive As Boolean = True
+    Private Sub txtTab_Enter(sender As Object, e As EventArgs) Handles txtTabMain.Enter, txtTabSelected.Enter, txtTabSeparator1.Enter, txtTabSeparator2.Enter, txtTabTagBorder.Enter, txtTabTagMain.Enter, txtTabTagText.Enter, txtTabText.Enter
+        If pickerActive Then
+            Dim cDialog As New ColorDialog()
+            cDialog.AnyColor = True
+            If (cDialog.ShowDialog() = DialogResult.OK) Then
+                'MsgBox(cDialog.Color.ToArgb.ToString)
+                'Dim strColorHex As String = Hex(Convert.ToInt32(cDialog.Color.ToArgb()))
+                Dim strColorHex As String = String.Format("{0:X2}{1:X2}{2:X2}", cDialog.Color.R, cDialog.Color.G, cDialog.Color.B)
+                Me.ActiveControl.Text = strColorHex
+            End If
+        End If
     End Sub
 End Class
 Public Class ColorExtension

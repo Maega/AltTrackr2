@@ -78,6 +78,8 @@ Partial Class frmCustomColour
         Me.Label7 = New System.Windows.Forms.Label()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.Label9 = New System.Windows.Forms.Label()
+        Me.AetherButton1 = New AltTrackr2.AetherButton()
+        Me.AetherButton2 = New AltTrackr2.AetherButton()
         Me.SuspendLayout()
         '
         'txtCSPrimary
@@ -890,11 +892,32 @@ Partial Class frmCustomColour
         Me.Label9.TabIndex = 55
         Me.Label9.Text = "Tab Tag Separator 2 #"
         '
+        'AetherButton1
+        '
+        Me.AetherButton1.EnabledCalc = True
+        Me.AetherButton1.Location = New System.Drawing.Point(960, 419)
+        Me.AetherButton1.Name = "AetherButton1"
+        Me.AetherButton1.Size = New System.Drawing.Size(68, 23)
+        Me.AetherButton1.TabIndex = 56
+        Me.AetherButton1.Text = "Preview"
+        '
+        'AetherButton2
+        '
+        Me.AetherButton2.Enabled = False
+        Me.AetherButton2.EnabledCalc = False
+        Me.AetherButton2.Location = New System.Drawing.Point(1035, 419)
+        Me.AetherButton2.Name = "AetherButton2"
+        Me.AetherButton2.Size = New System.Drawing.Size(68, 23)
+        Me.AetherButton2.TabIndex = 57
+        Me.AetherButton2.Text = "Revert"
+        '
         'frmCustomColour
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1154, 436)
+        Me.ClientSize = New System.Drawing.Size(1154, 458)
+        Me.Controls.Add(Me.AetherButton2)
+        Me.Controls.Add(Me.AetherButton1)
         Me.Controls.Add(Me.txtTabSeparator2)
         Me.Controls.Add(Me.txtTabSeparator1)
         Me.Controls.Add(Me.txtTabTagText)
@@ -1014,4 +1037,6 @@ Partial Class frmCustomColour
     Friend WithEvents Label7 As Label
     Friend WithEvents Label8 As Label
     Friend WithEvents Label9 As Label
+    Friend WithEvents AetherButton1 As AetherButton
+    Friend WithEvents AetherButton2 As AetherButton
 End Class
