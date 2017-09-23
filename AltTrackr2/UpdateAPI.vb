@@ -9,7 +9,7 @@
     Public Const AppID As String = "6"
     Public Const CurrentVer As Decimal = 1.04
     Public Const AppName As String = "Maega AltTrackr"
-    Public AppShortName As String = "AltTrackr (Private Beta)"
+    Public AppShortName As String = "AltTrackr (Beta)"
 
     Public Const RegLoc As String = "HKEY_CURRENT_USER\Software\Maega\" + AppID + "\"
     Public Const MIHLoc As String = "HKEY_CURRENT_USER\Software\Maega\2\" '2 is the ID of MIH

@@ -756,15 +756,14 @@ Partial Class frmHome
         'btnFeedback
         '
         Me.btnFeedback.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnFeedback.AutoSize = True
         Me.btnFeedback.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.btnFeedback.Depth = 0
         Me.btnFeedback.Icon = Nothing
-        Me.btnFeedback.Location = New System.Drawing.Point(566, 3)
+        Me.btnFeedback.Location = New System.Drawing.Point(567, 3)
         Me.btnFeedback.MouseState = MaterialSkin.MouseState.HOVER
         Me.btnFeedback.Name = "btnFeedback"
         Me.btnFeedback.Primary = True
-        Me.btnFeedback.Size = New System.Drawing.Size(176, 36)
+        Me.btnFeedback.Size = New System.Drawing.Size(242, 17)
         Me.btnFeedback.TabIndex = 20
         Me.btnFeedback.Text = "Feedback/Bug Report"
         Me.btnFeedback.UseVisualStyleBackColor = True
@@ -871,7 +870,6 @@ Partial Class frmHome
         Me.pnlApplySettings.ResumeLayout(False)
         Me.pnlApplySettings.PerformLayout()
         Me.ResumeLayout(False)
-        Me.PerformLayout()
 
     End Sub
     Friend WithEvents MaterialRaisedButton3 As MaterialSkin.Controls.MaterialRaisedButton

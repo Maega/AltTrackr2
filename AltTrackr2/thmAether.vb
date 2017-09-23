@@ -149,14 +149,14 @@ Public Class AetherTabControl
         End Get
     End Property
 
-    Dim colorTabMain As String = "#343843"
-    Dim colorTabSelected As String = "#3A3E49"
-    Dim colorTabText As String = "#737A8A"
-    Dim colorTabTagMain As String = "#424452"
-    Dim colorTabTagBorder As String = "#323541"
-    Dim colorTabTagText As String = "#737A8A"
-    Dim colorTabSeparator1 As String = "#3B3D49"
-    Dim colorTabSeperator2 As String = "#2F323C"
+    Public Shared colorTabMain As String = "#343843"
+    Public Shared colorTabSelected As String = "#3A3E49"
+    Public Shared colorTabText As String = "#737A8A"
+    Public Shared colorTabTagMain As String = "#424452"
+    Public Shared colorTabTagBorder As String = "#323541"
+    Public Shared colorTabTagText As String = "#737A8A"
+    Public Shared colorTabSeparator1 As String = "#3B3D49"
+    Public Shared colorTabSeperator2 As String = "#2F323C"
 
     Protected Overrides Sub OnPaint(e As PaintEventArgs)
 

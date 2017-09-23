@@ -55,6 +55,8 @@ Public Class frmHomeMulti
         tabContent.SelectedTab = tpHome
         'tabContent.Size = New Point(1022, 490)
 
+        picWalletTeaser.Size = New Size(824, 485) 'Temporary line during wallet tab development
+
         GetPrices()
         bkgGetOnlineMeta.RunWorkerAsync()
         Me.CenterToParent()

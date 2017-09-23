@@ -64,6 +64,7 @@ Partial Class frmHomeMulti
         Me.lblLUpdateStatus = New System.Windows.Forms.Label()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.lblLUser = New System.Windows.Forms.Label()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.lblAuthRequest = New System.Windows.Forms.Label()
         Me.pnlLLogin = New System.Windows.Forms.Panel()
         Me.txtLUsername = New AltTrackr2.AetherTextbox()
@@ -119,7 +120,11 @@ Partial Class frmHomeMulti
         Me.htpC3 = New System.Windows.Forms.TabPage()
         Me.htpC4 = New System.Windows.Forms.TabPage()
         Me.tpWallet = New System.Windows.Forms.TabPage()
+        Me.Label29 = New System.Windows.Forms.Label()
+        Me.Label28 = New System.Windows.Forms.Label()
+        Me.Label27 = New System.Windows.Forms.Label()
         Me.Label26 = New System.Windows.Forms.Label()
+        Me.picWalletTeaser = New System.Windows.Forms.PictureBox()
         Me.tpSpacer1 = New System.Windows.Forms.TabPage()
         Me.tpCoin1 = New System.Windows.Forms.TabPage()
         Me.lblC1Name = New System.Windows.Forms.Label()
@@ -128,6 +133,7 @@ Partial Class frmHomeMulti
         Me.lblC1PricesDetailed = New MaterialSkin.Controls.MaterialLabel()
         Me.lblC1Friendly = New MaterialSkin.Controls.MaterialLabel()
         Me.lblC1HoldingsDetailed = New MaterialSkin.Controls.MaterialLabel()
+        Me.picC1Logo = New System.Windows.Forms.PictureBox()
         Me.tpCoin2 = New System.Windows.Forms.TabPage()
         Me.lblC2Name = New System.Windows.Forms.Label()
         Me.lblC2Price = New System.Windows.Forms.Label()
@@ -135,6 +141,7 @@ Partial Class frmHomeMulti
         Me.lblC2PricesDetailed = New MaterialSkin.Controls.MaterialLabel()
         Me.lblC2Friendly = New MaterialSkin.Controls.MaterialLabel()
         Me.lblC2HoldingsDetailed = New MaterialSkin.Controls.MaterialLabel()
+        Me.picC2Logo = New System.Windows.Forms.PictureBox()
         Me.tpCoin3 = New System.Windows.Forms.TabPage()
         Me.lblC3Price = New System.Windows.Forms.Label()
         Me.lblC3Name = New System.Windows.Forms.Label()
@@ -142,6 +149,7 @@ Partial Class frmHomeMulti
         Me.lblC3PricesDetailed = New MaterialSkin.Controls.MaterialLabel()
         Me.lblC3Friendly = New MaterialSkin.Controls.MaterialLabel()
         Me.lblC3HoldingsDetailed = New MaterialSkin.Controls.MaterialLabel()
+        Me.picC3Logo = New System.Windows.Forms.PictureBox()
         Me.tpCoin4 = New System.Windows.Forms.TabPage()
         Me.lblC4Price = New System.Windows.Forms.Label()
         Me.lblC4Name = New System.Windows.Forms.Label()
@@ -149,6 +157,7 @@ Partial Class frmHomeMulti
         Me.lblC4PricesDetailed = New MaterialSkin.Controls.MaterialLabel()
         Me.lblC4Friendly = New MaterialSkin.Controls.MaterialLabel()
         Me.lblC4HoldingsDetailed = New MaterialSkin.Controls.MaterialLabel()
+        Me.picC4Logo = New System.Windows.Forms.PictureBox()
         Me.tpSpacer2 = New System.Windows.Forms.TabPage()
         Me.tpPrefs = New System.Windows.Forms.TabPage()
         Me.chkLaunchStartup = New AltTrackr2.AetherCheckBox()
@@ -251,15 +260,6 @@ Partial Class frmHomeMulti
         Me.lblLastPriceUpdate = New System.Windows.Forms.Label()
         Me.pnlLastUpdated = New System.Windows.Forms.Panel()
         Me.bkgLogin = New System.ComponentModel.BackgroundWorker()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.PictureBox2 = New System.Windows.Forms.PictureBox()
-        Me.picC1Logo = New System.Windows.Forms.PictureBox()
-        Me.picC2Logo = New System.Windows.Forms.PictureBox()
-        Me.picC3Logo = New System.Windows.Forms.PictureBox()
-        Me.picC4Logo = New System.Windows.Forms.PictureBox()
-        Me.Label27 = New System.Windows.Forms.Label()
-        Me.Label28 = New System.Windows.Forms.Label()
-        Me.Label29 = New System.Windows.Forms.Label()
         Me.pnlUnsaved.SuspendLayout()
         Me.pnlLoadingMain.SuspendLayout()
         Me.pnlLoading.SuspendLayout()
@@ -269,6 +269,7 @@ Partial Class frmHomeMulti
         Me.AetherGroupBox16.SuspendLayout()
         Me.AetherGroupBox15.SuspendLayout()
         Me.cxtUpdateCheck.SuspendLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.pnlLLogin.SuspendLayout()
         Me.pnlLIncorrect.SuspendLayout()
         Me.tpHome.SuspendLayout()
@@ -283,14 +284,19 @@ Partial Class frmHomeMulti
         Me.tabControlHistory.SuspendLayout()
         Me.htpSummary.SuspendLayout()
         Me.tpWallet.SuspendLayout()
+        CType(Me.picWalletTeaser, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.tpCoin1.SuspendLayout()
         Me.AetherGroupBox3.SuspendLayout()
+        CType(Me.picC1Logo, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.tpCoin2.SuspendLayout()
         Me.AetherGroupBox4.SuspendLayout()
+        CType(Me.picC2Logo, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.tpCoin3.SuspendLayout()
         Me.AetherGroupBox5.SuspendLayout()
+        CType(Me.picC3Logo, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.tpCoin4.SuspendLayout()
         Me.AetherGroupBox14.SuspendLayout()
+        CType(Me.picC4Logo, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.tpPrefs.SuspendLayout()
         Me.grpC1Pref.SuspendLayout()
         Me.AetherGroupBox13.SuspendLayout()
@@ -302,12 +308,6 @@ Partial Class frmHomeMulti
         Me.grpC2Pref.SuspendLayout()
         Me.tpSupport.SuspendLayout()
         Me.cxtTray.SuspendLayout()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.picC1Logo, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.picC2Logo, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.picC3Logo, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.picC4Logo, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'ilsIcon
@@ -822,6 +822,16 @@ Partial Class frmHomeMulti
         Me.lblLUser.TabIndex = 19
         Me.lblLUser.Text = "admin"
         Me.lblLUser.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'PictureBox1
+        '
+        Me.PictureBox1.Image = Global.AltTrackr2.My.Resources.Resources._001_account
+        Me.PictureBox1.Location = New System.Drawing.Point(228, 21)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(169, 163)
+        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.PictureBox1.TabIndex = 18
+        Me.PictureBox1.TabStop = False
         '
         'lblAuthRequest
         '
@@ -1464,12 +1474,12 @@ Partial Class frmHomeMulti
         '
         'tpWallet
         '
-        Me.tpWallet.BackColor = System.Drawing.Color.FromArgb(CType(CType(17, Byte), Integer), CType(CType(127, Byte), Integer), CType(CType(202, Byte), Integer))
+        Me.tpWallet.BackColor = System.Drawing.Color.White
         Me.tpWallet.Controls.Add(Me.Label29)
         Me.tpWallet.Controls.Add(Me.Label28)
         Me.tpWallet.Controls.Add(Me.Label27)
         Me.tpWallet.Controls.Add(Me.Label26)
-        Me.tpWallet.Controls.Add(Me.PictureBox2)
+        Me.tpWallet.Controls.Add(Me.picWalletTeaser)
         Me.tpWallet.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.tpWallet.ForeColor = System.Drawing.Color.FromArgb(CType(CType(52, Byte), Integer), CType(CType(56, Byte), Integer), CType(CType(67, Byte), Integer))
         Me.tpWallet.ImageIndex = 37
@@ -1479,6 +1489,42 @@ Partial Class frmHomeMulti
         Me.tpWallet.TabIndex = 9
         Me.tpWallet.Tag = ""
         Me.tpWallet.Text = "Wallets"
+        '
+        'Label29
+        '
+        Me.Label29.BackColor = System.Drawing.Color.FromArgb(CType(CType(17, Byte), Integer), CType(CType(127, Byte), Integer), CType(CType(202, Byte), Integer))
+        Me.Label29.Font = New System.Drawing.Font("Roboto Light", 14.0!)
+        Me.Label29.ForeColor = System.Drawing.Color.White
+        Me.Label29.Location = New System.Drawing.Point(11, 14)
+        Me.Label29.Name = "Label29"
+        Me.Label29.Size = New System.Drawing.Size(170, 40)
+        Me.Label29.TabIndex = 10
+        Me.Label29.Text = "Release TBD"
+        '
+        'Label28
+        '
+        Me.Label28.BackColor = System.Drawing.Color.FromArgb(CType(CType(53, Byte), Integer), CType(CType(79, Byte), Integer), CType(CType(106, Byte), Integer))
+        Me.Label28.Font = New System.Drawing.Font("Roboto Light", 12.0!)
+        Me.Label28.ForeColor = System.Drawing.Color.White
+        Me.Label28.Location = New System.Drawing.Point(309, 419)
+        Me.Label28.Name = "Label28"
+        Me.Label28.Size = New System.Drawing.Size(501, 45)
+        Me.Label28.TabIndex = 9
+        Me.Label28.Text = "ShapeShift and Bittrex are bringing over 190 wallets to AltTrackr with conversion" &
+    " between more than 70 crypto assets"
+        Me.Label28.TextAlign = System.Drawing.ContentAlignment.TopCenter
+        '
+        'Label27
+        '
+        Me.Label27.BackColor = System.Drawing.Color.FromArgb(CType(CType(53, Byte), Integer), CType(CType(79, Byte), Integer), CType(CType(106, Byte), Integer))
+        Me.Label27.Font = New System.Drawing.Font("Roboto Light", 15.0!)
+        Me.Label27.ForeColor = System.Drawing.Color.White
+        Me.Label27.Location = New System.Drawing.Point(622, 320)
+        Me.Label27.Name = "Label27"
+        Me.Label27.Size = New System.Drawing.Size(132, 30)
+        Me.Label27.TabIndex = 8
+        Me.Label27.Text = "190+ Wallets"
+        Me.Label27.TextAlign = System.Drawing.ContentAlignment.TopCenter
         '
         'Label26
         '
@@ -1491,6 +1537,15 @@ Partial Class frmHomeMulti
         Me.Label26.TabIndex = 6
         Me.Label26.Text = "70+ Assets"
         Me.Label26.TextAlign = System.Drawing.ContentAlignment.TopCenter
+        '
+        'picWalletTeaser
+        '
+        Me.picWalletTeaser.Image = Global.AltTrackr2.My.Resources.Resources.maegabrsscoloured
+        Me.picWalletTeaser.Location = New System.Drawing.Point(0, 0)
+        Me.picWalletTeaser.Name = "picWalletTeaser"
+        Me.picWalletTeaser.Size = New System.Drawing.Size(136, 46)
+        Me.picWalletTeaser.TabIndex = 7
+        Me.picWalletTeaser.TabStop = False
         '
         'tpSpacer1
         '
@@ -1599,6 +1654,16 @@ Partial Class frmHomeMulti
         Me.lblC1HoldingsDetailed.Text = "BTC Holdings - USD: 00.00 | AUD: 00.00 | GBP: 00.00"
         Me.lblC1HoldingsDetailed.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
+        'picC1Logo
+        '
+        Me.picC1Logo.Image = Global.AltTrackr2.My.Resources.Resources._004_money
+        Me.picC1Logo.Location = New System.Drawing.Point(217, 26)
+        Me.picC1Logo.Name = "picC1Logo"
+        Me.picC1Logo.Size = New System.Drawing.Size(163, 163)
+        Me.picC1Logo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.picC1Logo.TabIndex = 3
+        Me.picC1Logo.TabStop = False
+        '
         'tpCoin2
         '
         Me.tpCoin2.BackColor = System.Drawing.Color.White
@@ -1695,6 +1760,16 @@ Partial Class frmHomeMulti
         Me.lblC2HoldingsDetailed.TabIndex = 16
         Me.lblC2HoldingsDetailed.Text = "ETH Holdings - USD: 00.00 | AUD: 00.00 | GBP: 00.00"
         Me.lblC2HoldingsDetailed.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'picC2Logo
+        '
+        Me.picC2Logo.Image = Global.AltTrackr2.My.Resources.Resources._004_money
+        Me.picC2Logo.Location = New System.Drawing.Point(217, 26)
+        Me.picC2Logo.Name = "picC2Logo"
+        Me.picC2Logo.Size = New System.Drawing.Size(163, 163)
+        Me.picC2Logo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.picC2Logo.TabIndex = 5
+        Me.picC2Logo.TabStop = False
         '
         'tpCoin3
         '
@@ -1793,6 +1868,16 @@ Partial Class frmHomeMulti
         Me.lblC3HoldingsDetailed.Text = "XMR Holdings - USD: 00.00 | AUD: 00.00 | GBP: 00.00"
         Me.lblC3HoldingsDetailed.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
+        'picC3Logo
+        '
+        Me.picC3Logo.Image = Global.AltTrackr2.My.Resources.Resources._004_money
+        Me.picC3Logo.Location = New System.Drawing.Point(214, 26)
+        Me.picC3Logo.Name = "picC3Logo"
+        Me.picC3Logo.Size = New System.Drawing.Size(169, 163)
+        Me.picC3Logo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.picC3Logo.TabIndex = 7
+        Me.picC3Logo.TabStop = False
+        '
         'tpCoin4
         '
         Me.tpCoin4.BackColor = System.Drawing.Color.White
@@ -1889,6 +1974,16 @@ Partial Class frmHomeMulti
         Me.lblC4HoldingsDetailed.TabIndex = 16
         Me.lblC4HoldingsDetailed.Text = "SC Holdings - USD: 00.00 | AUD: 00.00 | GBP: 00.00"
         Me.lblC4HoldingsDetailed.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'picC4Logo
+        '
+        Me.picC4Logo.Image = Global.AltTrackr2.My.Resources.Resources._004_money
+        Me.picC4Logo.Location = New System.Drawing.Point(214, 26)
+        Me.picC4Logo.Name = "picC4Logo"
+        Me.picC4Logo.Size = New System.Drawing.Size(169, 163)
+        Me.picC4Logo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.picC4Logo.TabIndex = 11
+        Me.picC4Logo.TabStop = False
         '
         'tpSpacer2
         '
@@ -3154,101 +3249,6 @@ Partial Class frmHomeMulti
         'bkgLogin
         '
         '
-        'PictureBox1
-        '
-        Me.PictureBox1.Image = Global.AltTrackr2.My.Resources.Resources._001_account
-        Me.PictureBox1.Location = New System.Drawing.Point(228, 21)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(169, 163)
-        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.PictureBox1.TabIndex = 18
-        Me.PictureBox1.TabStop = False
-        '
-        'PictureBox2
-        '
-        Me.PictureBox2.Image = Global.AltTrackr2.My.Resources.Resources.maegabrsscoloured
-        Me.PictureBox2.Location = New System.Drawing.Point(0, 0)
-        Me.PictureBox2.Name = "PictureBox2"
-        Me.PictureBox2.Size = New System.Drawing.Size(824, 485)
-        Me.PictureBox2.TabIndex = 7
-        Me.PictureBox2.TabStop = False
-        '
-        'picC1Logo
-        '
-        Me.picC1Logo.Image = Global.AltTrackr2.My.Resources.Resources._004_money
-        Me.picC1Logo.Location = New System.Drawing.Point(217, 26)
-        Me.picC1Logo.Name = "picC1Logo"
-        Me.picC1Logo.Size = New System.Drawing.Size(163, 163)
-        Me.picC1Logo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.picC1Logo.TabIndex = 3
-        Me.picC1Logo.TabStop = False
-        '
-        'picC2Logo
-        '
-        Me.picC2Logo.Image = Global.AltTrackr2.My.Resources.Resources._004_money
-        Me.picC2Logo.Location = New System.Drawing.Point(217, 26)
-        Me.picC2Logo.Name = "picC2Logo"
-        Me.picC2Logo.Size = New System.Drawing.Size(163, 163)
-        Me.picC2Logo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.picC2Logo.TabIndex = 5
-        Me.picC2Logo.TabStop = False
-        '
-        'picC3Logo
-        '
-        Me.picC3Logo.Image = Global.AltTrackr2.My.Resources.Resources._004_money
-        Me.picC3Logo.Location = New System.Drawing.Point(214, 26)
-        Me.picC3Logo.Name = "picC3Logo"
-        Me.picC3Logo.Size = New System.Drawing.Size(169, 163)
-        Me.picC3Logo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.picC3Logo.TabIndex = 7
-        Me.picC3Logo.TabStop = False
-        '
-        'picC4Logo
-        '
-        Me.picC4Logo.Image = Global.AltTrackr2.My.Resources.Resources._004_money
-        Me.picC4Logo.Location = New System.Drawing.Point(214, 26)
-        Me.picC4Logo.Name = "picC4Logo"
-        Me.picC4Logo.Size = New System.Drawing.Size(169, 163)
-        Me.picC4Logo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.picC4Logo.TabIndex = 11
-        Me.picC4Logo.TabStop = False
-        '
-        'Label27
-        '
-        Me.Label27.BackColor = System.Drawing.Color.FromArgb(CType(CType(53, Byte), Integer), CType(CType(79, Byte), Integer), CType(CType(106, Byte), Integer))
-        Me.Label27.Font = New System.Drawing.Font("Roboto Light", 15.0!)
-        Me.Label27.ForeColor = System.Drawing.Color.White
-        Me.Label27.Location = New System.Drawing.Point(622, 320)
-        Me.Label27.Name = "Label27"
-        Me.Label27.Size = New System.Drawing.Size(132, 30)
-        Me.Label27.TabIndex = 8
-        Me.Label27.Text = "190+ Wallets"
-        Me.Label27.TextAlign = System.Drawing.ContentAlignment.TopCenter
-        '
-        'Label28
-        '
-        Me.Label28.BackColor = System.Drawing.Color.FromArgb(CType(CType(53, Byte), Integer), CType(CType(79, Byte), Integer), CType(CType(106, Byte), Integer))
-        Me.Label28.Font = New System.Drawing.Font("Roboto Light", 12.0!)
-        Me.Label28.ForeColor = System.Drawing.Color.White
-        Me.Label28.Location = New System.Drawing.Point(309, 419)
-        Me.Label28.Name = "Label28"
-        Me.Label28.Size = New System.Drawing.Size(501, 45)
-        Me.Label28.TabIndex = 9
-        Me.Label28.Text = "ShapeShift and Bittrex are bringing over 190 wallets to AltTrackr with conversion" &
-    " between more than 70 crypto assets"
-        Me.Label28.TextAlign = System.Drawing.ContentAlignment.TopCenter
-        '
-        'Label29
-        '
-        Me.Label29.BackColor = System.Drawing.Color.FromArgb(CType(CType(17, Byte), Integer), CType(CType(127, Byte), Integer), CType(CType(202, Byte), Integer))
-        Me.Label29.Font = New System.Drawing.Font("Roboto Light", 14.0!)
-        Me.Label29.ForeColor = System.Drawing.Color.White
-        Me.Label29.Location = New System.Drawing.Point(11, 14)
-        Me.Label29.Name = "Label29"
-        Me.Label29.Size = New System.Drawing.Size(170, 40)
-        Me.Label29.TabIndex = 10
-        Me.Label29.Text = "Release TBD"
-        '
         'frmHomeMulti
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -3276,6 +3276,7 @@ Partial Class frmHomeMulti
         Me.AetherGroupBox16.ResumeLayout(False)
         Me.AetherGroupBox15.ResumeLayout(False)
         Me.cxtUpdateCheck.ResumeLayout(False)
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.pnlLLogin.ResumeLayout(False)
         Me.pnlLLogin.PerformLayout()
         Me.pnlLIncorrect.ResumeLayout(False)
@@ -3291,18 +3292,23 @@ Partial Class frmHomeMulti
         Me.tabControlHistory.ResumeLayout(False)
         Me.htpSummary.ResumeLayout(False)
         Me.tpWallet.ResumeLayout(False)
+        CType(Me.picWalletTeaser, System.ComponentModel.ISupportInitialize).EndInit()
         Me.tpCoin1.ResumeLayout(False)
         Me.tpCoin1.PerformLayout()
         Me.AetherGroupBox3.ResumeLayout(False)
+        CType(Me.picC1Logo, System.ComponentModel.ISupportInitialize).EndInit()
         Me.tpCoin2.ResumeLayout(False)
         Me.tpCoin2.PerformLayout()
         Me.AetherGroupBox4.ResumeLayout(False)
+        CType(Me.picC2Logo, System.ComponentModel.ISupportInitialize).EndInit()
         Me.tpCoin3.ResumeLayout(False)
         Me.tpCoin3.PerformLayout()
         Me.AetherGroupBox5.ResumeLayout(False)
+        CType(Me.picC3Logo, System.ComponentModel.ISupportInitialize).EndInit()
         Me.tpCoin4.ResumeLayout(False)
         Me.tpCoin4.PerformLayout()
         Me.AetherGroupBox14.ResumeLayout(False)
+        CType(Me.picC4Logo, System.ComponentModel.ISupportInitialize).EndInit()
         Me.tpPrefs.ResumeLayout(False)
         Me.tpPrefs.PerformLayout()
         Me.grpC1Pref.ResumeLayout(False)
@@ -3316,12 +3322,6 @@ Partial Class frmHomeMulti
         Me.tpSupport.ResumeLayout(False)
         Me.tpSupport.PerformLayout()
         Me.cxtTray.ResumeLayout(False)
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.picC1Logo, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.picC2Logo, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.picC3Logo, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.picC4Logo, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -3558,7 +3558,7 @@ Partial Class frmHomeMulti
     Friend WithEvents Label21 As Label
     Friend WithEvents btnFeedbackFacebook As AetherButton
     Friend WithEvents Label26 As Label
-    Friend WithEvents PictureBox2 As PictureBox
+    Friend WithEvents picWalletTeaser As PictureBox
     Friend WithEvents Label29 As Label
     Friend WithEvents Label28 As Label
     Friend WithEvents Label27 As Label
