@@ -1375,7 +1375,7 @@ Partial Class frmHomeMulti
         'Label22
         '
         Me.Label22.BackColor = System.Drawing.Color.Transparent
-        Me.Label22.Font = New System.Drawing.Font("Roboto", 12.0!)
+        Me.Label22.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
         Me.Label22.ForeColor = System.Drawing.SystemColors.ControlText
         Me.Label22.Location = New System.Drawing.Point(471, 54)
         Me.Label22.Name = "Label22"
@@ -1493,7 +1493,7 @@ Partial Class frmHomeMulti
         'Label29
         '
         Me.Label29.BackColor = System.Drawing.Color.FromArgb(CType(CType(17, Byte), Integer), CType(CType(127, Byte), Integer), CType(CType(202, Byte), Integer))
-        Me.Label29.Font = New System.Drawing.Font("Roboto Light", 14.0!)
+        Me.Label29.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!)
         Me.Label29.ForeColor = System.Drawing.Color.White
         Me.Label29.Location = New System.Drawing.Point(11, 14)
         Me.Label29.Name = "Label29"
@@ -1504,7 +1504,7 @@ Partial Class frmHomeMulti
         'Label28
         '
         Me.Label28.BackColor = System.Drawing.Color.FromArgb(CType(CType(53, Byte), Integer), CType(CType(79, Byte), Integer), CType(CType(106, Byte), Integer))
-        Me.Label28.Font = New System.Drawing.Font("Roboto Light", 12.0!)
+        Me.Label28.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
         Me.Label28.ForeColor = System.Drawing.Color.White
         Me.Label28.Location = New System.Drawing.Point(309, 419)
         Me.Label28.Name = "Label28"
@@ -1517,7 +1517,7 @@ Partial Class frmHomeMulti
         'Label27
         '
         Me.Label27.BackColor = System.Drawing.Color.FromArgb(CType(CType(53, Byte), Integer), CType(CType(79, Byte), Integer), CType(CType(106, Byte), Integer))
-        Me.Label27.Font = New System.Drawing.Font("Roboto Light", 15.0!)
+        Me.Label27.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!)
         Me.Label27.ForeColor = System.Drawing.Color.White
         Me.Label27.Location = New System.Drawing.Point(622, 320)
         Me.Label27.Name = "Label27"
@@ -1529,7 +1529,7 @@ Partial Class frmHomeMulti
         'Label26
         '
         Me.Label26.BackColor = System.Drawing.Color.FromArgb(CType(CType(53, Byte), Integer), CType(CType(79, Byte), Integer), CType(CType(106, Byte), Integer))
-        Me.Label26.Font = New System.Drawing.Font("Roboto Light", 15.0!)
+        Me.Label26.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!)
         Me.Label26.ForeColor = System.Drawing.Color.White
         Me.Label26.Location = New System.Drawing.Point(420, 320)
         Me.Label26.Name = "Label26"
@@ -2494,7 +2494,7 @@ Partial Class frmHomeMulti
         Me.LvModule.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.LvModule.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader5, Me.ColumnHeader6, Me.ColumnHeader7, Me.ColumnHeader1, Me.ColumnHeader2})
         Me.LvModule.Depth = 0
-        Me.LvModule.Font = New System.Drawing.Font("Roboto", 32.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.World)
+        Me.LvModule.Font = New System.Drawing.Font("Microsoft Sans Serif", 24.0!)
         Me.LvModule.FullRowSelect = True
         Me.LvModule.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable
         Me.LvModule.Location = New System.Drawing.Point(3, 39)
@@ -3149,10 +3149,10 @@ Partial Class frmHomeMulti
         'Label21
         '
         Me.Label21.AutoSize = True
-        Me.Label21.Font = New System.Drawing.Font("Roboto Light", 20.0!)
+        Me.Label21.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.0!)
         Me.Label21.Location = New System.Drawing.Point(161, 310)
         Me.Label21.Name = "Label21"
-        Me.Label21.Size = New System.Drawing.Size(500, 33)
+        Me.Label21.Size = New System.Drawing.Size(508, 31)
         Me.Label21.TabIndex = 5
         Me.Label21.Text = "Feedback Submission Hub Coming Soon"
         '
@@ -3168,10 +3168,10 @@ Partial Class frmHomeMulti
         'Label20
         '
         Me.Label20.AutoSize = True
-        Me.Label20.Font = New System.Drawing.Font("Roboto Light", 20.0!)
+        Me.Label20.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.0!)
         Me.Label20.Location = New System.Drawing.Point(230, 60)
         Me.Label20.Name = "Label20"
-        Me.Label20.Size = New System.Drawing.Size(363, 33)
+        Me.Label20.Size = New System.Drawing.Size(367, 31)
         Me.Label20.TabIndex = 1
         Me.Label20.Text = "Help && Support Coming Soon"
         '
@@ -3228,7 +3228,7 @@ Partial Class frmHomeMulti
         'lblLastPriceUpdate
         '
         Me.lblLastPriceUpdate.BackColor = System.Drawing.Color.Transparent
-        Me.lblLastPriceUpdate.Font = New System.Drawing.Font("Roboto", 9.0!)
+        Me.lblLastPriceUpdate.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!)
         Me.lblLastPriceUpdate.ForeColor = System.Drawing.Color.White
         Me.lblLastPriceUpdate.Location = New System.Drawing.Point(13, 8)
         Me.lblLastPriceUpdate.Name = "lblLastPriceUpdate"
@@ -3251,8 +3251,8 @@ Partial Class frmHomeMulti
         '
         'frmHomeMulti
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
-        Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(96.0!, 96.0!)
+        Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi
         Me.ClientSize = New System.Drawing.Size(1022, 554)
         Me.Controls.Add(Me.lblLastPriceUpdate)
         Me.Controls.Add(Me.pnlLastUpdated)
