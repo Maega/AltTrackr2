@@ -19,3 +19,5 @@ AltTrackr2 uses the CryptoCompare API to fetch live price data on coins and fiat
 * 1000+ cryptocurrencies
 * 190+ Wallets
 * Conversion between 70+ cryptocurrencies
+
+#### Active development on AltTrackr has ceased. This project has evolved into a far more comprehensive trading platform, CoinTrek. CoinTrek will be available at https://cointrek.app.
